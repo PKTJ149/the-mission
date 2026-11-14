@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Design tokens taken from the Figma "wallet" frame */
+@theme inline {
+  --font-sans: var(--font-ibm-plex-thai);
+
+  --color-page: #010101;
+  --color-surface: #282828;
+  --color-surface-card: #1b1b1b;
+  --color-surface-bonus: #232323;
+  --color-surface-nav: #131314;
+  --color-card-brown: #695a47;
+  --color-pill-brown: #474036;
+
+  --color-gold: #c4ab8c;
+  --color-gold-text: #bfa36f;
+  --color-gold-muted: #c3aa8b;
+  --color-gold-dark: #83715a;
+
+  --color-grey-text: #949494;
+  --color-grey-title: #808080;
+  --color-track: #3c3c3c;
+
+  --color-danger: #ff2828;
+  --color-danger-bg: #310000;
+  --color-timer: #ff3636;
+  --color-add-bg: rgba(5, 71, 14, 0.52);
+  --color-remove-bg: rgba(69, 0, 0, 0.58);
+  --color-add-text: #6aff72;
+  --color-surface-hover: #202020;
+}
+
+/* Keyboard focus ring (only shows for keyboard users, not taps/clicks) */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+html,
+body {
+  background: var(--color-page);
+  color: #ffffff;
+}
+
+body {
+  font-family: var(--font-ibm-plex-thai), sans-serif;
+}

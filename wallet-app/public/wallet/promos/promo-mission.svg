@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+  <!-- Mock promo artwork: daily missions reward (gift box). Replace with real banner art later. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14211B"/>
+      <stop offset="1" stop-color="#070B09"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 170) scale(220)">
+      <stop stop-color="#C4AB8C" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#C4AB8C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#5B4A36"/>
+      <stop offset="1" stop-color="#2C231A"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6E5A42"/>
+      <stop offset="1" stop-color="#3A2F23"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#F6E2BC"/>
+      <stop offset="1" stop-color="#B8986A"/>
+    </linearGradient>
+    <path id="spark" d="M0 -11 L2.6 -2.6 L11 0 L2.6 2.6 L0 11 L-2.6 2.6 L-11 0 L-2.6 -2.6 Z" fill="#F6E2BC"/>
+  </defs>
+
+  <rect width="640" height="320" fill="url(#bg)"/>
+  <rect width="640" height="320" fill="url(#glow)"/>
+  <path d="M330 320 L430 0 H640 V320 Z" fill="#FFFFFF" fill-opacity="0.03"/>
+  <g transform="translate(-180 0)">
+
+  <!-- shadow -->
+  <ellipse cx="500" cy="280" rx="104" ry="12" fill="#000000" fill-opacity="0.45"/>
+  <!-- box body -->
+  <rect x="414" y="150" width="172" height="128" rx="10" fill="url(#box)"/>
+  <rect x="490" y="150" width="20" height="128" fill="url(#ribbon)"/>
+  <!-- lid -->
+  <rect x="402" y="118" width="196" height="40" rx="10" fill="url(#lid)"/>
+  <rect x="488" y="118" width="24" height="40" fill="url(#ribbon)"/>
+  <!-- bow -->
+  <path d="M500 118 C474 84 434 92 446 112 C454 124 482 122 500 118 Z" fill="url(#ribbon)"/>
+  <path d="M500 118 C526 84 566 92 554 112 C546 124 518 122 500 118 Z" fill="url(#ribbon)"/>
+  <circle cx="500" cy="117" r="9" fill="#E9D3A8"/>
+  <!-- light rays from the lid -->
+  <path d="M440 108 L404 46" stroke="#F6E2BC" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+  <path d="M560 108 L598 48" stroke="#F6E2BC" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+  <path d="M500 82 L500 30" stroke="#F6E2BC" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+
+  <use href="#spark" x="420" y="76"/>
+  <use href="#spark" x="590" y="96" opacity="0.7"/>
+  <use href="#spark" x="612" y="230" opacity="0.5"/>
+  </g>
+</svg>

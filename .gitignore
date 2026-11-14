@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# dependencies and build output (any folder)
+node_modules/
+.next/
+
+# env files — never commit secrets
+.env*

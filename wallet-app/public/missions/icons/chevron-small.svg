@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="374 9 16 16" fill="none">
+<g id="li:chevron-down">
+<path id="Vector_27" fill-rule="evenodd" clip-rule="evenodd" d="M377.528 14.5285C377.789 14.2682 378.211 14.2682 378.471 14.5285L382 18.0571L385.528 14.5285C385.789 14.2682 386.211 14.2682 386.471 14.5285C386.731 14.7889 386.731 15.211 386.471 15.4713L382.471 19.4713C382.211 19.7317 381.789 19.7317 381.528 19.4713L377.528 15.4713C377.268 15.211 377.268 14.7889 377.528 14.5285Z" fill="#C4AB8C" />
+</g>
+<defs>
+<clipPath id="bgblur_1_1_3_clip_path" transform="translate(27 1092)"><rect x="-17" y="-1082" width="430" height="2305" />
+</clipPath><clipPath id="bgblur_2_1_3_clip_path" transform="translate(0.285714 -0.714286)"><rect x="4.42857" y="5.42857" width="23.1429" height="23.1429" rx="11.5714" />
+</clipPath><linearGradient id="paint0_linear_1_3" x1="4" y1="17.0018" x2="28" y2="17.0018" gradientUnits="userSpaceOnUse">
+<stop offset="0.06" stop-color="#030303" />
+<stop offset="0.3" stop-color="#373737" />
+<stop offset="0.45" stop-color="#121212" />
+<stop offset="0.64" stop-color="#040404" />
+<stop offset="0.8" stop-color="#0D0D0D" />
+<stop offset="0.93" stop-color="#040404" />
+</linearGradient>
+<clipPath id="clip0_1_3">
+<rect width="430" height="2305" fill="white" transform="translate(-17 -1082)" />
+</clipPath>
+<clipPath id="clip3_1_3">
+<rect width="13.7143" height="13.7143" fill="white" transform="translate(9.14258 10.1428)" />
+</clipPath>
+</defs>
+</svg>

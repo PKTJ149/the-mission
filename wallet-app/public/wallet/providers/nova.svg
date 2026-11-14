@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Mock game-provider emblem (fictional brand). Replace with the real provider logo later. -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF1D6"/><stop offset="1" stop-color="#C4AB8C"/></linearGradient></defs>
+  <polygon points="32,8 37.6,24.2 54.8,24.6 41.1,35 46.1,51.4 32,41.6 17.9,51.4 22.9,35 9.2,24.6 26.4,24.2" fill="url(#g)"/>
+  <circle cx="32" cy="31" r="4" fill="#5B4A36"/>
+</svg>
