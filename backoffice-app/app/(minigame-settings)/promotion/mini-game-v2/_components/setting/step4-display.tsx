@@ -119,7 +119,7 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
                 <div className="text-start p2 color-emerald-title-1 fw-700 mb-2">
                   <span className="reward-description-text" data-i18n="minigameSetting.rewardDescription">{t("minigameSetting.rewardDescription", "คำอธิบายรางวัล")}</span>
                   {" "}
-                  <span className="text-red-50">*</span>
+                  <span className="text-red-50">{" * "}</span>
                 </div>
                 <div className="input-group">
                   <input id={`minigameRewardDescription-${n}`} defaultValue={slice?.description} type="text" className="form-control" placeholder="description" />
@@ -337,6 +337,34 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
     },
     [],
   );
+
+  // Inline sizes the original sets on the slice-count dropdown (127×32)
+  useEffect(() => {
+    const wrapper = document.getElementById("customNumberPartsLuckywheel");
+    wrapper?.querySelector<HTMLElement>(".dropdown-toggler")?.style.setProperty("height", "32px");
+    const fake = wrapper?.querySelector<HTMLElement>(".input-fake");
+    fake?.style.setProperty("height", "32px");
+    fake?.style.setProperty("width", "127px");
+  }, []);
+
+  // Staging's wizard pickers carry inline width / height / text-transform (92×32; the setter was not
+  // captured). Applied here, once the plugin has built each picker, so the shared ColorPicker
+  // (95×30 in the mission form) keeps its own size.
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const size = () =>
+      root.querySelectorAll<HTMLInputElement>("input.asColorPicker-input").forEach((el) => {
+        if (el.style.width === "92px") return;
+        el.style.width = "92px";
+        el.style.height = "32px";
+        el.style.textTransform = "uppercase";
+      });
+    size();
+    const observer = new MutationObserver(size);
+    observer.observe(root, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
 
   const setThemeColor = dom.setThemeColor;
 
@@ -1474,10 +1502,13 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                           </b>
                           <span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize2">{t("minigameSetting.uploadLuckyWheelImageAfterOpenSize2", ": รูปต้องเว้นพื้นที่สำรับคำ")}</span>
                           <br />
-                          <br />
-                          <br />
-                          <br />
                           <span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize3">{t("minigameSetting.uploadLuckyWheelImageAfterOpenSize3", "อธิบายของรางวัลไว้ตรงกลางของภาพ")}</span>
+                          <br />
+                          <span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize4">{t("minigameSetting.uploadLuckyWheelImageAfterOpenSize4", "ที่ขนาด 200x200 px")}</span>
+                          <br />
+                          <span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize5">{t("minigameSetting.uploadLuckyWheelImageAfterOpenSize5", " ขนาดรูปโดยรวมที่แนะนำคือ")}</span>
+                          <br />
+                          <span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize6">{t("minigameSetting.uploadLuckyWheelImageAfterOpenSize6", "342 px x 240 px สกุล png, gif, jpg")}</span>
                         </p>
                         <div className="invalid-feedback" />
                       </div>
@@ -1522,7 +1553,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       <span data-i18n="minigameSetting.pressIcon2">{t("minigameSetting.pressIcon2", "หรือกดที่รูปชิ้นส่วนของวงล้อ เพื่อทำการอัพโหลดรูป")}</span>
                     </div>
                     <div className="mb-3">
-                      <span className="fw-700">คำแนะนำ :</span>
+                      <span className="fw-700">{"คำแนะนำ : "}</span>
                       <span id="showLabalLuckywheelImagePixel">{IMAGE_HINT[sliceCount] ?? IMAGE_HINT[8]}</span>
                     </div>
                     <a className="fw-700 txt-download-template color-emerald-title-3" href="/files/all_spin_template.zip" data-i18n="minigameSetting.downloadTemplateForLuckyWheel" target="_blank">{t("minigameSetting.downloadTemplateForLuckyWheel", "ดาวน์โหลด Template สำหรับทำรูปวงล้อ")}</a>
@@ -1786,10 +1817,10 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                 <div className="box-session-upload-img-bg-mini-game">
                   <div className="set-bg-img">
                     <div className="box-set">
-                      <div className="btn-close-img-bg-mobile-mini-game" >
+                      <div className="btn-close-img-bg-mobile-mini-game" style={{ display: "none" }}>
                         <img className="w-100" src="https://p88.blob.core.windows.net/images/default/icon-btn-close-img-mini-game-custom.png" alt="img" />
                       </div>
-                      <img className="img-bg-mb-show-in-box-upload" alt="img" />
+                      <img className="img-bg-mb-show-in-box-upload" alt="img" style={{ display: "none" }} />
                       {" "}
                       <img className="img-default-bg-mb-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
@@ -1817,10 +1848,10 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                 <div className="box-session-upload-img-bg-mini-game">
                   <div className="set-bg-img">
                     <div className="box-set">
-                      <div className="btn-close-img-bg-pc-mini-game" >
+                      <div className="btn-close-img-bg-pc-mini-game" style={{ display: "none" }}>
                         <img className="w-100" src="https://p88.blob.core.windows.net/images/default/icon-btn-close-img-mini-game-custom.png" alt="img" />
                       </div>
-                      <img className="img-bg-pc-show-in-box-upload" alt="img" />
+                      <img className="img-bg-pc-show-in-box-upload" alt="img" style={{ display: "none" }} />
                       {" "}
                       <img className="img-default-bg-pc-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
@@ -1872,10 +1903,10 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                 <div className="box-session-upload-img-bg-mini-game">
                   <div className="set-bg-img">
                     <div className="box-set">
-                      <div className="btn-close-img-bg-mb-display-mini-game" >
+                      <div className="btn-close-img-bg-mb-display-mini-game" style={{ display: "none" }}>
                         <img className="w-100" src="https://p88.blob.core.windows.net/images/default/icon-btn-close-img-mini-game-custom.png" alt="img" />
                       </div>
-                      <img className="img-bg-mb-display-show-in-box-upload" alt="img" />
+                      <img className="img-bg-mb-display-show-in-box-upload" alt="img" style={{ display: "none" }} />
                       {" "}
                       <img className="img-default-bg-mb-display-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
@@ -1903,10 +1934,10 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                 <div className="box-session-upload-img-bg-mini-game">
                   <div className="set-bg-img">
                     <div className="box-set">
-                      <div className="btn-close-img-bg-pc-display-mini-game" >
+                      <div className="btn-close-img-bg-pc-display-mini-game" style={{ display: "none" }}>
                         <img className="w-100" src="https://p88.blob.core.windows.net/images/default/icon-btn-close-img-mini-game-custom.png" alt="img" />
                       </div>
-                      <img className="img-bg-pc-display-show-in-box-upload" alt="img" />
+                      <img className="img-bg-pc-display-show-in-box-upload" alt="img" style={{ display: "none" }} />
                       {" "}
                       <img className="img-default-bg-pc-display-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
@@ -2037,9 +2068,6 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   <h4 className="mb-0" data-i18n="minigameSetting.backgroundColor">{t("minigameSetting.backgroundColor", "สี พื้นหลัง")}</h4>
                   <ColorPicker className="getColorTableThBgGroup3" defaultValue="linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)" onChange={(value) => setThemeColor("getColorTableThBgGroup3", value)} />
                 </div>
-                <div className="title color-main-operator">
-                  <h4 className="my-2" data-i18n="minigameSetting.pagination">{t("minigameSetting.pagination", "การแบ่งหน้า (Pagination)")}</h4>
-                </div>
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี ข้อความ</h4>
                   <ColorPicker className="getColorTableThFontGroup3" defaultValue="#202020" onChange={(value) => setThemeColor("getColorTableThFontGroup3", value)} />
@@ -2047,6 +2075,9 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี เส้นกรอบ</h4>
                   <ColorPicker className="getColorTableThBorderGroup3" defaultValue="linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)" onChange={(value) => setThemeColor("getColorTableThBorderGroup3", value)} />
+                </div>
+                <div className="title color-main-operator">
+                  <h4 className="my-2" data-i18n="minigameSetting.pagination">{t("minigameSetting.pagination", "การแบ่งหน้า (Pagination)")}</h4>
                 </div>
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี เลขหน้า Inactive</h4>
@@ -2084,27 +2115,27 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   </h4>
                   <ColorPicker className="getColorTableTdBg1Group3" defaultValue="#000000" onChange={(value) => setThemeColor("getColorTableTdBg1Group3", value)} />
                 </div>
-                {/* GUESS: not captured — label missing from the capture (collapsed sibling, no data-i18n) */}
+                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี พื้นหลัง 2</h4>
                   <ColorPicker className="getColorTableTdBg2Group3" defaultValue="#FFFFFF" onChange={(value) => setThemeColor("getColorTableTdBg2Group3", value)} />
                 </div>
-                {/* GUESS: not captured — label missing from the capture (collapsed sibling, no data-i18n) */}
+                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี ข้อความ</h4>
                   <ColorPicker className="getColorTableTdFontGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdFontGroup3", value)} />
                 </div>
-                {/* GUESS: not captured — label missing from the capture (collapsed sibling, no data-i18n) */}
+                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี ข้อความไฮไลท์ 1</h4>
                   <ColorPicker className="getColorTableTdFontHighlights1Group3" defaultValue="#F10000" onChange={(value) => setThemeColor("getColorTableTdFontHighlights1Group3", value)} />
                 </div>
-                {/* GUESS: not captured — label missing from the capture (collapsed sibling, no data-i18n) */}
+                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี ข้อความไฮไลท์ 2</h4>
                   <ColorPicker className="getColorTableTdFontHighlights2Group3" defaultValue="#72DCD9" onChange={(value) => setThemeColor("getColorTableTdFontHighlights2Group3", value)} />
                 </div>
-                {/* GUESS: not captured — label missing from the capture (collapsed sibling, no data-i18n) */}
+                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0">สี เส้นกรอบ</h4>
                   <ColorPicker className="getColorTableTdBorderGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdBorderGroup3", value)} />
@@ -2116,9 +2147,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
       </div>
     </div>
 
-    </div>
-    {/* #groupBtnSettingMinigame4 was not captured: rebuilt like the step 3 footer */}
-    <div className="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame4" style={shownWhen(step === "4")}>
+    {/* #groupBtnSettingMinigame4 was not captured: rebuilt like the step 3 footer, as the last child of #SettingMinigameStep4 (staging) */}
+    <div className="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame4">
       <div className="d-flex align-items-center justify-content-between">
         <div>
           <button id="buttonNextPromotionStepfinal4" className="btn btn-outline-warning btn-clone" data-type="next" data-i18n="minigameSetting.summarizeAndSave" style={nav.summaryButtonStyle} onClick={() => nav.toSummary("4")}>{t("minigameSetting.summarizeAndSave", "ไปหน้าสรุป")}</button>
@@ -2128,6 +2158,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
           <button className="btn system-btn btn-rounded ms-2 btn-clone" data-type="next" data-i18n="minigameSetting.next" style={{ width: "168px" }} onClick={() => nav.go("4", "5")}>{t("minigameSetting.next", "ถัดไป")}</button>
         </div>
       </div>
+    </div>
     </div>
     </>
   );

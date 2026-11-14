@@ -658,6 +658,28 @@ function updateUploadSlots(count: number) {
   }
 }
 
+// Background uploads of step 4c (onUploadImageBg… / onCloseImgBg…): file input → hidden input,
+// preview <img> and close button
+const BACKGROUNDS = [
+  { file: "fileImageUploadBgMobileMiniGame", hidden: "imgBgMobileMiniGame", img: "img-bg-mb-show-in-box-upload", close: "btn-close-img-bg-mobile-mini-game", placeholder: "img-default-bg-mb-mini-game" },
+  { file: "fileImageUploadBgPcMiniGame", hidden: "imgBgPcMiniGame", img: "img-bg-pc-show-in-box-upload", close: "btn-close-img-bg-pc-mini-game", placeholder: "img-default-bg-pc-mini-game" },
+  { file: "fileImageUploadBgMobileDisplayMiniGame", hidden: "imgBgMbDisplayMiniGame", img: "img-bg-mb-display-show-in-box-upload", close: "btn-close-img-bg-mb-display-mini-game", placeholder: "img-default-bg-mb-display-mini-game" },
+  { file: "fileImageUploadBgPcDisplayMiniGame", hidden: "imgBgPcDisplayMiniGame", img: "img-bg-pc-display-show-in-box-upload", close: "btn-close-img-bg-pc-display-mini-game", placeholder: "img-default-bg-pc-display-mini-game" },
+];
+
+function setBackground(bg: (typeof BACKGROUNDS)[number], url: string) {
+  const hiddenInput = input(bg.hidden);
+  if (hiddenInput) hiddenInput.value = url;
+  all<HTMLImageElement>(`.${bg.img}`).forEach((img) => {
+    if (url) img.src = url;
+    else img.removeAttribute("src");
+    if (url) show(img);
+    else hide(img);
+  });
+  all(`.${bg.close}`).forEach((el) => (url ? show(el) : hide(el)));
+  all(`.${bg.placeholder}`).forEach((el) => (url ? hide(el) : show(el)));
+}
+
 // Step 4a (mini-game display layout): every handler the original binds with jQuery on load
 export function wireMiniGameLayout(root: HTMLElement, onCount: (count: number) => void) {
   const onClick = (event: Event) => {
@@ -680,6 +702,11 @@ export function wireMiniGameLayout(root: HTMLElement, onCount: (count: number) =
       dropHeader.classList.toggle("drop", open);
       return;
     }
+    const bgClose = BACKGROUNDS.find((bg) => target.closest(`.${bg.close}`));
+    if (bgClose) {
+      setBackground(bgClose, "");
+      return;
+    }
     const close = target.closest<HTMLElement>(".btn-close-img-mini-game");
     if (close) {
       const s = STEPS.find((step) => close.classList.contains(`btn-close-img-mini-game-step-${step.step}`));
@@ -699,6 +726,12 @@ export function wireMiniGameLayout(root: HTMLElement, onCount: (count: number) =
     const target = event.target as HTMLInputElement;
     if (/^isCheckDisplayImg/.test(target.id)) {
       updateUploadSlots(Number(input("hiddenCountImgMiniGame")?.value || "3"));
+      return;
+    }
+    const bg = BACKGROUNDS.find((item) => item.file === target.id);
+    if (bg && target.files?.[0]) {
+      // Original: uploads to uploadUrl. Here: a local preview.
+      setBackground(bg, URL.createObjectURL(target.files[0]));
       return;
     }
     const match = target.id.match(/^fileImageUpload(Before|After|Results)MiniGame(\d)$/);

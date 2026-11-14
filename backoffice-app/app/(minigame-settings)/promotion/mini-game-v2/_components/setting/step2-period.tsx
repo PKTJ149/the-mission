@@ -67,8 +67,8 @@ function WorkDays() {
   );
 }
 
-// Countdown choice 2 + its two boxes. The capture collapsed these siblings; rebuilt from the
-// screenshot, the ids scriptminigame.js reads and the inline styles recovered for them.
+// Countdown choice 2 and its two cards. The capture collapsed these siblings; rebuilt from the
+// staging DOM tree (6 col-12 cells: option 1, empty, option 2, empty, card 1, card 2).
 function CountdownChoices({ type }: { type: StepProps["type"] }) {
   const t = useT();
   const selectBox = (e: MouseEvent<HTMLDivElement>) => dom.selectChangeMinigameBoxRadio(e.currentTarget);
@@ -87,8 +87,8 @@ function CountdownChoices({ type }: { type: StepProps["type"] }) {
             onClick={(e) => dom.changeMinigameCountdownRadio(e.currentTarget)}
           />{" "}
           <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableCountDownSetTime">
-            <div className="p2" style={{ color: "rgb(233, 233, 233)" }}>
-              <span data-i18n="minigameSetting.countdownNow">{t("minigameSetting.countdownNow", "นับถอยหลังทันทีเมื่อถึงกำหนด")}</span>
+            <div className="p2" data-i18n="minigameSetting.countdownNow" style={{ color: "rgb(233, 233, 233)" }}>
+              {t("minigameSetting.countdownNow", "นับถอยหลังทันทีเมื่อถึงกำหนด")}
             </div>
             <span className="p3" id="textTabsStep2-2-4" style={{ color: "rgb(130, 130, 130)" }}>
               <TypeText type={type} k="tabs2-2-4" />
@@ -96,58 +96,105 @@ function CountdownChoices({ type }: { type: StepProps["type"] }) {
           </label>
         </div>
       </div>
+      <div className="col-12"></div>
       <div className="col-12">
-        <div className="row">
-          <div className="col-6">
-            <div className="box-minigame-click-select minigame-box-reset disabled" id="boxMinigameCountdownRadioDays" data-value-id="1" data-value-id1="boxMinigameCountdownRadioDays" data-value-id2="boxMinigameCountdownRadioDaterange" onClick={selectBox}>
-              <input className="form-check-input box-radio d-none" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDay" />
-              <div className="row">
-                <div className="row">
-                  {/* The box icon (screenshot: a clock illustration) was not captured and its file name is
-                      unknown; the column is kept empty instead of pointing at a wrong path */}
-                  <div className="col-3"></div>
-                  <div className="col-9">
-                    <div className="p2 fw-700" data-i18n="minigameSetting.countdownWhenXDay">{t("minigameSetting.countdownWhenXDay", "นับถอยหลังทันเมื่อเหลือ x วัน")}</div>
-                    <span className="p3" data-i18n="minigameSetting.countdownWhenXDaySubText" style={{ color: "rgb(173, 173, 173)" }}>
-                      {t("minigameSetting.countdownWhenXDaySubText", "ระบบจะนับถอยหลังทันทีที่วันหมด อายุโปรเหลือเท่าที่คุณกำหนด")}
+        <div
+          className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled"
+          id="boxMinigameCountdownRadioDays"
+          data-value-id="1"
+          data-value-id1="boxMinigameCountdownRadioDays"
+          data-value-id2="boxMinigameCountdownRadioDaterange"
+          onClick={selectBox}
+        >
+          <input className="box-radio" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDay" style={{ display: "none" }} />
+          <div className="row flex-column justify-content-between h-100">
+            <div className="row pe-0">
+              <div className="col-3 mb-3">
+                <img src="/assets/images/minigame/countdown-time-icon-1.png" width="56" height="56" />
+              </div>
+              <div className="col-9 mb-3">
+                <div className="p2 fw-700" data-i18n="minigameSetting.countdownWhenXDay">{t("minigameSetting.countdownWhenXDay", "นับถอยหลังทันเมื่อเหลือ x วัน")}</div>
+                <span className="p3" data-i18n="minigameSetting.countdownWhenXDaySubText" style={{ color: "rgb(173, 173, 173)" }}>
+                  {t("minigameSetting.countdownWhenXDaySubText", "ระบบจะนับถอยหลังทันทีที่วันหมด อายุโปรเหลือเท่าที่คุณกำหนด")}
+                </span>
+              </div>
+            </div>
+            <div>
+              <div className="col-12">
+                <div className="custom-input custom-float" id="inputMinigameCountdownRemainingDay">
+                  <div className="p2 fw-700 mb-2" data-i18n="minigameSetting.countdownWhen">{t("minigameSetting.countdownWhen", "นับถอยหลังทันทีเมื่อเหลืออีก...")}</div>
+                  <div className="input-group minigame-box-reset disabled">
+                    <input id="minigameCountdownRemainingDay" type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <span className="input-group-text custom-color" style={{ borderRadius: "0px 8px 8px 0px" }}>
+                      วัน
                     </span>
                   </div>
-                </div>
-                <div className="custom-input custom-float" id="inputMinigameCountdownRemainingDay">
-                  <div className="p3 text-center mb-2" data-i18n="minigameSetting.countdownWhen">{t("minigameSetting.countdownWhen", "นับถอยหลังทันทีเมื่อเหลืออีก...")}</div>
-                  <div className="input-group">
-                    <input id="minigameCountdownRemainingDay" type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
-                    <span className="input-group-text custom-color" style={{ borderRadius: "0px 8px 8px 0px" }}>วัน</span>
+                  {/* ORIGINAL: this error really reads "นับถอยหลังทันทีเมื่อถึงกำหนด" on staging */}
+                  <div className="invalid-feedback" id="error-promotionCountdownAmount" style={{ display: "none" }}>
+                    นับถอยหลังทันทีเมื่อถึงกำหนด
                   </div>
-                  <div className="invalid-feedback" id="error-promotionCountdownAmount" style={{ display: "none" }}>กรุณากรอกจำนวนวัน</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-6">
-            <div className="box-minigame-click-select minigame-box-reset disabled" id="boxMinigameCountdownRadioDaterange" data-value-id="2" data-value-id1="boxMinigameCountdownRadioDays" data-value-id2="boxMinigameCountdownRadioDaterange" onClick={selectBox}>
-              <input className="form-check-input box-radio d-none" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDateTime" />
-              <div className="row">
-                <div className="row">
-                  {/* The box icon (screenshot: a clock illustration) was not captured and its file name is
-                      unknown; the column is kept empty instead of pointing at a wrong path */}
-                  <div className="col-3"></div>
-                  <div className="col-9">
-                    <div className="p2 fw-700" data-i18n="minigameSetting.countdownWithSpecificDate">{t("minigameSetting.countdownWithSpecificDate", "นับถอยหลังทันทีเมื่อถึงวัน และเวลาที่กำหนด")}</div>
-                    <span className="p3" data-i18n="minigameSetting.settingDateAndSetCountdown" style={{ color: "rgb(173, 173, 173)" }}>
-                      {t("minigameSetting.settingDateAndSetCountdown", "กำหนดวันและเวลาให้นับถอยหลัง")}
-                    </span>
+        </div>
+      </div>
+      <div className="col-12">
+        <div
+          className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled"
+          id="boxMinigameCountdownRadioDaterange"
+          data-value-id="2"
+          data-value-id1="boxMinigameCountdownRadioDays"
+          data-value-id2="boxMinigameCountdownRadioDaterange"
+          onClick={selectBox}
+        >
+          <input className="box-radio" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDateTime" style={{ display: "none" }} />
+          <div className="row flex-column justify-content-between h-100">
+            <div className="row pe-0">
+              <div className="col-3 mb-3">
+                <img src="/assets/images/minigame/countdown-time-icon-2.png" width="56" height="56" />
+              </div>
+              <div className="col-9 mb-3">
+                <div className="p2 fw-700" data-i18n="minigameSetting.countdownWithSpecificDate">{t("minigameSetting.countdownWithSpecificDate", "นับถอยหลังทันทีเมื่อถึงวัน และเวลาที่กำหนด")}</div>
+                <span className="p3" data-i18n="minigameSetting.settingDateAndSetCountdown" style={{ color: "rgb(173, 173, 173)" }}>
+                  {t("minigameSetting.settingDateAndSetCountdown", "กำหนดวันและเวลาให้นับถอยหลัง")}
+                </span>
+              </div>
+            </div>
+            <div className="row pe-0 minigame-box-reset disabled">
+              <div className="col-12 col-md-6 mb-3 mb-md-0 pe-0">
+                <div className="custom-input custom-float" id="inputMinigameCountdownRemainingDateBkk">
+                  <input type="text" className="form-control custom-date-flatpickr flatpickr-input" id="minigameCountdownRemainingDateBkk" placeholder={t("minigameSetting.phDateInput", "วัน/เดือน/ปี")} />
+                  <div className="float-prepend">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.0911 2.36023H11.5938V1.85677C11.5938 1.56911 11.3607 1.33594 11.0732 1.33594C10.7857 1.33594 10.5526 1.56911 10.5526 1.85677V2.36023H5.44478V1.85677C5.44478 1.56911 5.21171 1.33594 4.92418 1.33594C4.63665 1.33594 4.40358 1.56911 4.40358 1.85677V2.36023H3.90628C2.48683 2.36023 1.33203 3.51555 1.33203 4.9356V12.0939C1.33203 13.514 2.48683 14.6693 3.90628 14.6693H12.0911C13.5106 14.6693 14.6654 13.514 14.6654 12.0939V4.9356C14.6654 3.51555 13.5106 2.36023 12.0911 2.36023ZM3.90628 3.4019H4.40358V4.41753C4.40358 4.70518 4.63665 4.93836 4.92418 4.93836C5.21171 4.93836 5.44478 4.70518 5.44478 4.41753V3.4019H10.5526V4.41753C10.5526 4.70518 10.7857 4.93836 11.0732 4.93836C11.3607 4.93836 11.5938 4.70518 11.5938 4.41753V3.4019H12.0911C12.9364 3.4019 13.6242 4.08992 13.6242 4.9356V5.43315H2.37323V4.9356C2.37323 4.08992 3.06095 3.4019 3.90628 3.4019ZM12.0911 13.6276H3.90628C3.06095 13.6276 2.37323 12.9396 2.37323 12.0939V6.47482H13.6242V12.0939C13.6242 12.9396 12.9364 13.6276 12.0911 13.6276ZM5.95672 8.52344C5.95672 8.81109 5.72364 9.04427 5.43612 9.04427H4.41227C4.12475 9.04427 3.89167 8.81109 3.89167 8.52344C3.89167 8.23578 4.12475 8.0026 4.41227 8.0026H5.43612C5.72362 8.0026 5.95672 8.23578 5.95672 8.52344ZM12.1057 8.52344C12.1057 8.81109 11.8727 9.04427 11.5851 9.04427H10.5613C10.2738 9.04427 10.0407 8.81109 10.0407 8.52344C10.0407 8.23578 10.2738 8.0026 10.5613 8.0026H11.5851C11.8726 8.0026 12.1057 8.23578 12.1057 8.52344ZM9.02826 8.52344C9.02826 8.81109 8.79519 9.04427 8.50766 9.04427H7.48382C7.19629 9.04427 6.96322 8.81109 6.96322 8.52344C6.96322 8.23578 7.19629 8.0026 7.48382 8.0026H8.50766C8.79517 8.0026 9.02826 8.23578 9.02826 8.52344ZM5.95672 11.5964C5.95672 11.884 5.72364 12.1172 5.43612 12.1172H4.41227C4.12475 12.1172 3.89167 11.884 3.89167 11.5964C3.89167 11.3087 4.12475 11.0755 4.41227 11.0755H5.43612C5.72362 11.0755 5.95672 11.3087 5.95672 11.5964ZM12.1057 11.5964C12.1057 11.884 11.8727 12.1172 11.5851 12.1172H10.5613C10.2738 12.1172 10.0407 11.884 10.0407 11.5964C10.0407 11.3087 10.2738 11.0755 10.5613 11.0755H11.5851C11.8726 11.0755 12.1057 11.3087 12.1057 11.5964ZM9.02826 11.5964C9.02826 11.884 8.79519 12.1172 8.50766 12.1172H7.48382C7.19629 12.1172 6.96322 11.884 6.96322 11.5964C6.96322 11.3087 7.19629 11.0755 7.48382 11.0755H8.50766C8.79517 11.0755 9.02826 11.3087 9.02826 11.5964Z" fill="#5E5E5E" />
+                    </svg>
+                    {" "}
+                    <svg className="navigate-close" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onClick={(e) => dom.clearValue(e.currentTarget)}>
+                      <path d="M12.4495 3.55038C12.3104 3.41135 12.1218 3.33325 11.9252 3.33325C11.7285 3.33325 11.5399 3.41135 11.4009 3.55038L7.99992 6.95131L4.59899 3.55038C4.45992 3.41135 4.27133 3.33325 4.07468 3.33325C3.87804 3.33325 3.68945 3.41135 3.55038 3.55038C3.41135 3.68945 3.33325 3.87804 3.33325 4.07468C3.33325 4.27133 3.41135 4.45992 3.55038 4.59899L6.95131 7.99992L3.55038 11.4009C3.41135 11.5399 3.33325 11.7285 3.33325 11.9252C3.33325 12.1218 3.41135 12.3104 3.55038 12.4495C3.68945 12.5885 3.87804 12.6666 4.07468 12.6666C4.27133 12.6666 4.45992 12.5885 4.59899 12.4495L7.99992 9.04853L11.4009 12.4495C11.5399 12.5885 11.7285 12.6666 11.9252 12.6666C12.1218 12.6666 12.3104 12.5885 12.4495 12.4495C12.5885 12.3104 12.6666 12.1218 12.6666 11.9252C12.6666 11.7285 12.5885 11.5399 12.4495 11.4009L9.04853 7.99992L12.4495 4.59899C12.5885 4.45992 12.6666 4.27133 12.6666 4.07468C12.6666 3.87804 12.5885 3.68945 12.4495 3.55038Z" />
+                    </svg>
+                  </div>
+                  <div className="invalid-feedback" id="error-promotionCountdownDate" style={{ display: "none" }}>
+                    กรุณาเลือกวันที่
                   </div>
                 </div>
-                <div className="d-flex gap-2">
-                  <div className="custom-input">
-                    <input type="text" className="form-control custom-date-flatpickr flatpickr-input" id="minigameCountdownRemainingDateBkk" data-provider="datepickr" placeholder={t("minigameSetting.phDateInput", "วัน/เดือน/ปี")} readOnly />
+              </div>
+              <div className="col-12 col-md-6 pe-0">
+                <div className="custom-input custom-float" id="inputMinigameCountdownRemainingTimeBkk">
+                  <input type="text" className="form-control custom-date-flatpickr flatpickr-input" id="minigameCountdownRemainingTimeBkk" data-provider="timepickr" placeholder={t("minigameSetting.phTimeInput", "เลือกเวลา")} />
+                  <div className="float-prepend">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.51886 4.92969V8.0026C8.51886 8.14076 8.46399 8.27323 8.36632 8.37089L6.31789 10.4195C6.1145 10.6229 5.78476 10.6229 5.5814 10.4195C5.37801 10.2161 5.37801 9.88633 5.5814 9.68297L7.47729 7.78685V4.92969C7.47729 4.64203 7.71044 4.40885 7.99807 4.40885C8.2857 4.40885 8.51886 4.64203 8.51886 4.92969ZM14.1293 11.5266L13.6147 11.8237C13.6493 12.0145 13.6473 12.1962 13.6147 12.376L14.1293 12.6731C14.3784 12.8169 14.4637 13.1355 14.3199 13.3846C14.1756 13.6345 13.8567 13.7185 13.6085 13.5752L13.0932 13.2777C12.9532 13.3966 12.7919 13.4911 12.6157 13.5544V14.1484C12.6157 14.4361 12.3825 14.6693 12.0949 14.6693C11.8073 14.6693 11.5741 14.4361 11.5741 14.1484V13.5544C11.3979 13.4911 11.2366 13.3966 11.0965 13.2777L10.5813 13.5752C10.3334 13.7184 10.0144 13.6348 9.8699 13.3846C9.72609 13.1355 9.81142 12.8169 10.0605 12.6731L10.5751 12.376C10.5405 12.1851 10.5425 12.0035 10.5751 11.8237L10.0605 11.5266C9.81142 11.3828 9.72609 11.0642 9.8699 10.8151C10.0137 10.566 10.3322 10.4806 10.5813 10.6245L11.0965 10.922C11.2366 10.8031 11.3979 10.7085 11.5741 10.6453V10.0512C11.5741 9.76357 11.8072 9.53039 12.0949 9.53039C12.3825 9.53039 12.6157 9.76357 12.6157 10.0512V10.6453C12.7918 10.7085 12.9532 10.8031 13.0932 10.922L13.6085 10.6245C13.8575 10.4807 14.176 10.566 14.3198 10.8151C14.4637 11.0642 14.3784 11.3827 14.1293 11.5266ZM12.0949 12.6033C12.3725 12.6033 12.5983 12.3774 12.5983 12.0998C12.5983 11.8222 12.3725 11.5964 12.0949 11.5964C11.8173 11.5964 11.5915 11.8222 11.5915 12.0998C11.5915 12.3774 11.8173 12.6033 12.0949 12.6033ZM7.99807 1.33594C4.31397 1.33594 1.33203 4.3176 1.33203 8.0026C1.33203 11.6871 4.31344 14.6693 7.99807 14.6693C8.2857 14.6693 8.51886 14.4361 8.51886 14.1484C8.51886 13.8608 8.2857 13.6276 7.99807 13.6276C4.88961 13.6276 2.3736 11.1118 2.3736 8.0026C2.3736 4.89383 4.88912 2.3776 7.99807 2.3776C11.4671 2.3776 14.1232 5.48984 13.5443 8.9407C13.4967 9.2244 13.6881 9.49294 13.9717 9.54055C14.2555 9.58797 14.5239 9.39677 14.5715 9.11307C15.2534 5.04844 12.1334 1.33594 7.99807 1.33594Z" fill="#5E5E5E" />
+                    </svg>
+                    {" "}
+                    <svg className="navigate-close" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" onClick={(e) => dom.clearValue(e.currentTarget)}>
+                      <path d="M12.4495 3.55038C12.3104 3.41135 12.1218 3.33325 11.9252 3.33325C11.7285 3.33325 11.5399 3.41135 11.4009 3.55038L7.99992 6.95131L4.59899 3.55038C4.45992 3.41135 4.27133 3.33325 4.07468 3.33325C3.87804 3.33325 3.68945 3.41135 3.55038 3.55038C3.41135 3.68945 3.33325 3.87804 3.33325 4.07468C3.33325 4.27133 3.41135 4.45992 3.55038 4.59899L6.95131 7.99992L3.55038 11.4009C3.41135 11.5399 3.33325 11.7285 3.33325 11.9252C3.33325 12.1218 3.41135 12.3104 3.55038 12.4495C3.68945 12.5885 3.87804 12.6666 4.07468 12.6666C4.27133 12.6666 4.45992 12.5885 4.59899 12.4495L7.99992 9.04853L11.4009 12.4495C11.5399 12.5885 11.7285 12.6666 11.9252 12.6666C12.1218 12.6666 12.3104 12.5885 12.4495 12.4495C12.5885 12.3104 12.6666 12.1218 12.6666 11.9252C12.6666 11.7285 12.5885 11.5399 12.4495 11.4009L9.04853 7.99992L12.4495 4.59899C12.5885 4.45992 12.6666 4.27133 12.6666 4.07468C12.6666 3.87804 12.5885 3.68945 12.4495 3.55038Z" />
+                    </svg>
                   </div>
-                  <div className="custom-input">
-                    <input type="text" className="form-control custom-date-flatpickr flatpickr-input" id="minigameCountdownRemainingTimeBkk" data-provider="timepickr" placeholder={t("minigameSetting.phTimeInput", "เลือกเวลา")} readOnly />
+                  <div className="invalid-feedback" id="error-promotionCountdownTime" style={{ display: "none" }}>
+                    กรุณาเลือกวันที่
                   </div>
                 </div>
-                <div className="invalid-feedback" id="error-promotionCountdownDate" style={{ display: "none" }}>กรุณาเลือกวันที่</div>
               </div>
             </div>
           </div>
@@ -166,7 +213,9 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
   const [groups, setGroups] = useState<string[]>([]);
   const [groupItems, setGroupItems] = useState<DropdownItem[]>([]);
   const [chanceOn, setChanceOn] = useState(false);
-  const [chances, setChances] = useState<{ key: number; game: string | null }[]>([{ key: nextKey++, game: null }]);
+  // Create starts with one empty "deduct from another mini-game" row (allAddTemplat); edit / detail
+  // load the saved rows, and QA Test Wheel 0911 has none
+  const [chances, setChances] = useState<{ key: number; game: string | null }[]>(() => (initial ? [] : [{ key: nextKey++, game: null }]));
   const [gameItems, setGameItems] = useState<DropdownItem[]>([]);
   const [providers, setProviders] = useState<GameProvider[]>([]);
   const pickers = useRef(new Map<string, Instance>());
@@ -393,6 +442,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                       </div>
                     </div>
                     <div className="btn-allday">
+                      {/* ORIGINAL: staging renders this button EMPTY (data-i18n is never applied to cloned rows); kept with its label until PK decides */}
                       <button className={isAllDay(slot) ? "btn system-btn btn-rounded w-100" : "btn system-btn btn-rounded w-100 no-select"} data-i18n="minigameSetting.allDay" id={`boxMinigameSelectAllDay-${n}`} onClick={() => actions.changeMinigameSelectTimeAllDay(n)}>{t("minigameSetting.allDay", "")}</button>
                     </div>
                   </div>
@@ -458,6 +508,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               </label>
             </div>
           </div>
+          <div className="col-12" />
           <CountdownChoices type={type} />
         </div>
         <div className="label-minigame d-none">
@@ -725,7 +776,6 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                   <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableMaxCountPerWeekPerPerson">
                     <div className="p2 color-emerald-title-1">
                       <span data-i18n="minigameSetting.limitMinigame">{t("minigameSetting.limitMinigame", "จำกัดการรับสิทธิ์เล่นมินิเกมส์")}</span>
-                      {" "}
                       <span className="highlight" data-i18n="minigameSetting.perWeek">{t("minigameSetting.perWeek", "“ต่อสัปดาห์”")}</span>
                     </div>
                     <span className="p3 color-emerald-title-2" data-i18n="minigameSetting.limitMinigamePerMemberSubText3">{t("minigameSetting.limitMinigamePerMemberSubText3", "")}</span>
@@ -751,7 +801,6 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                   <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableMaxCountPerMonthPerPerson">
                     <div className="p2 color-emerald-title-1">
                       <span data-i18n="minigameSetting.limitMinigame">{t("minigameSetting.limitMinigame", "จำกัดการรับสิทธิ์เล่นมินิเกมส์")}</span>
-                      {" "}
                       <span className="highlight" data-i18n="minigameSetting.perMonth">{t("minigameSetting.perMonth", "“ต่อเดือน”")}</span>
                     </div>
                     <span className="p3 color-emerald-title-2" data-i18n="minigameSetting.limitMinigamePerMemberSubText4">{t("minigameSetting.limitMinigamePerMemberSubText4", "")}</span>
@@ -777,7 +826,6 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                   <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableMaxCountPerPromotionPerPerson">
                     <div className="p2 color-emerald-title-1">
                       <span data-i18n="minigameSetting.limitMinigame">{t("minigameSetting.limitMinigame", "จำกัดการรับสิทธิ์เล่นมินิเกมส์")}</span>
-                      {" "}
                       <span className="highlight" data-i18n="minigameSetting.perPromotionDuration">{t("minigameSetting.perPromotionDuration", "“ตลอดอายุโปรโมชั่น”")}</span>
                     </div>
                     <span className="p3 color-emerald-title-2" data-i18n="minigameSetting.limitMinigamePerMemberSubText5">{t("minigameSetting.limitMinigamePerMemberSubText5", "")}</span>
@@ -1139,7 +1187,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                               <span className="game-provider-count-text">
                                 <span data-i18n="minigameSetting.allCategory">{t("minigameSetting.allCategory", "ค่ายเกมทั้งหมด")}</span>
                                 {" "}
-                                <span className="provider-count-display">0</span>
+                                <span className="provider-count-display">{providers.length}</span>
                                 {" "}
                                 <span data-i18n="minigameSetting.categoryText">{t("minigameSetting.categoryText", "ค่าย")}</span>
                               </span>

@@ -45,8 +45,9 @@ export function FormSection({
         <div className="group-title-mission-setting">
           {title}
           <div className="group-mission-setting-status">
-            {/* ORIGINAL: on edit the status turns teal (.valid) but its text stays "ข้อมูลไม่สมบูรณ์"
-                (it points data-i18n at a key missing from the locale files). Here the text follows the state. */}
+            {/* ORIGINAL: when the edit page loads, every section header shows "ข้อมูลไม่สมบูรณ์" even though the
+                data is complete, and .group-mission-setting-status is grey, rgb(71, 71, 71). Here the text
+                and the .valid colour follow the real state ("ข้อมูลสมบูรณ์" when complete). */}
             <span className={cx("mission-setting-status-title mission-page", valid && "valid")} data-i18n={statusI18n} id={statusId}>
               {valid ? t("missionPage.js.dataComplete", "ข้อมูลสมบูรณ์") : t(statusI18n, "ข้อมูลไม่สมบูรณ์")}
             </span>

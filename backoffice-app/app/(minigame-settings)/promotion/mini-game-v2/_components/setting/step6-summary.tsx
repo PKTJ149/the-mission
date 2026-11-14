@@ -6,7 +6,7 @@
 // collectSummary() (wizard-summary.ts) like the original getMinigameDetail(). The rewards list is
 // rendered here from view-lucky-wheel_rewards-accordion_filled.html.
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useLayoutEffect, useRef, useState } from "react";
 import { useT } from "@/lib/i18n";
 import type { MiniGameSliceBonus, MiniGameType } from "@/lib/api/mini-games";
 import { WheelShow } from "./step4-display";
@@ -41,6 +41,26 @@ function bonusTexts(bonus: MiniGameSliceBonus): [string, string] {
     case "reward":
       return ["Prize", ""];
   }
+}
+
+// #showMinigameTime: one "เวลาทำงานที่ N | start - end" row per time slot (staging markup)
+function WorkingTimes({ summary }: { summary: Summary | null }) {
+  return (
+    <div className="row color-emerald-title-1" id="showMinigameTime">
+      {summary?.times.map((slot, i) => (
+        <Fragment key={i}>
+          <div className="col-12 col-lg-3">
+            <div className="p2" style={{ width: "120px" }}>
+              <span className="minigame-date-no">เวลาทำงานที่</span> <span>{i + 1}</span>{" :"}
+            </div>
+          </div>
+          <div className="col-12 col-lg-9">
+            <div className="p2">{`${slot.start} - ${slot.end}`}</div>
+          </div>
+        </Fragment>
+      ))}
+    </div>
+  );
 }
 
 // #showPartsLuckywheelluckyWheelRewards: one Bootstrap-collapse row per slice, the first one open
@@ -129,7 +149,8 @@ type Step6Props = StepProps & { summary: Summary | null; sliceCount: number };
 export function Step6Summary({ type, action, step, nav, summary, sliceCount }: Step6Props) {
   const t = useT();
   const rootRef = useRef<HTMLDivElement>(null);
-  const confirmText: readonly [string, string] = action === "edit" ? ["minigameSetting.minigameConfirmButton", "ยืนยันการแก้ไข"] : ["minigameSetting.minigameConfirmCreate", "ยืนยันการสร้าง"];
+  // Write the summary values after React has committed this render (see collectSummary)
+  useLayoutEffect(() => summary?.fill(), [summary]);
   return (
     <div className="canvas-box-body" id="SettingMinigameStep6" style={shownWhen(step === "6")} ref={rootRef}>
       <div className="tab-header">
@@ -230,7 +251,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
               <div className="col mb-1">
                 <div className="row mb-2">
                   <div className="col-12 col-lg-3">
-                    <div className="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryActive" >{t("minigameSetting.summaryActive", "วันทำงาน :")}</div>
+                    <div className="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryActive" style={{ width: "120px" }}>{t("minigameSetting.summaryActive", "วันทำงาน :")}</div>
                   </div>
                   <div className="col-12 col-lg-9">
                     <div className="d-flex flex-wrap gap-2">
@@ -244,7 +265,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
                     </div>
                   </div>
                 </div>
-                <div className="row color-emerald-title-1" id="showMinigameTime" />
+                <WorkingTimes summary={summary} />
               </div>
             </div>
             <hr style={{ margin: "0px -28px 8px -28px" }} />
@@ -951,6 +972,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
         </div>
       </div>
       <div className="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame6" style={shownWhen(action !== "detail")}>
+    {/* ORIGINAL: the confirm button always reads "ยืนยันการสร้างโปร" (its own data-i18n wins over the edit label); saving still follows the mode */}
         <div className="d-flex align-items-center justify-content-between">
           <div>
             <button id="buttonPreviousPromotionStepfinal" className="btn btn-outline-warning" data-i18n="minigameSetting.backToEditButton" style={nav.summaryButtonStyle} onClick={() => nav.backFromSummary()}>{t("minigameSetting.backToEditButton", "กลับไปแก้ไข")}</button>
@@ -958,9 +980,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
           <div>
             <button className="btn system-btn btn-outline btn-rounded" data-type="previous" data-i18n="minigameSetting.backButton" style={{ width: "168px" }} onClick={() => nav.go("6", "5")}>{t("minigameSetting.backButton", "ก่อนหน้า")}</button>
             {" "}
-            <button className="btn system-btn btn-rounded ms-2" data-type="end" style={{ width: "168px" }} onClick={() => nav.save()}>
-    <span data-i18n={confirmText[0]}>{t(confirmText[0], confirmText[1])}</span>
-    </button>
+            <button className="btn system-btn btn-rounded ms-2" data-type="end" data-i18n="minigameSetting.confirmPromotionButton" style={{ width: "168px" }} onClick={() => nav.save()}>{t("minigameSetting.confirmPromotionButton", "ยืนยันการสร้างโปร")}</button>
           </div>
         </div>
       </div>

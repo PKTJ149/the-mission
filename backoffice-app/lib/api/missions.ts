@@ -295,7 +295,8 @@ export async function getMissionFormValues(missionId: string): Promise<MissionFo
       startTime: captured.startTime,
       noEnd: true,
       roundType: "daily",
-      timeSlots: [{ ...form.timeSlots[0], allDay: true, start: "00:00", end: "23:59" }],
+      // Staging shows this row as "วัน -" and "00:00 - 00:00" with ทั้งวัน ticked
+      timeSlots: [{ ...form.timeSlots[0], allDay: true }],
       subMissions: [{ ...sub, name: captured.subMission.name, description: captured.subMission.description, conditions: [condition] }],
       completeType: "all",
       completeValue: captured.completeValue,

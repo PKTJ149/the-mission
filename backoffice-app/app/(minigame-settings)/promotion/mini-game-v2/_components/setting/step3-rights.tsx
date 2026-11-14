@@ -297,7 +297,6 @@ export function Step3Rights({ type, step, nav, initial }: StepProps) {
             </div>
           </div>
         </div>
-        {" dropped-->"}
       </div>
       <div className="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame3">
         <div className="d-flex align-items-center justify-content-between">

@@ -66,7 +66,10 @@ function SettingWizard({ session, games, agents, onClose, onEdit, onSaved }: Wiz
   // Validate the step that just opened; detail mode builds the summary from the loaded form
   useEffect(() => {
     dom.validateStep(step);
-    if (step === "6") requestAnimationFrame(() => setSummary(collectSummary(type, agents, agent, sliceCount)));
+    // Read the form once this step's DOM is committed. A microtask, not requestAnimationFrame:
+    // rAF never fires in a background tab, which left the detail view (opened straight at step 6)
+    // on the capture's placeholder values.
+    if (step === "6") queueMicrotask(() => setSummary(collectSummary(type, agents, agent, sliceCount)));
     bodyRef.current?.scrollTo({ top: 0, behavior: "smooth" });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only when the step changes
   }, [step]);

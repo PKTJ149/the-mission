@@ -3,7 +3,6 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ColorPicker, cx, MINIGAME_EDITOR_CONFIG, RichTextEditor } from "@/components/ui";
-import { EnglishFlag } from "@/components/shell/flag-icons";
 import { useT } from "@/lib/i18n";
 import {
   DEFAULT_COLOR_BG,
@@ -15,6 +14,7 @@ import {
   type Option,
 } from "@/lib/api/missions";
 import { FlatpickrInput } from "./flatpickr-input";
+import { EnglishPillFlag, TagalogPillFlag } from "./lang-flags";
 import { DeleteButton, Feedback, previewFile, WarningBox } from "./form-bits";
 import { FormSection, LabelTitle } from "./form-section";
 import { FilterSelect, WrapperDropdown } from "./mission-dropdowns";
@@ -207,8 +207,8 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
               </span>
             </button>{" "}
             {/* {" "}: the original's whitespace between these inline-block buttons is a visible 4 px gap */}
-            <LangButton code="en" label="EN;" flag={<EnglishFlag />} selected={lang === "en"} isSet={form.names.en.trim() !== ""} onSelect={setLang} />{" "}
-            <LangButton code="tl" label="TL;" flag={<PhilippinesFlag />} selected={lang === "tl"} isSet={form.names.tl.trim() !== ""} onSelect={setLang} />
+            <LangButton code="en" label="EN;" flag={<EnglishPillFlag />} selected={lang === "en"} isSet={form.names.en.trim() !== ""} onSelect={setLang} />{" "}
+            <LangButton code="tl" label="TL;" flag={<TagalogPillFlag />} selected={lang === "tl"} isSet={form.names.tl.trim() !== ""} onSelect={setLang} />
           </div>
         </div>
         <div className="group-input">
@@ -528,24 +528,6 @@ function LangButton({ code, label, flag, selected, isSet, onSelect }: LangButton
         </span>
       </span>
     </button>
-  );
-}
-
-// The TL flag SVG was withheld by the capture tool; this round Philippine flag is a stand-in
-// drawn in the same 32×32 style as the shell's flags.
-function PhilippinesFlag() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <clipPath id="tl-flag-clip">
-        <circle cx="16" cy="16" r="14.72" />
-      </clipPath>
-      <g clipPath="url(#tl-flag-clip)">
-        <rect x="0" y="0" width="32" height="16" fill="#0038A8" />
-        <rect x="0" y="16" width="32" height="16" fill="#CE1126" />
-        <path d="M0 0L18 16L0 32Z" fill="#EFEFEF" />
-        <circle cx="6.5" cy="16" r="2.6" fill="#FCD116" />
-      </g>
-    </svg>
   );
 }
 

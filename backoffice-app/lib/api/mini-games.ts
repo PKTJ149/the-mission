@@ -66,7 +66,8 @@ export type MiniGame = {
 
 export type Agent = { value: string; label: string };
 
-export type GameProvider = { id: string; code: string; name: string; category: "sport" | "game" | "casino" | "lotto" };
+// category: sport | game | casino | lotto drive the tabs; other values (fishing-game, p2p…) are in no tab
+export type GameProvider = { id: string; code: string; name: string; category: string };
 
 // Original: POST /api/promotion/mini-game-v2 (the list on /promotion/mini-game-v2).
 // The server filters and returns ready-made card HTML; the page filters this list itself.

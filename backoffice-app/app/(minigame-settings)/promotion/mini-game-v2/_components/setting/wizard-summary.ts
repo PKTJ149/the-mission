@@ -4,7 +4,7 @@
 import type { Agent, MiniGame, MiniGameSlice, MiniGameSliceBonus, MiniGameType } from "@/lib/api/mini-games";
 import { hide, show } from "./wizard-dom";
 
-export type Summary = { slices: MiniGameSlice[] };
+export type Summary = { slices: MiniGameSlice[]; times: { start: string; end: string }[]; fill: () => void };
 
 const byId = (id: string) => document.getElementById(id);
 const value = (id: string) => (byId(id) as HTMLInputElement | null)?.value ?? "";
@@ -13,6 +13,13 @@ const setText = (id: string, text: string) => {
   const el = byId(id);
   if (el) el.textContent = text;
 };
+// A "value" target can be the number <span> itself or a <div> around "<span>n</span> บาท"
+const setValue = (id: string, text: string) => {
+  const el = byId(id);
+  const target = el?.tagName === "DIV" ? (el.querySelector("span") ?? el) : el;
+  if (target) target.textContent = text;
+};
+const showWhen = (el: HTMLElement | null | undefined, on: boolean) => (on ? show(el) : hide(el));
 // Pairs like #showEnableMaxPromotion1 / 2 or …Active / …Inactive: show exactly one
 const pick = (onId: string, offId: string, on: boolean) => {
   const [onEl, offEl] = [byId(onId), byId(offId)];
@@ -57,65 +64,81 @@ function readSlices(count: number): MiniGameSlice[] {
 
 // Fills the step 6 blocks (ids of the captured summary markup) and returns what React renders itself
 export function collectSummary(type: MiniGameType, agents: Agent[], agentId: string | null, sliceCount: number): Summary {
-  pick("showStatusDetail1", "showStatusDetail2", checked("minigameStatus"));
-  setText("showName", value("minigameName"));
-  const condition = byId("showconditionHtml");
-  // CKEditor may still be starting in detail mode: fall back to the loaded HTML in the textarea
-  if (condition) condition.innerHTML = document.querySelector("#minigameConditionHtml + .ck-editor .ck-content")?.innerHTML ?? value("minigameConditionHtml");
-  const agentBox = byId("showLimitAgentGroupActiveHtml");
-  const agentName = agents.find((agent) => agent.value === agentId)?.label;
-  if (agentBox) agentBox.innerHTML = agentName ? `<div class="text-center"><span class="custom-badge bg-green-10">${agentName}</span></div>` : "<span>-</span>";
+  // Writes the values into the step 6 markup. Step6Summary calls it in a layout effect after each
+  // render with a new summary, so the writes always land on the DOM React has just committed
+  // (filling right here, before setSummary re-rendered, left the detail view on the placeholders).
+  const fill = () => {
+    pick("showStatusDetail1", "showStatusDetail2", checked("minigameStatus"));
+    setText("showName", value("minigameName"));
+    const condition = byId("showconditionHtml");
+    // CKEditor may still be starting in detail mode: fall back to the loaded HTML in the textarea
+    if (condition) condition.innerHTML = document.querySelector("#minigameConditionHtml + .ck-editor .ck-content")?.innerHTML ?? value("minigameConditionHtml");
+    const agentBox = byId("showLimitAgentGroupActiveHtml");
+    const agentName = agents.find((agent) => agent.value === agentId)?.label;
+    if (agentBox) agentBox.innerHTML = agentName ? `<div class="text-center"><span class="custom-badge bg-green-10">${agentName}</span></div>` : "<span>-</span>";
 
-  // Duration and working days
-  setText("showStartDateEndDate", byId("showStartDateEndDateSelect")?.textContent ?? "-");
-  const selectedDays = Array.from(document.querySelectorAll<HTMLElement>(".box-promotion-select-day:not(.no-select)")).map((el) => DAY_NAMES[el.id]);
-  const dayText = byId("showEnableEveryday")?.querySelector(".p3");
-  if (dayText) dayText.textContent = selectedDays.length === 7 ? "ทุกวัน" : selectedDays.join(", ") || "-";
-  const times = byId("showMinigameTime");
-  if (times) {
-    times.innerHTML = Array.from(document.querySelectorAll<HTMLElement>("[data-time-minigame]"))
-      .map((slot, i) => `<div class="col-4">เวลาทำงานที่ ${i + 1} :</div><div class="col">${value(`minigameCustomStartTime-${i + 1}`)} - ${value(`minigameCustomEndTime-${i + 1}`)}</div>`)
-      .join("");
-  }
+    // Duration and working days
+    setText("showStartDateEndDate", byId("showStartDateEndDateSelect")?.textContent ?? "-");
+    const selectedDays = Array.from(document.querySelectorAll<HTMLElement>(".box-promotion-select-day:not(.no-select)")).map((el) => DAY_NAMES[el.id]);
+    const dayText = byId("showEnableEveryday")?.querySelector(".p3");
+    if (dayText) dayText.textContent = selectedDays.length === 7 ? "ทุกวัน" : selectedDays.join(", ") || "-";
 
-  // Countdown
-  pick("showEnableCountDown1", "showEnableCountDown2", checked("changeMinigameEnableCountDown"));
-  pick("showEnableCountDownCreated", "showEnableCountDownSetTime", checked("minigameEnableCountDownCreated"));
+    // Countdown
+    pick("showEnableCountDown1", "showEnableCountDown2", checked("changeMinigameEnableCountDown"));
+    // Only the chosen countdown option is listed
+    const created = checked("minigameEnableCountDownCreated");
+    showWhen(byId("showEnableCountDownCreated"), created);
+    showWhen(byId("showEnableCountDownSetTime"), !created);
+    showWhen(byId("showEnableRemainingDay")?.parentElement, !created && checked("minigameEnableRemainingDay"));
+    showWhen(byId("showEnableRemainingDateTime")?.parentElement, !created && checked("minigameEnableRemainingDateTime"));
+    setText("showEnableRemainingDay", value("minigameCountdownRemainingDay") || "0");
+    setText("showEnableRemainingDateTime", `${value("minigameCountdownRemainingDateBkk")} ${value("minigameCountdownRemainingTimeBkk")}`.trim());
 
-  // Limits per promotion / per member
-  pick("showEnableMaxPromotion1", "showEnableMaxPromotion2", checked("minigameEnableMaxPromotion"));
-  pick("showEnableMaxPromotionPerPersonActive", "showEnableMaxPromotionPerPersonInactive", checked("minigameEnableMaxPromotionPerPerson"));
-  for (const stem of ["MaxCountPerDay", "MaxCountPerWeek", "MaxCountPerMonth", "MaxCountPerPromotion", "MaxCountPerTimePerPerson", "MaxCountPerDayPerPerson", "MaxCountPerWeekPerPerson", "MaxCountPerMonthPerPerson", "MaxCountPerPromotionPerPerson"]) {
-    pick(`showEnable${stem}Active`, `showEnable${stem}Inactive`, checked(`minigameEnable${stem}`));
-    setText(`show${stem}Active`, value(`minigame${stem}`) || "0");
-  }
-  for (const stem of ["LimitPerGamePerDay", "LimitPerPerson", "LimitBalance"]) {
-    pick(`showEnable${stem}Active`, `showEnable${stem}Inactive`, checked(`minigameEnable${stem}`));
-    setText(`show${stem}Active`, value(`minigame${stem}`) || "0");
-  }
+    // Limits per promotion / per member
+    pick("showEnableMaxPromotion1", "showEnableMaxPromotion2", checked("minigameEnableMaxPromotion"));
+    pick("showEnableMaxPromotionPerPersonActive", "showEnableMaxPromotionPerPersonInactive", checked("minigameEnableMaxPromotionPerPerson"));
+    for (const stem of ["MaxCountPerDay", "MaxCountPerWeek", "MaxCountPerMonth", "MaxCountPerPromotion", "MaxCountPerTimePerPerson", "MaxCountPerDayPerPerson", "MaxCountPerWeekPerPerson", "MaxCountPerMonthPerPerson", "MaxCountPerPromotionPerPerson"]) {
+      pick(`showEnable${stem}Active`, `showEnable${stem}Inactive`, checked(`minigameEnable${stem}`));
+      setValue(`show${stem}Active`, value(`minigame${stem}`) || "0");
+    }
+    for (const stem of ["LimitPerGamePerDay", "LimitPerPerson", "LimitBalance"]) {
+      pick(`showEnable${stem}Active`, `showEnable${stem}Inactive`, checked(`minigameEnable${stem}`));
+      if (stem !== "LimitBalance") setValue(`show${stem}Active`, value(`minigame${stem}`) || "0");
+    }
+    // Staging replaces this cell's spans with plain text ("0 บาท")
+    setText("showLimitBalanceActive", `${value("minigameLimitBalance") || "0"} บาท`);
 
-  // Customer groups, reset, deduct from other games, other limits
-  pick("showEnableLimitCustomerGroupActive", "showEnableLimitCustomerGroupInactive", checked("enableLimitCustomerGroup"));
-  pick("showEnableResetActive", "showEnableResetInactive", checked("minigameEnableReset"));
-  setText(
-    "showEnableResetExpired",
-    checked("minigameEnableResetTime") ? "Reset สิทธิ์ แบบกำหนดเป็นเวลาใดเวลาหนึ่ง" : checked("minigameEnableResetDateTime") ? "Reset สิทธิ์ แบบกำหนดเป็น วัน / ชั่วโมง / นาที" : "Reset สิทธิ์ ทันทีที่มินิเกมหมดอายุ",
-  );
-  pick("showMinigameEnableRemoveChance1", "showMinigameEnableRemoveChance2", checked("minigameEnableRemoveChance"));
-  pick("showminigameEnableFixChance11", "showminigameEnableFixChance12", checked("minigameEnableFixChance"));
+    // Customer groups, reset, deduct from other games, other limits
+    pick("showEnableLimitCustomerGroupActive", "showEnableLimitCustomerGroupInactive", checked("enableLimitCustomerGroup"));
+    pick("showEnableResetActive", "showEnableResetInactive", checked("minigameEnableReset"));
+    setText(
+      "showEnableResetExpired",
+      checked("minigameEnableResetTime") ? "Reset สิทธิ์ แบบกำหนดเป็นเวลาใดเวลาหนึ่ง" : checked("minigameEnableResetDateTime") ? "Reset สิทธิ์ แบบกำหนดเป็น วัน / ชั่วโมง / นาที" : "Reset สิทธิ์ ทันทีที่มินิเกมหมดอายุ",
+    );
+    pick("showMinigameEnableRemoveChance1", "showMinigameEnableRemoveChance2", checked("minigameEnableRemoveChance"));
+    pick("showminigameEnableFixChance11", "showminigameEnableFixChance12", checked("minigameEnableFixChance"));
 
-  // How the right is earned
-  const depositType = value("depositType");
-  const amountType = document.querySelector("#customMinigameDepositAmountTypeDropdown .input-fake")?.textContent ?? "";
-  const amount = value("minigameMinAmountAutoDeposit") || value("minigameAmountAutoDeposit") || value("minigameMaxAmountAutoDeposit") || value("minigameAmountAutoDepositRange");
-  setText("showConditionGetBonus", depositType ? `${DEPOSIT_TYPE[depositType] ?? ""} ${depositType === "accumulated-deposit" ? "" : amountType} ${amount || 0} บาท`.replace(/\s+/g, " ") : "-");
-  setText("showNumberPartsLuckywheelType", type === "mini-game" ? "Mini Game" : "Lucky Wheel");
-  setText("showNumberPartsLuckywheel", String(sliceCount));
+    // How the right is earned
+    const depositType = value("depositType");
+    const amountType = document.querySelector("#customMinigameDepositAmountTypeDropdown .input-fake")?.textContent ?? "";
+    const amount = value("minigameMinAmountAutoDeposit") || value("minigameAmountAutoDeposit") || value("minigameMaxAmountAutoDeposit") || value("minigameAmountAutoDepositRange");
+    setText("showConditionGetBonus", depositType ? `${DEPOSIT_TYPE[depositType] ?? ""} ${depositType === "accumulated-deposit" ? "" : amountType} ${amount || 0} บาท`.replace(/\s+/g, " ") : "-");
+    setText("showNumberPartsLuckywheelType", type === "mini-game" ? "Mini Game" : "Lucky Wheel");
+    setText("showNumberPartsLuckywheel", String(sliceCount));
 
-  // Turnover
-  pick("showEnableConditionTurnoverActive", "showEnableConditionTurnoverInactive", checked("minigameEnableConditionTurnover"));
-
-  return { slices: readSlices(sliceCount) };
+    // Turnover
+    pick("showEnableConditionTurnoverActive", "showEnableConditionTurnoverInactive", checked("minigameEnableConditionTurnover"));
+    // "x เท่า" when that box is chosen, else "ต้องทำ Turnover ขั้นต่ำ n บาท"
+    const timesVariant = checked("minigameEnableWithdrawConditionMinTurnover");
+    showWhen(byId("showEnableWithdrawConditionMinTurnover"), timesVariant);
+    showWhen(byId("showWithdrawConditionMinTurnover"), timesVariant);
+    showWhen(byId("showEnableWithdrawConditionMinTurnoverCredit"), !timesVariant);
+    hide(byId("showWithdrawConditionMinTurnoverCredit")?.parentElement);
+    setText("showWithdrawConditionMinTurnoverText", value("minigameWithdrawConditionMinTurnover") || "0");
+    setText("showEnableWithdrawConditionMinTurnoverCreditText", value("minigameWithdrawConditionMinTurnoverCredit") || "0");
+  };
+  const times = Array.from(document.querySelectorAll("[data-time-minigame]"), (_, i) => ({ start: value(`minigameCustomStartTime-${i + 1}`), end: value(`minigameCustomEndTime-${i + 1}`) }));
+  return { slices: readSlices(sliceCount), times, fill };
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");

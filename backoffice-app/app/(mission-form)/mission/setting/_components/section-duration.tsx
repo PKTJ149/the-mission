@@ -186,8 +186,11 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
             ))}
           </div>
           <div className="d-flex justify-content-center">
+            {/* Hidden on staging when the round type is not "กำหนดเอง" (seen on the edit page with ทุกวัน);
+                only the button is hidden, the empty wrapper stays (it still takes a 16px flex gap).
+                The form script was not captured: the rule and the d-none class are inferred. */}
             <button
-              className="mission-btn-outline"
+              className={cx("mission-btn-outline", form.roundType !== "custom" && "d-none")}
               id="btnAddTemplateTimeMission"
               onClick={() => set({ timeSlots: [...form.timeSlots, newTimeSlot()] })}
             >
@@ -383,10 +386,10 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
   const monthDays = roundType === "monthly" || (roundType === "custom" && dayType === "day-of-month");
   const toggleIn = (list: string[], value: string) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
-  // Header summary (the original's display text was not captured beyond its "-" / "00:00 - 00:00" defaults)
+  // Header summary (the original's display text was not captured beyond its "-" / "00:00 - 00:00" defaults;
+  // staging keeps "-" for ทุกวัน)
   let dayText = "-";
-  if (roundType === "daily") dayText = t("missionPage.everyDay", "ทุกวัน");
-  else if (weekdays && slot.days.length > 0)
+  if (weekdays && slot.days.length > 0)
     dayText = WEEKDAYS.filter(([value]) => slot.days.includes(value)).map(([, label]) => label).join(", ");
   else if (monthDays && slot.monthDays.length > 0)
     dayText = ALL_MONTH_DAYS.filter((day) => slot.monthDays.includes(day))
@@ -520,10 +523,9 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
                 className="checkbox"
                 id={`missionTimeAndRewardCheckboxAllDayMission-${no}`}
                 checked={slot.allDay}
-                // handleMissionTimeAndRewardCheckboxAllDayMission: a whole day is 00:00 - 23:59 (guess)
-                onChange={(event) =>
-                  set(event.target.checked ? { allDay: true, start: "00:00", end: "23:59" } : { allDay: false, start: "", end: "" })
-                }
+                // handleMissionTimeAndRewardCheckboxAllDayMission: the time pickers are locked; staging still
+                // shows "00:00 - 00:00" in the row header
+                onChange={(event) => set({ allDay: event.target.checked, start: "", end: "" })}
               />
               <label htmlFor={`missionTimeAndRewardCheckboxAllDayMission-${no}`} className="label-checkbox mission-page" data-i18n="missionPage.allDay">
                 {t("missionPage.allDay", "ทั้งวัน")}
@@ -661,7 +663,14 @@ export function TurnoverAndAlert({ ids, hooks, main, value, onChange }: Turnover
             {text("missionPage.missionRewardWarningText3", "การติดเทริ์น")}
           </span>
         ) : (
-          text("missionPage.missionRewardWarningText1", "หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์", "text-warning-mission")
+          // Sub-mission version: two more lines after <br> as plain text, typo "ของอรางวัล" as on staging
+          <span className="text-warning-mission" data-i18n="missionPage.missionRewardWarningText1">
+            {t("missionPage.missionRewardWarningText1", "หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์")}
+            <br />
+            ของอรางวัลทุกชิ้นที่ให้สมาชิกจะไม่มี
+            <br />
+            การติดเทริ์น
+          </span>
         )}
       </WarningBox>
       <div className={cx("group-card-select", `${hooks.turnOver}2`, !value.turnOverEnabled && "d-none")}>
