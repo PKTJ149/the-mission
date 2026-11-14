@@ -1,0 +1,581 @@
+{
+ "_note": "All 64 provider checkboxes in #popup-game-type (id suffix, data-game-type-checkbox, value, data-payload fields). Sport+game groups are complete in the HTML; casino/lottery groups were collapsed to the first item.",
+ "providers": [
+  {
+   "idSuffix": "sport-9",
+   "dataGameTypeCheckbox": "sport",
+   "value": "9",
+   "lsmGameId": 9,
+   "code": "muaypukyok",
+   "name": "ONE BX",
+   "category": "sport"
+  },
+  {
+   "idSuffix": "sport-11",
+   "dataGameTypeCheckbox": "sport",
+   "value": "11",
+   "lsmGameId": 11,
+   "code": "sabasport",
+   "name": "SABA",
+   "category": "sport"
+  },
+  {
+   "idSuffix": "sport-12",
+   "dataGameTypeCheckbox": "sport",
+   "value": "12",
+   "lsmGameId": 12,
+   "code": "sbo",
+   "name": "SBO",
+   "category": "sport"
+  },
+  {
+   "idSuffix": "sport-7",
+   "dataGameTypeCheckbox": "sport",
+   "value": "7",
+   "lsmGameId": 7,
+   "code": "newsportbook",
+   "name": "SPORT LSM",
+   "category": "sport"
+  },
+  {
+   "idSuffix": "game-87",
+   "dataGameTypeCheckbox": "game",
+   "value": "87",
+   "lsmGameId": 87,
+   "code": "amigo",
+   "name": "AMIGO",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-46",
+   "dataGameTypeCheckbox": "game",
+   "value": "46",
+   "lsmGameId": 46,
+   "code": "ADVANTPLAY",
+   "name": "Advantplay",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-88",
+   "dataGameTypeCheckbox": "game",
+   "value": "88",
+   "lsmGameId": 88,
+   "code": "allbet",
+   "name": "Allbet Game",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-56",
+   "dataGameTypeCheckbox": "game",
+   "value": "56",
+   "lsmGameId": 56,
+   "code": "bng",
+   "name": "BNG",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-54",
+   "dataGameTypeCheckbox": "game",
+   "value": "54",
+   "lsmGameId": 54,
+   "code": "btgaming",
+   "name": "BT Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-94",
+   "dataGameTypeCheckbox": "game",
+   "value": "94",
+   "lsmGameId": 94,
+   "code": "cp",
+   "name": "CP Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-69",
+   "dataGameTypeCheckbox": "game",
+   "value": "69",
+   "lsmGameId": 69,
+   "code": "dragoonsoft",
+   "name": "DragoonSoft",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-53",
+   "dataGameTypeCheckbox": "game",
+   "value": "53",
+   "lsmGameId": 53,
+   "code": "expanse",
+   "name": "Expanse",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-72",
+   "dataGameTypeCheckbox": "game",
+   "value": "72",
+   "lsmGameId": 72,
+   "code": "fachai",
+   "name": "Fachai",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-2",
+   "dataGameTypeCheckbox": "game",
+   "value": "2",
+   "lsmGameId": 2,
+   "code": "fastspin",
+   "name": "FastSpin",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-95",
+   "dataGameTypeCheckbox": "game",
+   "value": "95",
+   "lsmGameId": 95,
+   "code": "fungaming",
+   "name": "Fun Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-30",
+   "dataGameTypeCheckbox": "game",
+   "value": "30",
+   "lsmGameId": 30,
+   "code": "gpi",
+   "name": "GPI Game",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-32",
+   "dataGameTypeCheckbox": "game",
+   "value": "32",
+   "lsmGameId": 32,
+   "code": "gw",
+   "name": "Gaming World",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-29",
+   "dataGameTypeCheckbox": "game",
+   "value": "29",
+   "lsmGameId": 29,
+   "code": "haba",
+   "name": "Habanero",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-75",
+   "dataGameTypeCheckbox": "game",
+   "value": "75",
+   "lsmGameId": 75,
+   "code": "hotdog",
+   "name": "Hotdog Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-5",
+   "dataGameTypeCheckbox": "game",
+   "value": "5",
+   "lsmGameId": 5,
+   "code": "jili",
+   "name": "JILI",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-27",
+   "dataGameTypeCheckbox": "game",
+   "value": "27",
+   "lsmGameId": 27,
+   "code": "jk",
+   "name": "Joker",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-36",
+   "dataGameTypeCheckbox": "game",
+   "value": "36",
+   "lsmGameId": 36,
+   "code": "ka",
+   "name": "KA Game",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-33",
+   "dataGameTypeCheckbox": "game",
+   "value": "33",
+   "lsmGameId": 33,
+   "code": "kingmaker",
+   "name": "KingMaker",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-57",
+   "dataGameTypeCheckbox": "game",
+   "value": "57",
+   "lsmGameId": 57,
+   "code": "megawin",
+   "name": "MEGAWIN",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-41",
+   "dataGameTypeCheckbox": "game",
+   "value": "41",
+   "lsmGameId": 41,
+   "code": "mp",
+   "name": "MPoker",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-84",
+   "dataGameTypeCheckbox": "game",
+   "value": "84",
+   "lsmGameId": 84,
+   "code": "microgame",
+   "name": "Micro Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-48",
+   "dataGameTypeCheckbox": "game",
+   "value": "48",
+   "lsmGameId": 48,
+   "code": "naga",
+   "name": "NAGA GAMES",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-25",
+   "dataGameTypeCheckbox": "game",
+   "value": "25",
+   "lsmGameId": 25,
+   "code": "nextspin",
+   "name": "Next Spin",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-73",
+   "dataGameTypeCheckbox": "game",
+   "value": "73",
+   "lsmGameId": 73,
+   "code": "nolimitcity",
+   "name": "Nolimit City",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-24",
+   "dataGameTypeCheckbox": "game",
+   "value": "24",
+   "lsmGameId": 24,
+   "code": "ps",
+   "name": "Play Star",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-38",
+   "dataGameTypeCheckbox": "game",
+   "value": "38",
+   "lsmGameId": 38,
+   "code": "playtech",
+   "name": "Playtech",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-78",
+   "dataGameTypeCheckbox": "game",
+   "value": "78",
+   "lsmGameId": 78,
+   "code": "pgsoft",
+   "name": "Pocket Game (PG)",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-43",
+   "dataGameTypeCheckbox": "game",
+   "value": "43",
+   "lsmGameId": 43,
+   "code": "pp",
+   "name": "PragmaticPlay",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-70",
+   "dataGameTypeCheckbox": "game",
+   "value": "70",
+   "lsmGameId": 70,
+   "code": "rbsevenslot",
+   "name": "RB7 Slot",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-47",
+   "dataGameTypeCheckbox": "game",
+   "value": "47",
+   "lsmGameId": 47,
+   "code": "rich",
+   "name": "RICH88",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-80",
+   "dataGameTypeCheckbox": "game",
+   "value": "80",
+   "lsmGameId": 80,
+   "code": "relax",
+   "name": "Relax Gaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-31",
+   "dataGameTypeCheckbox": "game",
+   "value": "31",
+   "lsmGameId": 31,
+   "code": "spsg",
+   "name": "SimplePlay",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-44",
+   "dataGameTypeCheckbox": "game",
+   "value": "44",
+   "lsmGameId": 44,
+   "code": "sw",
+   "name": "Sky Wind",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-26",
+   "dataGameTypeCheckbox": "game",
+   "value": "26",
+   "lsmGameId": 26,
+   "code": "fg",
+   "name": "Spadegaming",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-83",
+   "dataGameTypeCheckbox": "game",
+   "value": "83",
+   "lsmGameId": 83,
+   "code": "vplus",
+   "name": "Vplus",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-81",
+   "dataGameTypeCheckbox": "game",
+   "value": "81",
+   "lsmGameId": 81,
+   "code": "alize",
+   "name": "alize",
+   "category": "game"
+  },
+  {
+   "idSuffix": "game-62",
+   "dataGameTypeCheckbox": "game",
+   "value": "62",
+   "lsmGameId": 62,
+   "code": "uuslots",
+   "name": "uuslots",
+   "category": "game"
+  },
+  {
+   "idSuffix": "casino-15",
+   "dataGameTypeCheckbox": "casino",
+   "value": "15",
+   "lsmGameId": 15,
+   "code": "ab",
+   "name": "ALLBET",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-63",
+   "dataGameTypeCheckbox": "casino",
+   "value": "63",
+   "lsmGameId": 63,
+   "code": "astar",
+   "name": "ASTAR",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-50",
+   "dataGameTypeCheckbox": "casino",
+   "value": "50",
+   "lsmGameId": 50,
+   "code": "bg",
+   "name": "Big Gaming",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-90",
+   "dataGameTypeCheckbox": "casino",
+   "value": "90",
+   "lsmGameId": 90,
+   "code": "cg",
+   "name": "CG Casino",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-19",
+   "dataGameTypeCheckbox": "casino",
+   "value": "19",
+   "lsmGameId": 19,
+   "code": "dg",
+   "name": "DG Casino",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-3",
+   "dataGameTypeCheckbox": "casino",
+   "value": "3",
+   "lsmGameId": 3,
+   "code": "evolution",
+   "name": "Evolution",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-71",
+   "dataGameTypeCheckbox": "casino",
+   "value": "71",
+   "lsmGameId": 71,
+   "code": "mangoplay",
+   "name": "MangoPlay",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-38",
+   "dataGameTypeCheckbox": "casino",
+   "value": "38",
+   "lsmGameId": 38,
+   "code": "playtech",
+   "name": "Playtech",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-43",
+   "dataGameTypeCheckbox": "casino",
+   "value": "43",
+   "lsmGameId": 43,
+   "code": "pp",
+   "name": "PragmaticPlay",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-20",
+   "dataGameTypeCheckbox": "casino",
+   "value": "20",
+   "lsmGameId": 20,
+   "code": "pretty",
+   "name": "Pretty Gaming",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-86",
+   "dataGameTypeCheckbox": "casino",
+   "value": "86",
+   "lsmGameId": 86,
+   "code": "audi",
+   "name": "RB7 Casino",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-18",
+   "dataGameTypeCheckbox": "casino",
+   "value": "18",
+   "lsmGameId": 18,
+   "code": "sa",
+   "name": "SA Casino",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-16",
+   "dataGameTypeCheckbox": "casino",
+   "value": "16",
+   "lsmGameId": 16,
+   "code": "sexy",
+   "name": "Sexy",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-44",
+   "dataGameTypeCheckbox": "casino",
+   "value": "44",
+   "lsmGameId": 44,
+   "code": "sw",
+   "name": "Sky Wind",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-85",
+   "dataGameTypeCheckbox": "casino",
+   "value": "85",
+   "lsmGameId": 85,
+   "code": "vivo",
+   "name": "Vivo Gaming",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-1",
+   "dataGameTypeCheckbox": "casino",
+   "value": "1",
+   "lsmGameId": 1,
+   "code": "wcasino",
+   "name": "WCASINO",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-17",
+   "dataGameTypeCheckbox": "casino",
+   "value": "17",
+   "lsmGameId": 17,
+   "code": "wm",
+   "name": "WM",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "casino-58",
+   "dataGameTypeCheckbox": "casino",
+   "value": "58",
+   "lsmGameId": 58,
+   "code": "yeebet",
+   "name": "YEEBET",
+   "category": "casino"
+  },
+  {
+   "idSuffix": "lottery-82",
+   "dataGameTypeCheckbox": "lotto",
+   "value": "82",
+   "lsmGameId": 82,
+   "code": "iamlotto",
+   "name": "IAM LOTTO",
+   "category": "lotto"
+  },
+  {
+   "idSuffix": "lottery-76",
+   "dataGameTypeCheckbox": "lotto",
+   "value": "76",
+   "lsmGameId": 76,
+   "code": "rbsevenlotto",
+   "name": "Lotto Plus",
+   "category": "lotto"
+  },
+  {
+   "idSuffix": "lottery-59",
+   "dataGameTypeCheckbox": "lotto",
+   "value": "59",
+   "lsmGameId": 59,
+   "code": "mylotto99",
+   "name": "MYLOTTO99",
+   "category": "lotto"
+  },
+  {
+   "idSuffix": "lottery-22",
+   "dataGameTypeCheckbox": "lotto",
+   "value": "22",
+   "lsmGameId": 22,
+   "code": "qqkeno",
+   "name": "QQKeno",
+   "category": "lotto"
+  }
+ ]
+}

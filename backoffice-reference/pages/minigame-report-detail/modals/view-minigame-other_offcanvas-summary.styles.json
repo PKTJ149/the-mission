@@ -1,0 +1,608 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(11) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(11) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(13) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(13) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(15) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(15) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(17) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(17) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(19) > div.col-12 > div.row:nth-of-type(2) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(3) > div.d-flex:nth-of-type(1) > div.p2": {
+  "text-overflow": "ellipsis"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(19) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(19) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(21) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(21) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(23) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(23) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(25) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(25) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(27) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(27) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(29) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(29) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.col-12 > hr:nth-of-type(3)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.col-12 > hr:nth-of-type(4)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.col-12 > hr:nth-of-type(5)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(5) > div.col-12 > div.row:nth-of-type(2) > div.col:nth-of-type(2) > div.row:nth-of-type(1) > div.col-12:nth-of-type(1) > div.p2": {
+  "width": "120px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(5) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(5) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(7) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(7) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(7) > div.col-12 > hr:nth-of-type(3)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(9) > div.col-12 > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#SettingMinigameStep5 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(9) > div.col-12 > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#openDropdownWheelDetail0 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail0 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail0 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail1 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail1 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail1 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail2 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail2 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail2 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail3 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail3 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail3 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail4 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail4 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail4 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail5 > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail5 > div.d-flex:nth-of-type(2) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#openDropdownWheelDetail5 > div.d-flex:nth-of-type(3) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#rootScrollMinigame > div.box-header-step:nth-of-type(1)": {
+  "padding-bottom": "7.5rem",
+  "padding-left": "3rem",
+  "padding-right": "3rem",
+  "padding-top": "4rem"
+ },
+ "#showCountDownColorCode > div.countdown-minigame": {
+  "width": "fit-content"
+ },
+ "#showEnableCloseAutoWithdrawActive": {
+  "display": "none"
+ },
+ "#showEnableConditionTurnoverActive": {
+  "display": "none"
+ },
+ "#showEnableCountDown1": {
+  "display": "none"
+ },
+ "#showEnableCountDownSetTime": {
+  "display": "none"
+ },
+ "#showEnableCreditToClearTurnoverActive": {
+  "display": "none"
+ },
+ "#showEnableEveryday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(145, 145, 145)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableFriday": {
+  "display": "none"
+ },
+ "#showEnableFriday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(119, 198, 255)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableIncreaseTurnOverActive": {
+  "display": "none"
+ },
+ "#showEnableLimitBalanceActive": {
+  "display": "none"
+ },
+ "#showEnableLimitCustomerGroupActive": {
+  "display": "none"
+ },
+ "#showEnableLimitPerGamePerDayActive": {
+  "display": "none"
+ },
+ "#showEnableLimitPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerDayActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerDayPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerMonthActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerMonthPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerPromotionActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerTimePerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerWeekActive": {
+  "display": "none"
+ },
+ "#showEnableMaxCountPerWeekPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxPromotion1": {
+  "display": "none"
+ },
+ "#showEnableMaxPromotionPerPersonActive": {
+  "display": "none"
+ },
+ "#showEnableMaxRemainCreditToClearTurnover": {
+  "display": "none"
+ },
+ "#showEnableMinTurnover": {
+  "display": "none"
+ },
+ "#showEnableMinTurnoverCredit": {
+  "display": "none"
+ },
+ "#showEnableMonday": {
+  "display": "none"
+ },
+ "#showEnableMonday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(255, 204, 23)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableRemainingDateTime": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showEnableRemainingDay": {
+  "color": "rgb(80, 161, 152)",
+  "display": "none"
+ },
+ "#showEnableResetActive": {
+  "display": "none"
+ },
+ "#showEnableResetDateTime": {
+  "display": "none"
+ },
+ "#showEnableResetTime": {
+  "display": "none"
+ },
+ "#showEnableSaturday": {
+  "display": "none"
+ },
+ "#showEnableSaturday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(167, 99, 255)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableSetZeroCreditAfterWithdrawActive": {
+  "display": "none"
+ },
+ "#showEnableSunday": {
+  "display": "none"
+ },
+ "#showEnableSunday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(255, 119, 119)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableThursday": {
+  "display": "none"
+ },
+ "#showEnableThursday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(255, 168, 0)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableTuesday": {
+  "display": "none"
+ },
+ "#showEnableTuesday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(251, 199, 255)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableWednesday": {
+  "display": "none"
+ },
+ "#showEnableWednesday > div.d-flex > div.box-list-date-promotion:nth-of-type(1)": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(146, 196, 123)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#showEnableWithdrawConditionActive": {
+  "display": "none"
+ },
+ "#showEnableWithdrawConditionMaxWithdrawActive": {
+  "display": "none"
+ },
+ "#showEnableWithdrawConditionMinRemainCreditActive": {
+  "display": "none"
+ },
+ "#showEnableWithdrawConditionMinTurnover": {
+  "display": "none"
+ },
+ "#showLimitBalanceInactive": {
+  "display": "none"
+ },
+ "#showLimitCustomerGroupActive": {
+  "display": "none"
+ },
+ "#showLimitPerGamePerDayInactive": {
+  "display": "none"
+ },
+ "#showLimitPerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerDayInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerDayPerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerMonthInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerMonthPerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerPromotionInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerTimePerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerWeekInactive": {
+  "display": "none"
+ },
+ "#showMaxCountPerWeekPerPersonInactive": {
+  "display": "none"
+ },
+ "#showMaxRemainCreditToClearTurnover": {
+  "display": "none"
+ },
+ "#showMinTurnover": {
+  "display": "none"
+ },
+ "#showMinTurnoverCredit": {
+  "display": "none"
+ },
+ "#showMinigameEnableRemoveChance1": {
+  "display": "none"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(1) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(2) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(3) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(4) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(5) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > div.row:nth-of-type(6) > div.col:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.p2:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(1)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(2)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(3)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(4)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(5)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showPartsLuckywheelluckyWheelRewards > hr:nth-of-type(6)": {
+  "margin-bottom": "8px",
+  "margin-left": "-28px",
+  "margin-right": "-28px",
+  "margin-top": "0px"
+ },
+ "#showResetDayHourMinute": {
+  "display": "none"
+ },
+ "#showResetTimeBkk": {
+  "display": "none"
+ },
+ "#showStatusDetail1 > img": {
+  "display": "none"
+ },
+ "#showStatusDetail2": {
+  "display": "none"
+ },
+ "#showWithdrawConditionMaxWithdrawInactive": {
+  "display": "none"
+ },
+ "#showWithdrawConditionMinRemainCreditInactive": {
+  "display": "none"
+ },
+ "#showWithdrawConditionMinTurnover": {
+  "display": "none"
+ },
+ "#showWithdrawConditionMinTurnoverCredit": {
+  "display": "none"
+ },
+ "#showminigameEnableFixChance11": {
+  "display": "none"
+ }
+}

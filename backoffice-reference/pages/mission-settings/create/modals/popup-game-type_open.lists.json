@@ -1,0 +1,39 @@
+{
+ "_note": "Full item lists of sibling groups that were collapsed in popup-game-type_open.html (value | text, text truncated to 90 chars).",
+ "groups": [
+  {
+   "items": [
+    "all | Select All",
+    "15 | ALLBET",
+    "63 | ASTAR",
+    "50 | Big Gaming",
+    "90 | CG Casino",
+    "19 | DG Casino",
+    "3 | Evolution",
+    "71 | MangoPlay",
+    "38 | Playtech",
+    "43 | PragmaticPlay",
+    "20 | Pretty Gaming",
+    "86 | RB7 Casino",
+    "18 | SA Casino",
+    "16 | Sexy",
+    "44 | Sky Wind",
+    "85 | Vivo Gaming",
+    "1 | WCASINO",
+    "17 | WM",
+    "58 | YEEBET"
+   ],
+   "sig": "DIV group-provider-item"
+  },
+  {
+   "items": [
+    "all | Select All",
+    "82 | IAM LOTTO",
+    "76 | Lotto Plus",
+    "59 | MYLOTTO99",
+    "22 | QQKeno"
+   ],
+   "sig": "DIV group-provider-item"
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#btnAddMinigame": {
+  "width": "168px"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(1)": {
+  "--item": "1"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(2)": {
+  "--item": "2"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(3)": {
+  "--item": "3"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(4)": {
+  "--item": "4"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(5)": {
+  "--item": "5"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(6)": {
+  "--item": "6"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(7)": {
+  "--item": "7"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(8)": {
+  "--item": "8"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(1) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-2:nth-of-type(2) > div.header-minigame-bonus:nth-of-type(1) > div": {
+  "align-items": "center",
+  "display": "flex"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(1)": {
+  "--item": "1"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(2)": {
+  "--item": "2"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(3)": {
+  "--item": "3"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(4)": {
+  "--item": "4"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(5)": {
+  "--item": "5"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(6)": {
+  "--item": "6"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(7)": {
+  "--item": "7"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-1:nth-of-type(1) > div.thumbnail-minigame:nth-of-type(2) > div.wheel-wrapper > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(8)": {
+  "--item": "8"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(2) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-2:nth-of-type(2) > div.header-minigame-bonus:nth-of-type(1) > div": {
+  "align-items": "center",
+  "display": "flex"
+ },
+ "#customMinigameDraggable > div.menu-item:nth-of-type(3) > div.d-flex:nth-of-type(2) > div.d-flex:nth-of-type(1) > div.minigame-col-2:nth-of-type(2) > div.header-minigame-bonus:nth-of-type(1) > div": {
+  "align-items": "center",
+  "display": "flex"
+ },
+ "#divMinigameTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(1)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#divMinigameTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#divMinigameTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(3)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#divMinigameTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(4)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#divMinigameTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(5)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#divMinigameTable > div.table-loading:nth-of-type(1)": {
+  "display": "none"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card > div.d-flex:nth-of-type(2) > div:nth-of-type(3) > ul.dropdown-menu": {
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(13, 42, 39)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial",
+  "border-bottom-left-radius": "12px",
+  "border-bottom-right-radius": "12px",
+  "border-top-left-radius": "12px",
+  "border-top-right-radius": "12px",
+  "width": "207px"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card > div.row:nth-of-type(4) > div.col > div.row > div.col-auto:nth-of-type(1)": {
+  "flex-basis": "264px"
+ }
+}

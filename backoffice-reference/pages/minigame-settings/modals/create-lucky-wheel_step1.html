@@ -1,0 +1,245 @@
+<div class="offcanvas offcanvas-end offcanvas-minigame-custom show" id="offcanvasMinigameSetting" data-bs-focus="false" aria-modal="true" role="dialog">
+<div class="offcanvas-header offcanvas-header-minigame">
+<h4 class="mb-0" id="offcanvasMinigameDetailLabel"><span data-i18n="minigameSetting.luckyWheelCreate">สร้างวงล้อนำโชค</span></h4>
+<div class="icon-close-offcanvas-minigame-custom" data-bs-dismiss="offcanvas" aria-label="Close">
+<i class="ri-close-line"></i>
+</div>
+</div>
+<div class="offcanvas-body position-relative p-0" id="rootScrollMinigame">
+<div class="session-title-minigame">
+<img src="/assets/images/minigame/edit-icon.png" width="72" height="72">
+<div class="canvas-box-step w-100">
+<div class="show-detail" data-capture-style-props="display">
+<div class="d-flex flex-row align-items-center gap-2">
+<div class="d-flex flex-row gap-0">
+<div>
+<div class="p1 fw-700 text-white show-detail" id="offcanvasMinigameViewDetail1" data-capture-style-props="display">สรุปข้อมูลการตั้งค่าเกมส์อื่นๆ ของคุณ</div>
+<span class="p3" data-capture-style-props="color">
+คุณสามารถเปิด / ปิดการใช้งานส่วนต่าง ๆ ได้จากหน้านี้หรือ กดแก้ไข
+เพื่อทำการแก้ไขรายละเอียดอื่น ๆ ได้ตามที่คุณต้องการ
+</span>
+</div>
+</div>
+<div class="text-end">
+<button class="btn system-btn btn-orange btn-rounded px-1" id="btnEditMinigameDetail" data-type="" onclick="editMinigameDetail()" data-capture-style-props="font-size width">
+<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.3333 10.0027C15.8725 10.0027 15.5 10.376 15.5 10.8359V17.5027C15.5 17.9618 15.1266 18.3359 14.6667 18.3359H3C2.53995 18.3359 2.16672 17.9618 2.16672 17.5027V5.83594C2.16672 5.3768 2.53995 5.00266 3 5.00266H9.66672C10.1275 5.00266 10.5 4.62927 10.5 4.16937C10.5 3.70932 10.1275 3.33594 9.66672 3.33594H3C1.62167 3.33594 0.5 4.45761 0.5 5.83594V17.5027C0.5 18.881 1.62167 20.0027 3 20.0027H14.6667C16.045 20.0027 17.1667 18.881 17.1667 17.5027V10.8359C17.1667 10.3751 16.7941 10.0027 16.3333 10.0027Z" fill="white"></path>
+<path d="M8.31295 9.24176C8.25466 9.30005 8.21545 9.37421 8.19882 9.45416L7.60967 12.4009C7.58221 12.5375 7.62554 12.6783 7.72381 12.7775C7.803 12.8567 7.90966 12.8991 8.01891 12.8991C8.04546 12.8991 8.07308 12.8967 8.10055 12.8909L11.0464 12.3018C11.128 12.285 11.2022 12.2459 11.2597 12.1875L17.8531 5.59415L14.9072 2.64844L8.31295 9.24176Z" fill="white"></path>
+<path d="M19.8901 0.609398C19.0778 -0.203133 17.756 -0.203133 16.9443 0.609398L15.791 1.76266L18.7369 4.70852L19.8901 3.55511C20.2835 3.16265 20.5002 2.63927 20.5002 2.08263C20.5002 1.52599 20.2835 1.00262 19.8901 0.609398Z" fill="white"></path>
+</svg>
+<span id="textBtnEdit">แก้ไขข้อมูลเกมส์อื่นๆ</span>
+</button>
+</div>
+</div>
+</div>
+<div class="top-title-minigame show-edit show-create">
+<span id="textTitleStepSettingMinigame">Step 1</span>
+<div>
+<span class="title-minigame-detail" id="textDetailStepSettingMinigame" data-capture-style-props="font-size"><span data-i18n="minigameSetting.luckyWheelTypeOther">ระบุรายละเอียดมินิเกมส์ : วงล้อนำโชค</span></span>
+<span class="description-minigame-detail" id="textdescriptionStepSettingMinigame" data-capture-style-props="font-size"><span data-i18n="minigameSetting.luckyWheelSubTextSetting">ระบุชื่อวงล้อนำโชคของคุณให้โดดเด่นดึงดูดสมาชิก พร้อมทั้งระบุเงื่อนไขที่ชัดเจนและเข้าใจง่าย</span></span>
+</div>
+</div>
+<div class="progress-setting-minigame progress-moved-setting-minigame show-edit show-create">
+<div class="progress-bar" id="progressStepSettingMinigame" data-capture-style-props="width">
+</div>
+<span class="progress-step" id="textStepAllSettingMinigame">Step 1/5</span>
+</div>
+</div>
+</div>
+<div class="canvas-box-body" id="SettingMinigameStep1" style="">
+<div class="tab-header">
+<div class="header-in-body active">
+<div class="tab-group">
+<span class="fw-700" id="textHeadTap"><span data-i18n="minigameSetting.luckyWheelDetailText">รายละเอียดวงล้อนำโชค</span></span>
+<div>
+<div class="custom-switch switch-alone form-check form-switch">
+<input class="form-check-input" type="checkbox" id="minigameStatus" value="active">
+</div>
+<span id="textSwitchTab1"><span data-i18n="minigameSetting.luckyWheelOpenSetting">เปิด / ปิด การใช้งานวงล้อนำโชค</span></span>
+</div>
+</div>
+</div>
+</div>
+<div class="multi-language-body">
+<div class="multi-language-header">
+<span class="text-white fw-700" data-i18n="minigameSetting.luckyWheelDetailSubText">กำหนดรายละเอียดแต่ละภาษา</span>
+<span class="p3" data-i18n="minigameSetting.luckyWheelDetailSubText2"> เมื่อกำหนดรายละเอียดให้ภาษาใดแล้ว ภาษานั้นจะสามารถเลือกให้เแสดงที่หน้าเล่นของสมาชิกได้</span>
+</div>
+<div class="multi-language-button-div">
+<button class="btn multi-lang-button btn-lang-th multi-lang-selected" lang-select-btn="th" onclick="selectMultiLanguage('th')">
+<span class="row">
+<span class="col-12">
+<span class="" data-i18n="minigameSetting.languageSettingTh">ค่าเริ่มต้น (ไทย)</span>
+</span>
+<span class="col-12">
+<span class="p3 multi-setting-th multi-lang-status-f"><span data-i18n="minigameSetting.settingNotSet">(ยังไม่กำหนด)</span></span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-en" lang-select-btn="en" onclick="selectMultiLanguage('en')">
+<span class="row">
+<span class="col-4">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4050_7238)" filter="url(#filter0_d_4050_7238)">
+<path d="M27.0438 12C27.0438 12.6455 26.989 13.2825 26.8811 13.906C26.538 15.8883 25.661 17.7305 24.3213 19.261C24.1577 19.4485 23.9866 19.6313 23.809 19.809C23.6533 19.9646 23.494 20.115 23.3308 20.2599C21.7924 21.6291 19.9329 22.5258 17.9294 22.8769C17.2985 22.9876 16.6535 23.0438 16 23.0438C15.3625 23.0438 14.7335 22.9899 14.1175 22.8849C12.1141 22.5427 10.2522 21.6554 8.71005 20.296C8.53286 20.1399 8.35989 19.9777 8.19114 19.809C8.02661 19.6444 7.86771 19.4752 7.71489 19.3022C6.35458 17.7633 5.46536 15.9057 5.11896 13.906C5.01114 13.2825 4.9563 12.6455 4.9563 12C4.9563 11.3546 5.01114 10.7175 5.11896 10.0941C5.46489 8.09677 6.35271 6.24099 7.70974 4.70349C7.86396 4.52864 8.02474 4.35755 8.19114 4.19114C8.35802 4.02427 8.52911 3.86349 8.70442 3.70927C10.248 2.34708 12.1118 1.45786 14.1175 1.11521C14.7335 1.01021 15.3625 0.956299 16 0.956299C16.6535 0.956299 17.2985 1.01255 17.9294 1.12317C19.9249 1.47286 21.7783 2.36442 23.313 3.72427C23.4822 3.87427 23.6477 4.02989 23.809 4.19114C23.981 4.36317 24.1465 4.53942 24.3054 4.72036C25.654 6.25458 26.5366 8.1038 26.8811 10.0941C26.989 10.7175 27.0438 11.3546 27.0438 12Z" fill="#0153B5"></path>
+<path d="M26.6763 14.8435H21.213L24.9115 18.526C24.58 18.9769 24.2121 19.4058 23.809 19.809C23.4283 20.1896 23.0247 20.5393 22.601 20.8561L18.8669 17.1376V22.6697C17.943 22.9168 16.9811 23.0438 16 23.0438C15.0354 23.0438 14.0894 22.921 13.18 22.6824V17.1563L9.44317 20.889C9.00349 20.5632 8.58489 20.2027 8.19114 19.809C7.80114 19.419 7.44396 19.0051 7.12099 18.5701L10.8527 14.8435H5.3238C5.08146 13.9271 4.9563 12.9732 4.9563 12C4.9563 11.0269 5.08146 10.073 5.3238 9.15661H10.8532L7.11677 5.43567C7.44067 4.9988 7.79927 4.58302 8.19114 4.19114C8.58302 3.79927 8.99927 3.44021 9.43661 3.11583L13.18 6.8438V1.31771C14.0894 1.07911 15.0354 0.956299 16 0.956299C16.9811 0.956299 17.943 1.08333 18.8669 1.33036V6.83958L22.5818 3.12942C23.0126 3.45052 23.4227 3.80489 23.809 4.19114C24.2065 4.58864 24.5693 5.01052 24.8969 5.45442L21.1901 9.15661H26.6763C26.9186 10.073 27.0438 11.0269 27.0438 12C27.0438 12.9732 26.9186 13.9271 26.6763 14.8435Z" fill="#EFEFEF"></path>
+<path d="M13.18 14.8435V15.8316L8.71005 20.296C8.53286 20.1399 8.35989 19.9777 8.19114 19.809C8.02661 19.6444 7.86771 19.4752 7.71489 19.3022L12.1793 14.8435H13.18ZM23.809 4.19114C23.6477 4.02989 23.4822 3.87427 23.313 3.72427L18.8669 8.16427V9.15661H19.8635L24.3054 4.72036C24.1465 4.53942 23.981 4.36317 23.809 4.19114ZM8.70442 3.70927C8.52911 3.86349 8.35802 4.02427 8.19114 4.19114C8.02474 4.35755 7.86396 4.52864 7.70974 4.70349L12.1816 9.15661H13.18V8.16614L8.70442 3.70927ZM19.8851 14.8435H18.8669V15.8143L23.3308 20.2599C23.494 20.115 23.6533 19.9646 23.809 19.809C23.9866 19.6313 24.1577 19.4485 24.3213 19.261L19.8851 14.8435ZM26.8811 10.0941H17.9294V1.12317C17.2985 1.01255 16.6535 0.956299 16 0.956299C15.3625 0.956299 14.7335 1.01021 14.1175 1.11521V10.0941H5.11896C5.01114 10.7175 4.9563 11.3546 4.9563 12C4.9563 12.6455 5.01114 13.2825 5.11896 13.906H14.1175V22.8849C14.7335 22.9899 15.3625 23.0438 16 23.0438C16.6535 23.0438 17.2985 22.9876 17.9294 22.8769V13.906H26.8811C26.989 13.2825 27.0438 12.6455 27.0438 12C27.0438 11.3546 26.989 10.7175 26.8811 10.0941Z" fill="#D90028"></path>
+<path opacity="0.13" d="M27.0438 12C27.0438 14.9499 25.8949 17.723 23.8089 19.809C21.723 21.8949 18.9499 23.0438 16 23.0438C13.7491 23.0438 11.6013 22.3749 9.78345 21.1313C11.6491 21.9436 13.7069 22.2305 15.7736 21.9446C18.738 21.5344 21.3649 19.9941 23.1709 17.6082C24.9766 15.2218 25.7453 12.2752 25.3352 9.31129C24.9761 6.72051 23.755 4.38754 21.8599 2.63489C22.5578 3.07317 23.2117 3.59395 23.8089 4.19114C25.8949 6.27708 27.0438 9.0502 27.0438 12Z" fill="#160204"></path>
+<path opacity="0.25" d="M21.2496 2.27817C19.2832 1.71099 17.1925 1.6838 15.1624 2.22052C12.2032 3.00333 9.7263 4.89146 8.18692 7.53708C6.64802 10.1832 6.2313 13.2699 7.01411 16.2291C7.49177 18.0357 8.38145 19.6622 9.60442 21.0061C9.10567 20.6508 8.63317 20.251 8.19114 19.809C6.10521 17.723 4.9563 14.9499 4.9563 12C4.9563 9.05021 6.10521 6.27708 8.19114 4.19114C10.2771 2.10521 13.0502 0.956299 16 0.956299C17.8633 0.956299 19.6558 1.41474 21.2496 2.27817Z" fill="white"></path>
+</g>
+<defs>
+<filter id="filter0_d_4050_7238" x="0" y="0" width="32" height="32" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset dy="4"></feOffset>
+<feGaussianBlur stdDeviation="2"></feGaussianBlur>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4050_7238"></feBlend>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4050_7238" result="shape"></feBlend>
+</filter>
+<clipPath id="clip0_4050_7238">
+<rect width="24" height="24" fill="white" transform="translate(4)"></rect>
+</clipPath>
+</defs>
+</svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12 multi-lang-text-en" data-i18n="minigameSetting.languageSettingen">อังกฤษ</span>
+<span class="col-12 multi-setting-en multi-lang-status-f p3"><span data-i18n="minigameSetting.settingNotSet">(ยังไม่กำหนด)</span></span>
+</span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-tl" lang-select-btn="tl" onclick="selectMultiLanguage('tl')">
+<span class="row">
+<span class="col-4">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4050_7344)">
+<path d="M23.0436 12.0001C23.0436 14.9499 21.8949 17.7232 19.809 19.809C17.7232 21.8949 14.9499 23.0436 12.0001 23.0436C9.05022 23.0436 6.27695 21.8949 4.19111 19.809C2.10526 17.7232 0.956543 14.9499 0.956543 12.0001C0.956543 9.05022 2.10526 6.27695 4.19111 4.19111C6.27695 2.10526 9.05022 0.956543 12.0001 0.956543C14.9499 0.956543 17.7232 2.10526 19.809 4.19111C21.8949 6.27695 23.0436 9.05022 23.0436 12.0001Z" fill="#EFEFEF"></path>
+<path d="M23.0438 12C23.0438 14.9499 21.8949 17.723 19.8089 19.809C17.723 21.8949 14.9499 23.0438 12 23.0438C9.05017 23.0438 6.27704 21.8949 4.1911 19.809C4.11892 19.7368 4.04813 19.6641 3.97876 19.5905L12.5405 12L3.97876 4.40958C4.04813 4.33599 4.11892 4.26333 4.1911 4.19114C6.27704 2.10521 9.05017 0.956299 12 0.956299C14.9499 0.956299 17.723 2.10521 19.8089 4.19114C21.8949 6.27708 23.0438 9.05021 23.0438 12Z" fill="#D80027"></path>
+<path d="M23.0438 12H12.5405L3.97876 4.40958C4.04813 4.33599 4.11892 4.26333 4.1911 4.19114C6.27704 2.10521 9.05017 0.956299 12 0.956299C14.9499 0.956299 17.723 2.10521 19.8089 4.19114C21.8949 6.27708 23.0438 9.05021 23.0438 12Z" fill="#0052B4"></path>
+<path opacity="0.13" d="M23.0438 12C23.0438 14.9499 21.8949 17.723 19.8089 19.809C17.723 21.8949 14.9499 23.0438 12 23.0438C9.74907 23.0438 7.60126 22.3749 5.78345 21.1313C7.64907 21.9436 9.70688 22.2305 11.7736 21.9446C14.738 21.5344 17.3649 19.9941 19.1709 17.6082C20.9766 15.2218 21.7453 12.2752 21.3352 9.31129C20.9761 6.72051 19.755 4.38754 17.8599 2.63489C18.5578 3.07317 19.2117 3.59395 19.8089 4.19114C21.8949 6.27708 23.0438 9.0502 23.0438 12Z" fill="#160204"></path>
+<path opacity="0.25" d="M17.2496 2.27817C15.2832 1.71099 13.1925 1.6838 11.1624 2.22052C8.20317 3.00333 5.7263 4.89146 4.18692 7.53708C2.64802 10.1832 2.2313 13.2699 3.01411 16.2291C3.49177 18.0357 4.38145 19.6622 5.60442 21.0061C5.10567 20.6508 4.63317 20.251 4.19114 19.809C2.10521 17.723 0.956299 14.9499 0.956299 12C0.956299 9.05021 2.10521 6.27708 4.19114 4.19114C6.27708 2.10521 9.05021 0.956299 12 0.956299C13.8633 0.956299 15.6558 1.41474 17.2496 2.27817Z" fill="white"></path>
+<path d="M8.21568 12C8.21568 13.2182 7.22488 14.2093 6.00702 14.2093C4.78921 14.2093 3.79846 13.2182 3.79846 12C3.79846 10.7818 4.78921 9.79077 6.00702 9.79077C7.22488 9.79077 8.21568 10.7818 8.21568 12Z" fill="#FFDA44"></path>
+</g>
+<defs>
+<clipPath id="clip0_4050_7344">
+<rect width="24" height="24" fill="white"></rect>
+</clipPath>
+</defs>
+</svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12 multi-lang-text-tl" data-i18n="minigameSetting.languageSettingtl">ตากาล๊อก</span>
+<span class="col-12 multi-setting-tl multi-lang-status-f p3"><span data-i18n="minigameSetting.settingNotSet">(ยังไม่กำหนด)</span></span>
+</span>
+</span>
+</span>
+</button>
+</div>
+</div>
+<div class="main-in-detail-body content-col-2">
+<div class="body-content-left max-w-368">
+<div class="custom-input mb-3">
+<div class="d-flex align-items-center justify-content-between minigame-name-label">
+<label class="form-label"><span class="textLabelName" data-i18n="minigameSetting.luckyWheelNameTxt">ชื่อวงล้อนำโชค</span> <span class="text-red-50">*</span></label>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="d-flex align-items-center justify-content-between minigame-name-label-en display-none">
+<label class="form-label"><span class="textLabelName" data-i18n="minigameSetting.luckyWheelNameTxt">ชื่อวงล้อนำโชค</span></label>
+</div>
+<input type="text" class="form-control display-none input-promotion-name-en" id="minigameName-en" data-i18n="minigameSetting.[placeholder]phLuckyWheelNameInput" onkeyup="checkMultiSetting()" data-name-lang="en" data-step-now="1">
+<div class="d-flex align-items-center justify-content-between minigame-name-label-tl display-none">
+<label class="form-label"><span class="textLabelName" data-i18n="minigameSetting.luckyWheelNameTxt">ชื่อวงล้อนำโชค</span></label>
+</div>
+<input type="text" class="form-control display-none input-promotion-name-tl" id="minigameName-tl" data-i18n="minigameSetting.[placeholder]phLuckyWheelNameInput" onkeyup="checkMultiSetting()" data-name-lang="tl" data-step-now="1">
+<div class="text-start invalid-feedback invalid-feedback-minigame-name"></div>
+</div>
+<div class="custom-input">
+<div class="d-flex align-items-center justify-content-between">
+<label class="form-label" data-i18n="minigameSetting.promotionCondition">เงื่อนไขโปรโมชั่น</label>
+</div>
+</div>
+<div class="textarea-condition-th">
+<textarea class="input-promotion-condition-th" id="minigameConditionHtml" onkeyup="checkMultiSetting()" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p class="ck-placeholder" data-placeholder="ระบุเงื่อนไขมินิเกมส์"><br data-cke-filler="true"></p></div>
+</div>
+<div class="textarea-condition-en" data-capture-style-props="display">
+<textarea class="display-none input-promotion-condition-en" data-condition-lang="en" id="minigameConditionHtml-en" onkeyup="checkMultiSetting()" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p class="ck-placeholder" data-placeholder="ระบุเงื่อนไขมินิเกมส์"><br data-cke-filler="true"></p></div>
+</div>
+<div class="textarea-condition-tl" data-capture-style-props="display">
+<textarea class="display-none input-promotion-condition-tl" data-condition-lang="tl" id="minigameConditionHtml-tl" onkeyup="checkMultiSetting()" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p class="ck-placeholder" data-placeholder="ระบุเงื่อนไขมินิเกมส์"><br data-cke-filler="true"></p></div>
+</div>
+</div>
+<div class="body-content-right" data-capture-style-props="max-width">
+<div class="custom-input mb-3">
+<div class="d-flex align-items-center justify-content-between">
+<label class="form-label"><span data-i18n="minigameSetting.chooseAgent">เลือก Agent</span> <span class="text-red-50">*</span></label>
+</div>
+<div class="custom-input custom-float pb-2">
+<div class="custom-input dropdown-wrapper require empty" id="customSelectAgentDropdown">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">เลือก Agent</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body">
+<div data-value="669" class="custom-dropdown-item">superxx</div>
+<div data-value="501" class="custom-dropdown-item">superx</div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-selectAgentDropdown" data-i18n="minigameSetting.plsChooseAgent" data-capture-style-props="display">กรุณาเลือก Agent</div>
+</div>
+</div>
+<div class="text-start invalid-feedback invalid-feedback-minigame-name"></div>
+</div>
+<div class="col-12">
+<div class="d-flex align-items-center gap-4">
+<label class="" for="fileImageIconImage">
+<div class="box-icon-upload-bg img-mock-image-icon">
+<img class="box-icon-upload-default showImagePreviewImageIcon" src="https://p88.blob.core.windows.net/images/default/ic-wheel.png">
+<img class="box-icon-upload-small" src="/assets/images/icon-upload-small.png">
+</div>
+<img class="img-upload-image-icon-show" src="" data-capture-style-props="display">
+<input type="hidden" id="imageIconUrl" value="https://p88.blob.core.windows.net/images/default/ic-wheel.png">
+</label>
+<input type="file" id="fileImageIconImage" data-capture-style-props="display">
+<div class="d-flex flex-column align-items-start gap-1">
+<span class="p2 fw-700 text-start" data-i18n="minigameSetting.imageIcon" data-capture-style-props="color">อัพโหลดรูป ICON หน้าเล่น</span>
+<small class="p3 text-start" data-i18n="minigameSetting.imageUploadText" data-capture-style-props="color">คำแนะนำ : ขนาดรูป 76 px x 65 px&lt;br /&gt;สกุล png,gif,jpg</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-btn-minigame-setting" id="groupBtnSettingMinigame1" style="">
+<div class="d-flex align-items-center justify-content-between">
+<div>
+<button data-i18n="minigameSetting.summarizeAndSave" id="buttonNextPromotionStepfinal1" class="btn btn-outline-warning disabled" data-type="next" onclick="nextPromotionMiniGameStepFinal(this, '1', '6')" data-capture-style-props="width display">ไปหน้าสรุป</button>
+</div>
+<div>
+<button data-i18n="minigameSetting.back" class="btn system-btn btn-outline btn-rounded" data-type="previous" onclick="btnStepSettingMinigame(this,'','')" disabled="" data-capture-style-props="width">ขั้นตอนก่อนหน้า</button>
+<button data-i18n="minigameSetting.next" class="btn system-btn btn-rounded ms-2 disabled" data-type="next" onclick="btnStepSettingMinigame(this,'1','2-1')" data-capture-style-props="width">ถัดไป</button>
+</div>
+</div>
+</div>
+</div>
+<!-- [div id=SettingMinigameStep2 class="canvas-box-body"] captured separately (see modals/) -->
+<!-- [div id=SettingMinigameStep3 class="canvas-box-body"] captured separately (see modals/) -->
+<!-- [div id=SettingMinigameStep4 class=""] captured separately (see modals/) -->
+<!-- [div id=SettingMinigameStep5 class="canvas-box-body"] captured separately (see modals/) -->
+<!-- [div id=SettingMinigameStep6 class="canvas-box-body"] captured separately (see modals/) -->
+</div>
+</div>

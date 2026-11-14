@@ -1,0 +1,49 @@
+@font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 100;
+    src: url('ibm-plex-sans-thai-v10-100.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 200;
+    src: url('ibm-plex-sans-thai-v10-200.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 300;
+    src: url('ibm-plex-sans-thai-v10-300.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 400;
+    src: url('ibm-plex-sans-thai-v10-regular.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 500;
+    src: url('ibm-plex-sans-thai-v10-500.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 600;
+    src: url('ibm-plex-sans-thai-v10-600.woff2') format('woff2'); 
+  }
+  @font-face {
+    font-display: swap; 
+    font-family: 'IBM Plex Sans Thai';
+    font-style: normal;
+    font-weight: 700;
+    src: url('ibm-plex-sans-thai-v10-700.woff2') format('woff2'); 
+  }

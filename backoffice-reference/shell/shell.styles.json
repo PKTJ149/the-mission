@@ -1,0 +1,141 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#btnRemoveChancePriviegeTemplate": {
+  "display": "none"
+ },
+ "#error-MinigameRemoveChance-template": {
+  "display": "none"
+ },
+ "#error-credit-template": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameChanceAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-template": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-template": {
+  "display": "none"
+ },
+ "#error-percent-template": {
+  "display": "none"
+ },
+ "#error-percentMax-template": {
+  "display": "none"
+ },
+ "#error-point-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositTypeDropdown": {
+  "display": "none"
+ },
+ "#error-quota-template": {
+  "display": "none"
+ },
+ "#error-rewardName-template": {
+  "display": "none"
+ },
+ "#inputCredit-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputMinigameAlertAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameChanceAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputPercentMax-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputRewardName-template > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#minigameDeleteMinigameDatetime-template": {
+  "display": "none"
+ },
+ "#modalShowWheelDetail > div.modal-wrapper > div.modal-container > div.modal-inner:nth-of-type(2) > div.text-center:nth-of-type(2) > button.btn": {
+  "width": "168px"
+ },
+ "#removeNotificationModal > div.modal-dialog > div.modal-content > div.modal-body:nth-of-type(2) > div.mt-2:nth-of-type(1) > lord-icon": {
+  "height": "100px",
+  "width": "100px"
+ },
+ "#scrollbar > div.simplebar-track:nth-of-type(2)": {
+  "visibility": "hidden"
+ },
+ "#scrollbar > div.simplebar-track:nth-of-type(2) > div.simplebar-scrollbar": {
+  "display": "none",
+  "transform": "translate3d(0px, 0px, 0px)",
+  "width": "0px"
+ },
+ "#scrollbar > div.simplebar-track:nth-of-type(3)": {
+  "visibility": "visible"
+ },
+ "#scrollbar > div.simplebar-track:nth-of-type(3) > div.simplebar-scrollbar": {
+  "display": "block",
+  "height": "692px",
+  "transform": "translate3d(0px, 0px, 0px)"
+ },
+ "#scrollbar > div.simplebar-wrapper:nth-of-type(1)": {
+  "margin-bottom": "0px",
+  "margin-left": "0px",
+  "margin-right": "0px",
+  "margin-top": "0px"
+ },
+ "#scrollbar > div.simplebar-wrapper:nth-of-type(1) > div.simplebar-placeholder:nth-of-type(3)": {
+  "height": "1016px",
+  "width": "auto"
+ },
+ "#showBoxPromotionBonusFixed-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-template": {
+  "display": "none"
+ },
+ "body > div.swal-backdrop:nth-of-type(5)": {
+  "display": "none"
+ }
+}

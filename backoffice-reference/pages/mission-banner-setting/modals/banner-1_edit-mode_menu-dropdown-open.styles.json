@@ -1,0 +1,14 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#banner-mission-1 > div.banner-mission-menu-content:nth-of-type(2) > div.banner-mission-menu-content-main:nth-of-type(2) > div.banner-mission-menu-content-main-url:nth-of-type(3) > div.group-btn-banner-mission-custom-url:nth-of-type(1) > div.group-input-banner-mission-custom-url:nth-of-type(1) > div.custom-input:nth-of-type(2) > div.custom-dropdown-wrapper > div.custom-dropdown:nth-of-type(3)": {
+  "bottom": "auto",
+  "left": "1356px",
+  "max-height": "1321.5px",
+  "right": "auto",
+  "top": "333.5px",
+  "width": "266px"
+ },
+ "#error-selectMenuMissionDropdown-1": {
+  "display": "none"
+ }
+}

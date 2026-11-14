@@ -1,0 +1,253 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#SettingMinigameStep3": {
+  "display": "none"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(1) > div.col-12:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2)": {
+  "align-self": "center"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(1) > div.custom-input:nth-of-type(2) > div.input-group > span.input-group-text:nth-of-type(1)": {
+  "border-bottom-left-radius": "8px",
+  "border-bottom-right-radius": "0px",
+  "border-radius": "8px 0px 0px 8px",
+  "border-top-left-radius": "8px",
+  "border-top-right-radius": "0px"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(1) > div.custom-input:nth-of-type(2) > div.input-group > span.input-group-text:nth-of-type(2)": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2) > div.col-12:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(1) > div.custom-input > div.input-group > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2) > div.col-12:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2)": {
+  "align-self": "center"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2) > div.custom-input:nth-of-type(2) > div.input-group > span.input-group-text:nth-of-type(1)": {
+  "border-bottom-left-radius": "8px",
+  "border-bottom-right-radius": "0px",
+  "border-radius": "8px 0px 0px 8px",
+  "border-top-left-radius": "8px",
+  "border-top-right-radius": "0px"
+ },
+ "#SettingMinigameStep3 > div.main-in-detail-body:nth-of-type(2) > div.input-col-1-p:nth-of-type(3) > div.row:nth-of-type(2) > div.col-12:nth-of-type(2) > div.custom-input:nth-of-type(2) > div.input-group > span.input-group-text:nth-of-type(2)": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#boxReduceQuota > div.input-group > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#buttonNextPromotionStepfinal3": {
+  "display": "none",
+  "width": "168px"
+ },
+ "#error-credit-template": {
+  "display": "none"
+ },
+ "#error-customMinigameDepositAmountTypeDropdown": {
+  "display": "none"
+ },
+ "#error-customMinigameDepositTypeDropdown": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameAmountAutoDeposit": {
+  "display": "none"
+ },
+ "#error-minigameAmountAutoDepositRange": {
+  "display": "none"
+ },
+ "#error-minigameDepositCount": {
+  "display": "none"
+ },
+ "#error-minigameDepositPeriod": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-template": {
+  "display": "none"
+ },
+ "#error-minigameMaxAmountAutoDeposit": {
+  "display": "none"
+ },
+ "#error-minigameMinAmountAutoDeposit": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-template": {
+  "display": "none"
+ },
+ "#error-percent-template": {
+  "display": "none"
+ },
+ "#error-percentMax-template": {
+  "display": "none"
+ },
+ "#error-point-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositTypeDropdown": {
+  "display": "none"
+ },
+ "#error-quota-template": {
+  "display": "none"
+ },
+ "#error-rewardName-template": {
+  "display": "none"
+ },
+ "#groupBtnSettingMinigame3": {
+  "display": "none"
+ },
+ "#groupBtnSettingMinigame3 > div.d-flex > div:nth-of-type(2) > button.btn:nth-of-type(1)": {
+  "width": "168px"
+ },
+ "#groupBtnSettingMinigame3 > div.d-flex > div:nth-of-type(2) > button.btn:nth-of-type(2)": {
+  "width": "168px"
+ },
+ "#inputCredit-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputMinigameAlertAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAmountAutoDeposit > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameDepositCount > div.input-group:nth-of-type(2) > span.input-group-text:nth-of-type(1)": {
+  "border-bottom-left-radius": "8px",
+  "border-bottom-right-radius": "0px",
+  "border-radius": "8px 0px 0px 8px",
+  "border-top-left-radius": "8px",
+  "border-top-right-radius": "0px"
+ },
+ "#inputMinigameDepositCount > div.input-group:nth-of-type(2) > span.input-group-text:nth-of-type(2)": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameDepositPeriod > div.input-group:nth-of-type(2) > span.input-group-text:nth-of-type(1)": {
+  "border-bottom-left-radius": "8px",
+  "border-bottom-right-radius": "0px",
+  "border-radius": "8px 0px 0px 8px",
+  "border-top-left-radius": "8px",
+  "border-top-right-radius": "0px"
+ },
+ "#inputMinigameDepositPeriod > div.input-group:nth-of-type(2) > span.input-group-text:nth-of-type(2)": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameMaxAmountAutoDeposit > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameMinAmountAutoDeposit > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputPercentMax-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputRewardName-template > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#minigameAmountAutoDepositFrom": {
+  "border-bottom-left-radius": "8px",
+  "border-bottom-right-radius": "0px",
+  "border-radius": "8px 0px 0px 8px",
+  "border-top-left-radius": "8px",
+  "border-top-right-radius": "0px"
+ },
+ "#showBoxDepositCollectAndContinue": {
+  "display": "none"
+ },
+ "#showBoxDepositContinue": {
+  "display": "none"
+ },
+ "#showBoxDepositTypeEqualAndCollect": {
+  "display": "none"
+ },
+ "#showBoxDepositTypeMax": {
+  "display": "none"
+ },
+ "#showBoxDepositTypeRange": {
+  "display": "none"
+ },
+ "#showBoxDepositTypeRange > div.custom-input-middle:nth-of-type(2) > div.text-prepend:nth-of-type(3)": {
+  "background": "var(--vz-input-group-addon-bg)",
+  "font-size": "0.8125rem"
+ },
+ "#showBoxPromotionBonusFixed-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-template": {
+  "display": "none"
+ }
+}

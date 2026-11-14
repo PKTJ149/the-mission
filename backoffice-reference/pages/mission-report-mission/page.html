@@ -1,0 +1,805 @@
+<div class="page-content">
+<div class="container-fluid full-container">
+<svg class="d-box" width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="filter-gradient" x1="7.91113" y1="0.666748" x2="7.91113" y2="17.3334" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#50A198"></stop>
+<stop offset="1" stop-color="#FEDB6B"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="inner-container full-flex">
+<div class="custom-card full-card full-flex">
+<div class="w-title">
+<h4 class="mb-0 mission-page" data-i18n="missionReportByMissionPage.title">สรุปรายงานรายภารกิจ</h4>
+</div>
+<div class="row align-items-center gx-2 mb-3">
+<div class="col-auto" data-capture-style-props="flex-basis">
+<div class="custom-input">
+<input id="tableSearch" type="text" class="form-control" placeholder="Search">
+<div class="float-prepend">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.4471 13.3433L11.3359 10.1757C12.0767 9.21807 12.447 8.1131 12.447 6.8608C12.447 3.84054 9.92853 1.33594 6.89149 1.33594C3.85446 1.33594 1.33594 3.84054 1.33594 6.8608C1.33594 9.88106 3.85446 12.3857 6.89149 12.3857C8.15075 12.3857 9.33594 11.9437 10.2248 11.2807L13.41 14.4483C13.5582 14.5956 13.7804 14.6693 13.9285 14.6693C14.0767 14.6693 14.2989 14.5956 14.4471 14.4483C14.7433 14.08 14.7433 13.638 14.4471 13.3433ZM9.78038 9.73373C9.03964 10.4704 8.0026 10.9124 6.89149 10.9124C4.66927 10.9124 2.81742 9.07074 2.81742 6.8608C2.81742 4.65085 4.66927 2.80923 6.89149 2.80923C9.11372 2.80923 10.9656 4.65085 10.9656 6.8608C10.9656 7.96577 10.5211 8.99708 9.78038 9.73373Z"></path>
+</svg>
+<svg id="clearValuePromotionSearch" onclick="CustomInput.clearValue(this)" class="navigate-close" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4495 3.55038C12.3104 3.41135 12.1218 3.33325 11.9252 3.33325C11.7285 3.33325 11.5399 3.41135 11.4009 3.55038L7.99992 6.95131L4.59899 3.55038C4.45992 3.41135 4.27133 3.33325 4.07468 3.33325C3.87804 3.33325 3.68945 3.41135 3.55038 3.55038C3.41135 3.68945 3.33325 3.87804 3.33325 4.07468C3.33325 4.27133 3.41135 4.45992 3.55038 4.59899L6.95131 7.99992L3.55038 11.4009C3.41135 11.5399 3.33325 11.7285 3.33325 11.9252C3.33325 12.1218 3.41135 12.3104 3.55038 12.4495C3.68945 12.5885 3.87804 12.6666 4.07468 12.6666C4.27133 12.6666 4.45992 12.5885 4.59899 12.4495L7.99992 9.04853L11.4009 12.4495C11.5399 12.5885 11.7285 12.6666 11.9252 12.6666C12.1218 12.6666 12.3104 12.5885 12.4495 12.4495C12.5885 12.3104 12.6666 12.1218 12.6666 11.9252C12.6666 11.7285 12.5885 11.5399 12.4495 11.4009L9.04853 7.99992L12.4495 4.59899C12.5885 4.45992 12.6666 4.27133 12.6666 4.07468C12.6666 3.87804 12.5885 3.68945 12.4495 3.55038Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<div id="filterDateSummary" class="custom-filter" onclick="datepickerDateSummary.toggle()">
+<input id="datepickerDateSummary" type="text" class="filter-flatpicker flatpickr-input" readonly="readonly">
+<span class="filter-icon">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.77 8.61921V3.7082C14.77 1.93919 13.3308 0.5 11.5618 0.5H3.87227C2.10326 0.5 0.664062 1.93919 0.664062 3.7082V10.1173C0.664062 11.8863 2.10326 13.3255 3.87227 13.3255H8.39369C8.71006 15.4951 10.5826 17.1667 12.8385 17.1667C15.3155 17.1667 17.3307 15.1515 17.3307 12.6745C17.3307 10.8885 16.283 9.34274 14.77 8.61921ZM3.87227 1.80208H11.5618C12.6104 1.80208 13.4637 2.65325 13.4677 3.70094H1.96634C1.97028 2.65325 2.82367 1.80208 3.87227 1.80208ZM1.96615 10.1173V5.00306H13.4679V8.22659C10.9801 7.87627 8.74349 9.62458 8.39369 12.0234H3.87227C2.82122 12.0234 1.96615 11.1684 1.96615 10.1173ZM12.8385 15.8646C11.0795 15.8646 9.64844 14.4335 9.64844 12.6745C9.64844 10.9154 11.0795 9.48438 12.8385 9.48438C14.5976 9.48438 16.0286 10.9154 16.0286 12.6745C16.0286 14.4335 14.5976 15.8646 12.8385 15.8646ZM13.9391 12.8543C14.1934 13.1086 14.1934 13.5208 13.9391 13.775C13.6848 14.0293 13.2726 14.0292 13.0184 13.775L12.3782 13.1348C12.2561 13.0128 12.1875 12.8471 12.1875 12.6745V11.3941C12.1875 11.0345 12.479 10.7431 12.8385 10.7431C13.1981 10.7431 13.4896 11.0345 13.4896 11.3941V12.4048L13.9391 12.8543ZM5.16709 6.9236C5.16709 7.28317 4.87562 7.57464 4.51605 7.57464H3.87588C3.51631 7.57464 3.22484 7.28317 3.22484 6.9236C3.22484 6.56403 3.51631 6.27256 3.87588 6.27256H4.51608C4.87562 6.27256 5.16709 6.56406 5.16709 6.9236ZM6.74587 6.9236C6.74587 6.56403 7.03734 6.27256 7.39691 6.27256H8.03711C8.39668 6.27256 8.68815 6.56403 8.68815 6.9236C8.68815 7.28317 8.39668 7.57464 8.03711 7.57464H7.39691C7.03737 7.57464 6.74587 7.28317 6.74587 6.9236ZM10.2669 6.9236C10.2669 6.56403 10.5584 6.27256 10.918 6.27256H11.5582C11.9177 6.27256 12.2092 6.56403 12.2092 6.9236C12.2092 7.28317 11.9177 7.57464 11.5582 7.57464H10.918C10.5584 7.57464 10.2669 7.28317 10.2669 6.9236ZM5.16709 9.48438C5.16709 9.84394 4.87562 10.1354 4.51605 10.1354H3.87588C3.51631 10.1354 3.22484 9.84394 3.22484 9.48438C3.22484 9.1248 3.51631 8.83333 3.87588 8.83333H4.51608C4.87562 8.83333 5.16709 9.1248 5.16709 9.48438ZM8.03711 10.1354H7.39691C7.03734 10.1354 6.74587 9.84394 6.74587 9.48438C6.74587 9.1248 7.03734 8.83333 7.39691 8.83333H8.03711C8.39668 8.83333 8.68815 9.1248 8.68815 9.48438C8.68815 9.84394 8.39668 10.1354 8.03711 10.1354Z"></path>
+</svg>
+</span>
+<span class="filter-title mission-page" data-i18n="missionReportByMissionPage.dateReport">วันที่สรุป</span>
+<span class="filter-value"></span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></div>
+</div>
+<div class="col-auto">
+<button id="filterStatus" class="custom-filter">
+<span class="filter-icon">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.30021 2.81232C3.92618 2.81232 2.81232 3.92618 2.81232 5.30021C2.81232 6.67423 3.92618 7.78809 5.30021 7.78809H14.4863C15.8603 7.78809 16.9741 6.67423 16.9741 5.30021C16.9741 3.92618 15.8603 2.81232 14.4863 2.81232H5.30021ZM1.66406 5.30021C1.66406 3.29202 3.29202 1.66406 5.30021 1.66406H14.4863C16.4945 1.66406 18.1224 3.29202 18.1224 5.30021C18.1224 7.30839 16.4945 8.93635 14.4863 8.93635H5.30021C3.29202 8.93635 1.66406 7.30839 1.66406 5.30021Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.30021 11.9998C3.92618 11.9998 2.81232 13.1137 2.81232 14.4877C2.81232 15.8617 3.92618 16.9756 5.30021 16.9756H14.4863C15.8603 16.9756 16.9741 15.8617 16.9741 14.4877C16.9741 13.1137 15.8603 11.9998 14.4863 11.9998H5.30021ZM1.66406 14.4877C1.66406 12.4795 3.29202 10.8516 5.30021 10.8516H14.4863C16.4945 10.8516 18.1224 12.4795 18.1224 14.4877C18.1224 16.4959 16.4945 18.1238 14.4863 18.1238H5.30021C3.29202 18.1238 1.66406 16.4959 1.66406 14.4877Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.1484 5.30057C13.1484 4.5607 13.7482 3.96094 14.4881 3.96094C15.2279 3.96094 15.8277 4.5607 15.8277 5.30057C15.8277 6.04044 15.2279 6.6402 14.4881 6.6402C13.7482 6.6402 13.1484 6.04044 13.1484 5.30057ZM14.4881 5.10919C14.3824 5.10919 14.2967 5.19486 14.2967 5.30057C14.2967 5.40628 14.3824 5.49195 14.4881 5.49195C14.5938 5.49195 14.6794 5.40628 14.6794 5.30057C14.6794 5.19486 14.5938 5.10919 14.4881 5.10919Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.96094 14.4881C3.96094 13.7482 4.5607 13.1484 5.30057 13.1484C6.04044 13.1484 6.6402 13.7482 6.6402 14.4881C6.6402 15.2279 6.04044 15.8277 5.30057 15.8277C4.5607 15.8277 3.96094 15.2279 3.96094 14.4881ZM5.30057 14.2967C5.19486 14.2967 5.10919 14.3824 5.10919 14.4881C5.10919 14.5938 5.19486 14.6794 5.30057 14.6794C5.40628 14.6794 5.49195 14.5938 5.49195 14.4881C5.49195 14.3824 5.40628 14.2967 5.30057 14.2967Z"></path>
+</svg>
+</span>
+<span class="filter-title" data-i18n="missionReportByMissionPage.dateReport">วันที่สรุป</span>
+<span class="filter-value">All</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownFilterStatus" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="all" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.all">ทั้งหมด</div>
+<div data-value="online" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.active">ใช้งานอยู่</div>
+<div data-value="offline" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.deactive">ปิดการใช้งาน</div>
+<div data-value="expired" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.expired">หมดอายุ</div>
+<div data-value="deleted" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.delete">ถูกลบ</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<button id="filterMission" class="custom-filter">
+<span class="filter-icon">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="filter-title" data-i18n="missionReportByMissionPage.mission">ภารกิจ</span>
+<span class="filter-value" data-i18n="missionReportByMissionPage.all">ทั้งหมด</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownFilterMission" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="all" class="custom-dropdown-item" data-i18n="missionReportByMissionPage.all">ทั้งหมด</div>
+<div data-value="uuid-1" class="custom-dropdown-item">QA Test Mission 0911</div>
+<div data-value="uuid-2" class="custom-dropdown-item">QA Mission 5 Tasks 20261016</div>
+<div data-value="uuid-3" class="custom-dropdown-item">QA Mission Rewards 20261015 Updated</div>
+<div data-value="uuid-4" class="custom-dropdown-item">QA Happy Mission Retest 20261015</div>
+<div data-value="uuid-5" class="custom-dropdown-item">ภารกิจ 001</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="reportTable" class="mission-report-table system-table table-full">
+<div class="table-loading" data-capture-style-props="display">
+<lord-icon class="loading-icon" src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"></lord-icon>
+<h5 class="mt-2" data-i18n="missionReportByMissionPage.findingData">กำลังค้นหาข้อมูล</h5>
+<p class="text-muted mb-0" data-i18n="missionReportByMissionPage.findingDataText">เรากำลังทำงานอย่างหนัก เพื่อค้นหาข้อมูลให้คุณได้เร็วที่สุด</p>
+</div>
+
+<div class="table-scrollable">
+<table>
+<thead>
+<tr>
+<th rowspan="2" class="w-0 mission-page" data-i18n="missionReportByMissionPage.missionDuration">ระยะเวลาภารกิจ</th>
+<th rowspan="2" class="w-0 mission-page" data-i18n="missionReportByMissionPage.name">ชื่อ</th>
+<th rowspan="2" class="w-0 text-center mission-page" data-i18n="missionReportByMissionPage.status">สถานะ</th>
+<th rowspan="2" class="w-0 text-center">
+<span class="mission-page" data-i18n="missionReportByMissionPage.getReward">รับรางวัล</span><br>
+<span class="mission-page" data-i18n="missionReportByMissionPage.count">(ครั้ง)</span>
+</th>
+<th rowspan="2" class="w-0 text-center">
+<span class="mission-page" data-i18n="missionReportByMissionPage.getReward">รับรางวัล</span><br>
+<span class="mission-page" data-i18n="missionReportByMissionPage.count">(ครั้ง)</span>
+</th>
+<th colspan="5" class="text-center th-0 pb-1">
+<span class="custom-badge bg-teal-950 w-100" data-capture-style-props="height">
+<span class="p1 mission-page" data-i18n="missionReportByMissionPage.rewardGivenMember">รางวัลที่ลูกค้าได้รับ</span>
+</span>
+</th>
+</tr>
+<tr>
+<th class="text-center pt-0 pe-1 ps-3" data-capture-style-props="min-width">
+<span class="custom-badge bg-teal-500 w-100" data-capture-style-props="height">
+<span class="p2 mission-page" data-i18n="missionReportByMissionPage.credit">เครดิต</span>
+</span>
+</th>
+<th class="text-center w-0 pe-0 pt-0 ps-1">
+<span class="custom-badge badge-start bg-teal-500" data-capture-style-props="height">
+<span class="p2 mission-page" data-i18n="missionReportByMissionPage.miniGamePoints">สิทธิ์มินิเกมส์</span>
+</span>
+</th>
+<th class="text-center w-0 ps-0 pt-0 pe-1">
+<span class="custom-badge badge-divider badge-end bg-teal-500" data-capture-style-props="height">
+<span class="p2 mission-page" data-i18n="missionReportByMissionPage.promotionPoints">สิทธิ์โปรโมชั่น</span>
+</span>
+</th>
+<th class="text-center w-0 pe-0 pt-0 ps-1">
+<span class="custom-badge badge-start bg-teal-500" data-capture-style-props="height">
+<span class="p2 mission-page" data-i18n="missionReportByMissionPage.points">แต้มสะสม</span>
+</span>
+</th>
+<th class="text-center w-0 ps-0 pt-0">
+<span class="custom-badge badge-divider badge-end bg-teal-500" data-capture-style-props="--badge-divider-color height">
+<span class="p2 mission-page" data-i18n="missionReportByMissionPage.other">อื่น ๆ</span>
+</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-red-950">
+<td>
+09/11/2026 14:00 - 09/11/2026 17:00
+</td>
+<td>
+<div class="white-space-normal text-teal-green-300" data-capture-style-props="width">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-mission/uuid-1">
+QA Test Mission 0911
+</a>
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-red-600 bg-red-200 br-red-600">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16667 10.3333C8.744 10.3333 10.8333 8.244 10.8333 5.66667C10.8333 3.08934 8.744 1 6.16667 1C3.58934 1 1.5 3.08934 1.5 5.66667C1.5 8.244 3.58934 10.3333 6.16667 10.3333Z" fill="#828282"></path>
+<path d="M6.16667 9.33333C8.19171 9.33333 9.83333 7.69171 9.83333 5.66667C9.83333 3.64162 8.19171 2 6.16667 2C4.14162 2 2.5 3.64162 2.5 5.66667C2.5 7.69171 4.14162 9.33333 6.16667 9.33333Z" fill="#FACCCC"></path>
+<path d="M5.83203 2.66797H6.4987V5.66797H5.83203V2.66797Z" fill="black"></path>
+<path d="M8.05115 6.98515L7.48548 7.55081L5.88281 5.94848L6.44848 5.38281L8.05115 6.98515Z" fill="black"></path>
+<path d="M6.16667 6.33333C6.53486 6.33333 6.83333 6.03486 6.83333 5.66667C6.83333 5.29848 6.53486 5 6.16667 5C5.79848 5 5.5 5.29848 5.5 5.66667C5.5 6.03486 5.79848 6.33333 6.16667 6.33333Z" fill="black"></path>
+<path d="M6.16536 5.9987C6.34946 5.9987 6.4987 5.84946 6.4987 5.66536C6.4987 5.48127 6.34946 5.33203 6.16536 5.33203C5.98127 5.33203 5.83203 5.48127 5.83203 5.66536C5.83203 5.84946 5.98127 5.9987 6.16536 5.9987Z" fill="#828282"></path>
+<path d="M4.46542 13.999L9.26542 5.96562C9.53209 5.53229 10.1654 5.53229 10.3988 5.96562L15.1988 13.999C15.4654 14.4323 15.1321 14.999 14.6321 14.999H5.03209C4.53209 14.999 4.19876 14.4323 4.46542 13.999Z" fill="#FFC107"></path>
+<path d="M9.30078 13.3C9.30078 13.2333 9.30078 13.1667 9.33411 13.1C9.36745 13.0333 9.40078 13 9.43411 12.9333C9.46745 12.8667 9.53411 12.8667 9.60078 12.8333C9.66745 12.8 9.73411 12.8 9.80078 12.8C9.86745 12.8 9.96745 12.8 10.0341 12.8333C10.1008 12.8667 10.1674 12.9 10.2008 12.9333C10.2341 12.9667 10.2674 13.0333 10.3008 13.1C10.3341 13.1667 10.3341 13.2333 10.3341 13.3C10.3341 13.3667 10.3341 13.4333 10.3008 13.5C10.2674 13.5667 10.2341 13.6 10.2008 13.6667C10.1674 13.7333 10.1008 13.7333 10.0341 13.7667C9.96745 13.8 9.90078 13.8 9.80078 13.8C9.70078 13.8 9.63411 13.8 9.60078 13.7667C9.56745 13.7333 9.46745 13.7 9.43411 13.6667C9.40078 13.6333 9.36745 13.5667 9.33411 13.5C9.30078 13.4333 9.30078 13.3667 9.30078 13.3ZM10.2341 12.2667H9.46745L9.33411 9H10.3341L10.2341 12.2667Z" fill="#263238"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.expired">หมดอายุ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-1">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-1">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-red-950">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+QA เข้าสู่ระบบ 1 ครั้ง
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-red-600 bg-red-200 br-red-600">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16667 10.3333C8.744 10.3333 10.8333 8.244 10.8333 5.66667C10.8333 3.08934 8.744 1 6.16667 1C3.58934 1 1.5 3.08934 1.5 5.66667C1.5 8.244 3.58934 10.3333 6.16667 10.3333Z" fill="#828282"></path>
+<path d="M6.16667 9.33333C8.19171 9.33333 9.83333 7.69171 9.83333 5.66667C9.83333 3.64162 8.19171 2 6.16667 2C4.14162 2 2.5 3.64162 2.5 5.66667C2.5 7.69171 4.14162 9.33333 6.16667 9.33333Z" fill="#FACCCC"></path>
+<path d="M5.83203 2.66797H6.4987V5.66797H5.83203V2.66797Z" fill="black"></path>
+<path d="M8.05115 6.98515L7.48548 7.55081L5.88281 5.94848L6.44848 5.38281L8.05115 6.98515Z" fill="black"></path>
+<path d="M6.16667 6.33333C6.53486 6.33333 6.83333 6.03486 6.83333 5.66667C6.83333 5.29848 6.53486 5 6.16667 5C5.79848 5 5.5 5.29848 5.5 5.66667C5.5 6.03486 5.79848 6.33333 6.16667 6.33333Z" fill="black"></path>
+<path d="M6.16536 5.9987C6.34946 5.9987 6.4987 5.84946 6.4987 5.66536C6.4987 5.48127 6.34946 5.33203 6.16536 5.33203C5.98127 5.33203 5.83203 5.48127 5.83203 5.66536C5.83203 5.84946 5.98127 5.9987 6.16536 5.9987Z" fill="#828282"></path>
+<path d="M4.46542 13.999L9.26542 5.96562C9.53209 5.53229 10.1654 5.53229 10.3988 5.96562L15.1988 13.999C15.4654 14.4323 15.1321 14.999 14.6321 14.999H5.03209C4.53209 14.999 4.19876 14.4323 4.46542 13.999Z" fill="#FFC107"></path>
+<path d="M9.30078 13.3C9.30078 13.2333 9.30078 13.1667 9.33411 13.1C9.36745 13.0333 9.40078 13 9.43411 12.9333C9.46745 12.8667 9.53411 12.8667 9.60078 12.8333C9.66745 12.8 9.73411 12.8 9.80078 12.8C9.86745 12.8 9.96745 12.8 10.0341 12.8333C10.1008 12.8667 10.1674 12.9 10.2008 12.9333C10.2341 12.9667 10.2674 13.0333 10.3008 13.1C10.3341 13.1667 10.3341 13.2333 10.3341 13.3C10.3341 13.3667 10.3341 13.4333 10.3008 13.5C10.2674 13.5667 10.2341 13.6 10.2008 13.6667C10.1674 13.7333 10.1008 13.7333 10.0341 13.7667C9.96745 13.8 9.90078 13.8 9.80078 13.8C9.70078 13.8 9.63411 13.8 9.60078 13.7667C9.56745 13.7333 9.46745 13.7 9.43411 13.6667C9.40078 13.6333 9.36745 13.5667 9.33411 13.5C9.30078 13.4333 9.30078 13.3667 9.30078 13.3ZM10.2341 12.2667H9.46745L9.33411 9H10.3341L10.2341 12.2667Z" fill="#263238"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.expired">หมดอายุ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-6">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-6">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td>
+16/10/2026 13:50 - เป็นต้นไป
+</td>
+<td>
+<div class="white-space-normal text-teal-green-300" data-capture-style-props="width">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-mission/uuid-2">
+QA Mission 5 Tasks 20261016
+</a>
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-2">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-2">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+1. เช็คอินครบ 1 วัน
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-7">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-7">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-8">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-8">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+3. ฝากสะสมครบ 2 บาท
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-9">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-9">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+4. ทำเทิร์นสะสมครบ 1 บาท
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-10">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-10">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-black">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+5. แนะนำเพื่อนครบ 1 คน
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-grey-200 bg-base-black br-grey-200">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.16797 14C4.8013 14 4.48752 13.8696 4.22664 13.6087C3.96575 13.3478 3.83508 13.0338 3.83464 12.6667V4H3.16797V2.66667H6.5013V2H10.5013V2.66667H13.8346V4H13.168V12.6667C13.168 13.0333 13.0375 13.3473 12.7766 13.6087C12.5157 13.87 12.2017 14.0004 11.8346 14H5.16797ZM11.8346 4H5.16797V12.6667H11.8346V4ZM6.5013 11.3333H7.83464V5.33333H6.5013V11.3333ZM9.16797 11.3333H10.5013V5.33333H9.16797V11.3333Z" fill="#C9CBCA"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.delete">ถูกลบ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-11">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-11">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-red-950">
+<td>
+15/10/2026 14:15 - 14/11/2026 12:00
+</td>
+<td>
+<div class="white-space-normal text-teal-green-300" data-capture-style-props="width">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-mission/uuid-3">
+QA Mission Rewards 20261015 Updated
+</a>
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-red-600 bg-red-200 br-red-600">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16667 10.3333C8.744 10.3333 10.8333 8.244 10.8333 5.66667C10.8333 3.08934 8.744 1 6.16667 1C3.58934 1 1.5 3.08934 1.5 5.66667C1.5 8.244 3.58934 10.3333 6.16667 10.3333Z" fill="#828282"></path>
+<path d="M6.16667 9.33333C8.19171 9.33333 9.83333 7.69171 9.83333 5.66667C9.83333 3.64162 8.19171 2 6.16667 2C4.14162 2 2.5 3.64162 2.5 5.66667C2.5 7.69171 4.14162 9.33333 6.16667 9.33333Z" fill="#FACCCC"></path>
+<path d="M5.83203 2.66797H6.4987V5.66797H5.83203V2.66797Z" fill="black"></path>
+<path d="M8.05115 6.98515L7.48548 7.55081L5.88281 5.94848L6.44848 5.38281L8.05115 6.98515Z" fill="black"></path>
+<path d="M6.16667 6.33333C6.53486 6.33333 6.83333 6.03486 6.83333 5.66667C6.83333 5.29848 6.53486 5 6.16667 5C5.79848 5 5.5 5.29848 5.5 5.66667C5.5 6.03486 5.79848 6.33333 6.16667 6.33333Z" fill="black"></path>
+<path d="M6.16536 5.9987C6.34946 5.9987 6.4987 5.84946 6.4987 5.66536C6.4987 5.48127 6.34946 5.33203 6.16536 5.33203C5.98127 5.33203 5.83203 5.48127 5.83203 5.66536C5.83203 5.84946 5.98127 5.9987 6.16536 5.9987Z" fill="#828282"></path>
+<path d="M4.46542 13.999L9.26542 5.96562C9.53209 5.53229 10.1654 5.53229 10.3988 5.96562L15.1988 13.999C15.4654 14.4323 15.1321 14.999 14.6321 14.999H5.03209C4.53209 14.999 4.19876 14.4323 4.46542 13.999Z" fill="#FFC107"></path>
+<path d="M9.30078 13.3C9.30078 13.2333 9.30078 13.1667 9.33411 13.1C9.36745 13.0333 9.40078 13 9.43411 12.9333C9.46745 12.8667 9.53411 12.8667 9.60078 12.8333C9.66745 12.8 9.73411 12.8 9.80078 12.8C9.86745 12.8 9.96745 12.8 10.0341 12.8333C10.1008 12.8667 10.1674 12.9 10.2008 12.9333C10.2341 12.9667 10.2674 13.0333 10.3008 13.1C10.3341 13.1667 10.3341 13.2333 10.3341 13.3C10.3341 13.3667 10.3341 13.4333 10.3008 13.5C10.2674 13.5667 10.2341 13.6 10.2008 13.6667C10.1674 13.7333 10.1008 13.7333 10.0341 13.7667C9.96745 13.8 9.90078 13.8 9.80078 13.8C9.70078 13.8 9.63411 13.8 9.60078 13.7667C9.56745 13.7333 9.46745 13.7 9.43411 13.6667C9.40078 13.6333 9.36745 13.5667 9.33411 13.5C9.30078 13.4333 9.30078 13.3667 9.30078 13.3ZM10.2341 12.2667H9.46745L9.33411 9H10.3341L10.2341 12.2667Z" fill="#263238"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.expired">หมดอายุ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-3">
+<span class="p1 fw-700">1</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-3">
+<span class="p1 fw-700">1</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+1
+</span>
+</td>
+<td class="text-end">1</td>
+<td class="text-end">0</td>
+<td class="text-end">1</td>
+<td class="text-end">1</td>
+</tr>
+<tr class="bg-red-950">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+QA Login ครบ 1 วัน
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-red-600 bg-red-200 br-red-600">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16667 10.3333C8.744 10.3333 10.8333 8.244 10.8333 5.66667C10.8333 3.08934 8.744 1 6.16667 1C3.58934 1 1.5 3.08934 1.5 5.66667C1.5 8.244 3.58934 10.3333 6.16667 10.3333Z" fill="#828282"></path>
+<path d="M6.16667 9.33333C8.19171 9.33333 9.83333 7.69171 9.83333 5.66667C9.83333 3.64162 8.19171 2 6.16667 2C4.14162 2 2.5 3.64162 2.5 5.66667C2.5 7.69171 4.14162 9.33333 6.16667 9.33333Z" fill="#FACCCC"></path>
+<path d="M5.83203 2.66797H6.4987V5.66797H5.83203V2.66797Z" fill="black"></path>
+<path d="M8.05115 6.98515L7.48548 7.55081L5.88281 5.94848L6.44848 5.38281L8.05115 6.98515Z" fill="black"></path>
+<path d="M6.16667 6.33333C6.53486 6.33333 6.83333 6.03486 6.83333 5.66667C6.83333 5.29848 6.53486 5 6.16667 5C5.79848 5 5.5 5.29848 5.5 5.66667C5.5 6.03486 5.79848 6.33333 6.16667 6.33333Z" fill="black"></path>
+<path d="M6.16536 5.9987C6.34946 5.9987 6.4987 5.84946 6.4987 5.66536C6.4987 5.48127 6.34946 5.33203 6.16536 5.33203C5.98127 5.33203 5.83203 5.48127 5.83203 5.66536C5.83203 5.84946 5.98127 5.9987 6.16536 5.9987Z" fill="#828282"></path>
+<path d="M4.46542 13.999L9.26542 5.96562C9.53209 5.53229 10.1654 5.53229 10.3988 5.96562L15.1988 13.999C15.4654 14.4323 15.1321 14.999 14.6321 14.999H5.03209C4.53209 14.999 4.19876 14.4323 4.46542 13.999Z" fill="#FFC107"></path>
+<path d="M9.30078 13.3C9.30078 13.2333 9.30078 13.1667 9.33411 13.1C9.36745 13.0333 9.40078 13 9.43411 12.9333C9.46745 12.8667 9.53411 12.8667 9.60078 12.8333C9.66745 12.8 9.73411 12.8 9.80078 12.8C9.86745 12.8 9.96745 12.8 10.0341 12.8333C10.1008 12.8667 10.1674 12.9 10.2008 12.9333C10.2341 12.9667 10.2674 13.0333 10.3008 13.1C10.3341 13.1667 10.3341 13.2333 10.3341 13.3C10.3341 13.3667 10.3341 13.4333 10.3008 13.5C10.2674 13.5667 10.2341 13.6 10.2008 13.6667C10.1674 13.7333 10.1008 13.7333 10.0341 13.7667C9.96745 13.8 9.90078 13.8 9.80078 13.8C9.70078 13.8 9.63411 13.8 9.60078 13.7667C9.56745 13.7333 9.46745 13.7 9.43411 13.6667C9.40078 13.6333 9.36745 13.5667 9.33411 13.5C9.30078 13.4333 9.30078 13.3667 9.30078 13.3ZM10.2341 12.2667H9.46745L9.33411 9H10.3341L10.2341 12.2667Z" fill="#263238"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.expired">หมดอายุ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-12">
+<span class="p1 fw-700">6</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-12">
+<span class="p1 fw-700">4</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+6
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="bg-red-950">
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+QA ฝากครั้งเดียว 1 บาท
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-red-600 bg-red-200 br-red-600">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.16667 10.3333C8.744 10.3333 10.8333 8.244 10.8333 5.66667C10.8333 3.08934 8.744 1 6.16667 1C3.58934 1 1.5 3.08934 1.5 5.66667C1.5 8.244 3.58934 10.3333 6.16667 10.3333Z" fill="#828282"></path>
+<path d="M6.16667 9.33333C8.19171 9.33333 9.83333 7.69171 9.83333 5.66667C9.83333 3.64162 8.19171 2 6.16667 2C4.14162 2 2.5 3.64162 2.5 5.66667C2.5 7.69171 4.14162 9.33333 6.16667 9.33333Z" fill="#FACCCC"></path>
+<path d="M5.83203 2.66797H6.4987V5.66797H5.83203V2.66797Z" fill="black"></path>
+<path d="M8.05115 6.98515L7.48548 7.55081L5.88281 5.94848L6.44848 5.38281L8.05115 6.98515Z" fill="black"></path>
+<path d="M6.16667 6.33333C6.53486 6.33333 6.83333 6.03486 6.83333 5.66667C6.83333 5.29848 6.53486 5 6.16667 5C5.79848 5 5.5 5.29848 5.5 5.66667C5.5 6.03486 5.79848 6.33333 6.16667 6.33333Z" fill="black"></path>
+<path d="M6.16536 5.9987C6.34946 5.9987 6.4987 5.84946 6.4987 5.66536C6.4987 5.48127 6.34946 5.33203 6.16536 5.33203C5.98127 5.33203 5.83203 5.48127 5.83203 5.66536C5.83203 5.84946 5.98127 5.9987 6.16536 5.9987Z" fill="#828282"></path>
+<path d="M4.46542 13.999L9.26542 5.96562C9.53209 5.53229 10.1654 5.53229 10.3988 5.96562L15.1988 13.999C15.4654 14.4323 15.1321 14.999 14.6321 14.999H5.03209C4.53209 14.999 4.19876 14.4323 4.46542 13.999Z" fill="#FFC107"></path>
+<path d="M9.30078 13.3C9.30078 13.2333 9.30078 13.1667 9.33411 13.1C9.36745 13.0333 9.40078 13 9.43411 12.9333C9.46745 12.8667 9.53411 12.8667 9.60078 12.8333C9.66745 12.8 9.73411 12.8 9.80078 12.8C9.86745 12.8 9.96745 12.8 10.0341 12.8333C10.1008 12.8667 10.1674 12.9 10.2008 12.9333C10.2341 12.9667 10.2674 13.0333 10.3008 13.1C10.3341 13.1667 10.3341 13.2333 10.3341 13.3C10.3341 13.3667 10.3341 13.4333 10.3008 13.5C10.2674 13.5667 10.2341 13.6 10.2008 13.6667C10.1674 13.7333 10.1008 13.7333 10.0341 13.7667C9.96745 13.8 9.90078 13.8 9.80078 13.8C9.70078 13.8 9.63411 13.8 9.60078 13.7667C9.56745 13.7333 9.46745 13.7 9.43411 13.6667C9.40078 13.6333 9.36745 13.5667 9.33411 13.5C9.30078 13.4333 9.30078 13.3667 9.30078 13.3ZM10.2341 12.2667H9.46745L9.33411 9H10.3341L10.2341 12.2667Z" fill="#263238"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.expired">หมดอายุ</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-13">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-13">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr>
+<td>
+15/10/2026 11:46 - เป็นต้นไป
+</td>
+<td>
+<div class="white-space-normal text-teal-green-300" data-capture-style-props="width">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-mission/uuid-4">
+QA Happy Mission Retest 20261015
+</a>
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-teal-500 bg-teal-100 br-teal-500">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.832 4.66797H5.16536C4.42898 4.66797 3.83203 5.26492 3.83203 6.0013V10.0013C3.83203 10.7377 4.42898 11.3346 5.16536 11.3346H11.832C12.5684 11.3346 13.1654 10.7377 13.1654 10.0013V6.0013C13.1654 5.26492 12.5684 4.66797 11.832 4.66797Z" stroke="#2B8B81" stroke-width="2"></path>
+<path d="M11.1667 6H9.16667C8.79848 6 8.5 6.29848 8.5 6.66667V9.33333C8.5 9.70152 8.79848 10 9.16667 10H11.1667C11.5349 10 11.8333 9.70152 11.8333 9.33333V6.66667C11.8333 6.29848 11.5349 6 11.1667 6Z" fill="#2B8B81"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.active">ใช้งานอยู่</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-4">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-4">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr>
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+QA เข้าสู่ระบบ 1 ครั้ง
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-teal-500 bg-teal-100 br-teal-500">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.832 4.66797H5.16536C4.42898 4.66797 3.83203 5.26492 3.83203 6.0013V10.0013C3.83203 10.7377 4.42898 11.3346 5.16536 11.3346H11.832C12.5684 11.3346 13.1654 10.7377 13.1654 10.0013V6.0013C13.1654 5.26492 12.5684 4.66797 11.832 4.66797Z" stroke="#2B8B81" stroke-width="2"></path>
+<path d="M11.1667 6H9.16667C8.79848 6 8.5 6.29848 8.5 6.66667V9.33333C8.5 9.70152 8.79848 10 9.16667 10H11.1667C11.5349 10 11.8333 9.70152 11.8333 9.33333V6.66667C11.8333 6.29848 11.5349 6 11.1667 6Z" fill="#2B8B81"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.active">ใช้งานอยู่</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-14">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-14">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr>
+<td>
+14/10/2026 22:26 - เป็นต้นไป
+</td>
+<td>
+<div class="white-space-normal text-teal-green-300" data-capture-style-props="width">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-mission/uuid-5">
+ภารกิจ 001
+</a>
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-teal-500 bg-teal-100 br-teal-500">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.832 4.66797H5.16536C4.42898 4.66797 3.83203 5.26492 3.83203 6.0013V10.0013C3.83203 10.7377 4.42898 11.3346 5.16536 11.3346H11.832C12.5684 11.3346 13.1654 10.7377 13.1654 10.0013V6.0013C13.1654 5.26492 12.5684 4.66797 11.832 4.66797Z" stroke="#2B8B81" stroke-width="2"></path>
+<path d="M11.1667 6H9.16667C8.79848 6 8.5 6.29848 8.5 6.66667V9.33333C8.5 9.70152 8.79848 10 9.16667 10H11.1667C11.5349 10 11.8333 9.70152 11.8333 9.33333V6.66667C11.8333 6.29848 11.5349 6 11.1667 6Z" fill="#2B8B81"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.active">ใช้งานอยู่</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-5">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-5">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr>
+<td class="submission-divider"></td>
+<td>
+<div class="white-space-normal" data-capture-style-props="width">
+สะสมเทริน์ครบ 10
+</div>
+</td>
+<td>
+<span class="custom-badge-status text-teal-500 bg-teal-100 br-teal-500">
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.832 4.66797H5.16536C4.42898 4.66797 3.83203 5.26492 3.83203 6.0013V10.0013C3.83203 10.7377 4.42898 11.3346 5.16536 11.3346H11.832C12.5684 11.3346 13.1654 10.7377 13.1654 10.0013V6.0013C13.1654 5.26492 12.5684 4.66797 11.832 4.66797Z" stroke="#2B8B81" stroke-width="2"></path>
+<path d="M11.1667 6H9.16667C8.79848 6 8.5 6.29848 8.5 6.66667V9.33333C8.5 9.70152 8.79848 10 9.16667 10H11.1667C11.5349 10 11.8333 9.70152 11.8333 9.33333V6.66667C11.8333 6.29848 11.5349 6 11.1667 6Z" fill="#2B8B81"></path>
+</svg>
+<span class="mission-page" data-i18n="missionReportByMissionPage.active">ใช้งานอยู่</span>
+</span>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-reward/uuid-15">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td class="text-center text-teal-500">
+<a class="title-header" data-key="#" href="/mission/report-mission-by-member/uuid-15">
+<span class="p1 fw-700">0</span>
+</a>
+</td>
+<td>
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+0
+</span>
+</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+<td class="text-end">0</td>
+</tr>
+<tr class="tr-summary tr-height no-hover td-last-summary-thmem-emerald" data-capture-style-props="position bottom">
+<td colspan="3" class="summary-background tdx-0">
+<div class="td-summary p1 fw-700 text-center mission-page" data-i18n="missionReportByMissionPage.allSummary">ยอดรวมทั้งหมด</div>
+</td>
+<td class="text-center color-bg-last-row p-0 text-blue-50 fw-700">
+<div class="session-custom-last-row color">
+<span class="p1 fw-700">7</span>
+</div>
+</td>
+<td class="text-center color-bg-last-row p-0 text-blue-50 fw-700">
+<div class="session-custom-last-row color">
+<span class="p1 fw-700">4</span>
+</div>
+</td>
+<td class="text-end color-bg-last-row p-0 fw-700">
+<div class="p-2 session-custom-last-row color justify-content-end">
+<span class="custom-badge-pill p2 bg-teal-900 w-100 justify-content-end">
+7
+</span>
+</div>
+</td>
+<td class="text-end color-bg-last-row p-0 fw-700">
+<div class="p-2 session-custom-last-row color justify-content-end">
+<span class="p2 w-100 justify-content-end">
+1
+</span>
+</div>
+</td>
+<td class="text-end color-bg-last-row p-0">
+<div class="p-2 session-custom-last-row color justify-content-end">
+0
+</div>
+</td>
+<td class="text-end color-bg-last-row p-0">
+<div class="p-2 session-custom-last-row color justify-content-end">
+1
+</div>
+</td>
+<td class="text-end color-bg-last-row p-0">
+<div class="p-2 session-custom-last-row color justify-content-center">
+1
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

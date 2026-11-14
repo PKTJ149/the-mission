@@ -1,0 +1,105 @@
+{
+ "_notes": [
+  "/mission list is server-rendered (no list XHR). Card class .box-content-mission (+ .expired). Values as displayed 2026-11-14."
+ ],
+ "stats": {
+  "all": "4 ภารกิจ",
+  "online": "2 ภารกิจ",
+  "expired": "2 ภารกิจ",
+  "offline": "0 ภารกิจ"
+ },
+ "cards": [
+  {
+   "status": "online",
+   "cover": "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-01.webp",
+   "name": "QA Happy Mission Retest 20261015",
+   "subCount": "1",
+   "dates": "15/10/2026 11:46 / เป็นต้นไป",
+   "toggle": true,
+   "expired": false,
+   "rewards": [],
+   "condition": "ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ",
+   "subMissions": [
+    {
+     "no": 1,
+     "text": "Login ครบ 1 วัน",
+     "rewards": []
+    }
+   ]
+  },
+  {
+   "status": "online",
+   "cover": "https://cdn.lsmloyalty.com/images/mission/cover/preview-pic.png",
+   "name": "ภารกิจ 001",
+   "subCount": "1",
+   "dates": "14/10/2026 22:26 / เป็นต้นไป",
+   "toggle": true,
+   "expired": false,
+   "rewards": [],
+   "condition": "",
+   "subMissions": [
+    {
+     "no": 1,
+     "text": "ทำเทิร์นเท่ากับ 10.00 บาท",
+     "rewards": []
+    }
+   ]
+  },
+  {
+   "status": "expired",
+   "cover": "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-07.webp",
+   "name": "QA Test Mission 0911",
+   "subCount": "1",
+   "dates": "09/11/2026 14:00 / 09/11/2026 17:00",
+   "toggle": false,
+   "expired": true,
+   "rewards": [],
+   "condition": "ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ",
+   "subMissions": [
+    {
+     "no": 1,
+     "text": "Login ครบ 1 วัน",
+     "rewards": []
+    }
+   ]
+  },
+  {
+   "status": "expired",
+   "cover": "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-02.webp",
+   "name": "QA Mission Rewards 20261015 Updated",
+   "subCount": "2",
+   "dates": "15/10/2026 14:15 / 14/11/2026 12:00",
+   "toggle": false,
+   "expired": true,
+   "rewards": [
+    "1 ฿",
+    "1 สิทธิ์",
+    "1 pt.",
+    "QA ของรางวัลทดสอบ ไม่จัดส่งจริง"
+   ],
+   "rewardIcon": "https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png",
+   "condition": "ทดสอบ Mission แบบมีรางวัลและตรวจข้อมูลหลังบันทึก บน staging",
+   "subMissions": [
+    {
+     "no": 1,
+     "text": "Login ครบ 1 วัน",
+     "rewards": [
+      "1 ฿"
+     ]
+    },
+    {
+     "no": 2,
+     "text": "ฝากขั้นต่ำ 1.00 บาท จำนวน 1 ครั้ง",
+     "rewards": []
+    }
+   ]
+  }
+ ],
+ "headerLinks": {
+  "gear": "/mission/agent-setting",
+  "อัพโหลดแบนเนอร์": "/mission/banner-setting",
+  "ประวัติการแก้ไข": "/mission/mission/history",
+  "สร้างภารกิจ": "/mission/setting",
+  "edit": "/mission/setting?missionId=<uuid>&edit=1 (via toggleMissionEdit(id))"
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "url": "/mission/report-mission-by-mission/<missionId> (clicked mission name 'QA Mission Rewards 20261015 Updated' on /mission/report-mission)",
+ "documentTitle": "สรุปรายงานรายสมาชิก",
+ "h4": "สรุปรายงานรายสมาชิก",
+ "filters": {
+  "search": "Search",
+  "date": "วันที่สรุป",
+  "mission": [
+   "ทั้งหมด",
+   "QA Test Mission 0911",
+   "QA Mission 5 Tasks 20261016",
+   "QA Mission Rewards 20261015 Updated",
+   "QA Happy Mission Retest 20261015",
+   "ภารกิจ 001"
+  ],
+  "type": [
+   "ทั้งหมด",
+   "Auto",
+   "Admin",
+   "Manual",
+   "Complete"
+  ]
+ },
+ "columns": [
+  "ภารกิจ",
+  "วันที่รับรางวัล",
+  "ชื่อสมาชิก",
+  "ประเภท",
+  {
+   "รางวัลที่ลูกค้าได้รับ": [
+    "เครดิต",
+    "สิทธิ์มินิเกมส์",
+    "สิทธิ์โปรโมชั่น",
+    "แต้มสะสม",
+    "อื่น ๆ"
+   ]
+  },
+  "ผู้ทำรายการ"
+ ],
+ "rows": [
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "11/11/2026",
+   "time": "22:22",
+   "member": "0Tsuperx59575402679",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "11/11/2026",
+   "time": "22:22",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "11/11/2026",
+   "time": "16:06",
+   "member": "0Tsuperx97420509115",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "11/11/2026",
+   "time": "15:57",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "09/11/2026",
+   "time": "14:20",
+   "member": "0Tsuperx97420509115",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "09/11/2026",
+   "time": "14:20",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "09/11/2026",
+   "time": "13:33",
+   "member": "0Tsuperx37530777112",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "09/11/2026",
+   "time": "13:33",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "15/10/2026",
+   "time": "16:56",
+   "member": "0Tsuperx58528064595",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "date": "15/10/2026",
+   "time": "16:55",
+   "member": "0Tsuperx58528064595",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "1",
+   "promotionRights": "0",
+   "points": "1",
+   "other": "1",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "15/10/2026",
+   "time": "16:55",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "date": "15/10/2026",
+   "time": "16:55",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "15/10/2026",
+   "time": "16:42",
+   "member": "0Tsuperx59575402679",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "date": "15/10/2026",
+   "time": "16:42",
+   "member": "",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  }
+ ],
+ "summary": {
+  "label": "ยอดรวมทั้งหมด",
+  "credit": "7",
+  "minigameRights": "1",
+  "promotionRights": "0",
+  "points": "1",
+  "other": "1"
+ },
+ "pagination": "none rendered",
+ "_note": "Member cell is empty on Auto/Complete rows (as displayed)."
+}

@@ -1,0 +1,95 @@
+<div class="menu-item card-banner-mission" draggable="true" id="banner-mission-1" data-banner="1">
+<input type="hidden" name="missionBannerId" id="missionBannerId-1" value="[removed-token-like]">
+<input type="hidden" name="sequence" id="sequence-1" value="1">
+<div class="banner-mission-menu-dragger">
+<img src="/assets/images/minigame/dragger-icon.svg">
+</div>
+<div class="banner-mission-menu-content">
+<div class="group-banner-mission-menu-content-title">
+<div class="banner-mission-menu-content-title">
+<span class="mission-page" data-i18n="missionPage.bannerNo">รูปแบนเนอร์</span> <span class="text-banner-mission-menu-content-title">1</span>
+</div>
+<div class="group-header-mission-status-btn">
+<div class="group-header-mission-status-btn-edit" onclick="editTemplateBannerMission(1)">
+<img width="24" height="24" src="/assets/images/mission/icon-file.png">
+</div>
+<div class="group-header-mission-status-btn-delete" onclick="deleteTemplateBannerMission(1)">
+<img width="24" height="24" src="/assets/images/mission/icon-trash.png">
+</div>
+</div>
+</div>
+<div class="banner-mission-menu-content-main">
+<div class="banner-mission-menu-content-main-image">
+<img class="inputBannerMission-1" src="https://storage.googleapis.com/one-loyalty-stg-media/uploads/setting-mission-banner/20261111T100814383.png" alt="banner 1">
+</div>
+<div class="banner-mission-menu-content-main-upload">
+<div class="group-btn-upload-banner">
+<span class="mission-page" data-i18n="missionPage.uploadBannerNo">อัพโหลดรูปแบนเนอร์</span> <span class="label-upload-banner">1</span>
+<label class="mission-btn-outline w-100" for="inputBannerMission-1">
+<input type="file" id="inputBannerMission-1" class="d-none" onchange="handleFileMission(event)" name="inputFileIconBanner-template">
+<img src="/assets/images/mission/image-upload.png" alt="upload" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.uploadImage">อัพโหลดรูป</span>
+</label>
+</div>
+<p class="text-mission-link-note mission-page" data-i18n="missionPage.uploadImageText">
+ขนาดรูปภาพที่แนะนำ : 574px x 286px
+สกุลไฟล์ png, jpg และ gif เท่านั้น
+</p>
+<div class="group-checkbox mt-2">
+<input type="checkbox" class="form-check-input check-banner-mission mt-0" id="checkbox-banner-mission-1" checked="">
+<label for="checkbox-banner-mission-1" class="label-checkbox-banner-mission mission-page" data-i18n="missionPage.bannerShowSetting">แสดงแบนเนอร์ที่หน้ารวมภารกิจ</label>
+</div>
+</div>
+<div class="banner-mission-menu-content-main-url">
+<div class="group-btn-banner-mission-custom-url">
+<span class="text-p2-bold label-banner-mission-custom-url mission-page" data-i18n="missionPage.bannerSettingLink">กำหนดลิ้งค์แบนเนอร์ (ระบุหรือไม่ก็ได้)</span>
+<div class="group-input-banner-mission-custom-url">
+<div class="group-radio custom-radio">
+<input type="radio" name="radio-banner-mission-custom-url-1" id="radio-banner-mission-custom-url1-1" value="0" checked="">
+<span class="checkmark"></span>
+<label for="radio-banner-mission-custom-url1-1" class="text-p2-regular label-banner-mission-custom-url mission-page" data-i18n="missionPage.bannerMenuInMission">
+เมนูภายในภารกิจ
+</label>
+</div>
+<div class="custom-input custom-float input-group-dropdown">
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper dropdownSelectMenuMission fill">
+<div class="dropdown-toggler dropdown-toggler-mission toggled">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake single">ประวัติรับรางวัล</div>
+<div class="custom-dropdown uuid-79945 show" data-capture-style-props="inset max-height width">
+<div class="custom-dropdown-body"><div data-value="mission" data-chip="mission" class="custom-dropdown-item">ทำภารกิจ</div><div data-value="mission-history" data-chip="mission-history" class="custom-dropdown-item selected">ประวัติรับรางวัล</div><div data-value="mission-point-exchange" data-chip="mission-point-exchange" class="custom-dropdown-item">แลกรางวัล</div><div data-value="uuid-1" data-chip="mission-info" class="custom-dropdown-item">QA Happy Mission Retest 20261015</div><div data-value="uuid-2" data-chip="mission-info" class="custom-dropdown-item">ภารกิจ 001</div></div>
+</div>
+<div class="invalid-feedback" id="error-selectMenuMissionDropdown-1" data-i18n="missionPage.bannerSettingErrorText1" data-capture-style-props="display">
+กรุณาเลือกเมนูในเว็บ
+</div>
+</div>
+</div>
+</div>
+<div class="group-input-banner-mission-custom-url">
+<div class="group-radio custom-radio">
+<input type="radio" name="radio-banner-mission-custom-url-1" id="radio-banner-mission-custom-url2-1" value="1">
+<span class="checkmark"></span>
+<label for="radio-banner-mission-custom-url2-1" class="text-p2-regular label-banner-mission-custom-url mission-page" data-i18n="missionPage.urlSetting">
+กำหนด URL
+</label>
+</div>
+<div class="custom-input custom-float input-group-dropdown group-input">
+<div class="input-outer">
+<input type="text" class="input" placeholder="ระบุ URL" id="missionBannerCustomUrl-1" data-name-lang="th">
+</div>
+</div>
+</div>
+</div>
+<div class="group-btn-banner-mission-footer">
+<button class="mission-btn-outline btn-cancel-banner-mission" onclick="cancelBannerMission(1)">
+<span class="mission-page" data-i18n="missionPage.missionCancelButton">ยกเลิก</span>
+</button>
+<button class="mission-btn btn-save-banner-mission" onclick="saveBannerMission(1)">
+<span class="mission-page" data-i18n="missionPage.missionConfirmShortButton">ยืนยัน</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>

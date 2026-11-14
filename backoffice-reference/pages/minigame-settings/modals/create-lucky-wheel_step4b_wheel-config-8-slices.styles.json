@@ -1,0 +1,879 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#customNumberPartsLuckywheel > div.dropdown-toggler:nth-of-type(1)": {
+  "height": "32px"
+ },
+ "#customNumberPartsLuckywheel > div.input-fake:nth-of-type(2)": {
+  "height": "32px",
+  "width": "127px"
+ },
+ "#customNumberPartsMinigame > div.dropdown-toggler:nth-of-type(1)": {
+  "height": "32px"
+ },
+ "#customNumberPartsMinigame > div.input-fake:nth-of-type(2)": {
+  "height": "32px",
+  "width": "127px"
+ },
+ "#error-LuckywheelSoundEffectDropdown": {
+  "display": "none"
+ },
+ "#error-NumberPartsLuckywheel": {
+  "display": "none"
+ },
+ "#error-credit-1-1": {
+  "display": "none"
+ },
+ "#error-credit-2-1": {
+  "display": "none"
+ },
+ "#error-credit-3-1": {
+  "display": "none"
+ },
+ "#error-credit-4-1": {
+  "display": "none"
+ },
+ "#error-credit-5-1": {
+  "display": "none"
+ },
+ "#error-credit-6-1": {
+  "display": "none"
+ },
+ "#error-credit-7-1": {
+  "display": "none"
+ },
+ "#error-credit-8-1": {
+  "display": "none"
+ },
+ "#error-customMinigameSoundEffectDropdown": {
+  "display": "none"
+ },
+ "#error-customNumberPartsMinigame": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-1": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-2": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-3": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-4": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-5": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-6": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-7": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-8": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-1": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-2": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-3": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-4": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-5": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-6": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-7": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-8": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-1": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-2": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-3": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-4": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-5": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-6": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-7": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-8": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-1": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-2": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-3": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-4": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-5": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-6": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-7": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-8": {
+  "display": "none"
+ },
+ "#error-percent-1-1": {
+  "display": "none"
+ },
+ "#error-percent-2-1": {
+  "display": "none"
+ },
+ "#error-percent-3-1": {
+  "display": "none"
+ },
+ "#error-percent-4-1": {
+  "display": "none"
+ },
+ "#error-percent-5-1": {
+  "display": "none"
+ },
+ "#error-percent-6-1": {
+  "display": "none"
+ },
+ "#error-percent-7-1": {
+  "display": "none"
+ },
+ "#error-percent-8-1": {
+  "display": "none"
+ },
+ "#error-percentMax-1-1": {
+  "display": "none"
+ },
+ "#error-percentMax-2-1": {
+  "display": "none"
+ },
+ "#error-percentMax-3-1": {
+  "display": "none"
+ },
+ "#error-percentMax-4-1": {
+  "display": "none"
+ },
+ "#error-percentMax-5-1": {
+  "display": "none"
+ },
+ "#error-percentMax-6-1": {
+  "display": "none"
+ },
+ "#error-percentMax-7-1": {
+  "display": "none"
+ },
+ "#error-percentMax-8-1": {
+  "display": "none"
+ },
+ "#error-point-1-1": {
+  "display": "none"
+ },
+ "#error-point-2-1": {
+  "display": "none"
+ },
+ "#error-point-3-1": {
+  "display": "none"
+ },
+ "#error-point-4-1": {
+  "display": "none"
+ },
+ "#error-point-5-1": {
+  "display": "none"
+ },
+ "#error-point-6-1": {
+  "display": "none"
+ },
+ "#error-point-7-1": {
+  "display": "none"
+ },
+ "#error-point-8-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-1-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-2-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-3-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-4-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-5-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-6-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-7-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-8-1": {
+  "display": "none"
+ },
+ "#error-promotionDepositTypeDropdown": {
+  "display": "none"
+ },
+ "#error-quota-1-1": {
+  "display": "none"
+ },
+ "#error-quota-2-1": {
+  "display": "none"
+ },
+ "#error-quota-3-1": {
+  "display": "none"
+ },
+ "#error-quota-4-1": {
+  "display": "none"
+ },
+ "#error-quota-5-1": {
+  "display": "none"
+ },
+ "#error-quota-6-1": {
+  "display": "none"
+ },
+ "#error-quota-7-1": {
+  "display": "none"
+ },
+ "#error-quota-8-1": {
+  "display": "none"
+ },
+ "#error-rewardName-1-1": {
+  "display": "none"
+ },
+ "#error-rewardName-2-1": {
+  "display": "none"
+ },
+ "#error-rewardName-3-1": {
+  "display": "none"
+ },
+ "#error-rewardName-4-1": {
+  "display": "none"
+ },
+ "#error-rewardName-5-1": {
+  "display": "none"
+ },
+ "#error-rewardName-6-1": {
+  "display": "none"
+ },
+ "#error-rewardName-7-1": {
+  "display": "none"
+ },
+ "#error-rewardName-8-1": {
+  "display": "none"
+ },
+ "#imgMinigamePopupPlaceholder": {
+  "display": "none",
+  "z-index": "-99"
+ },
+ "#imgMinigameRewardPlaceholder": {
+  "display": "none",
+  "z-index": "-99"
+ },
+ "#inputCredit-1-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-2-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-3-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-4-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-5-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-6-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-7-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputCredit-8-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputMinigameAlertAmount-1 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-2 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-3 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-4 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-5 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-6 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-7 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameAlertAmount-8 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-1 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-2 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-3 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-4 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-5 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-6 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-7 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-8 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-1 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-2 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-3 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-4 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-5 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-6 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-7 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-8 > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-radius": "0px 8px 8px 0px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputPercentMax-1-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-2-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-3-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-4-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-5-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-6-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-7-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPercentMax-8-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-1-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-2-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-3-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-4-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-5-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-6-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-7-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-8-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-1-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-2-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-3-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-4-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-5-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-6-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-7-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-8-1 > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputRewardName-1-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-2-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-3-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-4-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-5-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-6-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-7-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#inputRewardName-8-1 > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#item-wheel-1": {
+  "--item": "1"
+ },
+ "#item-wheel-2": {
+  "--item": "2"
+ },
+ "#item-wheel-3": {
+  "--item": "3"
+ },
+ "#item-wheel-4": {
+  "--item": "4"
+ },
+ "#item-wheel-5": {
+  "--item": "5"
+ },
+ "#item-wheel-6": {
+  "--item": "6"
+ },
+ "#item-wheel-7": {
+  "--item": "7"
+ },
+ "#item-wheel-8": {
+  "--item": "8"
+ },
+ "#item-wheel-9": {
+  "--item": "9"
+ },
+ "#luckywheelFramePlaceholder": {
+  "display": "none"
+ },
+ "#luckywheelGetRewardPlaceholder": {
+  "display": "none"
+ },
+ "#luckywheelSpinBtnPlaceholder": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-1-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-2-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-3-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-4-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-5-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-6-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-7-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusFixed-8-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-1-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-2-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-3-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-4-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-5-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-6-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-7-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-8-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-1-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-2-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-3-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-4-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-5-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-6-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-7-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-8-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-1-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-2-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-3-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-4-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-5-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-6-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-7-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-8-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-1-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-2-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-3-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-4-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-5-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-6-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-7-1": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-8-1": {
+  "display": "none"
+ },
+ "#wheelDisplayRewardText > p": {
+  "color": "rgb(255, 255, 255)",
+  "font-family": "Kanit",
+  "font-size": "14px",
+  "font-weight": "400",
+  "text-align": "center"
+ },
+ "#wheelDisplayRewardText > span:nth-of-type(1)": {
+  "color": "rgb(255, 255, 255)",
+  "font-family": "Kanit",
+  "font-size": "18px",
+  "font-weight": "600",
+  "text-align": "center"
+ },
+ "#wheelDisplayRewardText > span:nth-of-type(2)": {
+  "color": "rgb(236, 193, 123)",
+  "font-family": "Kanit",
+  "font-size": "14px",
+  "font-weight": "400",
+  "text-align": "center"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(1)": {
+  "--item": "1"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(1) > div.wheel-image > div.btn-text": {
+  "--item": "1"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(2)": {
+  "--item": "2"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(2) > div.wheel-image > div.btn-text": {
+  "--item": "2"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(3)": {
+  "--item": "3"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(3) > div.wheel-image > div.btn-text": {
+  "--item": "3"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(4)": {
+  "--item": "4"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(4) > div.wheel-image > div.btn-text": {
+  "--item": "4"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(5)": {
+  "--item": "5"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(5) > div.wheel-image > div.btn-text": {
+  "--item": "5"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(6)": {
+  "--item": "6"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(6) > div.wheel-image > div.btn-text": {
+  "--item": "6"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(7)": {
+  "--item": "7"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(7) > div.wheel-image > div.btn-text": {
+  "--item": "7"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(8)": {
+  "--item": "8"
+ },
+ "#wheelInputShow1 > div.custom-wheel-out > div.wheel-item-out:nth-of-type(8) > div.wheel-image > div.btn-text": {
+  "--item": "8"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(1)": {
+  "--item": "1"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(2)": {
+  "--item": "2"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(3)": {
+  "--item": "3"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(4)": {
+  "--item": "4"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(5)": {
+  "--item": "5"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(6)": {
+  "--item": "6"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(7)": {
+  "--item": "7"
+ },
+ "#wheelShow1 > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(8)": {
+  "--item": "8"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(1)": {
+  "--item": "1"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(2)": {
+  "--item": "2"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(3)": {
+  "--item": "3"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(4)": {
+  "--item": "4"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(5)": {
+  "--item": "5"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(6)": {
+  "--item": "6"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(7)": {
+  "--item": "7"
+ },
+ "#wheelShowTest > div.custom-wheel:nth-of-type(1) > div.wheel-item-all > div.wheel-item:nth-of-type(8)": {
+  "--item": "8"
+ },
+ ".canvas-box-body-custom-mini-game:nth-of-type(2) (step-4 wrapper child 2) > div.main-in-detail-body-custom > div:nth-of-type(1) > div.input-col-1-p:nth-of-type(4)": {
+  "display": "none"
+ },
+ ".canvas-box-body-custom-mini-game:nth-of-type(2) (step-4 wrapper child 2) > div.main-in-detail-body-custom > div:nth-of-type(1) > div.input-col-1-p:nth-of-type(4) > div:nth-of-type(1) > div.row:nth-of-type(3) > div.col-6:nth-of-type(1) > div.minigame-upload-field:nth-of-type(1) > label.position-relative": {
+  "height": "288px",
+  "width": "288px"
+ },
+ ".canvas-box-body-custom-mini-game:nth-of-type(2) (step-4 wrapper child 2) > div.main-in-detail-body-custom > div:nth-of-type(1) > div.input-col-1-p:nth-of-type(4) > div:nth-of-type(1) > div.row:nth-of-type(3) > div.d-flex:nth-of-type(2) > div:nth-of-type(2) > label.position-relative": {
+  "height": "288px",
+  "width": "288px"
+ },
+ ".canvas-box-body-custom-mini-game:nth-of-type(2) (step-4 wrapper child 2) > div.main-in-detail-body-custom > div:nth-of-type(1) > div.px-4:nth-of-type(3) > div.label-minigame": {
+  "display": "none"
+ }
+}

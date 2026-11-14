@@ -1,0 +1,45 @@
+{
+ "url": "/mission/report-mission-by-member/<missionOrSubMissionId>?isMission=true|false",
+ "documentTitle": "สรุปรายงานรายสมาชิก",
+ "h4": "สรุปรายงานรายสมาชิก",
+ "state": "empty (table-jumbotron)",
+ "emptyTitle": "ไม่พบข้อมูลที่ค้นหา",
+ "emptyText": "ลองเปลี่ยนเงื่อนไขการค้นหานะคะ",
+ "filters": {
+  "searchPlaceholder": "ค้นหาโปรโมชั่น",
+  "date": "วันที่สรุป",
+  "mission": {
+   "title": "ภารกิจ :",
+   "value": "ทั้งหมด",
+   "options": [
+    "ทั้งหมด",
+    "QA Test Mission 0911",
+    "QA Mission 5 Tasks 20261016",
+    "QA Mission Rewards 20261015 Updated",
+    "QA Happy Mission Retest 20261015",
+    "ภารกิจ 001"
+   ]
+  },
+  "type": {
+   "title": "ประเภท :",
+   "value": "ทั้งหมด",
+   "options": [
+    "ทั้งหมด",
+    "Auto",
+    "Admin",
+    "Manual",
+    "Complete"
+   ]
+  }
+ },
+ "linkCountsOnParent": {
+  "isMission=false (sub-mission 'QA Login ครบ 1 วัน')": {
+   "by-reward": "6",
+   "by-member": "4"
+  },
+  "isMission=true (mission 'QA Mission Rewards 20261015 Updated')": {
+   "by-reward": "1",
+   "by-member": "1"
+  }
+ }
+}

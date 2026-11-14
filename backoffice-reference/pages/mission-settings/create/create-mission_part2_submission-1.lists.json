@@ -1,0 +1,68 @@
+{
+ "_note": "Full item lists of sibling groups that were collapsed in create-mission_part2_submission-1.html (value | text, text truncated to 90 chars).",
+ "groups": [
+  {
+   "items": [
+    "deposit | การฝาก",
+    "turn-over | ทำเทิร์นโอเวอร์",
+    "login | Login (เช็คอิน)",
+    "affiliate | การแนะนำเพื่อน",
+    "point | สะสมแต้ม"
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "equal | ฝากเท่ากับ",
+    "more-than | ฝากมากกว่า",
+    "minimum | ฝากขั้นต่ำ",
+    "accumulated | ฝากสะสม",
+    "every-deposit | ทุก ๆ ยอดฝาก"
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "more-than | ทำเทิร์นมากกว่า",
+    "minimum | ทำเทิร์นขั้นต่ำ",
+    "consecutive | ทำเทิร์นติดต่อกัน",
+    "every | ทุก ๆ ยอดเทิร์น",
+    "accumulated | ทำเทิร์นสะสม"
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "equal | จำนวนเพื่อนที่แนะนำเท่ากับ x คน",
+    "more-than | จำนวนเพื่อนที่แนะนำมากกว่า x คน",
+    "minimum | จำนวนเพื่อนที่แนะนำขั้นต่ำ x คน",
+    "refer-and-deposit | จำนวนเพื่อนที่แนะนำแล้วฝา",
+    "total-deposit | ยอดฝากรวมของเพื่อนที่แนะนำเท่",
+    "deposit-per-x | ยอดฝากของเพื่อนที่แนะนำทุก ๆ "
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "credit | เครดิต",
+    "mini-game-chance | สิทธิ์มินิเกมส์",
+    "promotion-chance | สิทธิ์โปรโมชั่น",
+    "point | แต้มสะสม",
+    "reward | ของรางวัล"
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "sig": "IMG "
+  }
+ ]
+}

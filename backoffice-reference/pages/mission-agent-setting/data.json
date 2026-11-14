@@ -1,0 +1,25 @@
+{
+ "title": "ตั้งค่าการจัดการ Agent",
+ "breadcrumb": ["ตั้งค่าภารกิจ", "รายชื่อภารกิจ", "ตั้งค่าการจัดการ Agent"],
+ "headerButtons": ["ประวัติการแก้ไข", "สร้างภารกิจ"],
+ "section": {
+  "title": "ตั้งค่าการจัดการ Agent",
+  "statusOn": "เปิดใช้งาน 2 Agents",
+  "statusOff": "ปิดใช้งาน 0 Agents",
+  "expanded": true,
+  "subTitle": "ตั้งค่าการเสร็จสิ้นภารกิจ",
+  "subText": "เมื่อเปิดการใช้งานแต่ละ Agent ใบหวยนี้จะแสดงให้เห็นได้ที่หน้าเล่นของ Agent นั้น ๆ และสมากชิกใช้งานได้ตามปกติ"
+ },
+ "agents": [
+  {"index": 1, "label": "Agent 1 : ", "name": "superx", "tenantId": "501", "enabled": true, "icon": "https://cdn.lsmloyalty.com/images/mission/icon/Vector.png"},
+  {"index": 2, "label": "Agent 2 : ", "name": "superxx", "tenantId": "669", "enabled": true, "icon": "https://cdn.lsmloyalty.com/images/mission/icon/Vector.png"}
+ ],
+ "agentCardText": {
+  "iconSetting": "กำหนดรูป icon เมนูที่หน้าเล่นสำหรับ Agent นี้",
+  "iconTitle": "อัพโหลดไอคอนเมนูหน้าเล่น",
+  "iconHint": "ขนาดไอคอนที่แนะนำ : 128px x 128px และนามสกุลไฟล์ png, jpg และ gif เท่านั้น",
+  "reset": "คืนค่าเริ่มต้น",
+  "upload": "อัพโหลดรูป"
+ },
+ "footer": ["ยกเลิก", "ยืนยันการสร้างภารกิจ"]
+}

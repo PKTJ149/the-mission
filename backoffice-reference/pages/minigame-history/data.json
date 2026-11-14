@@ -1,0 +1,255 @@
+{
+ "_notes": [
+  "History table page 1 as displayed 2026-11-14. Status cell is a clickable .promotion-deposit-change-status label (dropdown → change status; NOT exercised) followed by an info icon.",
+  "Total 14214 rows."
+ ],
+ "columns": [
+  "วันที่ได้สิทธิ์รับโปร",
+  "ลูกค้า (ยูสเซอร์เนม)",
+  "ชื่อโปรโมชั่น",
+  "ประเภท",
+  "เครดิต (฿)",
+  "สิทธิ์มินิเกมส์",
+  "สิทธิ์แทงหวย",
+  "แต้มสะสม",
+  "ของรางวัล",
+  "สถานะ",
+  "ผู้ทำรายการ"
+ ],
+ "rowsPage1": [
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "4",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "5",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "4",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "1",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "0",
+   "1",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "6",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "4",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "1",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "0",
+   "1",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ],
+  [
+   "12/11/2026 07:37",
+   "0Tsuperx81403971005 (0Tsuperx81403971005)",
+   "QA Other Retest 20261015",
+   "Auto",
+   "5",
+   "0",
+   "0",
+   "0",
+   "0",
+   "รอใช้โปร",
+   "auto"
+  ]
+ ],
+ "pagination": {
+  "display": "แสดง 1 - 10 จาก 14214 รายการ",
+  "pages": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "limit": "10"
+ },
+ "filters": {
+  "tableSearch": "ค้นหาโปรโมชั่น",
+  "filterDateSummary": "วันที่สรุปข้อมูล :",
+  "filterCategory": [
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "manual",
+    "Manual"
+   ],
+   [
+    "promotion",
+    "โปรโมชั่นหลัก"
+   ],
+   [
+    "mini-game",
+    "มินิเกมส์"
+   ]
+  ],
+  "filterStatus": [
+   [
+    "accept",
+    "ใช้โปรแล้ว"
+   ],
+   [
+    "waiting",
+    "รอใช้โปร"
+   ],
+   [
+    "expired",
+    "หมดอายุ"
+   ],
+   [
+    "rejected",
+    "ยกเลิก"
+   ]
+  ],
+  "filterMakeBy": [
+   [
+    "auto",
+    "auto"
+   ],
+   [
+    "superx",
+    "superx"
+   ]
+  ],
+  "filterAgent": [
+   [
+    " ",
+    "ประวัติการรับ/ใช้สิทธิ์มินิเกมส์ (sic — i18n key bug, label shows page title instead of ทั้งหมด)"
+   ],
+   [
+    "669",
+    "superxx"
+   ],
+   [
+    "501",
+    "superx"
+   ]
+  ]
+ },
+ "changeStatusDropdowns": {
+  "dropdownChangeStatusPromotion": [
+   [
+    "Waiting",
+    "รอใช้โปร"
+   ],
+   [
+    "Cancel",
+    "ยกเลิก"
+   ]
+  ],
+  "dropdownChangeStatusPromotionCancelPromotion": [
+   [
+    "Waiting",
+    "ใช้โปรแล้ว"
+   ],
+   [
+    "Cancel",
+    "ยกเลิก"
+   ]
+  ]
+ },
+ "manualCreate": {
+  "miniGameOptions": [
+   "QA Test Wheel 0911",
+   "QA Wheel Retest 20261015",
+   "QA Other Retest 20261015"
+  ],
+  "rewardOptions": "filled after choosing a mini-game (not exercised)"
+ }
+}

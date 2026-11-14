@@ -1,0 +1,46 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#missionTable > div.table-loading:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2)": {
+  "background-color": "rgb(21, 21, 21)"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2) > table > tbody": {
+  "background-color": "rgb(21, 21, 21)",
+  "color": "rgb(255, 255, 255)"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr > th.w-0:nth-of-type(1)": {
+  "width": "10%"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr > th.w-0:nth-of-type(2)": {
+  "width": "40%"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr > th.w-0:nth-of-type(3)": {
+  "width": "40%"
+ },
+ "#missionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr > th.w-0:nth-of-type(4)": {
+  "width": "10%"
+ },
+ "#missionTable > div:nth-of-type(3)": {
+  "background-color": "rgb(21, 21, 21)"
+ },
+ "#missionTable > div:nth-of-type(3) > div.system-pagination > div.pagination-display:nth-of-type(2) > span:nth-of-type(1)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#missionTable > div:nth-of-type(3) > div.system-pagination > div.pagination-display:nth-of-type(2) > span:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#missionTable > div:nth-of-type(3) > div.system-pagination > div.pagination-display:nth-of-type(2) > span:nth-of-type(3)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#missionTable > div:nth-of-type(3) > div.system-pagination > div.pagination-display:nth-of-type(2) > span:nth-of-type(4)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#missionTable > div:nth-of-type(3) > div.system-pagination > div.pagination-display:nth-of-type(2) > span:nth-of-type(5)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card > div.row:nth-of-type(2) > div.col-auto:nth-of-type(1)": {
+  "flex-basis": "264px"
+ }
+}

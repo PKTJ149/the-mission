@@ -1,0 +1,330 @@
+{
+ "_notes": [
+  "Summary table (state 1) and drill-down (state 2, after clicking a row -> nextDetail(event,name,id)). Values exactly as displayed 2026-11-14.",
+  "Row status cell: .custom-badge-status with green toggle icon + เปิดใช้งาน; credit cell is .custom-badge-pill (white pill)."
+ ],
+ "summaryTable": {
+  "columns": [
+   "name",
+   "status",
+   "eligiblePeople(คนมีสิทธิ์รับ)",
+   "receivedPeople(คนที่รับโปร)",
+   "usableTimes(ใช้ได้ทั้งหมด)",
+   "usedTimes(ใช้ไปทั้งหมด)",
+   "credit฿",
+   "minigameRights",
+   "lottoRights",
+   "points",
+   "rewards"
+  ],
+  "rows": [
+   {
+    "name": "QA Other Retest 20261015",
+    "status": "เปิดใช้งาน",
+    "eligiblePeople(คนมีสิทธิ์รับ)": "9",
+    "receivedPeople(คนที่รับโปร)": "2",
+    "usableTimes(ใช้ได้ทั้งหมด)": "7103",
+    "usedTimes(ใช้ไปทั้งหมด)": "9",
+    "credit฿": "26.0000",
+    "minigameRights": "2",
+    "lottoRights": "0",
+    "points": "0",
+    "rewards": "0"
+   },
+   {
+    "name": "QA Wheel Retest 20261015",
+    "status": "เปิดใช้งาน",
+    "eligiblePeople(คนมีสิทธิ์รับ)": "8",
+    "receivedPeople(คนที่รับโปร)": "1",
+    "usableTimes(ใช้ได้ทั้งหมด)": "7101",
+    "usedTimes(ใช้ไปทั้งหมด)": "5",
+    "credit฿": "18.0000",
+    "minigameRights": "0",
+    "lottoRights": "0",
+    "points": "0",
+    "rewards": "0"
+   },
+   {
+    "name": "QA Test Wheel 0911",
+    "status": "เปิดใช้งาน",
+    "eligiblePeople(คนมีสิทธิ์รับ)": "2",
+    "receivedPeople(คนที่รับโปร)": "2",
+    "usableTimes(ใช้ได้ทั้งหมด)": "10",
+    "usedTimes(ใช้ไปทั้งหมด)": "10",
+    "credit฿": "10",
+    "minigameRights": "0",
+    "lottoRights": "0",
+    "points": "0",
+    "rewards": "0"
+   }
+  ],
+  "totalRow": {
+   "label": "ยอดรวมทั้งหมด",
+   "eligiblePeople(คนมีสิทธิ์รับ)": "19",
+   "receivedPeople(คนที่รับโปร)": "5",
+   "usableTimes(ใช้ได้ทั้งหมด)": "14214",
+   "usedTimes(ใช้ไปทั้งหมด)": "24",
+   "credit฿": "54.0000",
+   "minigameRights": "2",
+   "lottoRights": "0",
+   "points": "0",
+   "rewards": "0"
+  }
+ },
+ "filters": {
+  "tableSearch": "ค้นหาโปรโมชั่น",
+  "promotionCustomerSearch (drill-down only)": "ค้นหาด้วยชื่อลูกค้า",
+  "filterDateSummary": "วันที่สรุป (flatpickr range)",
+  "filterStatus": [
+   [
+    "active",
+    "เปิดใช้งาน"
+   ],
+   [
+    "inactive",
+    "ปิดใช้งาน"
+   ],
+   [
+    "expired",
+    "หมดอายุ"
+   ]
+  ],
+  "filterAgent": [
+   [
+    " ",
+    "ทั้งหมด"
+   ],
+   [
+    "669",
+    "superxx"
+   ],
+   [
+    "501",
+    "superx"
+   ]
+  ],
+  "filterCategory (drill-down)": [
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "manual",
+    "Manual"
+   ],
+   [
+    "promotion",
+    "โปรโมชั่นหลัก"
+   ],
+   [
+    "mini-game",
+    "มินิเกมส์"
+   ]
+  ],
+  "filterPromotionCustomerStatus (drill-down)": [
+   [
+    "accept",
+    "ใช้โปรแล้ว"
+   ],
+   [
+    "waiting",
+    "รอใช้โปร"
+   ],
+   [
+    "expired",
+    "หมดอายุ"
+   ],
+   [
+    "rejected",
+    "ยกเลิก"
+   ]
+  ],
+  "filterMakeBy (drill-down)": [
+   [
+    "auto",
+    "auto"
+   ],
+   [
+    "superx",
+    "superx"
+   ]
+  ],
+  "autoRefresh": [
+   "30s",
+   "45s",
+   "60s (selected)",
+   "120s",
+   "ปิดการ Auto Refresh"
+  ],
+  "autoRefreshButtonText": "Refresh in NN sec. (counts down)"
+ },
+ "breadcrumb": {
+  "root": "Anonymous",
+  "drilldown": [
+   "Anonymous",
+   "QA Other Retest 20261015"
+  ]
+ },
+ "drilldown_QA_Other_Retest": {
+  "panel": {
+   "promotionName": "QA Other Retest 20261015",
+   "detailHtml": "ทดสอบมินิเกมส์อื่น ๆ และรางวัลครบสามประเภท บน staging",
+   "status": "เปิดใช้งาน",
+   "promotionTime": "-",
+   "overviewImage": "https://storage.googleapis.com/one-loyalty-stg-media/uploads/mini-game-image/20261015T045904756.png",
+   "promotionCustomerCount": "9",
+   "getPromotionCustomerCount": "2",
+   "promotionCount": "7103",
+   "getPromotionCount": "9",
+   "credit": "26",
+   "miniGameCount": "2",
+   "lottoCount": "0",
+   "pointCount": "0",
+   "rewardCount": "0"
+  },
+  "columns": [
+   "วันที่ได้สิทธิ์รับโปร",
+   "ลูกค้า (ยูสเซอร์เนม)",
+   "ประเภท",
+   "เครดิต (฿)",
+   "สิทธิ์มินิเกมส์",
+   "สิทธิ์แทงหวย",
+   "แต้มสะสม",
+   "ของรางวัล",
+   "สถานะ",
+   "ผู้ทำรายการ"
+  ],
+  "rowsPage1": [
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "4",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "4",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "1",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "0",
+    "1",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "6",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "4",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "1",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "0",
+    "1",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ],
+   [
+    "12/11/2026 07:37",
+    "0Tsuperx81403971005 (0Tsuperx81403971005)",
+    "Auto",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0",
+    "รอใช้โปร",
+    "auto"
+   ]
+  ],
+  "pagination": {
+   "display": "แสดง 1 - 10 จาก 7103 รายการ",
+   "pages": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "limit": "10"
+  }
+ }
+}

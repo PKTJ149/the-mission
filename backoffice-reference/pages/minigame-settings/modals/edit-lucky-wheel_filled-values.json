@@ -1,0 +1,95 @@
+{
+ "_note": "Field values loaded into the offcanvas when clicking eye -> 'แก้ไขข้อมูลวงล้อนำโชค' on card 'QA Test Wheel 0911' (POST /api/promotion/lucky-wheel/get/). Offcanvas title becomes 'แก้ไขข้อมูลวงล้อนำโชค'; footer shows extra 'ไปหน้าสรุป' (btn-outline-warning) button; language pill TH shows '(ตั้งค่าแล้ว)'. Not saved.",
+ "values": {
+  "minigameName": "QA Test Wheel 0911",
+  "minigameStatus": "checked",
+  "ckeditor_condition_th": "QA test wheel: deposit 1 baht to get 1 spin",
+  "customSelectAgentDropdown": "superx",
+  "customMinigameDepositTypeDropdown": "ฝากครั้งเดียว",
+  "customMinigameDepositAmountTypeDropdown": "ฝากขั้นต่ำ",
+  "minigameMinAmountAutoDeposit": "1",
+  "customNumberPartsLuckywheel": "8 ชิ้น",
+  "turnOverBeforeLuckyWheel": "checked",
+  "wheels": [
+   {
+    "index": 1,
+    "minigameRewardDescription": "QA เครดิต 1 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 2,
+    "minigameRewardDescription": "QA เครดิต 2 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 3,
+    "minigameRewardDescription": "QA เครดิต 3 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 4,
+    "minigameRewardDescription": "QA เครดิต 4 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 5,
+    "minigameRewardDescription": "QA เครดิต 5 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 6,
+    "minigameRewardDescription": "QA เครดิต 6 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 7,
+    "minigameRewardDescription": "QA เครดิต 7 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   },
+   {
+    "index": 8,
+    "minigameRewardDescription": "QA เครดิต 8 บาท",
+    "minigameLuckyWheelRewardPercentage": "0",
+    "minigameNoLimitAmountBonus": "checked",
+    "minigameIsAlertOff": "checked",
+    "bonusType": "credit_fix (เครดิต Fixed Rate)",
+    "credit": "1"
+   }
+  ],
+  "minigameCustomStartTime-1": "00:00",
+  "minigameCustomEndTime-1": "23:59",
+  "minigameEnableCountDownCreated": "checked",
+  "minigameEnableResetExpired": "checked",
+  "minigameTurnoverPeriodSettingOffRadio": "checked",
+  "minigameEnableMinTurnover": "checked",
+  "all other numeric inputs": "0"
+ }
+}

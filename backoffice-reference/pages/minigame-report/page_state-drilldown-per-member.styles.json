@@ -1,0 +1,43 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#promotionBreadcrumb": {
+  "--breadcrumb-max-width": "260px"
+ },
+ "#promotionDetailPanel > div.row > div.col:nth-of-type(2) > div.row": {
+  "row-gap": "1rem"
+ },
+ "#promotionTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(1)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#promotionTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(2)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#promotionTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(3)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#promotionTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(4)": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#promotionTable > div.system-pagination:nth-of-type(3) > div.pagination-display:nth-of-type(2) > span:nth-of-type(5)": {
+  "color": "rgb(233, 233, 233)"
+ },
+ "#promotionTable > div.table-loading:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#promotionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr:nth-of-type(2) > th.text-center:nth-of-type(1)": {
+  "width": "142px"
+ },
+ "#promotionTable > div.table-scrollable:nth-of-type(2) > table > thead.color-th-report-theme-emerald > tr:nth-of-type(2) > th.text-center:nth-of-type(5) > span.custom-badge": {
+  "--badge-divider-color": "#8CE6C6"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card-report-minigame:nth-of-type(2) > div.padding-header-report-minigame:nth-of-type(1) > div.row:nth-of-type(3) > div.col-auto:nth-of-type(1)": {
+  "flex-basis": "264px"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card-report-minigame:nth-of-type(2) > div.padding-header-report-minigame:nth-of-type(1) > div.row:nth-of-type(3) > div.col-auto:nth-of-type(2)": {
+  "display": "none",
+  "flex-basis": "264px"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card-report-minigame:nth-of-type(2) > div.padding-header-report-minigame:nth-of-type(1) > div.row:nth-of-type(3) > div.col-auto:nth-of-type(4)": {
+  "display": "none"
+ }
+}

@@ -1,0 +1,184 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-en:nth-of-type(4)": {
+  "display": "none"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-en:nth-of-type(4) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-en:nth-of-type(4) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-th:nth-of-type(3) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-th:nth-of-type(3) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-tl:nth-of-type(5)": {
+  "display": "none"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-tl:nth-of-type(5) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-left:nth-of-type(1) > div.textarea-condition-tl:nth-of-type(5) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-right:nth-of-type(2)": {
+  "max-width": "390px"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-right:nth-of-type(2) > div.col-12:nth-of-type(2) > div.d-flex > div.d-flex > small.p3": {
+  "color": "rgb(130, 130, 130)"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-right:nth-of-type(2) > div.col-12:nth-of-type(2) > div.d-flex > div.d-flex > span.p2": {
+  "color": "rgb(80, 161, 152)"
+ },
+ "#SettingMinigameStep1 > div.main-in-detail-body:nth-of-type(3) > div.body-content-right:nth-of-type(2) > div.col-12:nth-of-type(2) > div.d-flex > label > img.img-upload-image-icon-show": {
+  "display": "none"
+ },
+ "#btnEditMinigameDetail": {
+  "font-size": "12px",
+  "width": "168px"
+ },
+ "#btnRemoveChancePriviegeTemplate": {
+  "display": "none"
+ },
+ "#buttonNextPromotionStepfinal1": {
+  "display": "none",
+  "width": "168px"
+ },
+ "#error-MinigameRemoveChance-template": {
+  "display": "none"
+ },
+ "#error-credit-template": {
+  "display": "none"
+ },
+ "#error-minigameAlertAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameChanceAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameLimitAmount-template": {
+  "display": "none"
+ },
+ "#error-minigameLuckyWheelRewardPercentage-template": {
+  "display": "none"
+ },
+ "#error-minigameRewardDescription-template": {
+  "display": "none"
+ },
+ "#error-percent-template": {
+  "display": "none"
+ },
+ "#error-percentMax-template": {
+  "display": "none"
+ },
+ "#error-point-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositBonusDropdown-template": {
+  "display": "none"
+ },
+ "#error-promotionDepositTypeDropdown": {
+  "display": "none"
+ },
+ "#error-quota-template": {
+  "display": "none"
+ },
+ "#error-rewardName-template": {
+  "display": "none"
+ },
+ "#error-selectAgentDropdown": {
+  "display": "none"
+ },
+ "#fileImageIconImage": {
+  "display": "none"
+ },
+ "#groupBtnSettingMinigame1 > div.d-flex > div:nth-of-type(2) > button.btn:nth-of-type(1)": {
+  "width": "168px"
+ },
+ "#groupBtnSettingMinigame1 > div.d-flex > div:nth-of-type(2) > button.btn:nth-of-type(2)": {
+  "width": "168px"
+ },
+ "#inputCredit-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputMinigameAlertAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameChanceAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLimitAmount-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputMinigameLuckyWheelRewardPercentage-template > div.input-group:nth-of-type(2) > span.input-group-text": {
+  "border-bottom-left-radius": "0px",
+  "border-bottom-right-radius": "8px",
+  "border-top-left-radius": "0px",
+  "border-top-right-radius": "8px"
+ },
+ "#inputPercentMax-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputPoint-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputQuota-template > div.cursor-pointer:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#inputRewardName-template > div.cursor-pointer": {
+  "display": "none"
+ },
+ "#minigameConditionHtml": {
+  "display": "none"
+ },
+ "#minigameConditionHtml-en": {
+  "display": "none"
+ },
+ "#minigameConditionHtml-tl": {
+  "display": "none"
+ },
+ "#minigameDeleteMinigameDatetime-template": {
+  "display": "none"
+ },
+ "#offcanvasMinigameViewDetail1": {
+  "display": "none"
+ },
+ "#progressStepSettingMinigame": {
+  "width": "20%"
+ },
+ "#rootScrollMinigame > div.session-title-minigame:nth-of-type(1) > div.canvas-box-step > div.show-detail:nth-of-type(1)": "[BLOCKED: Sensitive key]",
+ "#rootScrollMinigame > div.session-title-minigame:nth-of-type(1) > div.canvas-box-step > div.show-detail:nth-of-type(1) > div.d-flex > div.d-flex:nth-of-type(1) > div > span.p3": "[BLOCKED: Sensitive key]",
+ "#showBoxPromotionBonusFixed-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusMiniGameAndLottery-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPercentage-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusPoint-template": {
+  "display": "none"
+ },
+ "#showBoxPromotionBonusReward-template": {
+  "display": "none"
+ },
+ "#textDetailStepSettingMinigame": {
+  "font-size": "15px"
+ },
+ "#textdescriptionStepSettingMinigame": {
+  "font-size": "11px"
+ }
+}

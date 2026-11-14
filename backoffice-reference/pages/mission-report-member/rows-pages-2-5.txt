@@ -1,0 +1,47 @@
+# /mission/report — rows on pages 2–5 (captured from staging 14/11/2026, read-only)
+# Page 1 rows are in data.json (rowsPage1). Total 45 rows, newest first, 10 per page.
+# Columns: dateTime | memberName (empty = link with no text) | memberId (from the row link /mission/report-mission-member-detail/<id>) | mission | type | credit | minigameRights | promotionRights | points | other | maker
+# Pager window seen on staging: page 1 → "1 2 3 4", page 2–4 → "1 2 3 4 5", page 5 → "2 3 4 5" (current −3 … current +3, clipped).
+
+## Page 2
+09/11/2026 14:18||3948023|QA Test Mission 0911|Complete|0.00|0|0|0|0|Auto
+09/11/2026 13:33||3670878|QA Happy Mission Retest 20261015 - QA เข้าสู่ระบบ 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+09/11/2026 13:33||3670878|QA Happy Mission Retest 20261015|Complete|0.00|0|0|0|0|Auto
+09/11/2026 13:33|0Tsuperx37530777112|3670878|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Manual|1.00|0|0|0|0|User
+09/11/2026 13:33||3670878|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Complete|0.00|0|0|0|0|Auto
+09/11/2026 13:32||3670878|QA Mission 5 Tasks 20261016 - 1. เช็คอินครบ 1 วัน|Complete|0.00|0|0|0|0|Auto
+07/11/2026 20:43|0Tsuperx37530777112|3670878|ภารกิจ 001 - สะสมเทริน์ครบ 10|Complete|0.00|0|0|0|0|Auto
+07/11/2026 20:43|0Tsuperx37530777112|3670878|ภารกิจ 001|Complete|0.00|0|0|0|0|Auto
+07/11/2026 20:41|0Tsuperx37530777112|3670878|QA Mission 5 Tasks 20261016 - 4. ทำเทิร์นสะสมครบ 1 บาท|Complete|0.00|0|0|0|0|Auto
+05/11/2026 16:12|0Tsuperx85064568312|3685833|ภารกิจ 001|Complete|0.00|0|0|0|0|Auto
+
+## Page 3
+05/11/2026 16:12|0Tsuperx85064568312|3685833|ภารกิจ 001 - สะสมเทริน์ครบ 10|Complete|0.00|0|0|0|0|Auto
+05/11/2026 16:07|0Tsuperx85064568312|3685833|QA Mission 5 Tasks 20261016 - 4. ทำเทิร์นสะสมครบ 1 บาท|Complete|0.00|0|0|0|0|Auto
+04/11/2026 20:26|0Tsuperx87179333541|4070446|QA Mission 5 Tasks 20261016 - 2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+04/11/2026 20:26|0Tsuperx87179333541|4070446|QA Mission 5 Tasks 20261016 - 3. ฝากสะสมครบ 2 บาท|Complete|0.00|0|0|0|0|Auto
+01/11/2026 00:39|0Tsuperx59557768142|2560195|QA Mission 5 Tasks 20261016 - 3. ฝากสะสมครบ 2 บาท|Complete|0.00|0|0|0|0|Auto
+01/11/2026 00:39|0Tsuperx59557768142|2560195|QA Mission 5 Tasks 20261016 - 2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+01/11/2026 00:39|0Tsuperx50981552156|2589654|QA Mission 5 Tasks 20261016 - 2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+01/11/2026 00:39|0Tsuperx50981552156|2589654|QA Mission 5 Tasks 20261016 - 3. ฝากสะสมครบ 2 บาท|Complete|0.00|0|0|0|0|Auto
+26/10/2026 16:26||3670878|QA Mission 5 Tasks 20261016 - 5. แนะนำเพื่อนครบ 1 คน|Complete|0.00|0|0|0|0|Auto
+23/10/2026 02:16|0Tsuperx81403971005|2772567|QA Mission 5 Tasks 20261016 - 2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+
+## Page 4
+23/10/2026 02:16|0Tsuperx81403971005|2772567|QA Mission 5 Tasks 20261016 - 3. ฝากสะสมครบ 2 บาท|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:58||3564528|QA Mission 5 Tasks 20261016 - 1. เช็คอินครบ 1 วัน|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:58||3564528|QA Happy Mission Retest 20261015 - QA เข้าสู่ระบบ 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:58||3564528|QA Happy Mission Retest 20261015|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:56|0Tsuperx58528064595|3564528|ภารกิจ 001 - สะสมเทริน์ครบ 10|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:56|0Tsuperx58528064595|3564528|ภารกิจ 001|Complete|0.00|0|0|0|0|Auto
+16/10/2026 13:56|0Tsuperx58528064595|3564528|QA Mission 5 Tasks 20261016 - 4. ทำเทิร์นสะสมครบ 1 บาท|Complete|0.00|0|0|0|0|Auto
+15/10/2026 19:22||3904718|QA Happy Mission Retest 20261015 - QA เข้าสู่ระบบ 1 ครั้ง|Complete|0.00|0|0|0|0|Auto
+15/10/2026 19:22||3904718|QA Happy Mission Retest 20261015|Complete|0.00|0|0|0|0|Auto
+15/10/2026 16:56|0Tsuperx58528064595|3564528|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Manual|1.00|0|0|0|0|User
+
+## Page 5
+15/10/2026 16:55|0Tsuperx58528064595|3564528|QA Mission Rewards 20261015 Updated|Manual|1.00|1|0|1|1|User
+15/10/2026 16:55||3564528|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Complete|0.00|0|0|0|0|Auto
+15/10/2026 16:55||3564528|QA Mission Rewards 20261015 Updated|Complete|0.00|0|0|0|0|Auto
+15/10/2026 16:42|0Tsuperx59575402679|3904718|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Manual|1.00|0|0|0|0|User
+15/10/2026 16:42||3904718|QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน|Complete|0.00|0|0|0|0|Auto

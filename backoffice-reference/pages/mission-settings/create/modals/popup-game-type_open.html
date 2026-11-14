@@ -1,0 +1,308 @@
+<div class="system-popup choose-game-type show animate-in" id="popup-game-type">
+<div class="system-popup-content">
+<div class="system-popup-content-header">
+<h4 class="mission-page" data-i18n="missionPage.missionTurnOverCondition">กำหนดประเภทเกมหรือค่ายเกมในการทำเทิร์นโอเวอร์</h4>
+</div>
+<div class="system-popup-content-inner">
+<div class="box-main-type-game">
+<div class="box-main-type-game-item">
+<div class="box-main-type-game-item-menu">
+<div class="menu-header">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionGameCategory">ประเภทเกมส์</span>
+</div>
+<div class="menu-body">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionGameCategoryChoose">เลือกประเภทเกมส์</span>
+<button class="btn-mission-type-game" id="btnGameType-sport" onclick="chooseGameTypeItem(this)">
+<img src="/assets/images/mission/icon-game-type-1.png" alt="sport" width="20" height="20">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.sport">กีฬา</span>
+</button>
+<button class="btn-mission-type-game" id="btnGameType-game" onclick="chooseGameTypeItem(this)">
+<img src="/assets/images/mission/icon-game-type-2.png" alt="games" width="20" height="20">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.games">เกมส์</span>
+</button>
+<button class="btn-mission-type-game" id="btnGameType-casino" onclick="chooseGameTypeItem(this)">
+<img src="/assets/images/mission/icon-game-type-3.png" alt="casino" width="20" height="20">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.casino">คาสิโน</span>
+</button>
+<button class="btn-mission-type-game" id="btnGameType-lottery" onclick="chooseGameTypeItem(this)">
+<img src="/assets/images/mission/icon-game-type-4.png" alt="lotto" width="20" height="20">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.lotto">หวย</span>
+</button>
+</div>
+</div>
+<div class="box-main-type-game-item-provider">
+<div class="provider-header">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionGameProvider">ค่ายเกมส์</span>
+</div>
+<div class="provider-body">
+<div class="group-provider-header">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionGameProviderChoose">เลือกค่ายเกมที่ต้องการ</span>
+<span class="text-p2-regular"><span class="mission-page" data-i18n="missionPage.missionAllGameProvider">ค่ายเกมส์ทั้งหมด</span> <span id="all-game-provider-count">61</span> <span class="mission-page" data-i18n="missionPage.provider">ค่าย</span></span>
+</div>
+<div class="group-provider-body" data-game-type="sport" id="all-game-type-sport"><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" id="game-provider-checkbox-sport-all" name="game-provider-checkbox-all" data-game-type-checkbox="sport" value="all" onclick="chooseGameProviderItem(this)">
+<label for="game-provider-checkbox-sport-all" class="label-checkbox">Select All</label>
+</div>
+</div>
+<div>
+</div>
+<div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="9" id="game-provider-checkbox-sport-9" data-game-type-checkbox="sport" data-payload="{&quot;lsmGameId&quot;:9,&quot;code&quot;:&quot;muaypukyok&quot;,&quot;name&quot;:&quot;ONE BX&quot;,&quot;category&quot;:&quot;sport&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-sport-9" class="label-checkbox">ONE BX</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="11" id="game-provider-checkbox-sport-11" data-game-type-checkbox="sport" data-payload="{&quot;lsmGameId&quot;:11,&quot;code&quot;:&quot;sabasport&quot;,&quot;name&quot;:&quot;SABA&quot;,&quot;category&quot;:&quot;sport&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-sport-11" class="label-checkbox">SABA</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="12" id="game-provider-checkbox-sport-12" data-game-type-checkbox="sport" data-payload="{&quot;lsmGameId&quot;:12,&quot;code&quot;:&quot;sbo&quot;,&quot;name&quot;:&quot;SBO&quot;,&quot;category&quot;:&quot;sport&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-sport-12" class="label-checkbox">SBO</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="7" id="game-provider-checkbox-sport-7" data-game-type-checkbox="sport" data-payload="{&quot;lsmGameId&quot;:7,&quot;code&quot;:&quot;newsportbook&quot;,&quot;name&quot;:&quot;SPORT LSM&quot;,&quot;category&quot;:&quot;sport&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-sport-7" class="label-checkbox">SPORT LSM</label>
+</div>
+</div></div>
+<div class="group-provider-body d-none" data-game-type="game" id="all-game-type-game"><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" id="game-provider-checkbox-game-all" name="game-provider-checkbox-all" data-game-type-checkbox="game" value="all" onclick="chooseGameProviderItem(this)">
+<label for="game-provider-checkbox-game-all" class="label-checkbox">Select All</label>
+</div>
+</div>
+<div>
+</div>
+<div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="87" id="game-provider-checkbox-game-87" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:87,&quot;code&quot;:&quot;amigo&quot;,&quot;name&quot;:&quot;AMIGO&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-87" class="label-checkbox">AMIGO</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="46" id="game-provider-checkbox-game-46" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:46,&quot;code&quot;:&quot;ADVANTPLAY&quot;,&quot;name&quot;:&quot;Advantplay&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-46" class="label-checkbox">Advantplay</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="88" id="game-provider-checkbox-game-88" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:88,&quot;code&quot;:&quot;allbet&quot;,&quot;name&quot;:&quot;Allbet Game&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-88" class="label-checkbox">Allbet Game</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="56" id="game-provider-checkbox-game-56" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:56,&quot;code&quot;:&quot;bng&quot;,&quot;name&quot;:&quot;BNG&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-56" class="label-checkbox">BNG</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="54" id="game-provider-checkbox-game-54" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:54,&quot;code&quot;:&quot;btgaming&quot;,&quot;name&quot;:&quot;BT Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-54" class="label-checkbox">BT Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="94" id="game-provider-checkbox-game-94" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:94,&quot;code&quot;:&quot;cp&quot;,&quot;name&quot;:&quot;CP Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-94" class="label-checkbox">CP Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="69" id="game-provider-checkbox-game-69" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:69,&quot;code&quot;:&quot;dragoonsoft&quot;,&quot;name&quot;:&quot;DragoonSoft&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-69" class="label-checkbox">DragoonSoft</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="53" id="game-provider-checkbox-game-53" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:53,&quot;code&quot;:&quot;expanse&quot;,&quot;name&quot;:&quot;Expanse&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-53" class="label-checkbox">Expanse</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="72" id="game-provider-checkbox-game-72" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:72,&quot;code&quot;:&quot;fachai&quot;,&quot;name&quot;:&quot;Fachai&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-72" class="label-checkbox">Fachai</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="2" id="game-provider-checkbox-game-2" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:2,&quot;code&quot;:&quot;fastspin&quot;,&quot;name&quot;:&quot;FastSpin&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-2" class="label-checkbox">FastSpin</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="95" id="game-provider-checkbox-game-95" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:95,&quot;code&quot;:&quot;fungaming&quot;,&quot;name&quot;:&quot;Fun Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-95" class="label-checkbox">Fun Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="30" id="game-provider-checkbox-game-30" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:30,&quot;code&quot;:&quot;gpi&quot;,&quot;name&quot;:&quot;GPI Game&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-30" class="label-checkbox">GPI Game</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="32" id="game-provider-checkbox-game-32" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:32,&quot;code&quot;:&quot;gw&quot;,&quot;name&quot;:&quot;Gaming World&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-32" class="label-checkbox">Gaming World</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="29" id="game-provider-checkbox-game-29" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:29,&quot;code&quot;:&quot;haba&quot;,&quot;name&quot;:&quot;Habanero&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-29" class="label-checkbox">Habanero</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="75" id="game-provider-checkbox-game-75" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:75,&quot;code&quot;:&quot;hotdog&quot;,&quot;name&quot;:&quot;Hotdog Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-75" class="label-checkbox">Hotdog Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="5" id="game-provider-checkbox-game-5" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:5,&quot;code&quot;:&quot;jili&quot;,&quot;name&quot;:&quot;JILI&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-5" class="label-checkbox">JILI</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="27" id="game-provider-checkbox-game-27" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:27,&quot;code&quot;:&quot;jk&quot;,&quot;name&quot;:&quot;Joker&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-27" class="label-checkbox">Joker</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="36" id="game-provider-checkbox-game-36" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:36,&quot;code&quot;:&quot;ka&quot;,&quot;name&quot;:&quot;KA Game&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-36" class="label-checkbox">KA Game</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="33" id="game-provider-checkbox-game-33" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:33,&quot;code&quot;:&quot;kingmaker&quot;,&quot;name&quot;:&quot;KingMaker&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-33" class="label-checkbox">KingMaker</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="57" id="game-provider-checkbox-game-57" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:57,&quot;code&quot;:&quot;megawin&quot;,&quot;name&quot;:&quot;MEGAWIN&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-57" class="label-checkbox">MEGAWIN</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="41" id="game-provider-checkbox-game-41" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:41,&quot;code&quot;:&quot;mp&quot;,&quot;name&quot;:&quot;MPoker&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-41" class="label-checkbox">MPoker</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="84" id="game-provider-checkbox-game-84" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:84,&quot;code&quot;:&quot;microgame&quot;,&quot;name&quot;:&quot;Micro Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-84" class="label-checkbox">Micro Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="48" id="game-provider-checkbox-game-48" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:48,&quot;code&quot;:&quot;naga&quot;,&quot;name&quot;:&quot;NAGA GAMES&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-48" class="label-checkbox">NAGA GAMES</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="25" id="game-provider-checkbox-game-25" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:25,&quot;code&quot;:&quot;nextspin&quot;,&quot;name&quot;:&quot;Next Spin&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-25" class="label-checkbox">Next Spin</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="73" id="game-provider-checkbox-game-73" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:73,&quot;code&quot;:&quot;nolimitcity&quot;,&quot;name&quot;:&quot;Nolimit City&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-73" class="label-checkbox">Nolimit City</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="24" id="game-provider-checkbox-game-24" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:24,&quot;code&quot;:&quot;ps&quot;,&quot;name&quot;:&quot;Play Star&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-24" class="label-checkbox">Play Star</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="38" id="game-provider-checkbox-game-38" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:38,&quot;code&quot;:&quot;playtech&quot;,&quot;name&quot;:&quot;Playtech&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-38" class="label-checkbox">Playtech</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="78" id="game-provider-checkbox-game-78" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:78,&quot;code&quot;:&quot;pgsoft&quot;,&quot;name&quot;:&quot;Pocket Game (PG)&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-78" class="label-checkbox">Pocket Game (PG)</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="43" id="game-provider-checkbox-game-43" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:43,&quot;code&quot;:&quot;pp&quot;,&quot;name&quot;:&quot;PragmaticPlay&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-43" class="label-checkbox">PragmaticPlay</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="70" id="game-provider-checkbox-game-70" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:70,&quot;code&quot;:&quot;rbsevenslot&quot;,&quot;name&quot;:&quot;RB7 Slot&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-70" class="label-checkbox">RB7 Slot</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="47" id="game-provider-checkbox-game-47" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:47,&quot;code&quot;:&quot;rich&quot;,&quot;name&quot;:&quot;RICH88&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-47" class="label-checkbox">RICH88</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="80" id="game-provider-checkbox-game-80" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:80,&quot;code&quot;:&quot;relax&quot;,&quot;name&quot;:&quot;Relax Gaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-80" class="label-checkbox">Relax Gaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="31" id="game-provider-checkbox-game-31" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:31,&quot;code&quot;:&quot;spsg&quot;,&quot;name&quot;:&quot;SimplePlay&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-31" class="label-checkbox">SimplePlay</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="44" id="game-provider-checkbox-game-44" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:44,&quot;code&quot;:&quot;sw&quot;,&quot;name&quot;:&quot;Sky Wind&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-44" class="label-checkbox">Sky Wind</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="26" id="game-provider-checkbox-game-26" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:26,&quot;code&quot;:&quot;fg&quot;,&quot;name&quot;:&quot;Spadegaming&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-26" class="label-checkbox">Spadegaming</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="83" id="game-provider-checkbox-game-83" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:83,&quot;code&quot;:&quot;vplus&quot;,&quot;name&quot;:&quot;Vplus&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-83" class="label-checkbox">Vplus</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="81" id="game-provider-checkbox-game-81" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:81,&quot;code&quot;:&quot;alize&quot;,&quot;name&quot;:&quot;alize&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-81" class="label-checkbox">alize</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="62" id="game-provider-checkbox-game-62" data-game-type-checkbox="game" data-payload="{&quot;lsmGameId&quot;:62,&quot;code&quot;:&quot;uuslots&quot;,&quot;name&quot;:&quot;uuslots&quot;,&quot;category&quot;:&quot;game&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-game-62" class="label-checkbox">uuslots</label>
+</div>
+</div></div>
+<div class="group-provider-body d-none" data-game-type="casino" id="all-game-type-casino"><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" id="game-provider-checkbox-casino-all" name="game-provider-checkbox-all" data-game-type-checkbox="casino" value="all" onclick="chooseGameProviderItem(this)">
+<label for="game-provider-checkbox-casino-all" class="label-checkbox">Select All</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="15" id="game-provider-checkbox-casino-15" data-game-type-checkbox="casino" data-payload="{&quot;lsmGameId&quot;:15,&quot;code&quot;:&quot;ab&quot;,&quot;name&quot;:&quot;ALLBET&quot;,&quot;category&quot;:&quot;casino&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-casino-15" class="label-checkbox">ALLBET</label>
+</div>
+</div><!-- [collapsed 17 more siblings "DIV group-provider-item" with identical structure; values in data.json] --></div>
+<div class="group-provider-body d-none" data-game-type="lottery" id="all-game-type-lottery"><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" id="game-provider-checkbox-lottery-all" name="game-provider-checkbox-all" data-game-type-checkbox="lotto" value="all" onclick="chooseGameProviderItem(this)">
+<label for="game-provider-checkbox-lottery-all" class="label-checkbox">Select All</label>
+</div>
+</div><div class="group-provider-item">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input mt-0" name="game-provider-checkbox" value="82" id="game-provider-checkbox-lottery-82" data-game-type-checkbox="lotto" data-payload="{&quot;lsmGameId&quot;:82,&quot;code&quot;:&quot;iamlotto&quot;,&quot;name&quot;:&quot;IAM LOTTO&quot;,&quot;category&quot;:&quot;lotto&quot;}" onclick="chooseGameProviderItem(this)"><!--capture: input rebuilt from per-attribute reads (tag withheld by tool filter)-->
+<label for="game-provider-checkbox-lottery-82" class="label-checkbox">IAM LOTTO</label>
+</div>
+</div><!-- [collapsed 3 more siblings "DIV group-provider-item" with identical structure; values in data.json] --></div>
+</div>
+</div>
+</div>
+<div class="box-main-type-game-footer">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionTurnOverCondition">กำหนดประเภทเกมหรือค่ายเกมในการทำเทิร์นโอเวอร์</span>
+<span class="text-p2-bold value-provider"><span id="all-game-provider-count-selected">-</span> <span class="mission-page" data-i18n="missionPage.missionGameProvider">ค่ายเกมส์</span></span>
+</div>
+</div>
+<div class="system-popup-btns confirm">
+<button class="mission-btn-outline system-popup-btn-cancel mission-page" data-i18n="missionPage.missionCancelButton" onclick="closePopupGameType()">ยกเลิก</button>
+<button class="mission-btn system-popup-btn-confirm mission-page" data-i18n="missionPage.missionConfirmShortButton" onclick="saveGameProviderSelected()">ยืนยัน</button>
+</div>
+</div>
+</div>
+</div>

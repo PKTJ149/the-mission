@@ -1,0 +1,241 @@
+{
+ "_notes": [
+  "No pagination; full list shown. Row classes: expired = tr.bg-red-950, deleted = tr.bg-black, active = no class. Status badges: expired .text-red-600.bg-red-200.br-red-600 (+warning clock icon), deleted .text-grey-200.bg-base-black.br-grey-200 (+trash icon), active .text-teal-500.bg-teal-100.br-teal-500 (+toggle icon). Links: mission name → /mission/report-mission-by-mission/<id>; counts → /mission/report-mission-by-reward/<id>[?isMission=true] and /mission/report-mission-by-member/<id>[?isMission=true] (separate pages, not captured)."
+ ],
+ "columns": [
+  "duration (empty on sub-mission rows: td.submission-divider)",
+  "name",
+  "status",
+  "rewardTimes(link by-reward)",
+  "rewardTimes(link by-member)",
+  "credit",
+  "minigameRights",
+  "promotionRights",
+  "points",
+  "other"
+ ],
+ "rows": [
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "09/11/2026 14:00 - 09/11/2026 17:00",
+   "name": "QA Test Mission 0911",
+   "status": "หมดอายุ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "QA เข้าสู่ระบบ 1 ครั้ง",
+   "status": "หมดอายุ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "16/10/2026 13:50 - เป็นต้นไป",
+   "name": "QA Mission 5 Tasks 20261016",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "1. เช็คอินครบ 1 วัน",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "2. ฝากขั้นต่ำ 1 บาท 1 ครั้ง",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "3. ฝากสะสมครบ 2 บาท",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "4. ทำเทิร์นสะสมครบ 1 บาท",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "5. แนะนำเพื่อนครบ 1 คน",
+   "status": "ถูกลบ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "15/10/2026 14:15 - 14/11/2026 12:00",
+   "name": "QA Mission Rewards 20261015 Updated",
+   "status": "หมดอายุ",
+   "rewardTimes(link by-reward)": "1",
+   "rewardTimes(link by-member)": "1",
+   "credit": "1",
+   "minigameRights": "1",
+   "promotionRights": "0",
+   "points": "1",
+   "other": "1"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "QA Login ครบ 1 วัน",
+   "status": "หมดอายุ",
+   "rewardTimes(link by-reward)": "6",
+   "rewardTimes(link by-member)": "4",
+   "credit": "6",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "QA ฝากครั้งเดียว 1 บาท",
+   "status": "หมดอายุ",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "15/10/2026 11:46 - เป็นต้นไป",
+   "name": "QA Happy Mission Retest 20261015",
+   "status": "ใช้งานอยู่",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "QA เข้าสู่ระบบ 1 ครั้ง",
+   "status": "ใช้งานอยู่",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "14/10/2026 22:26 - เป็นต้นไป",
+   "name": "ภารกิจ 001",
+   "status": "ใช้งานอยู่",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  },
+  {
+   "duration (empty on sub-mission rows: td.submission-divider)": "",
+   "name": "สะสมเทริน์ครบ 10",
+   "status": "ใช้งานอยู่",
+   "rewardTimes(link by-reward)": "0",
+   "rewardTimes(link by-member)": "0",
+   "credit": "0",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0"
+  }
+ ],
+ "summaryRow": {
+  "label": "ยอดรวมทั้งหมด",
+  "rewardTimes1": "7",
+  "rewardTimes2": "4",
+  "credit": "7",
+  "minigameRights": "1",
+  "promotionRights": "0",
+  "points": "1",
+  "other": "1"
+ },
+ "filters": {
+  "filterStatus (title i18n bug: shows วันที่สรุป)": [
+   [
+    "all",
+    "ทั้งหมด"
+   ],
+   [
+    "online",
+    "ใช้งานอยู่"
+   ],
+   [
+    "offline",
+    "ปิดการใช้งาน"
+   ],
+   [
+    "expired",
+    "หมดอายุ"
+   ],
+   [
+    "deleted",
+    "ถูกลบ"
+   ]
+  ],
+  "filterMission": [
+   "ทั้งหมด",
+   "QA Test Mission 0911",
+   "QA Mission 5 Tasks 20261016",
+   "QA Mission Rewards 20261015 Updated",
+   "QA Happy Mission Retest 20261015",
+   "ภารกิจ 001"
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "_note": "Full item lists of sibling groups that were collapsed in create-lucky-wheel_step2_all-tabs.html (value | text, text truncated to 90 chars).",
+ "groups": [
+  {
+   "items": [
+    "อา",
+    "จ",
+    "อ",
+    "พ",
+    "พฤ",
+    "ศ",
+    "ส"
+   ],
+   "sig": "BUTTON btn system-btn btn-rounded box-promotion-select-day"
+  },
+  {
+   "items": [
+    "นับถอยหลังทันทีที่สร้างวงล้อนำโชคสำเร็จ ระบบจะทำการนับเวลาถอยหลังทันทีที่คุณสร้างวงล้อนำโช",
+    "",
+    "นับถอยหลังทันทีเมื่อถึงกำหนด ระบบจะทำการนับเวลาถอยหลังทันทีเมื่อถึงวันและเวลาที่คุณ กำหนด ",
+    "",
+    "นับถอยหลังทันเมื่อเหลือ x วัน ระบบจะนับถอยหลังทันทีที่วันหมด อายุโปรเหลือเท่าที่คุณกำหนด น",
+    "นับถอยหลังทันทีเมื่อถึงวัน และเวลาที่กำหนด กำหนดวันและเวลาให้นับถอยหลัง กรุณาเลือกวันที่ ก"
+   ],
+   "sig": "DIV col-12"
+  },
+  {
+   "items": [
+    "1 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "2 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "3 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "4 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "5 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "6 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "7 | 0 0 : 0 0 : 0 0 DaysHoursMinutes",
+    "8 | 0 0 : 0 0 : 0 0 DaysHoursMinutes"
+   ],
+   "sig": "DIV col-6 mb-3"
+  },
+  {
+   "items": [
+    "Days",
+    "",
+    "Hours",
+    "",
+    "Minutes"
+   ],
+   "sig": "SPAN "
+  },
+  {
+   "items": [
+    "จำกัดการรับสิทธิ์เล่นมินิเกมส์“ต่อครั้ง” ระบบจะ “ให้สิทธิ์มินิเกมส์กับสมาชิกไม่เกิน x สิทธ",
+    "จำกัดการรับสิทธิ์เล่นมินิเกมส์ “ต่อวัน” ระบบจะ “ไม่ให้สิทธิ์อีกในวันนี้” ถ้าหากยอดรวมการรั",
+    "จำกัดการรับสิทธิ์เล่นมินิเกมส์“ต่อสัปดาห์” ระบบจะ “ไม่ให้สิทธิ์อีกในสัปดาห์นี้” ถ้าหากยอดร",
+    "จำกัดการรับสิทธิ์เล่นมินิเกมส์“ต่อเดือน” ระบบจะ “ไม่ให้สิทธิ์อีกในเดือนนี้” ถ้าหากยอดรวมกา",
+    "จำกัดการรับสิทธิ์เล่นมินิเกมส์“ตลอดอายุโปรโมชั่น” ระบบจะ “ไม่ให้สิทธิ์อีกไป” ถ้าหากยอดรวมก"
+   ],
+   "sig": "DIV row box-promotion-item-checkbox-radio"
+  },
+  {
+   "items": [
+    "1349 | SEO (กลุ่มสมาชิกทั่วไป)",
+    "1386 | test",
+    "1492 | ทดสอบถอนรวม",
+    "1525 | ทดสอบ Gateway",
+    "1567 | SigmaP2P",
+    "1569 | ทดสอบเกตเวย์ QR",
+    "1648 | ทดสอบสร้างกลุ่ม 01",
+    "1673 | ปิดทุกสำหรับสมัครจากหน้าเว็บ",
+    "1691 | test one2coin pay",
+    "1697 | Lineliff Player",
+    "1747 | test redesign"
+   ],
+   "sig": "DIV custom-dropdown-item"
+  },
+  {
+   "items": [
+    "ALLBET",
+    "AMIGO",
+    "ASTAR",
+    "Advantplay",
+    "Allbet Game",
+    "BNG",
+    "BT Gaming",
+    "Big Gaming",
+    "CG Casino",
+    "CP Gaming",
+    "DG Casino",
+    "DragoonSoft",
+    "Evolution",
+    "Expanse",
+    "Fachai",
+    "FastSpin",
+    "Fun Gaming",
+    "GPI Game",
+    "Gaming World",
+    "Habanero",
+    "Hotdog Gaming",
+    "IAM LOTTO",
+    "JILI",
+    "Joker",
+    "KA Game",
+    "KingMaker",
+    "Lotto Plus",
+    "MEGAWIN",
+    "MPoker",
+    "MYLOTTO99",
+    "MangoPlay",
+    "Micro Gaming",
+    "NAGA GAMES",
+    "Next Spin",
+    "Nolimit City",
+    "Play Star",
+    "Playtech",
+    "Playtech",
+    "Pocket Game (PG)",
+    "PragmaticPlay",
+    "PragmaticPlay",
+    "Pretty Gaming",
+    "QQKeno",
+    "RB7 Casino",
+    "RB7 Slot",
+    "RICH88",
+    "Relax Gaming",
+    "SA Casino",
+    "Sexy",
+    "SimplePlay",
+    "Sky Wind",
+    "Sky Wind",
+    "Spadegaming",
+    "Vivo Gaming",
+    "Vplus",
+    "WCASINO",
+    "WM",
+    "YEEBET",
+    "alize",
+    "uuslots"
+   ],
+   "sig": "DIV form-check minigame-reset game-provider-checker-div game-provider-input-hide col-4 col-md-4 mb-2 display-none"
+  }
+ ]
+}

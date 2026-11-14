@@ -1,0 +1,1229 @@
+<div class="offcanvas offcanvas-end offcanvas-minigame-custom show" id="offcanvasMinigameSetting" data-bs-focus="false" aria-modal="true" role="dialog">
+<div class="offcanvas-header offcanvas-header-minigame border-bottom">
+<h4 class="mb-0" id="offcanvasMinigameDetailLabel">รายละเอียดเกมส์อื่น ๆ</h4>
+<div class="icon-close-offcanvas-minigame-custom" data-bs-dismiss="offcanvas" aria-label="Close">
+<i class="ri-close-line"></i>
+</div>
+</div>
+<div class="offcanvas-body position-relative p-0" id="rootScrollMinigame">
+<div class="box-header-step justify-content-start" data-capture-style-props="padding">
+<div class="d-flex align-items-center gap-3">
+<div>
+<img src="/assets/images/promotion/img-details-promotion.png" width="72" height="72">
+</div>
+<div id="promotionSummaryEdit">
+<div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2">
+<div class="d-flex flex-column flex-lg-row gap-0 gap-lg-4">
+<div>
+<div class="p1 fw-700 text-white" id="offcanvasMinigameViewDetail1">สรุปข้อมูลการตั้งค่าเกมส์อื่นๆ ของคุณ</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="canvas-box-body" id="SettingMinigameStep5">
+<div class="tab-header">
+<div class="header-in-body active">
+<div class="tab-group justify-content-center">
+<span class="p1 fw-700" id="textHeadDetail">สรุปรายละเอียดมินิเกมส์</span>
+</div>
+</div>
+</div>
+<div class="main-in-detail-body content-col-1">
+<div class="input-col-1-p">
+<div class="d-flex align-items-center justify-content-center">
+<div class="wheel-wrapper preview-minigame" id="showStepEnd"><img src="https://storage.googleapis.com/one-loyalty-stg-media/uploads/mini-game-image/20261015T045904756.png" class="box-img3 showImagePreviewPromotionDetail imgMinigameRewardSrc"></div>
+</div>
+</div>
+<div class="label-minigame" id="textHeaderAllDetail">รายละเอียดมินิเกมส์</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textStatusDetail">สถานะมินิเกมส์ : </div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showStatusDetail1" style=""><img src="/assets/images/minigame/switch-on.svg" data-capture-style-props="display"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showStatusDetail2" data-capture-style-props="display"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textNameDetail">ชื่อมินิเกมส์ : </div>
+</div>
+<div class="col mb-1">
+<div class="p2 color-emerald-title-1" id="showName">
+ฝากประจำนับโปร ทุกวัน รับไม่เว้น ไม่เน้น รับไปเล้ย
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textConditionDetail">เงื่อนไขมินิเกมส์ : </div>
+</div>
+<div class="col mb-1">
+<div class="show-condition-html color-emerald-title-1" id="showconditionHtml"><p>ทดสอบมินิเกมส์อื่น ๆ และรางวัลครบสามประเภท บน staging</p></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textTestDetail">
+Agent ที่เลือก :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap align-items-center gap-2" id="showLimitAgentGroupActiveHtml"><div class="text-center">
+<span class="custom-badge bg-green-10">superx</span>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>ระยะเวลาโปรโมชั่นและวันทำงานของโปรโมชั่น</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+ระยะเวลาโปรโมชั่น :
+</div>
+</div>
+<div class="col mb-1">
+<div class="p2" id="showStartDateEndDate">-</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+วันทำงานของโปรโมชั่น :
+</div>
+</div>
+<div class="col mb-1">
+<div class="row mb-2">
+<div class="col-12 col-lg-3">
+<div class="p2 color-emerald-title-1" data-capture-style-props="width">
+วันทำงาน :
+</div>
+</div>
+<div class="col-12 col-lg-9">
+<div class="d-flex flex-wrap gap-2">
+<div id="showEnableEveryday">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+ทุกวัน
+</div>
+</div>
+</div>
+<div id="showEnableSunday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+อาทิตย์
+</div>
+</div>
+</div>
+<div id="showEnableMonday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+จันทร์
+</div>
+</div>
+</div>
+<div id="showEnableTuesday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+อังคาร
+</div>
+</div>
+</div>
+<div id="showEnableWednesday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+พุธ
+</div>
+</div>
+</div>
+<div id="showEnableThursday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+พฤหัสบดี
+</div>
+</div>
+</div>
+<div id="showEnableFriday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+ศุกร์
+</div>
+</div>
+</div>
+<div id="showEnableSaturday" data-capture-style-props="display">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1">
+เสาร์
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row" id="showMinigameTime"></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การรับเวลาถอยหลัง (Countdown) วันหมดอายุโปรโมชั่น</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableCountDown1" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableCountDown2"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบการนับถอยหลัง :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableCountDownCreated">
+นับถอยหลังทันทีที่สร้างวงล้อนำโชคสำเร็จ
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableCountDownSetTime" data-capture-style-props="display">
+นับถอยหลังทันทีเมื่อถึงกำหนด
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableRemainingDay" data-capture-style-props="color display">
+นับถอยหลังทันทีเมื่อเหลืออีก 7 วัน
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableRemainingDateTime" data-capture-style-props="color">นับถอยหลังทันทีเมื่อถึงวันที่ -</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบนาฬิกา Countdown :
+</div>
+</div>
+<div class="col mb-1" id="showCountDownColorCode"><div class="countdown-minigame style-1" data-capture-style-props="width">
+<div class="time">
+<div class="card-unit days">
+<div><span>0</span></div>
+<div><span>0</span></div>
+</div>
+:
+<div class="card-unit hours">
+<div><span>0</span></div>
+<div><span>0</span></div>
+</div>
+:
+<div class="card-unit minutes">
+<div><span>0</span></div>
+<div><span>0</span></div>
+</div>
+</div>
+<div class="text">
+<span>Days</span><span></span><span>Hours</span><span></span><span>Minutes</span>
+</div>
+</div></div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การจำกัดการรับสิทธิ์ของสมาชิก ระดับโปรโมชั่น</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableMaxPromotion1" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableMaxPromotion2"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+การจำกัดสิทธิ์ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerDayActive" data-capture-style-props="display">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerDayInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อวัน”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerDayActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerDayInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerWeekActive" data-capture-style-props="display">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerWeekInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อสัปดาห์”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerWeekActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerWeekInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerMonthActive" data-capture-style-props="display">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerMonthInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อเดือน”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerMonthActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerMonthInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerPromotionActive" data-capture-style-props="display">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerPromotionInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ตลอดอายุโปรโมชั่น”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerPromotionActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerPromotionInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การจำกัดการรับสิทธิ์ของสมาชิก รายคน</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableMaxPromotionPerPersonActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableMaxPromotionPerPersonInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+การจำกัดสิทธิ์ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerTimePerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerTimePerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อครั้ง”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerTimePerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerTimePerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerDayPerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerDayPerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อวัน”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerDayPerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerDayPerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerWeekPerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerWeekPerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อสัปดาห์”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerWeekPerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerWeekPerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerMonthPerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerMonthPerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ต่อเดือน”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerMonthPerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerMonthPerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดสิทธิ์การรับ “ตลอดอายุโปรโมชั่น”
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การจำกัดการรับสิทธิ์ของกลุ่มลูกค้า</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableLimitCustomerGroupActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableLimitCustomerGroupInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+กลุ่มลูกค้าที่มีสิทธิ์ได้รับ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showLimitCustomerGroupInactive">
+-
+</div>
+<div id="showLimitCustomerGroupActive" data-capture-style-props="display">
+<div class="p2 d-flex align-items-center flex-wrap gap-2" id="showLimitCustomerGroupActiveHtml"></div>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การ Reset สิทธิ์การรับโปรโมชั่นของสมาชิก</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableResetActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableResetInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบการ reset สิทธิ์ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableResetExpired">
+Reset สิทธิ์ ทันทีที่มินิเกมหมดอายุ
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableResetTime" data-capture-style-props="display">
+Reset สิทธิ์ แบบกำหนดเป็นเวลาใดเวลาหนึ่ง
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableResetDateTime" data-capture-style-props="display">
+Reset สิทธิ์ แบบกำหนดเป็น วัน / ชั่วโมง / นาที
+</div>
+<div class="p2 color-emerald-title-1" id="showResetTimeBkk" data-capture-style-props="display"></div>
+<div class="p2 color-emerald-title-1" id="showResetDayHourMinute" data-capture-style-props="display">
+7 วัน 21 ชั่วโมง 35 นาที
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การหักสิทธิ์ออกจากมินิเกมส์อื่น ๆ</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showMinigameEnableRemoveChance1" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showMinigameEnableRemoveChance2"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+มินิเกมส์ที่หักสิทธิ์ :
+</div>
+</div>
+<div class="col mb-1" id="showMinigameEnableRemoveChance"></div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การจำกัดสิทธิ์อื่น ๆ ของสมาชิก</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showminigameEnableFixChance11" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showminigameEnableFixChance12"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+การจำกัดสิทธิ์ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitPerGamePerDayActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitPerGamePerDayInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดการใช้สิทธิ์ของสมาชิกต่อมินิเกมส์ ต่อวัน
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerGamePerDayActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerGamePerDayInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitPerPersonActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitPerPersonInactive" style="">
+<div class="p2 color-emerald-title-1">
+จำกัดการรับสิทธิ์สมาชิก หากมีสิทธิ์อยู่แล้ว x สิทธิ์
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerPersonActive">0 สิทธิ์</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerPersonInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitBalanceActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitBalanceInactive" style="">
+<div class="p2 color-emerald-title-1" data-capture-style-props="text-overflow">
+จำกัดการรับสิทธิ์สมาชิกหากมียอดเครดิตที่ยอดคงเหลือ
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitBalanceActive">0 บาท</div>
+<div class="p2 color-emerald-title-1" id="showLimitBalanceInactive" data-capture-style-props="display">
+- สิทธิ์
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>การได้รับสิทธิ์และเงื่อนไขการได้รับสิทธิ์</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+เงื่อนไขการได้รับสิทธิ์ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="p2 color-emerald-title-1" id="showConditionGetBonus">ฝากครั้งเดียว ฝากขั้นต่ำ 1 บาท</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+จำนวนวงล้อ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showNumberPartsLuckywheel">มินิเกมส์ 6 ชิ้น</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div id="showPartsLuckywheelluckyWheelRewards">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail0" aria-expanded="true" aria-controls="openDropdownWheelDetail0">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 1 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA เครดิตคงที่ 1 บาท
+</div>
+</div>
+<div class="col collapse show" id="openDropdownWheelDetail0">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+17%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+เครดิต Fixed Rate
+</div>
+<div class="p2 color-emerald-title-1">
+1 บาท
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail1" aria-expanded="true" aria-controls="openDropdownWheelDetail1">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 2 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA เครดิต 1% สูงสุด 1 บาท
+</div>
+</div>
+<div class="col collapse " id="openDropdownWheelDetail1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+17%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+เครดิต เป็น Percentage (%)
+</div>
+<div class="p2 color-emerald-title-1">
+1 % จากยอดฝาก สูงสุดไม่เกิน 1 บาท
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail2" aria-expanded="true" aria-controls="openDropdownWheelDetail2">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 3 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA สิทธิ์วงล้อ 1 สิทธิ์
+</div>
+</div>
+<div class="col collapse " id="openDropdownWheelDetail2">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+17%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+สิทธิ์มินิเกมส์
+</div>
+<div class="p2 color-emerald-title-1">
+undefined 1 สิทธิ์
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail3" aria-expanded="true" aria-controls="openDropdownWheelDetail3">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 4 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA เครดิตคงที่ 4 บาท
+</div>
+</div>
+<div class="col collapse " id="openDropdownWheelDetail3">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+17%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+เครดิต Fixed Rate
+</div>
+<div class="p2 color-emerald-title-1">
+4 บาท
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail4" aria-expanded="true" aria-controls="openDropdownWheelDetail4">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 5 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA เครดิตคงที่ 5 บาท
+</div>
+</div>
+<div class="col collapse " id="openDropdownWheelDetail4">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+16%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+เครดิต Fixed Rate
+</div>
+<div class="p2 color-emerald-title-1">
+5 บาท
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row dropdown-wheel-detail" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownWheelDetail5" aria-expanded="true" aria-controls="openDropdownWheelDetail5">
+<div class="col-4 mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+Minigame 6 :
+</div>
+<div>
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+คำอธิบายโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+QA เครดิตคงที่ 6 บาท
+</div>
+</div>
+<div class="col collapse " id="openDropdownWheelDetail5">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+จำนวนแจกโบนัส
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่จำกัดจำนวนแจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+แจ้งเตือนเมื่อใกล้หมด
+</div>
+<div class="p2" data-capture-style-props="color">
+ไม่แจ้งเตือน
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+โอกาสออก
+</div>
+<div class="p2" data-capture-style-props="color">
+16%
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 fw-700">
+โบนัสที่แจก
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1 ms-3">
+เครดิต Fixed Rate
+</div>
+<div class="p2 color-emerald-title-1">
+6 บาท
+</div>
+</div></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+</div>
+<div class="label-minigame">
+<span>เงื่อนไขการติด Turnover</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableConditionTurnoverActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableConditionTurnoverInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบการติด Turnover :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableWithdrawConditionMinTurnover" data-capture-style-props="display">
+ต้องทำ Turnover ขั้นต่ำ x เท่า
+</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinTurnover" data-capture-style-props="display">
+10 เท่า
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableWithdrawConditionMinTurnoverCredit" style="">0 บาท</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinTurnoverCredit" data-capture-style-props="display">
+100 บาท
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>เงื่อนไขการถอน</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableWithdrawConditionActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableWithdrawConditionInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+เงื่อนไขการถอน :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableWithdrawConditionMinRemainCreditActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableWithdrawConditionMinRemainCreditInactive" style="">
+<div class="p2 color-emerald-title-1">
+ยอดเครดิตคงเหลือขั้นต่ำ x บาท
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinRemainCreditActive">0 บาท</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinRemainCreditInactive" data-capture-style-props="display">
+- บาท
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableWithdrawConditionMaxWithdrawActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableWithdrawConditionMaxWithdrawInactive" style="">
+<div class="p2 color-emerald-title-1">
+ถอนสูงสุดไม่เกินจำนวนที่กำหนด
+</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMaxWithdrawActive">0 บาท</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMaxWithdrawInactive" data-capture-style-props="display">
+- บาท
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableSetZeroCreditAfterWithdrawActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableSetZeroCreditAfterWithdrawInactive" style="">
+<div class="p2 color-emerald-title-1">
+หักเครดิตที่เหลือทั้งหมดเมื่อทำการถอน
+</div>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableCloseAutoWithdrawActive" data-capture-style-props="display">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableCloseAutoWithdrawInactive" style="">
+<div class="p2 color-emerald-title-1">
+ไม่อนุญาตให้ถอนอัตโนมัติ เมื่อสมาชิกรับโปรโมชั่น
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>เงื่อนไขการหลุดโปร</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableCreditToClearTurnoverActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableCreditToClearTurnoverInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบการหลุดโปร :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableMaxRemainCreditToClearTurnover" data-capture-style-props="display">
+ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x บาท
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxRemainCreditToClearTurnover" data-capture-style-props="display">
+100 บาท
+</div>
+<div class="p2 color-emerald-title-1" style="" id="showEnableMaxRemainCreditToClearTurnoverPercentage">
+ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x บาท
+</div>
+<div class="p2 color-emerald-title-1" style="" id="showMaxRemainCreditToClearTurnoverPercentage">0 %</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame">
+<span>เงื่อนไขการเพิ่มทุน</span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+สถานะ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableIncreaseTurnOverActive" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg"><span>เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableIncreaseTurnOverInactive"><img src="/assets/images/minigame/switch-off.svg"><span>ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700">
+รูปแบบการเพิ่มทุน :
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableMinTurnover" data-capture-style-props="display">
+ต้องทำ Turnover ขั้นต่ำ x เท่า
+</div>
+<div class="p2 color-emerald-title-1" id="showMinTurnover" data-capture-style-props="display">
+10 เท่า
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableMinTurnoverCredit" data-capture-style-props="display">
+ต้องทำ Turnover ขั้นต่ำ x บาท
+</div>
+<div class="p2 color-emerald-title-1" id="showMinTurnoverCredit" data-capture-style-props="display">
+100 บาท
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableIncreaseTurnOver">
+ไม่กำหนด Turnover จากยอดฝากใหม่
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

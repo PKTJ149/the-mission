@@ -1,0 +1,171 @@
+.asColorPicker-dropdown {
+    width: auto;
+    max-width: none;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+    border: none;
+    outline: none;
+}
+
+.asColorPicker-alpha i,
+.asColorPicker-hue i {
+    left: 0;
+    margin-top: 0;
+    border: 2px solid #EEE;
+}
+
+.asColorPicker-gradient-control {
+    float: none;
+}
+
+.asColorPicker-preview {
+    grid-area: preview;
+}
+
+.asColorPicker-saturation {
+    grid-area: saturation;
+    border-radius: 2px;
+}
+
+.asColorPicker-hex {
+    display: block;
+    border-radius: 8px;
+    height: 38px;
+    width: 100%;
+    padding: 0.5rem 0.9rem;
+    margin: .25rem 0;
+    font-size: .8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #FFF;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+    .asColorPicker-hex:focus {
+        color: #212529;
+        background-color: #FFF;
+        border-color: #a59cd9;
+        outline: 0;
+        -webkit-box-shadow: 0 0 0 0 rgba(75,56,179,.25);
+        box-shadow: 0 0 0 0 rgba(75,56,179,.25);
+    }
+
+.asColorPicker-gradient-preview {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.asColorPicker-gradient-angle {
+    line-height: 1.5;
+    width: auto;
+    display: block;
+    padding: 0;
+    min-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 400;
+    color: #212529;
+    background-color: #FFF;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .asColorPicker-gradient-angle:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    }
+
+.asColorPicker-gradient-markers:focus {
+    outline: none;
+    border: none;
+}
+
+.custom-input {
+    position: relative;
+}
+
+.asColorPicker-wrap {
+    display: inline-flex;
+    align-items: center;
+}
+
+.asColorPicker-input {
+    order: 1;
+    text-indent: 25px;
+    padding: 0;
+    padding-left: 5px;
+    height: 30px;
+    line-height: 1.5;
+    font-size: 12px;
+    font-weight: 400;
+    color: #E9E9E9;
+    background-color: #2A2A2A;
+    background-clip: padding-box;
+    border: 1px solid #828282;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .asColorPicker-input:focus {
+        color: #E9E9E9;
+        background-color: #2A2A2A;
+        border-color: #828282;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+    }
+
+.asColorPicker-clear {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    right: 10px;
+}
+
+    .asColorPicker-clear::after {
+        position: relative;
+        top: -2px;
+    }
+
+.asColorPicker-wrap:hover .asColorPicker-clear {
+    display: flex;
+}
+
+.asColorPicker-trigger {
+    order: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #DCDCDC;
+    position: absolute;
+    left: 5px;
+}
+
+    .asColorPicker-trigger > span {
+        border-radius: inherit;
+    }

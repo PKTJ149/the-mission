@@ -1,0 +1,1406 @@
+<div class="group-box-sub-mission" id="group-box-sub-mission"><div class="dropdown-main" id="time-sub-mission-1" data-sub-mission="1" data-sub-mission-id="1">
+<input type="hidden" id="subMissionId-1">
+<div class="dropdown-mission-setting collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownMissionSettingSub-1" aria-expanded="true" aria-controls="openDropdownMissionSettingSub-template">
+<div class="group-title-mission-setting">
+<span class="title-mission-setting"><span class="mission-page" data-i18n="missionPage.missionSubNo">ตั้งค่าภารกิจย่อยที่</span> <span id="text-header-sub-mission-1">1</span></span>
+<div class="group-mission-setting-status">
+<span class="mission-setting-status-title mission-page" data-i18n="missionPage.dataNotComplete" id="missionTitle-1">ข้อมูลไม่สมบูรณ์</span>
+<div class="group-btn-delete" onclick="deleteTemplateSubMission(1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="24" height="24">
+<span class="text-link color-red mission-page" data-i18n="missionPage.missionSubDelete">ลบภารกิจย่อย</span>
+</div>
+<img src="/assets/images/mission/icon-arrow-down.png" width="32" height="32" class="icon-arrow-down">
+</div>
+</div>
+</div>
+<div class="box-content-mission-setting collapse" id="openDropdownMissionSettingSub-1" data-bs-parent="#dropdownMainMissionSetting">
+<div class="group-content-mission-setting" id="rootScrollMission">
+<div class="group-item">
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label"><span data-i18n="missionPage.missionSubSettingNo">ตั้งค่าการแสดงผลภารกิจย่อยที่</span> <span id="text-header-sub-mission-label-1">1</span></span>
+</div>
+<div class="two-column-upload-image">
+<div class="box-preview-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png" id="display-inputFileSubMission-1" alt="reward" width="50" height="50" class="inputFileSubMission-1">
+</div>
+<div class="box-preview-reward-text">
+<span class="text-p2-bold"><span class="mission-page" data-i18n="missionPage.missionSubImageNo">อัพโหลดรูปภาพภารกิจย่อยที่</span> <span id="text-header-sub-mission-upload-image-1">1</span></span>
+<label class="mission-btn-outline" for="inputFileSubMission-1">
+<input type="file" id="inputFileSubMission-1" class="d-none" onchange="handleFileSubMission(event)" name="inputFileSubMission-1">
+<img src="/assets/images/mission/image-upload.png" alt="icon-image" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.missionUpload">อัพโหลดรูป</span>
+</label>
+<span class="text-example text-p2-regular-i">
+<span class="mission-page" data-i18n="missionPage.or">หรือ</span> <span class="text-link popup-select-icon-style-sub mission-page" data-i18n="missionPage.missionSubImageSystem" onclick="showPopupIconStyle('inputFileSubMission-1')">เลือกรูปจากระบบ</span>
+</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.uploadDescription">ขนาดรูปภาพที่แนะนำ : 128px x 128px และรูปภาพจะต้องเป็นนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+</div>
+<div class="group-input">
+<label for="" class="labal"><span data-i18n="missionPage.missionSubName">ชื่อภารกิจย่อย</span> <span id="text-header-sub-mission-name-1">1</span></label>
+<div class="input-outer">
+<input type="text" class="input" placeholder="name" id="inputNameSubReward-1">
+</div>
+<div class="invalid-feedback" id="error-NameRewardSub-1" data-i18n="missionPage.missionSubNameError" data-capture-style-props="display">กรุณากรอกชื่อของรางวัล</div>
+</div>
+<div class="group-input-thin">
+<label for="" class="labal"><span data-i18n="missionPage.missionSubDescription">คำอธิบายภารกิจย่อยที่</span> <span id="text-header-sub-mission-description-1">1</span></label>
+<div class="input-thin">
+<textarea id="missionSubConditionHtml-1" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+</div>
+<div class="label-title-bg">
+<span class="text-in-label"><span data-i18n="missionPage.missionSubCondition">ตั้งค่าเงื่อนไขการทำภารกิจย่อย</span> <span id="text-header-sub-mission-condition-1">1</span></span>
+</div>
+<div class="box-sub-condition" id="sub-condition-html-1">
+<div class="box-dropdown-main" id="sub-condition-template" data-sub-condition-id="1" data-sub-condition="1">
+<div class="box-dropdown-main-header">
+<div class="group-header-sub-condition">
+<span class="text-type-member"><span class="mission-page" data-i18n="missionPage.missionSettingNo"></span> <span id="text-header-sub-condition-1-1">1</span></span>
+<div class="group-btn-delete" onclick="deleteTemplateSubMissionCondition(1,1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-dropdown-main-item">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.condition">เงื่อนไข</label>
+<div class="col-auto dropdownSelectSubCondition require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectCondition">เลือกเงื่อนไข</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="deposit" class="custom-dropdown-item mission-page" data-i18n="missionPage.deposit">การฝาก</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" id="error-SubMissionCondition-1-1" data-i18n="missionPage.selectCondition2" data-capture-style-props="display">กรุณาเลือกเงื่อนไข</div>
+</div>
+</div>
+<div class="groupDeposit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.depositType">ประเภทการฝาก</label>
+<div class="col-auto dropdownSelectTypeDeposit require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectDepositType">เลือกประเภทการฝาก</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositEqual">ฝากเท่ากับ</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectDepositTypeError" id="error-DepositConditionSub-1-1" data-capture-style-props="display">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+<div class="groupDeposit-Deposit group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositAmount-1-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectUnitDeposit fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.baht">บาท</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.count2">จำนวนครั้ง</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositTime-1-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectTypeAmount fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.count">ครั้ง</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="count" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.count">ครั้ง</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectDepositTypeError2" id="error-DepositAmountDepositTime-1-1" data-capture-style-props="display">กรุณากรอกยอดฝาก และ จำนวนครั้ง</div>
+<div class="groupDepositAccumulated group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectAccumulated">
+<button class="custom-filter left" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.accumulate">สะสมครบ</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="" class="custom-dropdown-item mission-page" data-i18n="missionPage.accumulate">สะสมครบ</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputDepositAccumulated-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single">บาท</div>
+</button>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.accumulateError" id="error-DepositAccumulated-1-1" data-capture-style-props="display">กรุณากรอกยอดฝากสะสม</div>
+</div>
+</div>
+<div class="groupDepositEveryDeposit group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositEveryDeposit-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+</button>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectDepositType" id="error-DepositEveryDeposit-1-1" data-capture-style-props="display">เลือกประเภทการฝาก</div>
+</div>
+</div>
+<div class="groupTurnOver group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.turnoverTypeCondition">ประเภทการทำเทิร์นโอเวอร์</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectTurnOverType require fill">
+<button class="custom-filter left" data-capture-style-props="width">
+<div class="input-fake single">
+ทำเทิร์นเท่ากับ
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.turnoverConditionEqual">ทำเทิร์นเท่ากับ</div>
+<div data-value="more-than" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionMoreThan">ทำเทิร์นมากกว่า</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center inputTurnOverAmount" id="inputTurnOverAmount-1-1" placeholder="0">
+<input type="number" class="input center inputTurnOverTime d-none" id="inputTurnOverTime-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single inputTurnOverAmount mission-page" data-i18n="missionPage.baht">บาท</div>
+<div class="input-fake single inputTurnOverTime mission-page d-none" data-i18n="missionPage.count">ครั้ง</div>
+</button>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.turnoverTypeConditionError" id="error-TurnOverTypeSubCondition-template" data-capture-style-props="display">กรุณากรอกยอดทำเทิร์นโอเวอร์</div>
+</div>
+</div>
+<div class="groupTurnOverInput group-input-3 d-none">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input checkbox-mission-2 mt-0" id="isCustomBrandGame-1-1" onclick="handleCustomBrandGame(this)">
+<div class="group-title-subtitle">
+<label for="isCustomBrandGame-1-1" class="label-checkbox title-label text-p2-bold mission-page" data-i18n="missionPage.turnoverConditionOnlyGame">กำหนดเฉพาะเกมที่ทำเทิร์นโอเวอร์ได้</label>
+<span class="subtitle-label mission-page" data-i18n="missionPage.turnoverConditionOnlyGameText">หากไม่กำหนดจะสามารถทำเทิร์นโอเวอร์ ได้กับทุกประเภทเกม และ ทุกค่ายเกม </span>
+</div>
+</div>
+<input type="hidden" id="subMissionConditionBrandGames-1-1">
+<button class="mission-btn-outline custom-btn-outline-sub-mission" onclick="chooseGameType(this)" id="btnChooseGameType-1-1" data-textnumber="1-1" disabled="">
+<span class="text-p3-bold mission-page" data-i18n="missionPage.customSetting">กำหนดเอง</span>
+</button>
+</div>
+<div class="groupLogin group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal">Login</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectLoginType require fill">
+<button class="custom-filter left" data-capture-style-props="width">
+<div class="input-fake single">
+Login ครบ
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="total" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.loginCount">Login ครบ</div>
+<div data-value="consecutive" class="custom-dropdown-item mission-page" data-i18n="missionPage.loginSteak">Login ติดต่อกัน</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputLoginAmount-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.day">วัน</div>
+</button>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.dayInputError" id="error-LoginTypeSubCondition-template" data-capture-style-props="display">กรุณากรอกจำนวนวัน</div>
+</div>
+</div>
+<div class="groupAffiliate group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.affiliateType">ประเภทการแนะนำเพื่อน</label>
+<div class="col-auto dropdownSelectAffiliateType require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectAffiliateType">เลือกประเภทการแนะนำเพื่อน</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType1">จำนวนเพื่อนที่แนะนำเท่ากับ x คน</div>
+
+
+
+
+<!-- [collapsed 5 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.affiliateTypeError" id="error-AffiliateTypeSubCondition-template" data-capture-style-props="display">กรุณาเลือกประเภทการแนะนำเพื่อน</div>
+</div>
+</div>
+<div class="groupAffiliateInput group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<div class="group-dropdown-label">
+<div class="col-auto">
+<button class="custom-filter left" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.numberOfAffiliate">จำนวนเพื่อนแนะนำ</div>
+</button>
+</div>
+<div class="input-outer">
+<input type="text" class="input center inputAffiliatePeopleAmount" id="inputAffiliatePeopleAmount-1-1" placeholder="0">
+<input type="text" class="input center inputAffiliateValue" id="inputAffiliateValue-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single inputAffiliatePeopleAmount mission-page" data-i18n="missionPage.member">คน</div>
+<div class="input-fake single inputAffiliateValue mission-page" data-i18n="missionPage.baht">บาท</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.numberOfAffiliateError" id="error-InputAffiliateTypeSubCondition-template" data-capture-style-props="display">กรุณากรอกจำนวนแนะนำเพื่อน</div>
+<div class="groupPoint group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.point">สะสมแต้ม</label>
+<div class="group-dropdown-label">
+<div class="col-auto">
+<button class="custom-filter left" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.complete">ครบ</div>
+</button>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputPointAmount-1-1" placeholder="0">
+</div>
+<div class="col-auto">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.point">สะสมแต้ม</div>
+</button>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.pointError" id="error-PointAmountSubCondition-template" data-capture-style-props="display">กรุณากรอกจำนวนแต้ม</div>
+</div>
+</div>
+<div class="groupRegisterMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.register">สมัครสมาชิก</label>
+<div class="group-dropdown-age">
+<div class="col-auto dropdownSelectRegisterMemberDateType require">
+<button class="custom-filter custom-filter-time" data-capture-style-props="width">
+<div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="from" class="custom-dropdown-item mission-page" data-i18n="missionPage.date">วันที่</div>
+<div data-value="before" class="custom-dropdown-item mission-page" data-i18n="missionPage.beforeDate">ก่อนวันที่</div>
+<div data-value="after" class="custom-dropdown-item mission-page" data-i18n="missionPage.afterDate">หลังวันที่</div>
+<div data-value="between" class="custom-dropdown-item mission-page" data-i18n="missionPage.betweenDate">ระหว่างวันที่</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.registerError" id="error-RegisterMemberDateType-template" data-capture-style-props="display">กรุณาเลือกสมัครสมาชิก</div>
+</div>
+<div class="">
+<div class="custom-input">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="inputRegisterMemberValue-template" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="select date" oninput="" readonly="readonly">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<template id="templateSubCondition">
+<div class="box-dropdown-main" id="sub-condition-template" data-sub-condition-id="template" data-sub-condition="template">
+<div class="box-dropdown-main-header">
+<div class="group-header-sub-condition">
+<span class="text-type-member"><span class="mission-page" data-i18n="missionPage.missionSettingNo"></span> <span id="text-header-sub-condition-template">1</span></span>
+<div class="group-btn-delete">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-dropdown-main-item">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.condition">เงื่อนไข</label>
+<div class="col-auto dropdownSelectSubCondition require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectCondition">
+เลือกเงื่อนไข
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="deposit" class="custom-dropdown-item mission-page" data-i18n="missionPage.deposit">
+การฝาก
+</div>
+<div data-value="turn-over" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnover">
+ทำเทิร์นโอเวอร์
+</div>
+<div data-value="login" class="custom-dropdown-item mission-page" data-i18n="missionPage.login">
+Login (เช็คอิน)
+</div>
+<div data-value="affiliate" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliate">
+การแนะนำเพื่อน
+</div>
+<div data-value="point" class="custom-dropdown-item mission-page" data-i18n="missionPage.point">
+สะสมแต้ม
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกเงื่อนไข
+</div>
+</div>
+</div>
+<div class="groupDeposit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.depositType">ประเภทการฝาก</label>
+<div class="col-auto dropdownSelectTypeDeposit require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectDepositType">
+เลือกประเภทการฝาก
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositEqual">
+ฝากเท่ากับ
+</div>
+<div data-value="more-than" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositMoreThan">
+ฝากมากกว่า
+</div>
+<div data-value="minimum" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositMinimum">
+ฝากขั้นต่ำ
+</div>
+<div data-value="accumulated" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositAccumulated">
+ฝากสะสม
+</div>
+<div data-value="every-deposit" class="custom-dropdown-item mission-page" data-i18n="missionPage.depositEveryDeposit">
+ทุก ๆ ยอดฝาก
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกประเภทการฝาก
+</div>
+</div>
+</div>
+<div class="groupDeposit-Deposit group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositAmount-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectUnitDeposit">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page" data-i18n="missionPage.baht">
+บาท
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.count2">จำนวนครั้ง</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositTime-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectTypeAmount">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.count">ครั้ง</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="count" class="custom-dropdown-item mission-page" data-i18n="missionPage.count">
+ครั้ง
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกยอดฝาก และ จำนวนครั้ง
+</div>
+<div class="groupDepositAccumulated group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectAccumulated">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.accumulate">สะสมครบ</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="" class="custom-dropdown-item mission-page" data-i18n="missionPage.accumulate">
+สะสมครบ
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputDepositAccumulated-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single">บาท</div>
+</button>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกยอดฝากสะสม
+</div>
+</div>
+</div>
+<div class="groupDepositEveryDeposit group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.deposit2">ยอดฝาก</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="number" class="input left" id="inputDepositEveryDeposit-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+</button>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกยอดฝากทุก ๆ x บาท
+</div>
+</div>
+</div>
+<div class="groupTurnOver group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.turnoverTypeCondition">ประเภทการทำเทิร์นโอเวอร์</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectTurnOverType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionEqual">
+ทำเทิร์นเท่ากับ
+</div>
+<div data-value="more-than" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionMoreThan">
+ทำเทิร์นมากกว่า
+</div>
+<div data-value="minimum" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionMinimum">
+ทำเทิร์นขั้นต่ำ
+</div>
+<div data-value="consecutive" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionConsecutive">
+ทำเทิร์นติดต่อกัน
+</div>
+<div data-value="every" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionEvery">
+ทุก ๆ ยอดเทิร์น
+</div>
+<div data-value="accumulated" class="custom-dropdown-item mission-page" data-i18n="missionPage.turnoverConditionAccumulated">
+ทำเทิร์นสะสม
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center inputTurnOverAmount" id="inputTurnOverAmount-template" placeholder="0">
+<input type="number" class="input center inputTurnOverTime" id="inputTurnOverTime-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single inputTurnOverAmount mission-page" data-i18n="missionPage.baht">บาท</div>
+<div class="input-fake single inputTurnOverTime mission-page" data-i18n="missionPage.count">ครั้ง</div>
+</button>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกยอดทำเทิร์นโอเวอร์
+</div>
+</div>
+</div>
+<div class="groupTurnOverInput group-input-3 d-none">
+<div class="group-checkbox">
+<input type="checkbox" class="form-check-input form-check-input-custom-mini-game game-provider-checker-input checkbox-mission-2 mt-0" id="isCustomBrandGame-template" onclick="handleCustomBrandGame(this)">
+<div class="group-title-subtitle">
+<label for="isCustomBrandGame-template" class="label-checkbox title-label text-p2-bold mission-page" data-i18n="missionPage.turnoverConditionOnlyGame">กำหนดเฉพาะเกมที่ทำเทิร์นโอเวอร์ได้</label>
+<span class="subtitle-label mission-page" data-i18n="missionPage.turnoverConditionOnlyGameText">หากไม่กำหนดจะสามารถทำเทิร์นโอเวอร์ ได้กับทุกประเภทเกม และ ทุกค่ายเกม </span>
+</div>
+</div>
+<input type="hidden" id="subMissionConditionBrandGames-template">
+<button class="mission-btn-outline custom-btn-outline-sub-mission" onclick="chooseGameType(this)" id="btnChooseGameType-template">
+<span class="text-p3-bold mission-page" data-i18n="missionPage.customSetting">กำหนดเอง</span>
+</button>
+</div>
+<div class="groupLogin group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal">Login</label>
+<div class="group-dropdown-label">
+<div class="col-auto dropdownSelectLoginType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="total" class="custom-dropdown-item mission-page" data-i18n="missionPage.loginCount">
+Login ครบ
+</div>
+<div data-value="consecutive" class="custom-dropdown-item mission-page" data-i18n="missionPage.loginSteak">
+Login ติดต่อกัน
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputLoginAmount-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.day">วัน</div>
+</button>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนวัน
+</div>
+</div>
+</div>
+<div class="groupAffiliate group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.affiliateType">ประเภทการแนะนำเพื่อน</label>
+<div class="col-auto dropdownSelectAffiliateType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectAffiliateType">
+เลือกประเภทการแนะนำเพื่อน
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType1">
+จำนวนเพื่อนที่แนะนำเท่ากับ x คน
+</div>
+<div data-value="more-than" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType2">
+จำนวนเพื่อนที่แนะนำมากกว่า x คน
+</div>
+<div data-value="minimum" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType3">
+จำนวนเพื่อนที่แนะนำขั้นต่ำ x คน
+</div>
+<div data-value="refer-and-deposit" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType4">
+จำนวนเพื่อนที่แนะนำแล้วฝาก x คน
+</div>
+<div data-value="total-deposit" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType5">
+ยอดฝากรวมของเพื่อนที่แนะนำเท่ากับ x บาท
+</div>
+<div data-value="deposit-per-x" class="custom-dropdown-item mission-page" data-i18n="missionPage.affiliateType6">
+ยอดฝากของเพื่อนที่แนะนำทุก ๆ x บาท
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกประเภทการแนะนำเพื่อน
+</div>
+</div>
+</div>
+<div class="groupAffiliateInput group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<div class="group-dropdown-label">
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.numberOfAffiliate">จำนวนเพื่อนแนะนำ</div>
+</button>
+</div>
+<div class="input-outer">
+<input type="text" class="input center inputAffiliatePeopleAmount" id="inputAffiliatePeopleAmount-template" placeholder="0">
+<input type="text" class="input center inputAffiliateValue" id="inputAffiliateValue-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single inputAffiliatePeopleAmount mission-page" data-i18n="missionPage.member">คน</div>
+<div class="input-fake single inputAffiliateValue mission-page" data-i18n="missionPage.baht">บาท</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนแนะนำเพื่อน
+</div>
+<div class="groupPoint group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.point">สะสมแต้ม</label>
+<div class="group-dropdown-label">
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.complete">ครบ</div>
+</button>
+</div>
+<div class="input-outer">
+<input type="number" class="input center" id="inputPointAmount-template" placeholder="0">
+</div>
+<div class="col-auto">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.point">แต้ม</div>
+</button>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนแต้ม
+</div>
+</div>
+</div>
+<div class="groupRegisterMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.register">สมัครสมาชิก</label>
+<div class="group-dropdown-age">
+<div class="col-auto dropdownSelectRegisterMemberDateType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="from" class="custom-dropdown-item mission-page" data-i18n="missionPage.date">
+วันที่
+</div>
+<div data-value="before" class="custom-dropdown-item mission-page" data-i18n="missionPage.beforeDate">
+ก่อนวันที่
+</div>
+<div data-value="after" class="custom-dropdown-item mission-page" data-i18n="missionPage.afterDate">
+หลังวันที่
+</div>
+<div data-value="between" class="custom-dropdown-item mission-page" data-i18n="missionPage.betweenDate">
+ระหว่างวันที่
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกสมัครสมาชิก
+</div>
+</div>
+<div class="">
+<div class="custom-input">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="inputRegisterMemberValue-template" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="select date" oninput="" readonly="readonly">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</template>
+<div class="d-flex justify-content-start">
+<button class="mission-btn-outline" onclick="btnAddSubMissionCondition(this)" id="btn-add-sub-condition-1" data-sub-main-id="1">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="add-reward" width="20" height="20">
+<span data-i18n="missionPage.missionSubAddCondition">เพิ่มเงื่อนไข</span>
+</button>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label" data-i18n="missionPage.missionSubConditionReward">กำหนดเงื่อนไขการได้รับของรางวัล</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onchange="toggleEnableSubMissionReceive(this)" id="enableSubMissionReceive-1">
+</div>
+<span class="switch-title" data-i18n="missionPage.missionSubOnOffReward">เปิด / ปิดใช้งาน การให้ของรางวัลภารกิจ</span>
+</div>
+<div class="group-input-thin enableSubMissionReceive-12 d-none">
+<label class="labal" data-i18n="missionPage.missionSubRewardDone">กำหนดเงื่อนไขการรับของรางวัลเมื่อทำภารกิจสำเร็จ</label>
+<div class="group-btn-mission-format">
+<label class="mission-radio-label active" for="missionRewardSelf-1">
+<input type="radio" name="MissionReceiveType-1" value="manual" id="missionRewardSelf-1" onchange="changeRadio(event)" checked="">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-mission-reward-self.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title" data-i18n="missionPage.missionSubRewardC1">สมาชิกรับรางวัลเอง</div>
+<div class="mission-radio-subtitle" data-i18n="missionPage.missionSubRewardC11">เมื่อทำภารกิจสำเร็จ สมาชิกจะสามารถกดรับได้ด้วยตนเอง</div>
+</div>
+</div>
+</label>
+<label class="mission-radio-label" for="missionRewardAuto-1">
+<input type="radio" name="MissionReceiveType-1" value="auto" id="missionRewardAuto-1" onchange="changeRadio(event)">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-mission-reward-auto.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title" data-i18n="missionPage.missionSubRewardC2">ระบบให้รางวัลโดยอัตโนมัติ (Auto)</div>
+<div class="mission-radio-subtitle" data-i18n="missionPage.missionSubRewardC22">เมื่อสมาชิกทำภารกิจสำเร็จแล้ว ระบบจะให้รางวัลโดยอัตโนมัติ</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="reward-sub-reset-mission enableSubMissionReceive-12 d-none">
+<div class="switch-and-sub">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="toggleEnableResetSuccess(this)" id="enableResetSuccess-1">
+</div>
+<div class="group-text-switch">
+<span class="switch-title text-p2-regular" data-i18n="missionPage.missionSubTextS1">อนุญาตให้ Reset รางวัล ภารกิจทันทีที่ทำสำเร็จ</span>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionSubTextS2">สมาชิกจะสามารถทำภารกิจได้อีกครั้งและเมื่อภารกิจสำเร็จ</span><br>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionSubTextS3">ก็จะสามารถรับของรางวัลได้อีกรอบ</span>
+<div class="group-sub enableResetSuccess-1 d-none">
+<div class="group-radio custom-radio">
+<input type="radio" name="limitReward-1" value="no" id="reset-reward-no-1" onchange="handleLimitReward(this)" checked="">
+<span class="checkmark"></span>
+<label for="reset-reward-no-1" data-i18n="missionPage.missionSubTextS4" class="text-p2-regular color-sub">ไม่จำกัดจำนวนรางวัลสูงสุดที่สมาชิกรับได้</label>
+</div>
+<div class="group-radio custom-radio">
+<input type="radio" name="limitReward-1" value="yes" id="reset-reward-yes-1" onchange="handleLimitReward(this)">
+<span class="checkmark"></span>
+<label for="reset-reward-yes-1" data-i18n="missionPage.missionSubTextS5" class="text-p2-regular color-sub">จำกัดจำนวนรางวัลสูงสุดที่รับได้</label>
+</div>
+<div class="custom-input group-input group-input-card disabled">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular" data-i18n="missionPage.missionSubTextS6">รับได้สูงสุดไม่เกิน</span>
+</div>
+<input type="text" class="input input-card" id="limitReward-1" placeholder="0" disabled="">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular" data-i18n="missionPage.count">ครั้ง</span>
+</div>
+</div>
+<div class="invalid-feedback" id="error-LimitRewardSub-1" data-i18n="missionPage.missionSubTextError" data-capture-style-props="display">กรุณากรอกจำนวนรางวัลที่สามารถรับได้</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="label-title-bg enableSubMissionReceive-12 d-none">
+<span class="text-in-label" data-i18n="missionPage.missionSubReward">กำหนดของรางวัลเมื่อทำภารกิจสำเร็จ</span>
+</div>
+<div class="box-sub-reward enableSubMissionReceive-12 d-none" id="sub-reward-html-1">
+<div class="box-time-mission box-time-reward" id="sub-reward-template" data-sub-reward-id="1" data-sub-reward="1">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold"><span class="mission-page" data-i18n="missionPage.reward">ของรางวัล</span> <span id="text-header-sub-reward-1-1">1</span></div>
+<div class="group-btn-delete" onclick="deleteTemplateSubMissionReward(1,1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="two-column">
+<div class="box-preview-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png" alt="reward" width="50" height="50" id="display-inputFileIconSubReward-1-1" class="inputFileIconSubReward-1-1">
+</div>
+<div class="box-preview-reward-text">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.uploadRewardIcon">อัพโหลดรูปไอคอนของรางวัล</span>
+<label class="mission-btn-outline" for="inputFileIconSubReward-1-1">
+<input type="file" class="d-none" id="inputFileIconSubReward-1-1" onchange="handleFileSubMission(event)" name="inputFileIconSubReward-1-1">
+<img src="/assets/images/mission/image-upload.png" alt="เพิ่มรูปไอคอน" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.uploadImage">อัพโหลดรูป</span>
+</label>
+<span class="text-example text-p2-regular-i">
+<span class="mission-page" data-i18n="missionPage.or">หรือ</span> <span class="text-link popup-select-icon-style-sub-reward mission-page" data-i18n="missionPage.missionSubImageSystem" onclick="showPopupIconStyle('inputFileIconSubReward-1-1')">เลือกรูปจากระบบ</span>
+</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.uploadDescription">ขนาดรูปภาพที่แนะนำ : 128px x 128px และรูปภาพจะต้องเป็นนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardType">ประเภทของรางวัล</label>
+<div class="col-auto dropdownSelectTypeReward require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single  mission-page" data-i18n="missionPage.selectRewardType">เลือกประเภทของรางวัล</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit" class="custom-dropdown-item mission-page" data-i18n="missionPage.credit">เครดิต</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectRewardTypeError" id="error-RewardMissionTypeSubReward-1-1" data-capture-style-props="display">กรุณาเลือกประเภทของรางวัล</div>
+</div>
+</div>
+<div class="groupCredit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.fixRateCredit">จำนวนเครดิต Fix Rate</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputCreditFixRateValue-1-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectCreditFixRate fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.baht">บาท</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.fixRateCreditError" id="error-CreditFixRateSubReward-1-1" data-capture-style-props="display">กรุณากรอกจำนวนเครดิต Fix Rate</div>
+</div>
+<div class="groupMinigame group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal  mission-page" data-i18n="missionPage.miniGame">มินิเกมส์</label>
+<div class="col-auto dropdownSelectMinigame require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single  mission-page" data-i18n="missionPage.selectMiniGame"><div data-capture-gap="opening tag attributes withheld by browser tool output filter"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+<!--capture: unmatched </button>
+ dropped--><div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div class="custom-dropdown-item" data-value="uuid-5">QA Test Wheel 0911</div><div class="custom-dropdown-item" data-value="uuid-6">QA Wheel Retest 20261015</div><div class="custom-dropdown-item" data-value="uuid-7">QA Other Retest 20261015</div></div>
+</div>
+</div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><div class="group-input custom-input custom-float">
+<label for="" class="labal  mission-page" data-i18n="missionPage.rightsCount">จำนวนสิทธิ์</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputAuthorityMinigame-1-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAuthority fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single  mission-page" data-i18n="missionPage.rights">จำนวนสิทธิ์</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="authority" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.rights">จำนวนสิทธิ์</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><div class="invalid-feedback  mission-page" data-i18n="missionPage.miniGameError" id="error-MinigameSubReward-1-1" data-capture-style-props="display">กรุณาเลือกมินิเกมส์</div>
+<div class="groupPromotion group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.promotion">โปรโมชั่น</label>
+<div class="col-auto dropdownSelectPromotion require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectPromotion">เลือกโปรโมชั่น</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectPromotionError" id="error-PromotionSubReward-1-1" data-capture-style-props="display">กรุณาเลือกโปรโมชั่น</div>
+</div>
+</div>
+<div class="groupPoint group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.pointCount">จำนวนแต้ม</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputPointValue-1-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectPoint fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.point2">แต้ม</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="point" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.point2">แต้ม</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.pointError" id="error-PointSubReward-1-1" data-capture-style-props="display">กรุณากรอกจำนวนแต้ม</div>
+</div>
+<div class="groupNameReward group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardName">ชื่อของรางวัล</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="text" class="input" id="inputNameReward-1-1" placeholder="reward name">
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.rewardNameError" id="error-NameRewardSubReward-1-1" data-capture-style-props="display">กรุณากรอกชื่อของรางวัล</div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div> dropped--><!--capture: unmatched </div>
+ dropped--><template id="templateSubReward">
+<div class="box-time-mission box-time-reward" id="sub-reward-template" data-sub-reward-id="template">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold"><span class="mission-page" data-i18n="missionPage.reward">ของรางวัล</span> <span id="text-header-sub-reward-template"></span></div>
+<div class="group-btn-delete">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="two-column">
+<div class="box-preview-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png" alt="reward" width="50" height="50" id="display-inputFileIconSubReward-template">
+</div>
+<div class="box-preview-reward-text">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.uploadRewardIcon">อัพโหลดรูปไอคอนของรางวัล</span>
+<label class="mission-btn-outline" for="inputFileIconSubReward-template">
+<input type="file" class="d-none" id="inputFileIconSubReward-template" onchange="handleFileSubMission(event)">
+<img src="/assets/images/mission/image-upload.png" alt="เพิ่มรูปไอคอน" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.uploadImage">อัพโหลดรูป</span>
+</label>
+<span class="text-example text-p2-regular-i">
+<span class="mission-page" data-i18n="missionPage.or">หรือ</span> <span class="text-link popup-select-icon-style-sub-reward mission-page" data-i18n="missionPage.missionSubImageSystem">เลือกรูปจากระบบ</span>
+</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.uploadDescription">
+ขนาดรูปภาพที่แนะนำ : 128px x 128px และรูปภาพจะต้องเป็นนามสกุลไฟล์ png, jpg และ
+gif เท่านั้น
+</span>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardType">ประเภทของรางวัล</label>
+<div class="col-auto dropdownSelectTypeReward require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single  mission-page" data-i18n="missionPage.selectRewardType">
+เลือกประเภทของรางวัล
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit" class="custom-dropdown-item mission-page" data-i18n="missionPage.credit">
+เครดิต
+</div>
+<div data-value="mini-game-chance" class="custom-dropdown-item mission-page" data-i18n="missionPage.miniGamePoints">
+สิทธิ์มินิเกมส์
+</div>
+<div data-value="promotion-chance" class="custom-dropdown-item mission-page" data-i18n="missionPage.promotionPoints">
+สิมธิ์รับโปรโมชัน
+</div>
+<div data-value="point" class="custom-dropdown-item mission-page" data-i18n="missionPage.points">
+แต้มสะสม
+</div>
+<div data-value="reward" class="custom-dropdown-item mission-page" data-i18n="missionPage.reward">
+ของรางวัล
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกประเภทของรางวัล
+</div>
+</div>
+</div>
+<div class="groupCredit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.fixRateCredit">จำนวนเครดิต Fix Rate</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputCreditFixRateValue-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectCreditFixRate">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page" data-i18n="missionPage.baht">
+บาท
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนเครดิต Fix Rate
+</div>
+</div>
+<div class="groupMinigame group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal  mission-page" data-i18n="missionPage.miniGame">มินิเกมส์</label>
+<div class="col-auto dropdownSelectMinigame require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single  mission-page" data-i18n="missionPage.selectMiniGame">
+เลือกมินิเกมส์
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal  mission-page" data-i18n="missionPage.rightsCount">จำนวนสิทธิ์</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputAuthorityMinigame-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAuthority">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single  mission-page" data-i18n="missionPage.rights">สิทธิ์</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="authority" class="custom-dropdown-item mission-page" data-i18n="missionPage.rights">
+สิทธิ์
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกมินิเกมส์
+</div>
+<div class="groupPromotion group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.promotion">โปรโมชั่น</label>
+<div class="col-auto dropdownSelectPromotion require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectPromotion">
+เลือกโปรโมชั่น
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกโปรโมชั่น
+</div>
+</div>
+</div>
+<div class="groupPoint group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.pointCount">จำนวนแต้ม</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputPointValue-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectPoint">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.point2">แต้ม</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="point" class="custom-dropdown-item mission-page" data-i18n="missionPage.point2">
+แต้ม
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนแต้ม
+</div>
+</div>
+<div class="groupNameReward group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardName">ชื่อของรางวัล</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="text" class="input" id="inputNameReward-template" placeholder="reward name">
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกชื่อของรางวัล
+</div>
+</div>
+</div>
+</div>
+</template>
+<div class="d-flex justify-content-center enableSubMissionReceive-12 d-none">
+<button class="mission-btn-outline" onclick="btnAddSubMissionReward(this)" id="btn-add-sub-reward-1" data-sub-main-id="1">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="add-reward" width="20" height="20">
+<span data-i18n="missionPage.missionAddReward">เพิ่มของรางวัล</span>
+</button>
+</div>
+<!--capture: unmatched </div>
+ dropped--><div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label" data-i18n="missionPage.missionRewardTurnOver">กำหนดการติดเทิร์นโอเวอร์ (Turnover)</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="togglemissionBasicSubSwich1(this)" id="enableTurnOver-1">
+</div>
+<span class="switch-title" data-i18n="missionPage.missionRewardTurnOverOnOff">เปิด / ปิดใช้งาน การติดเทิร์นโอเวอร์</span>
+</div>
+<div class="box-warning-mission enableTurnOver">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission" data-i18n="missionPage.missionRewardWarningText1">หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์</span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-card-select enableTurnOver2 d-none">
+<label class="card-select-item d-none" for="missionTurnOverTypeByTime-1">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="group-card-content">
+<div class="card-icon">
+<img src="/assets/images/mission/icon-turnover-min.png" alt="-" width="32" height="32">
+</div>
+<div class="card-select-detail">
+<span class="text-p2-regular" data-i18n="missionPage.missionTurnOverText">ทำเทิร์นโอเวอร์ ขั้นต่ำ x เท่า</span>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionTurnOverSubText">ตัวอย่าง : ลูกค้ารับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = 200 x 5 = 1,000 ถึงจะถอนเครดิตได้</span>
+<div class="custom-input group-input group-input-card disabled">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular" data-i18n="missionPage.doTurnOver">ทำเทิร์นโอเวอร์</span>
+</div>
+<input type="number" class="input input-card" placeholder="" id="turnOverByTimeValue-1" disabled="">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular" data-i18n="missionPage.times">เท่า</span>
+</div>
+</div>
+<div class="invalid-feedback" id="error-TurnoverByTimeSub-1" data-i18n="missionPage.missionDurationErrorText5" data-capture-style-props="display">กรุณากรอกจำนวนเทิร์นโอเวอร์</div>
+</div>
+</div>
+</div>
+</label>
+<label class="card-select-item active" for="missionTurnOverTypeByUnit-1">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="group-card-content">
+<div class="card-icon">
+<img src="/assets/images/mission/icon-turnover-min.png" alt="-" width="32" height="32">
+</div>
+<div class="card-select-detail">
+<span class="text-p2-regular" data-i18n="missionPage.missionTurnOverText2">ทำเทิร์นโอเวอร์ ขั้นต่ำ x บาท</span>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionTurnOverSubText2">ตัวอย่าง : รับรางวัล 5 แต้ม หากตั้งค่า ทำ เทิร์นเท่ากับ 500 ลูกค้าจะต้องทำเทิร์น = 500 ถึงจะถอนเครดิตได้</span>
+<div class="custom-input group-input group-input-card">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular" data-i18n="missionPage.doTurnOver">ทำเทิร์นโอเวอร์</span>
+</div>
+<input type="number" class="input input-card" placeholder="" id="turnOverByTimeUnit-1">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular" data-i18n="missionPage.baht">บาท</span>
+</div>
+</div>
+<div class="invalid-feedback" id="error-TurnoverByUnitSub-1" data-i18n="missionPage.missionDurationErrorText5" data-capture-style-props="display">กรุณากรอกจำนวนเทิร์นโอเวอร์</div>
+</div>
+</div>
+</div>
+</label>
+<!--capture: unmatched </div>
+ dropped--><div class="label-title-bg">
+<span class="text-in-label" data-i18n="missionPage.missionNotification">รูปแบบการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="togglemissionBasicSubSwich1(this)" id="enableMissionAlert-1">
+</div>
+<span class="switch-title" data-i18n="missionPage.missionNotificationOnOff">เปิด / ปิดใช้งาน การแจ้งเตือนภารกิจ</span>
+</div>
+<div class="box-warning-mission enableMissionAlert">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission"><span data-i18n="missionPage.missionNotificationSubText1">เมื่อเปิดใช้งานการแจ้งเตือนภารกิจ</span><br><span data-i18n="missionPage.missionNotificationSubText2">ระบบะจะแจ้งเตือกให้สมาชิกรู้เสมอ</span></span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-alert-mission enableMissionAlert2 d-none">
+<div class="title-alert-mission">
+<span class="text-p2-bold" data-i18n="missionPage.missionNotificationType">เลือกกำหนดรูปแบบการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="content-alert-mission-popup">
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="isAlertLogin-1">
+<div class="group-text-checkbox">
+<label for="isAlertLogin-template" class="label-checkbox" data-i18n="missionPage.missionNotificationStartUp">แจ้งเตือนเป็น Pop Up เมื่อเข้าสู่ระบบ</label>
+<span class="text-example" data-i18n="missionPage.missionNotificationStartUpType1">Pop up จะแสดงเพียงครั้งเดียวที่เข้าสู่ระบบสำเร็จ</span>
+</div>
+</div>
+<div class="preview-popup-mission">
+<div class="preview-popup-container">
+<img src="https://cdn.lsmloyalty.com/images/mission/popup/1.png" alt="ex 1">
+
+
+
+
+
+<!-- [collapsed 6 more siblings "IMG " with identical structure; values in data.json] -->
+</div>
+</div>
+<span class="preview-title" data-i18n="missionPage.missionNotificationEx">ตัวอย่างการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="content-alert-mission-floating-action-button">
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="isAlertFloating-1">
+<div class="group-text-checkbox">
+<label for="isAlertFloating-template" class="label-checkbox" data-i18n="missionPage.missionNotificationFloat">แจ้งเตือนเป็น Floating Action Button บนหน้าจอ</label>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionNotificationFloatSubText1">ปุ่มจะแสดงลอยอยู่บนหน้าจอตลอดเวลาและสามารถเลื่อน</span>
+<br>
+<span class="text-p3-regular text-example" data-i18n="missionPage.missionNotificationFloatSubText2">หรือปิดปุ่มได้แต่จะกลับมาแสดงอีกครั้งเมื่อเข้าสู่ระบบใหม่</span>
+</div>
+</div>
+<div class="preview-popup-mission">
+<img src="https://cdn.lsmloyalty.com/images/mission/popup/floating.png" alt="ex-1">
+</div>
+<span class="preview-title" data-i18n="missionPage.missionNotificationFloatEx">รูปตัวอย่างการแจ้งเตือนแบบ Floating Action Button</span>
+</div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div> dropped--><!--capture: unmatched </div> dropped-->

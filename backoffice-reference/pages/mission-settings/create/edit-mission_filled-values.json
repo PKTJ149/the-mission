@@ -1,0 +1,31 @@
+{
+ "_note": "Values loaded on /mission/setting?missionId=<uuid>&edit=1 for 'QA Happy Mission Retest 20261015' (edit icon on card 1). Same form as create; breadcrumb still reads 'รายชื่อภารกิจ > สร้างภารกิจ', save button text still 'ยืนยันการสร้างภารกิจ', hidden #editMission=true, #missionId set. Section status titles show 'ข้อมูลไม่สมบูรณ์' until validated. Not saved. Edit icon on expired missions (grey) does nothing.",
+ "values": {
+  "missionBasicMissionStatus": "checked",
+  "missionBasicMissionName": "QA Happy Mission Retest 20261015",
+  "ckeditor_missionConditionHtml": "ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ",
+  "coverImage": "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-01.webp",
+  "agents": [
+   "superx (chip)"
+  ],
+  "missionBasicMissionFormat": "option1 (ไม่เรียงลำดับการทำภารกิจ)",
+  "missionTimeAndRewardCheckboxStartMission": "checked",
+  "missionTimeAndRewardCheckboxNotEndMission": "checked",
+  "missionTimeAndRewardRadioTimeSetDaily": "checked (ทุกวัน)",
+  "missionTimeAndRewardCheckboxAllDayMission-1": "checked",
+  "missionTimeAndRewardRadioMissionRewardSelf": "checked",
+  "missionTurnOverTypeByUnit": "checked",
+  "complete-mission-all": "checked",
+  "complete-mission-some-value": "1",
+  "subMission1": {
+   "inputNameSubReward-1": "QA เข้าสู่ระบบ 1 ครั้ง",
+   "ckeditor_missionSubConditionHtml-1": "ภารกิจทดสอบหนึ่งเงื่อนไขสำหรับตรวจสอบการสร้างข้อมูล",
+   "condition": "Login (เช็คอิน)",
+   "loginType": "Login ครบ",
+   "inputLoginAmount-1-1": "1",
+   "unit": "วัน",
+   "missionRewardSelf-1": "checked",
+   "reset-reward-no-1": "checked"
+  }
+ }
+}

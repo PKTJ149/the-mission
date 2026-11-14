@@ -1,0 +1,54 @@
+{
+ "_note": "Full item lists of sibling groups that were collapsed in popup-image-style_open.html (value | text, text truncated to 90 chars).",
+ "groups": [
+  {
+   "items": [
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-01.webp | Style 1",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-02.webp | Style 2",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-03.webp | Style 3",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-04.webp | Style 4",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-05.webp | Style 5",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-06.webp | Style 6",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-07.webp | Style 7",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-08.webp | Style 8",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-09.webp | Style 9",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-10.webp | Style 10",
+    "https://cdn.lsmloyalty.com/images/mission/cover/01/mission-11.webp | Style 11"
+   ],
+   "sig": "LABEL image-radio"
+  },
+  {
+   "items": [
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-01.webp | Style 1",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-02.webp | Style 2",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-03.webp | Style 3",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-04.webp | Style 4",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-05.webp | Style 5",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-06.webp | Style 6",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-07.webp | Style 7",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-08.webp | Style 8",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-09.webp | Style 9",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-10.webp | Style 10",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-11.webp | Style 11",
+    "https://cdn.lsmloyalty.com/images/mission/cover/02/mission-12.webp | Style 12"
+   ],
+   "sig": "LABEL image-radio"
+  },
+  {
+   "items": [
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-01.webp | Style 1",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-02.webp | Style 2",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-03.webp | Style 3",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-04.webp | Style 4",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-05.webp | Style 5",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-06.webp | Style 6",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-07.webp | Style 7",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-08.webp | Style 8",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-09.webp | Style 9",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-10.webp | Style 10",
+    "https://cdn.lsmloyalty.com/images/mission/cover/03/mission-11.webp | Style 11"
+   ],
+   "sig": "LABEL image-radio"
+  }
+ ]
+}

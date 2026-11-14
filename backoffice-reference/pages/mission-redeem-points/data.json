@@ -1,0 +1,28 @@
+{
+ "_notes": [
+  "Empty state on staging: tbody single row with redeem-not-found.png + 'แต้มแลกรางวัล' + 'ตั้งค่าเงื่อนไขการแลกของรางวัล / เพื่อให้สมาชิกสามารถใช้แต้มแลกของรางวัลได้'. Pagination 'แสดง 0 - 0 จาก 0 รายการ'."
+ ],
+ "columns": [
+  "วัน/เวลาที่ใช้",
+  "ยูสเซอร์",
+  "แต้มก่อนแลก",
+  "แต้มที่แลก",
+  "แต้มหลังแลก",
+  "รางวัลที่แลก",
+  "ผู้ทำรายการ"
+ ],
+ "rows": [],
+ "filters": {
+  "tableSearch": "Search",
+  "filterCreatedDate": "วันที่ (flatpickr)",
+  "filterMakeBy": [
+   "superx"
+  ]
+ },
+ "redeemConditions": {
+  "enablePointExchange": "checked",
+  "th": "(ตั้งค่าแล้ว) — CKEditor content is a single resized image (a table of rewards: 100 เครดิต 1,000 แต้ม, 1,000 เครดิต 10,000 แต้ม, สิทธิ์หมุนวงล้อ 1 สิทธิ์ 500 แต้ม, สิทธิ์มินิเกมส์ 1 สิทธิ์ 500 แต้ม) followed by 3 empty paragraphs; the <img> tag itself was withheld by the tool filter (its src is a data/base64 or long URL) — see screenshot",
+  "en": "(ยังไม่กำหนด)",
+  "tl": "(ยังไม่กำหนด)"
+ }
+}

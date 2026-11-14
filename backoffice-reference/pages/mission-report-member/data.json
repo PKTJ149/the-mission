@@ -1,0 +1,229 @@
+{
+ "_notes": [
+  "Page 1 of 45 rows (แสดง 1 - 10 จาก 45 รายการ). Type badge: Complete = .custom-badge-status.text-orange-50.bg-orange-10; Manual = cyan with icon (see screenshot). Maker badge .system-badge (Auto green / User purple)."
+ ],
+ "columns": [
+  "date",
+  "time(small)",
+  "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)",
+  "mission",
+  "type",
+  "credit",
+  "minigameRights",
+  "promotionRights",
+  "points",
+  "other",
+  "maker"
+ ],
+ "rowsPage1": [
+  {
+   "date": "12/11/2026",
+   "time(small)": "11:24",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Happy Mission Retest 20261015 - QA เข้าสู่ระบบ 1 ครั้ง",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "12/11/2026",
+   "time(small)": "11:24",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Happy Mission Retest 20261015",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "11/11/2026",
+   "time(small)": "22:22",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "0Tsuperx59575402679",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "date": "11/11/2026",
+   "time(small)": "22:22",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "11/11/2026",
+   "time(small)": "16:06",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "0Tsuperx97420509115",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "date": "11/11/2026",
+   "time(small)": "15:57",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "09/11/2026",
+   "time(small)": "14:21",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Mission 5 Tasks 20261016 - 1. เช็คอินครบ 1 วัน",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "09/11/2026",
+   "time(small)": "14:20",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "0Tsuperx97420509115",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Manual",
+   "credit": "1.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "User"
+  },
+  {
+   "date": "09/11/2026",
+   "time(small)": "14:20",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Mission Rewards 20261015 Updated - QA Login ครบ 1 วัน",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  },
+  {
+   "date": "09/11/2026",
+   "time(small)": "14:18",
+   "memberName (link /mission/report-mission-member-detail/<n>, empty text on Auto rows)": "",
+   "mission": "QA Test Mission 0911 - QA เข้าสู่ระบบ 1 ครั้ง",
+   "type": "Complete",
+   "credit": "0.00",
+   "minigameRights": "0",
+   "promotionRights": "0",
+   "points": "0",
+   "other": "0",
+   "maker": "Auto"
+  }
+ ],
+ "filters": {
+  "tableSearch": "Search",
+  "filterDateSummary": "วันที่สรุป",
+  "filterMission": [
+   "ทั้งหมด",
+   "QA Test Mission 0911",
+   "QA Mission 5 Tasks 20261016",
+   "QA Mission Rewards 20261015 Updated",
+   "QA Happy Mission Retest 20261015",
+   "ภารกิจ 001"
+  ],
+  "filterCategory": [
+   [
+    "all",
+    "ทั้งหมด"
+   ],
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "admin",
+    "Admin"
+   ],
+   [
+    "manual",
+    "Manual"
+   ],
+   [
+    "mission-complete",
+    "Complete"
+   ]
+  ],
+  "filterMakeBy": [
+   [
+    "all",
+    "ทั้งหมด"
+   ],
+   [
+    "admin",
+    "Admin"
+   ],
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "user",
+    "User"
+   ]
+  ]
+ },
+ "pagination": {
+  "display": "แสดง 1 - 10 จาก 45 รายการ",
+  "pages": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ]
+ },
+ "manualModalMissionOptions": [
+  [
+   "mission",
+   "QA Happy Mission Retest 20261015"
+  ],
+  [
+   "sub-mission",
+   "QA เข้าสู่ระบบ 1 ครั้ง"
+  ],
+  [
+   "mission",
+   "ภารกิจ 001"
+  ],
+  [
+   "sub-mission",
+   "สะสมเทริน์ครบ 10"
+  ]
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "_notes": [
+  "Empty state on staging (no rows): 'ไม่พบข้อมูลที่ค้นหา' / 'ลองเปลี่ยนเงื่อนไขการค้นหานะคะ'. Pagination 'แสดง 0 - 0 จาก 0 รายการ'. Table columns therefore NOT observable — they are rendered by JS from /promotion/minigame/minigame-period-deposit-table; see legacy JS."
+ ],
+ "filters": {
+  "tableSearch": "Search",
+  "filterDateSummary": "วันที่สรุป",
+  "filterCategory": [
+   [
+    "all",
+    "ทั้งหมด"
+   ],
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "admin",
+    "Admin"
+   ],
+   [
+    "manual",
+    "Manual"
+   ],
+   [
+    "mission-complete",
+    "Complete"
+   ]
+  ],
+  "filterMakeBy": [
+   [
+    "all",
+    "ทั้งหมด"
+   ],
+   [
+    "admin",
+    "Admin"
+   ],
+   [
+    "auto",
+    "Auto"
+   ],
+   [
+    "user",
+    "User"
+   ]
+  ]
+ },
+ "pagination": {
+  "display": "แสดง 0 - 0 จาก 0 รายการ",
+  "limit": "10"
+ }
+}

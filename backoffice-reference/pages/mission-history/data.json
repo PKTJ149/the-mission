@@ -1,0 +1,188 @@
+{
+ "title": "ตั้งค่าภารกิจ",
+ "breadcrumb": [
+  "รายชื่อภารกิจ",
+  "ประวัติการแก้ไข"
+ ],
+ "documentTitle": "(empty)",
+ "filters": {
+  "search": "Search",
+  "date": "วันที่แก้ไข"
+ },
+ "columns": [
+  "วันที่แก้ไข",
+  "ภารกิจที่แก้ไข",
+  "รายละเอียดการแก้ไข",
+  "ผู้แก้ไข"
+ ],
+ "columnWidths": [
+  "10%",
+  "40%",
+  "40%",
+  "10%"
+ ],
+ "pagination": {
+  "limitOptions": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "defaultLimit": 10,
+  "total": 25,
+  "pages": 3,
+  "display": "แสดง 1 - 10 จาก 25 รายการ"
+ },
+ "rows": [
+  {
+   "editDate": "12/11/2026 20:36",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนการเริ่มภารกิจทันทีที่สร้างเสร็จเป็น เปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:19",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนสถานะเวลาทั้งวันเป็นภารกิจที่ 1 เป็น ปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:19",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนเวลาเริ่มทำภารกิจที่ 1 เป็น 00:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:19",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนเวลาสิ้นสุดทำภารกิจที่ 1 เป็น 22:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนการเริ่มภารกิจทันทีที่สร้างเสร็จเป็น ปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนวันที่เริ่มต้นเป็น 20261111",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนเวลาที่เริ่มต้นเป็น 12:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนการเป็นภารกิจไม่มีวันสิ้นสุดเป็น ปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนวันที่สิ้นสุดเป็น 20261114",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "12/11/2026 19:11",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนเวลาที่สิ้นสุดเป็น 12:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "11/11/2026 15:57",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนการเปิดใช้งานการแจ้งเตือนเป็น เปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "11/11/2026 15:57",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนแจ้งเตือน Pop up เมื่อเข้าสู่ระบบเป็น เปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "11/11/2026 15:57",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนแจ้งเตือน Floating เมื่อเข้าสู่ระบบเป็น เปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "11/11/2026 15:54",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนรูปแบบการทำภารกิจเป็น เรียงลำดับทำภารกิจ",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:28",
+   "mission": "QA Mission 5 Tasks 20261016",
+   "detail": "ลบภารกิจ",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:28",
+   "mission": "QA Mission 5 Tasks 20261016",
+   "detail": "เปลี่ยนสถานะเป็น online",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:28",
+   "mission": "QA Mission 5 Tasks 20261016",
+   "detail": "เปลี่ยนสถานะเป็น offline",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:27",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนรูปภาพเป็น https://cdn.lsmloyalty.com/images/mission/cover/01/mission-07.webp",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:04",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนเวลาที่เริ่มต้นเป็น 14:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:03",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนเวลาที่เริ่มต้นเป็น 12:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:03",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนการเป็นภารกิจไม่มีวันสิ้นสุดเป็น ปิด",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:03",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนวันที่สิ้นสุดเป็น 20261109",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "09/11/2026 14:03",
+   "mission": "QA Test Mission 0911",
+   "detail": "เปลี่ยนเวลาที่สิ้นสุดเป็น 17:00",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "15/10/2026 14:18",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนชื่อเป็น QA Mission Rewards 20261015 Updated",
+   "editor": "(superx)"
+  },
+  {
+   "editDate": "15/10/2026 14:18",
+   "mission": "QA Mission Rewards 20261015 Updated",
+   "detail": "เปลี่ยนชื่อในภาษา Default (Thai) เป็น QA Mission Rewards 20261015 Updated",
+   "editor": "(superx)"
+  }
+ ]
+}

@@ -1,0 +1,355 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#error-AffiliateTypeSubCondition-template": {
+  "display": "none"
+ },
+ "#error-AgeMemberTimeType-1": {
+  "display": "none"
+ },
+ "#error-AgeMemberTimeType-template": {
+  "display": "none"
+ },
+ "#error-CompleteMission-some-value": {
+  "display": "none"
+ },
+ "#error-CreditFixRate-1": {
+  "display": "none"
+ },
+ "#error-CreditFixRate-template": {
+  "display": "none"
+ },
+ "#error-CreditFixRateSubReward-template": {
+  "display": "none"
+ },
+ "#error-DepositAccumulated-template": {
+  "display": "none"
+ },
+ "#error-DepositAmountDepositTime-template": {
+  "display": "none"
+ },
+ "#error-DepositConditionSub-template": {
+  "display": "none"
+ },
+ "#error-DepositEveryDeposit-template": {
+  "display": "none"
+ },
+ "#error-EndMissionDate-template": {
+  "display": "block"
+ },
+ "#error-GroupMember-1": {
+  "display": "none"
+ },
+ "#error-GroupMember-template": {
+  "display": "none"
+ },
+ "#error-InputAffiliateTypeSubCondition-template": {
+  "display": "none"
+ },
+ "#error-LimitRewardSub-template": {
+  "display": "none"
+ },
+ "#error-LoginTypeSubCondition-template": {
+  "display": "none"
+ },
+ "#error-Minigame-1": {
+  "display": "none"
+ },
+ "#error-Minigame-template": {
+  "display": "none"
+ },
+ "#error-MinigameSubReward-template": {
+  "display": "none"
+ },
+ "#error-NameReward-1": {
+  "display": "none"
+ },
+ "#error-NameReward-template": {
+  "display": "none"
+ },
+ "#error-NameRewardSub-template": {
+  "display": "none"
+ },
+ "#error-NameRewardSubReward-template": {
+  "display": "none"
+ },
+ "#error-Point-1": {
+  "display": "none"
+ },
+ "#error-Point-template": {
+  "display": "none"
+ },
+ "#error-PointAmountSubCondition-template": {
+  "display": "none"
+ },
+ "#error-PointSubReward-template": {
+  "display": "none"
+ },
+ "#error-Promotion-1": {
+  "display": "none"
+ },
+ "#error-Promotion-template": {
+  "display": "none"
+ },
+ "#error-PromotionSubReward-template": {
+  "display": "none"
+ },
+ "#error-RegisterMemberDateType-1": {
+  "display": "none"
+ },
+ "#error-RegisterMemberDateType-template": {
+  "display": "none"
+ },
+ "#error-RewardMissionType-1": {
+  "display": "none"
+ },
+ "#error-RewardMissionType-template": {
+  "display": "none"
+ },
+ "#error-RewardMissionTypeSubReward-template": {
+  "display": "none"
+ },
+ "#error-StartMissionDate-template": {
+  "display": "block"
+ },
+ "#error-SubMissionCondition-template": {
+  "display": "none"
+ },
+ "#error-TimeMission-1": {
+  "display": "block"
+ },
+ "#error-TimeMission-template": {
+  "display": "none"
+ },
+ "#error-TimeMissionSelectDay-1": {
+  "display": "block"
+ },
+ "#error-TimeMissionSelectDay-template": {
+  "display": "none"
+ },
+ "#error-TurnOverTypeSubCondition-template": {
+  "display": "none"
+ },
+ "#error-TurnoverByTime-template": {
+  "display": "none"
+ },
+ "#error-TurnoverByTimeSub-template": {
+  "display": "none"
+ },
+ "#error-TurnoverByUnit-template": {
+  "display": "none"
+ },
+ "#error-TurnoverByUnitSub-template": {
+  "display": "none"
+ },
+ "#error-TypeMember-1": {
+  "display": "none"
+ },
+ "#error-TypeMember-template": {
+  "display": "none"
+ },
+ "#missionBasicMissionName": {
+  "border-bottom-color": "rgb(246, 70, 70)",
+  "border-color": "rgb(246, 70, 70)",
+  "border-left-color": "rgb(246, 70, 70)",
+  "border-right-color": "rgb(246, 70, 70)",
+  "border-top-color": "rgb(246, 70, 70)"
+ },
+ "#missionConditionHtml": {
+  "display": "none"
+ },
+ "#missionConditionHtml-en": {
+  "display": "none"
+ },
+ "#missionConditionHtml-tl": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(1) > div.group-color-mission:nth-of-type(4) > div.group-change-color > div.change-color-item:nth-of-type(1) > div.group-btn > div.asColorPicker-wrap > div.asColorPicker-trigger > span": {
+  "background": "-webkit-linear-gradient(left, rgb(186, 138, 70) 0%, rgb(245, 227, 134) 50%, rgb(186, 138, 70) 100%)",
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "initial",
+  "background-image": "-webkit-linear-gradient(left, rgb(186, 138, 70) 0%, rgb(245, 227, 134) 50%, rgb(186, 138, 70) 100%)",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(1) > div.group-color-mission:nth-of-type(4) > div.group-change-color > div.change-color-item:nth-of-type(1) > div.group-btn > div.asColorPicker-wrap > input.getColorBGAndLinkAndBTN": {
+  "height": "30px",
+  "width": "95px"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(1) > div.group-color-mission:nth-of-type(4) > div.group-change-color > div.change-color-item:nth-of-type(2) > div.group-btn > div.asColorPicker-wrap > div.asColorPicker-trigger > span": {
+  "background": "rgb(30, 30, 30)",
+  "background-attachment": "initial",
+  "background-clip": "initial",
+  "background-color": "rgb(30, 30, 30)",
+  "background-image": "initial",
+  "background-origin": "initial",
+  "background-position-x": "initial",
+  "background-position-y": "initial",
+  "background-repeat": "initial",
+  "background-size": "initial"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(1) > div.group-color-mission:nth-of-type(4) > div.group-change-color > div.change-color-item:nth-of-type(2) > div.group-btn > div.asColorPicker-wrap > input.getColorTextAndBTN": {
+  "height": "30px",
+  "text-transform": "uppercase",
+  "width": "95px"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-en:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-en:nth-of-type(2) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-en:nth-of-type(2) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-th:nth-of-type(1) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-th:nth-of-type(1) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-tl:nth-of-type(3)": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-tl:nth-of-type(3) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#rootScrollMission > div.group-item > div.group-content-mission-setting-item:nth-of-type(2) > div.group-input-thin:nth-of-type(4) > div.input-thin > div.textarea-condition-tl:nth-of-type(3) > div.ck > div.ck:nth-of-type(1) > div.ck > div.ck:nth-of-type(2) > div.ck > div.ck > div.ck:nth-of-type(5) > div.ck:nth-of-type(1) > button.ck:nth-of-type(1) > svg > path:nth-of-type(1)": {
+  "fill": "var(--ck-highlight-marker-yellow)"
+ },
+ "#time-mission-1 > div.box-time-mission-header:nth-of-type(1) > div.group-header-time-mission:nth-of-type(1) > div.group-btn-close-time-mission:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.group-input:nth-of-type(2) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.groupCredit:nth-of-type(3) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(1) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(2) > div.group-dropdown-label > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.groupPoint:nth-of-type(7) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-content:nth-of-type(2) > div.groupPromotion:nth-of-type(6) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "#time-reward-1 > div.box-time-mission-header:nth-of-type(1) > div.group-header-time-mission > div.group-btn-delete:nth-of-type(2)": {
+  "display": "none"
+ },
+ "#type-member-1 > div.type-member-header:nth-of-type(1) > div.group-btn-delete": {
+  "display": "none"
+ },
+ "#type-member-1 > div.type-member-item:nth-of-type(2) > div.groupAgeMember:nth-of-type(3) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "#type-member-1 > div.type-member-item:nth-of-type(2) > div.groupAgeMember:nth-of-type(3) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "#type-member-1 > div.type-member-item:nth-of-type(2) > div.groupRegisterMember:nth-of-type(4) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.group-input:nth-of-type(2) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupCredit:nth-of-type(3) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(1) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(2) > div.group-dropdown-label > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupPoint:nth-of-type(7) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateReward ::content > div#time-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupPromotion:nth-of-type(6) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.group-input:nth-of-type(1) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupAffiliate:nth-of-type(10) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupAffiliateInput:nth-of-type(11) > div.group-input > div.group-dropdown-label > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupAffiliateInput:nth-of-type(11) > div.group-input > div.group-dropdown-label > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDeposit-Deposit:nth-of-type(3) > div.group-input:nth-of-type(1) > div.group-dropdown-label > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDeposit-Deposit:nth-of-type(3) > div.group-input:nth-of-type(2) > div.group-dropdown-label > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDeposit:nth-of-type(2) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDepositAccumulated:nth-of-type(5) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDepositAccumulated:nth-of-type(5) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupDepositEveryDeposit:nth-of-type(6) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupLogin:nth-of-type(9) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupLogin:nth-of-type(9) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupPoint:nth-of-type(13) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupPoint:nth-of-type(13) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupRegisterMember:nth-of-type(14) > div.group-dropdown-age > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupTurnOver:nth-of-type(7) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubCondition ::content > div#sub-condition-template > div.box-dropdown-main-item:nth-of-type(2) > div.groupTurnOver:nth-of-type(7) > div.group-input > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.group-input:nth-of-type(2) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupCredit:nth-of-type(3) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(1) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupMinigame:nth-of-type(4) > div.group-input:nth-of-type(2) > div.group-dropdown-label > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupPoint:nth-of-type(7) > div.group-dropdown-label:nth-of-type(1) > div.col-auto:nth-of-type(2) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateSubReward ::content > div#sub-reward-template > div.box-time-mission-content:nth-of-type(2) > div.groupPromotion:nth-of-type(6) > div.col-auto > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateTypeMember ::content > div#type-member-template > div.type-member-item:nth-of-type(2) > div.groupAgeMember:nth-of-type(3) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateTypeMember ::content > div#type-member-template > div.type-member-item:nth-of-type(2) > div.groupAgeMember:nth-of-type(3) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(3) > button.custom-filter": {
+  "width": "100%"
+ },
+ "template#templateTypeMember ::content > div#type-member-template > div.type-member-item:nth-of-type(2) > div.groupRegisterMember:nth-of-type(4) > div.group-dropdown:nth-of-type(1) > div.col-auto:nth-of-type(1) > button.custom-filter": {
+  "width": "100%"
+ }
+}

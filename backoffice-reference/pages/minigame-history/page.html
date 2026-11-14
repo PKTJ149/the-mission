@@ -1,0 +1,472 @@
+<div data-capture=".page-content followed by the page-level hidden popups that live in .main-content"><div class="page-content">
+<div class="container-fluid full-container">
+<svg width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="filter-gradient" x1="7.91113" y1="0.666748" x2="7.91113" y2="17.3334" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#50A198"></stop>
+<stop offset="1" stop-color="#FEDB6B"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="inner-container full-flex">
+<div class="custom-card full-card full-flex">
+<div class="title-header-custom-mini-game">
+<h4 class="mb-0" data-i18n="reportPromotionMinigameHistory.title">ประวัติการรับ/ใช้สิทธิ์มินิเกมส์</h4>
+</div>
+<div class="d-flex align-items-center justify-content-between mb-2">
+<h4 class="mb-0" data-i18n="reportPromotionMinigameHistory.titleSubText">รายการรับ/ใช้สิทธิ์มินิเกมส์</h4>
+<button class="btn system-btn btn-rounded" onclick="openCreateManual()">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17316C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8078C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C21.9971 9.34871 20.9426 6.80684 19.0679 4.9321C17.1932 3.05736 14.6513 2.00287 12 2ZM12 20.3333C10.3518 20.3333 8.74066 19.8446 7.37025 18.9289C5.99984 18.0132 4.93174 16.7117 4.30101 15.189C3.67028 13.6663 3.50525 11.9908 3.82679 10.3742C4.14834 8.75774 4.94201 7.27288 6.10745 6.10744C7.27288 4.94201 8.75774 4.14833 10.3743 3.82679C11.9908 3.50525 13.6663 3.67027 15.189 4.301C16.7117 4.93173 18.0132 5.99984 18.9289 7.37025C19.8446 8.74066 20.3333 10.3518 20.3333 12C20.3309 14.2094 19.4522 16.3276 17.8899 17.8899C16.3276 19.4522 14.2094 20.3309 12 20.3333ZM16.1667 12C16.1667 12.221 16.0789 12.433 15.9226 12.5893C15.7663 12.7455 15.5543 12.8333 15.3333 12.8333H12.8333V15.3333C12.8333 15.5543 12.7455 15.7663 12.5893 15.9226C12.433 16.0789 12.221 16.1667 12 16.1667C11.779 16.1667 11.567 16.0789 11.4107 15.9226C11.2545 15.7663 11.1667 15.5543 11.1667 15.3333V12.8333H8.66667C8.44566 12.8333 8.23369 12.7455 8.07741 12.5893C7.92113 12.433 7.83334 12.221 7.83334 12C7.83334 11.779 7.92113 11.567 8.07741 11.4107C8.23369 11.2545 8.44566 11.1667 8.66667 11.1667H11.1667V8.66667C11.1667 8.44565 11.2545 8.23369 11.4107 8.07741C11.567 7.92113 11.779 7.83333 12 7.83333C12.221 7.83333 12.433 7.92113 12.5893 8.07741C12.7455 8.23369 12.8333 8.44565 12.8333 8.66667V11.1667H15.3333C15.5543 11.1667 15.7663 11.2545 15.9226 11.4107C16.0789 11.567 16.1667 11.779 16.1667 12Z"></path>
+</svg><span data-i18n="reportPromotionMinigameHistory.promotionManual">เพิ่มโปรให้สมาชิก (Manual)</span>
+</button>
+</div>
+<div class="row align-items-center gx-2 mb-3">
+<div class="col-auto" data-capture-style-props="flex-basis">
+<div class="custom-input">
+<input id="tableSearch" type="text" class="form-control" data-i18n="[placeholder]reportPromotionMinigameHistory.phSearch" placeholder="ค้นหาโปรโมชั่น">
+<div class="float-prepend">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.4471 13.3433L11.3359 10.1757C12.0767 9.21807 12.447 8.1131 12.447 6.8608C12.447 3.84054 9.92853 1.33594 6.89149 1.33594C3.85446 1.33594 1.33594 3.84054 1.33594 6.8608C1.33594 9.88106 3.85446 12.3857 6.89149 12.3857C8.15075 12.3857 9.33594 11.9437 10.2248 11.2807L13.41 14.4483C13.5582 14.5956 13.7804 14.6693 13.9285 14.6693C14.0767 14.6693 14.2989 14.5956 14.4471 14.4483C14.7433 14.08 14.7433 13.638 14.4471 13.3433ZM9.78038 9.73373C9.03964 10.4704 8.0026 10.9124 6.89149 10.9124C4.66927 10.9124 2.81742 9.07074 2.81742 6.8608C2.81742 4.65085 4.66927 2.80923 6.89149 2.80923C9.11372 2.80923 10.9656 4.65085 10.9656 6.8608C10.9656 7.96577 10.5211 8.99708 9.78038 9.73373Z"></path>
+</svg>
+<svg id="clearValuePromotionCustomerSearch" onclick="CustomInput.clearValue(this)" class="navigate-close" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4495 3.55038C12.3104 3.41135 12.1218 3.33325 11.9252 3.33325C11.7285 3.33325 11.5399 3.41135 11.4009 3.55038L7.99992 6.95131L4.59899 3.55038C4.45992 3.41135 4.27133 3.33325 4.07468 3.33325C3.87804 3.33325 3.68945 3.41135 3.55038 3.55038C3.41135 3.68945 3.33325 3.87804 3.33325 4.07468C3.33325 4.27133 3.41135 4.45992 3.55038 4.59899L6.95131 7.99992L3.55038 11.4009C3.41135 11.5399 3.33325 11.7285 3.33325 11.9252C3.33325 12.1218 3.41135 12.3104 3.55038 12.4495C3.68945 12.5885 3.87804 12.6666 4.07468 12.6666C4.27133 12.6666 4.45992 12.5885 4.59899 12.4495L7.99992 9.04853L11.4009 12.4495C11.5399 12.5885 11.7285 12.6666 11.9252 12.6666C12.1218 12.6666 12.3104 12.5885 12.4495 12.4495C12.5885 12.3104 12.6666 12.1218 12.6666 11.9252C12.6666 11.7285 12.5885 11.5399 12.4495 11.4009L9.04853 7.99992L12.4495 4.59899C12.5885 4.45992 12.6666 4.27133 12.6666 4.07468C12.6666 3.87804 12.5885 3.68945 12.4495 3.55038Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<div id="filterDateSummary" class="custom-filter" onclick="datepickerDateSummary.toggle()">
+<input id="datepickerDateSummary" type="text" class="filter-flatpicker flatpickr-input" readonly="readonly">
+<span class="filter-icon">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.77 8.61921V3.7082C14.77 1.93919 13.3308 0.5 11.5618 0.5H3.87227C2.10326 0.5 0.664062 1.93919 0.664062 3.7082V10.1173C0.664062 11.8863 2.10326 13.3255 3.87227 13.3255H8.39369C8.71006 15.4951 10.5826 17.1667 12.8385 17.1667C15.3155 17.1667 17.3307 15.1515 17.3307 12.6745C17.3307 10.8885 16.283 9.34274 14.77 8.61921ZM3.87227 1.80208H11.5618C12.6104 1.80208 13.4637 2.65325 13.4677 3.70094H1.96634C1.97028 2.65325 2.82367 1.80208 3.87227 1.80208ZM1.96615 10.1173V5.00306H13.4679V8.22659C10.9801 7.87627 8.74349 9.62458 8.39369 12.0234H3.87227C2.82122 12.0234 1.96615 11.1684 1.96615 10.1173ZM12.8385 15.8646C11.0795 15.8646 9.64844 14.4335 9.64844 12.6745C9.64844 10.9154 11.0795 9.48438 12.8385 9.48438C14.5976 9.48438 16.0286 10.9154 16.0286 12.6745C16.0286 14.4335 14.5976 15.8646 12.8385 15.8646ZM13.9391 12.8543C14.1934 13.1086 14.1934 13.5208 13.9391 13.775C13.6848 14.0293 13.2726 14.0292 13.0184 13.775L12.3782 13.1348C12.2561 13.0128 12.1875 12.8471 12.1875 12.6745V11.3941C12.1875 11.0345 12.479 10.7431 12.8385 10.7431C13.1981 10.7431 13.4896 11.0345 13.4896 11.3941V12.4048L13.9391 12.8543ZM5.16709 6.9236C5.16709 7.28317 4.87562 7.57464 4.51605 7.57464H3.87588C3.51631 7.57464 3.22484 7.28317 3.22484 6.9236C3.22484 6.56403 3.51631 6.27256 3.87588 6.27256H4.51608C4.87562 6.27256 5.16709 6.56406 5.16709 6.9236ZM6.74587 6.9236C6.74587 6.56403 7.03734 6.27256 7.39691 6.27256H8.03711C8.39668 6.27256 8.68815 6.56403 8.68815 6.9236C8.68815 7.28317 8.39668 7.57464 8.03711 7.57464H7.39691C7.03737 7.57464 6.74587 7.28317 6.74587 6.9236ZM10.2669 6.9236C10.2669 6.56403 10.5584 6.27256 10.918 6.27256H11.5582C11.9177 6.27256 12.2092 6.56403 12.2092 6.9236C12.2092 7.28317 11.9177 7.57464 11.5582 7.57464H10.918C10.5584 7.57464 10.2669 7.28317 10.2669 6.9236ZM5.16709 9.48438C5.16709 9.84394 4.87562 10.1354 4.51605 10.1354H3.87588C3.51631 10.1354 3.22484 9.84394 3.22484 9.48438C3.22484 9.1248 3.51631 8.83333 3.87588 8.83333H4.51608C4.87562 8.83333 5.16709 9.1248 5.16709 9.48438ZM8.03711 10.1354H7.39691C7.03734 10.1354 6.74587 9.84394 6.74587 9.48438C6.74587 9.1248 7.03734 8.83333 7.39691 8.83333H8.03711C8.39668 8.83333 8.68815 9.1248 8.68815 9.48438C8.68815 9.84394 8.39668 10.1354 8.03711 10.1354Z"></path>
+</svg>
+</span>
+<span class="filter-title" data-i18n="reportPromotionMinigameHistory.dateTimeSummary">วันที่สรุปข้อมูล :</span>
+<span class="filter-value"></span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></div>
+</div>
+<div class="col-auto">
+<button id="filterCategory" class="custom-filter">
+<span class="filter-icon">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.2474 18.3342H3.7474C3.19486 18.3342 2.66496 18.1147 2.27426 17.724C1.88356 17.3333 1.66406 16.8034 1.66406 16.2509L1.66406 6.52865C1.66406 5.97611 1.88356 5.44621 2.27426 5.05551C2.66496 4.66481 3.19486 4.44531 3.7474 4.44531H12.0807C12.2649 4.44531 12.4415 4.51848 12.5718 4.64871C12.702 4.77894 12.7752 4.95558 12.7752 5.13976C12.7752 5.32394 12.702 5.50057 12.5718 5.6308C12.4415 5.76104 12.2649 5.8342 12.0807 5.8342H3.7474C3.56322 5.8342 3.38658 5.90737 3.25635 6.0376C3.12612 6.16783 3.05295 6.34447 3.05295 6.52865V16.2509C3.05295 16.435 3.12612 16.6117 3.25635 16.7419C3.38658 16.8722 3.56322 16.9453 3.7474 16.9453H16.2474C16.4316 16.9453 16.6082 16.8722 16.7384 16.7419C16.8687 16.6117 16.9418 16.435 16.9418 16.2509V6.52865C16.9418 6.34447 17.015 6.16783 17.1452 6.0376C17.2755 5.90737 17.4521 5.8342 17.6363 5.8342C17.8205 5.8342 17.9971 5.90737 18.1273 6.0376C18.2576 6.16783 18.3307 6.34447 18.3307 6.52865V16.2509C18.3307 16.8034 18.1112 17.3333 17.7205 17.724C17.3298 18.1147 16.7999 18.3342 16.2474 18.3342Z"></path>
+<path d="M17.6328 11.3863C17.5241 11.3856 17.4171 11.3595 17.3203 11.3099L14.855 10.0807L12.3898 11.3099C12.284 11.3632 12.1665 11.3885 12.0482 11.3836C11.9299 11.3786 11.8149 11.3435 11.714 11.2816C11.6131 11.2197 11.5297 11.133 11.4717 11.0298C11.4138 10.9265 11.3832 10.8102 11.3828 10.6918V2.35851C11.3828 2.17433 11.456 1.99769 11.5862 1.86746C11.7164 1.73723 11.8931 1.66406 12.0773 1.66406H17.6328C17.817 1.66406 17.9936 1.73723 18.1239 1.86746C18.2541 1.99769 18.3273 2.17433 18.3273 2.35851V10.6918C18.3275 10.8099 18.2976 10.926 18.2405 11.0293C18.1834 11.1325 18.1009 11.2196 18.0009 11.2821C17.8904 11.3506 17.7628 11.3867 17.6328 11.3863ZM14.855 8.60851C14.9637 8.60916 15.0708 8.63532 15.1675 8.6849L16.9384 9.56684V3.05295H12.7717V9.56684L14.5425 8.6849C14.6393 8.63532 14.7463 8.60916 14.855 8.60851Z"></path>
+<path d="M9.99392 14.8576H5.82726C5.64308 14.8576 5.46644 14.7845 5.33621 14.6542C5.20598 14.524 5.13281 14.3474 5.13281 14.1632C5.13281 13.979 5.20598 13.8024 5.33621 13.6721C5.46644 13.5419 5.64308 13.4688 5.82726 13.4688H9.99392C10.1781 13.4688 10.3547 13.5419 10.485 13.6721C10.6152 13.8024 10.6884 13.979 10.6884 14.1632C10.6884 14.3474 10.6152 14.524 10.485 14.6542C10.3547 14.7845 10.1781 14.8576 9.99392 14.8576Z"></path>
+</svg>
+</span>
+<span class="filter-title" data-i18n="reportPromotionMinigameHistory.type">ประเภท :</span>
+<span class="filter-value">All</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownFilterCategory" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-chip="auto" data-value="auto" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.auto">Auto</div>
+<div data-chip="manual" data-value="manual" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.manual">Manual</div>
+<div data-chip="promotion" data-value="promotion" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.promotion">โปรโมชั่นหลัก</div>
+<div data-chip="mini-game" data-value="mini-game" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.minigame">มินิเกมส์</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<button id="filterStatus" class="custom-filter">
+<span class="filter-icon">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.1855 17.9394C9.92458 18.2003 9.61195 18.3307 9.24759 18.3307C8.88324 18.3307 8.5706 18.2003 8.3097 17.9394L2.03775 11.6674C1.78583 11.4155 1.66129 11.1037 1.66411 10.732C1.66692 10.3604 1.79708 10.0458 2.05461 9.78825L9.77393 2.05542C9.89553 1.93585 10.0392 1.84073 10.205 1.77007C10.3708 1.6994 10.5443 1.66406 10.7253 1.66406H16.9973C17.356 1.66406 17.665 1.79368 17.9242 2.0529C18.1834 2.31211 18.313 2.62109 18.313 2.97983V9.25178C18.313 9.4393 18.2768 9.61578 18.2042 9.78123C18.1317 9.9467 18.0319 10.093 17.9048 10.2201L10.1855 17.9394ZM14.8033 6.2693C15.1076 6.2693 15.3666 6.16279 15.5803 5.94978C15.7939 5.73676 15.9008 5.47811 15.9008 5.17381C15.9008 4.86951 15.7943 4.61053 15.5813 4.39686C15.3682 4.18319 15.1096 4.07635 14.8053 4.07635C14.501 4.07635 14.242 4.18286 14.0283 4.39587C13.8146 4.60888 13.7078 4.86754 13.7078 5.17184C13.7078 5.47613 13.8143 5.73512 14.0273 5.94879C14.2403 6.16246 14.499 6.2693 14.8033 6.2693ZM9.25137 17.015L16.9973 9.25178V2.97983H10.7215L2.97565 10.743L9.25137 17.015Z"></path>
+</svg>
+</span>
+<span class="filter-title" data-i18n="reportPromotionMinigameHistory.status">สถานะ :</span>
+<span class="filter-value">All</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownFilterStatus" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-chip="accept" data-value="accept" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.accept">ใช้โปรแล้ว</div>
+<div data-chip="waiting" data-value="waiting" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.waiting">รอใช้โปร</div>
+<div data-chip="expired" data-value="expired" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.expired">หมดอายุ</div>
+<div data-chip="rejected" data-value="rejected" class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.rejected">ยกเลิก</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<button id="filterMakeBy" class="custom-filter">
+<span class="filter-icon">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="filter-title" data-i18n="reportPromotionMinigameHistory.editBy">ผู้ทำรายการ :</span>
+<span class="filter-value">All</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownFilterMakeBy" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-chip="auto" data-value="auto" class="custom-dropdown-item">auto</div>
+<div data-chip="superx" data-value="superx" class="custom-dropdown-item">superx</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-auto">
+<button id="filterAgent" class="custom-filter">
+<span class="filter-icon">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="filter-title" data-i18n="reportPromotionMinigameHistory.usedAgent">Agent ที่ใช้งาน :</span>
+<span class="filter-value">All</span>
+<span class="filter-toggler">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.7923 3.71126C10.7259 3.64432 10.6469 3.59119 10.5599 3.55493C10.4729 3.51867 10.3795 3.5 10.2852 3.5C10.1909 3.5 10.0976 3.51867 10.0106 3.55493C9.92353 3.59119 9.84454 3.64432 9.77814 3.71126L6.50708 6.98231C6.44069 7.04925 6.3617 7.10238 6.27467 7.13864C6.18763 7.1749 6.09428 7.19357 6 7.19357C5.90572 7.19357 5.81237 7.1749 5.72533 7.13864C5.6383 7.10238 5.55931 7.04925 5.49291 6.98231L2.22186 3.71126C2.15546 3.64432 2.07647 3.59119 1.98944 3.55493C1.9024 3.51867 1.80905 3.5 1.71477 3.5C1.62049 3.5 1.52714 3.51867 1.4401 3.55493C1.35307 3.59119 1.27408 3.64432 1.20769 3.71126C1.07466 3.84508 1 4.02609 1 4.21477C1 4.40346 1.07466 4.58447 1.20769 4.71829L4.48589 7.99648C4.88763 8.39772 5.4322 8.62309 6 8.62309C6.56779 8.62309 7.11237 8.39772 7.51411 7.99648L10.7923 4.71829C10.9253 4.58447 11 4.40346 11 4.21477C11 4.02609 10.9253 3.84508 10.7923 3.71126Z"></path>
+</svg>
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownAgent" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value=" " class="custom-dropdown-item" data-i18n="reportPromotionMinigameHistory.title">ประวัติการรับ/ใช้สิทธิ์มินิเกมส์</div>
+<div data-value="669" data-chip="superxx" class="custom-dropdown-item">superxx</div>
+<div data-value="501" data-chip="superx" class="custom-dropdown-item">superx</div>
+</div>
+</div>
+</div>
+</div>
+<div class="filter-fill"></div>
+<div class="col-auto">
+<div id="autoRefreshWrapper" class="system-btn-group custom-btn-refresh">
+<button class="system-btn refresh-btn"><svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+<span class="refresh-text">Refresh in</span>
+<span class="refresh-value">50 sec.</span>
+</button>
+<button class="system-btn btn-icon refresh-setting">
+<svg width="14" height="12" viewBox="0 0 14 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.84391 11.7066V6.37615H0.333374V5.24329H4.48731V6.37615H2.97677V11.7066H1.84391ZM1.84391 3.44224V0H2.97677V3.44224H1.84391ZM4.92308 3.44224V2.30938H6.43361V0H7.56647V2.30938H9.07701V3.44224H4.92308ZM6.43361 11.7066V5.24329H7.56647V11.7066H6.43361ZM11.0233 11.7066V9.39722H9.51278V8.26436H13.6667V9.39722H12.1562V11.7066H11.0233ZM11.0233 6.46331V0H12.1562V6.46331H11.0233Z"></path>
+</svg>
+</button>
+</div>
+<div id="dropdownAutoRefresh" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="30" class="custom-dropdown-item">30s</div>
+<div data-value="45" class="custom-dropdown-item">45s</div>
+<div data-value="60" class="custom-dropdown-item selected">60s</div>
+<div data-value="120" class="custom-dropdown-item">120s</div>
+<div data-value="0" class="custom-dropdown-item">ปิดการ Auto Refresh</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="promotionTable" class="promotion-deposit-table system-table table-full">
+<div class="table-loading" data-capture-style-props="display">
+<lord-icon class="loading-icon" src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"></lord-icon>
+<h5 class="mt-2" data-i18n="reportPromotionMinigameHistory.waitingText">กำลังค้นหาข้อมูล</h5>
+<p class="text-muted mb-0" data-i18n="reportPromotionMinigameHistory.waitingSubText">เรากำลังทำงานอย่างหนัก เพื่อค้นหาข้อมูลให้คุณได้เร็วที่สุด</p>
+</div>
+
+<div class="table-scrollable">
+<table>
+<thead class="color-th-report-theme-emerald">
+<tr>
+<th rowspan="2" class="w-0" data-i18n="reportMiniGameHistory.text1">วันที่ได้สิทธิ์รับโปร</th>
+<th rowspan="2" class="text-center w-0" data-i18n="reportMiniGameHistory.text2">ลูกค้า (ยูสเซอร์เนม)</th>
+<th rowspan="2" class="w-0" data-i18n="reportMiniGameHistory.text3">ชื่อโปรโมชั่น</th>
+<th rowspan="2" class="text-center" data-i18n="reportMiniGameHistory.text4">ประเภท</th>
+<th colspan="5" class="text-center th-0 pb-1 pe-0">
+<span class="custom-badge bg-green-0 w-100" data-i18n="reportMiniGameHistory.text5">จำนวนโบนัสที่ลูกค้าได้รับ</span>
+</th>
+<th rowspan="2" class="w-0 text-center" data-i18n="reportMiniGameHistory.text6">สถานะ</th>
+<th rowspan="2" class="w-0 text-center" data-i18n="reportMiniGameHistory.text7">ผู้ทำรายการ</th>
+</tr>
+<tr>
+<th class="text-center pt-0 pe-1 ps-3" data-capture-style-props="min-width">
+<span class="custom-badge bg-green-60 text-white w-100" data-i18n="reportMiniGameHistory.text8">เครดิต (฿)</span>
+</th>
+<th class="text-center w-0 pe-0 pt-0 ps-1">
+<span class="custom-badge badge-start bg-green-20" data-i18n="reportMiniGameHistory.text9">สิทธิ์มินิเกมส์</span>
+</th>
+<th class="text-center w-0 ps-0 pt-0 pe-1">
+<span class="custom-badge badge-divider badge-end bg-green-20" data-i18n="reportMiniGameHistory.text10">สิทธิ์แทงหวย</span>
+</th>
+<th class="text-center w-0 pe-0 pt-0 ps-1">
+<span class="custom-badge badge-start bg-green-10" data-i18n="reportMiniGameHistory.text11">แต้มสะสม</span>
+</th>
+<th class="text-center w-0 ps-0 pt-0 pe-0">
+<span class="custom-badge badge-divider badge-end bg-green-10" data-i18n="reportMiniGameHistory.text12" data-capture-style-props="--badge-divider-color">ของรางวัล</span>
+</th>
+</tr>
+</thead>
+<tbody class="color-text-tbody-theme-emerald">
+<tr class="color-tr-status-emerald-detail-mini-game-warning">
+<td>
+12/11/2026 07:37
+</td>
+<td>
+<div class="d-flex align-items-center">
+<button class="system-action action-square action-outline action-info" onclick="shortcutSearchCustomer('0Tsuperx81403971005')">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.25 14.0083L11.75 10.4448C12.5833 9.3674 13 8.12431 13 6.71547C13 3.31768 10.1667 0.5 6.75 0.5C3.33333 0.5 0.5 3.31768 0.5 6.71547C0.5 10.1133 3.33333 12.9309 6.75 12.9309C8.16667 12.9309 9.5 12.4337 10.5 11.6878L14.0833 15.2514C14.25 15.4171 14.5 15.5 14.6667 15.5C14.8333 15.5 15.0833 15.4171 15.25 15.2514C15.5833 14.837 15.5833 14.3398 15.25 14.0083ZM10 9.94751C9.16667 10.7762 8 11.2735 6.75 11.2735C4.25 11.2735 2.16667 9.20166 2.16667 6.71547C2.16667 4.22928 4.25 2.15746 6.75 2.15746C9.25 2.15746 11.3333 4.22928 11.3333 6.71547C11.3333 7.95856 10.8333 9.11878 10 9.94751Z"></path>
+</svg>
+</button>
+<div class="ms-2">
+<a href="#" class="p2 text-green-50 fw-700">0Tsuperx81403971005</a>
+<p class="p2 mb-0 text-gray-20">(0Tsuperx81403971005)</p>
+</div>
+</div>
+</td>
+<td>
+<div class="white-space-normal word-break-word" data-capture-style-props="width">
+QA Other Retest 20261015
+</div>
+</td>
+<td class="text-center">
+<span class="custom-badge-status text-cyan-60 bg-cyan-10">
+<img src="/assets/images/svg/setting.svg">
+<span>Auto</span>
+</span>
+</td>
+<td class="text-end pe-1">
+<span class="custom-badge-pill p2 w-100 bg-yellow-10">
+<span class="w-100">4</span>
+</span>
+</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">
+<span class="promotion-deposit-change-status system-label label-xs label-warning label-hover label-dropdown" onclick="openDropdownChangeStatus(this, '', 'uuid-1')">
+<span data-i18n="reportMiniGameHistory.text14">รอใช้โปร</span>
+<span class="label-icon ms-1">
+<svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.79231 0.71126C9.72592 0.644319 9.64693 0.591186 9.55989 0.554927C9.47286 0.518668 9.37951 0.5 9.28523 0.5C9.19094 0.5 9.09759 0.518668 9.01056 0.554927C8.92353 0.591186 8.84454 0.644319 8.77814 0.71126L5.50708 3.98231C5.44069 4.04925 5.3617 4.10238 5.27467 4.13864C5.18763 4.1749 5.09428 4.19357 5 4.19357C4.90572 4.19357 4.81237 4.1749 4.72533 4.13864C4.6383 4.10238 4.55931 4.04925 4.49291 3.98231L1.22186 0.71126C1.15546 0.644319 1.07647 0.591186 0.989437 0.554927C0.902405 0.518668 0.809054 0.5 0.714771 0.5C0.620487 0.5 0.527137 0.518668 0.440104 0.554927C0.353072 0.591186 0.27408 0.644319 0.207685 0.71126C0.0746641 0.845075 0 1.02609 0 1.21477C0 1.40346 0.0746641 1.58447 0.207685 1.71829L3.48589 4.99648C3.88763 5.39772 4.4322 5.62309 5 5.62309C5.56779 5.62309 6.11237 5.39772 6.51411 4.99648L9.79231 1.71829C9.92533 1.58447 10 1.40346 10 1.21477C10 1.02609 9.92533 0.845075 9.79231 0.71126Z"></path>
+</svg>
+</span>
+</span>
+<span data-capture-gap="opening tag attributes withheld by browser tool output filter"><svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5026 1.33594C4.81812 1.33594 1.83594 4.31761 1.83594 8.0026C1.83594 11.6871 4.81761 14.6693 8.5026 14.6693C12.1871 14.6693 15.1693 11.6876 15.1693 8.0026C15.1693 4.31812 12.1876 1.33594 8.5026 1.33594ZM8.5026 13.6276C5.39378 13.6276 2.8776 11.1117 2.8776 8.0026C2.8776 4.89378 5.39347 2.3776 8.5026 2.3776C11.6114 2.3776 14.1276 4.89347 14.1276 8.0026C14.1276 11.1114 11.6117 13.6276 8.5026 13.6276ZM10.0477 11.0755C10.0477 11.3632 9.81456 11.5964 9.52688 11.5964H7.47833C7.19065 11.5964 6.9575 11.3632 6.9575 11.0755C6.9575 10.7878 7.19065 10.5547 7.47833 10.5547H7.98177V7.49917H7.47833C7.19065 7.49917 6.9575 7.26601 6.9575 6.97833C6.9575 6.69065 7.19065 6.4575 7.47833 6.4575H8.5026C8.79028 6.4575 9.02344 6.69065 9.02344 6.97833V10.5547H9.52688C9.81456 10.5547 10.0477 10.7878 10.0477 11.0755ZM7.85156 4.55646C7.85156 4.19686 8.14301 3.90542 8.5026 3.90542C8.8622 3.90542 9.15365 4.19686 9.15365 4.55646C9.15365 4.91596 8.8622 5.2075 8.5026 5.2075C8.14301 5.2075 7.85156 4.91596 7.85156 4.55646Z"></path>
+</svg>
+</span>
+</td>
+<td class="text-center">
+<span class="system-badge badge-success">auto</span>
+</td>
+</tr>
+<tr class="color-tr-status-emerald-detail-mini-game-warning">
+<td>
+12/11/2026 07:37
+</td>
+<td>
+<div class="d-flex align-items-center">
+<button class="system-action action-square action-outline action-info" onclick="shortcutSearchCustomer('0Tsuperx81403971005')">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.25 14.0083L11.75 10.4448C12.5833 9.3674 13 8.12431 13 6.71547C13 3.31768 10.1667 0.5 6.75 0.5C3.33333 0.5 0.5 3.31768 0.5 6.71547C0.5 10.1133 3.33333 12.9309 6.75 12.9309C8.16667 12.9309 9.5 12.4337 10.5 11.6878L14.0833 15.2514C14.25 15.4171 14.5 15.5 14.6667 15.5C14.8333 15.5 15.0833 15.4171 15.25 15.2514C15.5833 14.837 15.5833 14.3398 15.25 14.0083ZM10 9.94751C9.16667 10.7762 8 11.2735 6.75 11.2735C4.25 11.2735 2.16667 9.20166 2.16667 6.71547C2.16667 4.22928 4.25 2.15746 6.75 2.15746C9.25 2.15746 11.3333 4.22928 11.3333 6.71547C11.3333 7.95856 10.8333 9.11878 10 9.94751Z"></path>
+</svg>
+</button>
+<div class="ms-2">
+<a href="#" class="p2 text-green-50 fw-700">0Tsuperx81403971005</a>
+<p class="p2 mb-0 text-gray-20">(0Tsuperx81403971005)</p>
+</div>
+</div>
+</td>
+<td>
+<div class="white-space-normal word-break-word" data-capture-style-props="width">
+QA Other Retest 20261015
+</div>
+</td>
+<td class="text-center">
+<span class="custom-badge-status text-cyan-60 bg-cyan-10">
+<img src="/assets/images/svg/setting.svg">
+<span>Auto</span>
+</span>
+</td>
+<td class="text-end pe-1">
+<span class="custom-badge-pill p2 w-100 bg-yellow-10">
+<span class="w-100">5</span>
+</span>
+</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">0</td>
+<td class="text-center">
+<span class="promotion-deposit-change-status system-label label-xs label-warning label-hover label-dropdown" onclick="openDropdownChangeStatus(this, '', 'uuid-2')">
+<span data-i18n="reportMiniGameHistory.text14">รอใช้โปร</span>
+<span class="label-icon ms-1">
+<svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.79231 0.71126C9.72592 0.644319 9.64693 0.591186 9.55989 0.554927C9.47286 0.518668 9.37951 0.5 9.28523 0.5C9.19094 0.5 9.09759 0.518668 9.01056 0.554927C8.92353 0.591186 8.84454 0.644319 8.77814 0.71126L5.50708 3.98231C5.44069 4.04925 5.3617 4.10238 5.27467 4.13864C5.18763 4.1749 5.09428 4.19357 5 4.19357C4.90572 4.19357 4.81237 4.1749 4.72533 4.13864C4.6383 4.10238 4.55931 4.04925 4.49291 3.98231L1.22186 0.71126C1.15546 0.644319 1.07647 0.591186 0.989437 0.554927C0.902405 0.518668 0.809054 0.5 0.714771 0.5C0.620487 0.5 0.527137 0.518668 0.440104 0.554927C0.353072 0.591186 0.27408 0.644319 0.207685 0.71126C0.0746641 0.845075 0 1.02609 0 1.21477C0 1.40346 0.0746641 1.58447 0.207685 1.71829L3.48589 4.99648C3.88763 5.39772 4.4322 5.62309 5 5.62309C5.56779 5.62309 6.11237 5.39772 6.51411 4.99648L9.79231 1.71829C9.92533 1.58447 10 1.40346 10 1.21477C10 1.02609 9.92533 0.845075 9.79231 0.71126Z"></path>
+</svg>
+</span>
+</span>
+<span data-capture-gap="opening tag attributes withheld by browser tool output filter"><svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5026 1.33594C4.81812 1.33594 1.83594 4.31761 1.83594 8.0026C1.83594 11.6871 4.81761 14.6693 8.5026 14.6693C12.1871 14.6693 15.1693 11.6876 15.1693 8.0026C15.1693 4.31812 12.1876 1.33594 8.5026 1.33594ZM8.5026 13.6276C5.39378 13.6276 2.8776 11.1117 2.8776 8.0026C2.8776 4.89378 5.39347 2.3776 8.5026 2.3776C11.6114 2.3776 14.1276 4.89347 14.1276 8.0026C14.1276 11.1114 11.6117 13.6276 8.5026 13.6276ZM10.0477 11.0755C10.0477 11.3632 9.81456 11.5964 9.52688 11.5964H7.47833C7.19065 11.5964 6.9575 11.3632 6.9575 11.0755C6.9575 10.7878 7.19065 10.5547 7.47833 10.5547H7.98177V7.49917H7.47833C7.19065 7.49917 6.9575 7.26601 6.9575 6.97833C6.9575 6.69065 7.19065 6.4575 7.47833 6.4575H8.5026C8.79028 6.4575 9.02344 6.69065 9.02344 6.97833V10.5547H9.52688C9.81456 10.5547 10.0477 10.7878 10.0477 11.0755ZM7.85156 4.55646C7.85156 4.19686 8.14301 3.90542 8.5026 3.90542C8.8622 3.90542 9.15365 4.19686 9.15365 4.55646C9.15365 4.91596 8.8622 5.2075 8.5026 5.2075C8.14301 5.2075 7.85156 4.91596 7.85156 4.55646Z"></path>
+</svg>
+</span>
+</td>
+<td class="text-center">
+<span class="system-badge badge-success">auto</span>
+</td>
+</tr>
+
+
+
+
+
+
+
+<!-- [collapsed 8 more siblings "TR color-tr-status-emerald-detail-mini-game-warning" with identical structure; values in data.json] -->
+</tbody>
+</table>
+</div>
+<div class="system-pagination">
+<div class="pagination-limit custom-input dropdown-wrapper fill">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake">10</div>
+<div class="custom-dropdown">
+<div data-value="10" class="custom-dropdown-item selected" data-selected="">10</div>
+<div data-value="20" class="custom-dropdown-item">20</div>
+<div data-value="50" class="custom-dropdown-item">50</div>
+<div data-value="100" class="custom-dropdown-item">100</div>
+</div>
+</div>
+<div class="pagination-display p2"><span data-i18n="global.table.show" data-capture-style-props="color">แสดง</span> <span data-capture-style-props="color">1 - 10</span> <span data-i18n="global.table.from" data-capture-style-props="color">จาก</span> <span data-capture-style-props="color">14214</span> <span data-i18n="global.table.item" data-capture-style-props="color">รายการ</span></div>
+<div class="flex-fill"></div>
+<ul class="pagination-list">
+<li data-offset="0" class="paginate-nav paginate-prev-all disabled">
+<svg width="11" height="12" viewBox="0 0 11 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.74196 6.58935C6.66386 6.51189 6.60187 6.41972 6.55956 6.31818C6.51726 6.21664 6.49548 6.10772 6.49548 5.99772C6.49548 5.88771 6.51726 5.7788 6.55956 5.67726C6.60187 5.57571 6.66386 5.48355 6.74196 5.40609L10.5667 1.58964C10.6448 1.51218 10.7068 1.42001 10.7491 1.31847C10.7914 1.21693 10.8132 1.10801 10.8132 0.998008C10.8132 0.888004 10.7914 0.779089 10.7491 0.677546C10.7068 0.576002 10.6448 0.48384 10.5667 0.406376C10.4106 0.251175 10.1994 0.164062 9.97927 0.164062C9.75913 0.164063 9.54793 0.251175 9.39181 0.406376L5.56703 4.23115C5.09889 4.69988 4.83594 5.33525 4.83594 5.99772C4.83594 6.66018 5.09889 7.29556 5.56703 7.76428L9.39181 11.5891C9.54702 11.743 9.7565 11.8298 9.97511 11.8307C10.0848 11.8313 10.1935 11.8103 10.295 11.7689C10.3965 11.7274 10.4889 11.6663 10.5667 11.5891C10.6448 11.5116 10.7068 11.4194 10.7491 11.3179C10.7914 11.2163 10.8132 11.1074 10.8132 10.9974C10.8132 10.8874 10.7914 10.7785 10.7491 10.677C10.7068 10.5754 10.6448 10.4833 10.5667 10.4058L6.74196 6.58935Z"></path>
+<path d="M0.75 0.647571L0.75 11.342C0.75 11.6105 1.11563 11.8281 1.56667 11.8281C2.0177 11.8281 2.38333 11.6105 2.38333 11.342L2.38333 0.647571C2.38333 0.379099 2.0177 0.161459 1.56667 0.161459C1.11563 0.161459 0.75 0.379099 0.75 0.647571Z"></path>
+</svg>
+</li>
+<li data-offset="-10" class="paginate-nav paginate-prev disabled">
+<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.98928 7.59204C5.91117 7.51457 5.84918 7.42241 5.80688 7.32087C5.76457 7.21932 5.74279 7.11041 5.74279 7.0004C5.74279 6.8904 5.76457 6.78149 5.80688 6.67994C5.84918 6.5784 5.91117 6.48624 5.98928 6.40877L9.81405 2.59233C9.89216 2.51486 9.95415 2.4227 9.99645 2.32116C10.0388 2.21961 10.0605 2.1107 10.0605 2.00069C10.0605 1.89069 10.0388 1.78177 9.99645 1.68023C9.95415 1.57869 9.89216 1.48653 9.81405 1.40906C9.65793 1.25386 9.44673 1.16675 9.22659 1.16675C9.00645 1.16675 8.79525 1.25386 8.63912 1.40906L4.81434 5.23384C4.3462 5.70256 4.08325 6.33794 4.08325 7.0004C4.08325 7.66287 4.3462 8.29824 4.81434 8.76697L8.63912 12.5917C8.79433 12.7457 9.00382 12.8325 9.22242 12.8334C9.33209 12.834 9.4408 12.813 9.54233 12.7715C9.64385 12.7301 9.73619 12.669 9.81405 12.5917C9.89216 12.5143 9.95415 12.4221 9.99645 12.3206C10.0388 12.219 10.0605 12.1101 10.0605 12.0001C10.0605 11.8901 10.0388 11.7812 9.99645 11.6797C9.95415 11.5781 9.89216 11.4859 9.81405 11.4085L5.98928 7.59204Z"></path>
+</svg>
+</li>
+<li data-offset="0" data-page="1" class="paginate-page active">1</li>
+<li data-offset="10" data-page="2" class="paginate-page ">2</li>
+<li data-offset="20" data-page="3" class="paginate-page ">3</li>
+<li data-offset="30" data-page="4" class="paginate-page ">4</li>
+<li data-offset="10" class="paginate-nav paginate-next ">
+<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00804 7.58935C8.08614 7.51189 8.14813 7.41972 8.19044 7.31818C8.23274 7.21664 8.25452 7.10772 8.25452 6.99772C8.25452 6.88771 8.23274 6.7788 8.19044 6.67726C8.14813 6.57571 8.08614 6.48355 8.00804 6.40609L4.18326 2.58964C4.10516 2.51218 4.04317 2.42001 4.00086 2.31847C3.95856 2.21693 3.93678 2.10801 3.93678 1.99801C3.93678 1.888 3.95856 1.77909 4.00086 1.67755C4.04317 1.576 4.10516 1.48384 4.18326 1.40638C4.33939 1.25118 4.55058 1.16406 4.77073 1.16406C4.99087 1.16406 5.20207 1.25118 5.35819 1.40638L9.18297 5.23115C9.65111 5.69988 9.91406 6.33525 9.91406 6.99772C9.91406 7.66018 9.65111 8.29556 9.18297 8.76428L5.35819 12.5891C5.20298 12.743 4.9935 12.8298 4.77489 12.8307C4.66523 12.8313 4.55651 12.8103 4.45499 12.7689C4.35346 12.7274 4.26112 12.6663 4.18326 12.5891C4.10516 12.5116 4.04317 12.4194 4.00086 12.3179C3.95856 12.2163 3.93678 12.1074 3.93678 11.9974C3.93678 11.8874 3.95856 11.7785 4.00086 11.677C4.04317 11.5754 4.10516 11.4833 4.18326 11.4058L8.00804 7.58935Z"></path>
+</svg>
+</li>
+<li data-offset="14210" class="paginate-nav paginate-next-all ">
+<svg width="11" height="12" viewBox="0 0 11 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.25804 6.58935C4.33614 6.51189 4.39813 6.41972 4.44044 6.31818C4.48274 6.21664 4.50452 6.10772 4.50452 5.99772C4.50452 5.88771 4.48274 5.7788 4.44044 5.67726C4.39813 5.57571 4.33614 5.48355 4.25804 5.40609L0.433261 1.58964C0.355158 1.51218 0.293166 1.42001 0.250862 1.31847C0.208557 1.21693 0.186777 1.10801 0.186777 0.998008C0.186777 0.888004 0.208557 0.779089 0.250862 0.677546C0.293166 0.576002 0.355158 0.48384 0.433261 0.406376C0.589387 0.251175 0.800585 0.164062 1.02073 0.164062C1.24087 0.164063 1.45207 0.251175 1.60819 0.406376L5.43297 4.23115C5.90111 4.69988 6.16406 5.33525 6.16406 5.99772C6.16406 6.66018 5.90111 7.29556 5.43297 7.76428L1.60819 11.5891C1.45298 11.743 1.2435 11.8298 1.02489 11.8307C0.915228 11.8313 0.806515 11.8103 0.704989 11.7689C0.603464 11.7274 0.511123 11.6663 0.433261 11.5891C0.355158 11.5116 0.293166 11.4194 0.250862 11.3179C0.208557 11.2163 0.186777 11.1074 0.186777 10.9974C0.186777 10.8874 0.208557 10.7785 0.250862 10.677C0.293166 10.5754 0.355158 10.4833 0.433261 10.4058L4.25804 6.58935Z"></path>
+<path d="M10.25 0.647571L10.25 11.342C10.25 11.6105 9.88437 11.8281 9.43333 11.8281C8.9823 11.8281 8.61667 11.6105 8.61667 11.342L8.61667 0.647571C8.61667 0.379099 8.9823 0.161459 9.43333 0.161459C9.88437 0.161459 10.25 0.379099 10.25 0.647571Z"></path>
+</svg>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div id="dropdownChangeStatusPromotion" class="dropdown-wrapper dropdown-xs" data-capture-style-props="--border-color">
+<div class="custom-dropdown">
+<p class="custom-dropdown-title p4 text-gray30">เลือกเปลี่ยนสถานะ :</p>
+<div class="custom-dropdown-body">
+<div data-value="Waiting" data-chip="รอใช้โปร" class="custom-dropdown-item selected">รอใช้โปร</div>
+<div data-value="Cancel" data-chip="ยกเลิก" class="custom-dropdown-item">ยกเลิก</div>
+</div>
+</div>
+</div><div id="modalConfirmChangeStatus" class="system-modal">
+<div class="modal-wrapper">
+<div class="modal-container">
+<div class="modal-close">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.8965 7.09832C24.6183 6.82026 24.2412 6.66406 23.8479 6.66406C23.4546 6.66406 23.0774 6.82026 22.7993 7.09832L15.9974 13.9002L9.19553 7.09832C8.9174 6.82026 8.54021 6.66406 8.14693 6.66406C7.75364 6.66406 7.37646 6.82026 7.09832 7.09832C6.82026 7.37646 6.66406 7.75364 6.66406 8.14693C6.66406 8.54021 6.82026 8.9174 7.09832 9.19553L13.9002 15.9974L7.09832 22.7993C6.82026 23.0774 6.66406 23.4546 6.66406 23.8479C6.66406 24.2412 6.82026 24.6183 7.09832 24.8965C7.37646 25.1745 7.75364 25.3307 8.14693 25.3307C8.54021 25.3307 8.9174 25.1745 9.19553 24.8965L15.9974 18.0946L22.7993 24.8965C23.0774 25.1745 23.4546 25.3307 23.8479 25.3307C24.2412 25.3307 24.6183 25.1745 24.8965 24.8965C25.1745 24.6183 25.3307 24.2412 25.3307 23.8479C25.3307 23.4546 25.1745 23.0774 24.8965 22.7993L18.0946 15.9974L24.8965 9.19553C25.1745 8.9174 25.3307 8.54021 25.3307 8.14693C25.3307 7.75364 25.1745 7.37646 24.8965 7.09832Z"></path>
+</svg>
+</div>
+<img draggable="false" class="modal-banner" src="/assets/images/swal/banner-saving.png">
+<img id="changeStatusAvatar" draggable="false" class="modal-avatar" src="/assets/images/swal/status-chang.png">
+<div class="modal-inner">
+<h3 id="changeStatusTitle" class="mb-2">ยืนยันเปลี่ยนสถานะใช่หรือไม่ ?</h3>
+<p id="changeStatusText" class="p3 fw-400 text-gray30 mb-20">การเปลี่ยนแปลงสถานะ เมื่อเปลี่ยนแล้วจะไม่สามารถเปลี่ยนกลับมาเป็นสถานะเดิมได้อีก</p>
+<div class="custom-input mb-3">
+<label class="form-label">สาเหตุการยกเลิกโปร <span class="text-red-50">*</span></label>
+<input type="text" class="form-control" id="changeStatusRemark" placeholder="ระบุสาเหตุการยกเลิกโปร" oninput="Helper.debounce(() => validateChangeStatus(), 500)">
+<div class="invalid-feedback"></div>
+</div>
+<div class="text-end">
+<button type="button" class="btn system-btn btn-a btn-rounded" onclick="cancelChangeStatus()" data-capture-style-props="width">ยกเลิก</button>
+<button disabled="" id="buttonConfirmChangeStatus" type="button" class="btn system-btn btn-rounded" onclick="confirmChangeStatus(event)" data-capture-style-props="width">ยืนยัน</button>
+</div>
+</div>
+</div>
+</div>
+</div><div id="dropdownChangeStatusPromotionCancelPromotion" class="dropdown-wrapper dropdown-xs" data-capture-style-props="--border-color">
+<div class="custom-dropdown">
+<p class="custom-dropdown-title p4 text-gray30">เลือกเปลี่ยนสถานะ :</p>
+<div class="custom-dropdown-body">
+<div data-value="Waiting" data-chip="ใช้โปรแล้ว" class="custom-dropdown-item selected">ใช้โปรแล้ว</div>
+<div data-value="Cancel" data-chip="ยกเลิก" class="custom-dropdown-item">ยกเลิก</div>
+</div>
+</div>
+</div><div id="modalConfirmChangeStatusCancelPromotion" class="system-modal">
+<div class="modal-wrapper">
+<div class="modal-container">
+<div class="modal-close">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.8965 7.09832C24.6183 6.82026 24.2412 6.66406 23.8479 6.66406C23.4546 6.66406 23.0774 6.82026 22.7993 7.09832L15.9974 13.9002L9.19553 7.09832C8.9174 6.82026 8.54021 6.66406 8.14693 6.66406C7.75364 6.66406 7.37646 6.82026 7.09832 7.09832C6.82026 7.37646 6.66406 7.75364 6.66406 8.14693C6.66406 8.54021 6.82026 8.9174 7.09832 9.19553L13.9002 15.9974L7.09832 22.7993C6.82026 23.0774 6.66406 23.4546 6.66406 23.8479C6.66406 24.2412 6.82026 24.6183 7.09832 24.8965C7.37646 25.1745 7.75364 25.3307 8.14693 25.3307C8.54021 25.3307 8.9174 25.1745 9.19553 24.8965L15.9974 18.0946L22.7993 24.8965C23.0774 25.1745 23.4546 25.3307 23.8479 25.3307C24.2412 25.3307 24.6183 25.1745 24.8965 24.8965C25.1745 24.6183 25.3307 24.2412 25.3307 23.8479C25.3307 23.4546 25.1745 23.0774 24.8965 22.7993L18.0946 15.9974L24.8965 9.19553C25.1745 8.9174 25.3307 8.54021 25.3307 8.14693C25.3307 7.75364 25.1745 7.37646 24.8965 7.09832Z"></path>
+</svg>
+</div>
+<img draggable="false" class="modal-banner" src="/assets/images/swal/banner-saving.png">
+<img id="changeStatusAvatar" draggable="false" class="modal-avatar" src="/assets/images/swal/status-chang.png">
+<div class="modal-inner">
+<h3 id="changeStatusTitle" class="mb-2">ยืนยันเปลี่ยนสถานะใช่หรือไม่ ?</h3>
+<p id="changeStatusText" class="p3 fw-400 text-gray30 mb-20">การเปลี่ยนแปลงสถานะ เมื่อเปลี่ยนแล้วจะไม่สามารถเปลี่ยนกลับมาเป็นสถานะเดิมได้อีก</p>
+<div class="custom-input mb-3">
+<label class="form-label">สาเหตุการยกเลิกโปร <span class="text-red-50">*</span></label>
+<input type="text" class="form-control" id="changeStatusRemarkCancelPromotion" placeholder="ระบุสาเหตุการยกเลิกโปร" oninput="Helper.debounce(() => validateChangeStatusCancelPromotion(), 500)">
+<div class="invalid-feedback"></div>
+</div>
+<div class="text-end">
+<button type="button" class="btn system-btn btn-a btn-rounded" onclick="cancelChangeStatusCancelPromotion()" data-capture-style-props="width">ยกเลิก</button>
+<button disabled="" id="buttonConfirmChangeStatusCancelPromotion" type="button" class="btn system-btn btn-rounded" onclick="confirmChangeStatusCancelPromotion(event)" data-capture-style-props="width">ยืนยัน</button>
+</div>
+</div>
+</div>
+</div>
+</div></div>

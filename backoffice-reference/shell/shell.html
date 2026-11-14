@@ -1,0 +1,238 @@
+<!doctype html>
+<!-- Reconstructed shell captured from https://superx.staging.lsmloyalty.com/promotion/mini-game-v2 on 2026-11-14.
+     <html>/<body> attributes are exact. <head> lists the common stylesheets in browser order (query strings removed).
+     Page-specific CSS: see ../styles.md. Scripts are listed in ../styles.md (scripts were stripped from captured DOM).
+     KNOWN GAPS in the body fragment (each marked "CAPTURE GAP"):
+       1. inside #removeNotificationModal (unused Velzon template modal): rest of <lord-icon src="https://cdn.lordicon.com/…json" trigger=… colors=…>,
+          then <h4>Are you sure ?</h4><p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p> wrappers.
+       2. inside #scrollbar (SimpleBar-generated wrappers with inline styles). Reconstructed from a structural walk:
+          <div class="simplebar-wrapper" style="…">
+            <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>
+            <div class="simplebar-mask"><div class="simplebar-offset" style="…">
+              <div class="icon-logo-custom"><a href="/" class="logo logo-light"><img src="/assets/images/menu/logo-dark.png" class="logo-img" alt="logo"></a></div>
+              <div class="simplebar-content-wrapper" …> … (captured) …
+          SimpleBar (/assets/libs/simplebar/simplebar.min.js, initialised via data-simplebar) regenerates these wrappers at runtime.
+       3. end of #scrollbar: <div class="simplebar-placeholder" style="…"></div> + <div class="simplebar-track simplebar-horizontal" style="visibility:hidden"><div class="simplebar-scrollbar" …></div></div>
+          + <div class="simplebar-track simplebar-vertical" …><div class="simplebar-scrollbar" …></div></div> (all SimpleBar-generated), then </div> and <div class="sidebar-background"></div>.
+     Collapsed sidebar: click #sliderMenuBtn → #layout-wrapper gets class "close-menu close-menu-js" and the icon becomes "fa slide-menu-icon fa-chevron-right" (screenshots/shell-collapsed.jpg).
+     Language switcher: #toggleLanguageSidebar onclick="$toggleLanguage()" opens #dropdownLanguageSidebar (not clicked — safety rule; markup below).
+     Logout: .btn-logout-custom-mini-game.logout (visible on mini-game pages and /mission; hidden on layout-mission-report pages).
+     #theme-settings-offcanvas (52 KB Velzon customizer) exists at body level on every page but is never shown — NOT captured.
+     Body also contains: <input id="hiddenRole">, 2 × <div class="system-swal"> + <div class="swal-backdrop"> (custom SweetAlert-like popups, empty until used),
+     several <div class="flatpickr-calendar …"> (one per flatpickr instance, see shell/flatpickr-calendar_rangeMode_open.html) and <div class="ck-body-wrapper"> (CKEditor). -->
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<head>
+<meta charset="utf-8">
+<title>ตั้งค่ามินิเกมส์</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/libs/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="/assets/libs/jsvectormap/css/jsvectormap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/material.icons.min.css">
+<link rel="stylesheet" href="/assets/css/material.app.min.css">
+<link rel="stylesheet" href="/assets/css/custom.min.css">
+<style>
+    :root {
+        --lsm-legacy-icon-next-bank: url("https://p88.blob.core.windows.net/images/default/icon-next-bank.png");
+        --lsm-legacy-icon-forword-bank: url("https://p88.blob.core.windows.net/images/default/icon-forword-bank.png");
+        --lsm-legacy-dash-board-title-v3: url("https://p88.blob.core.windows.net/images/default/dash-board-title-v3.webp");
+    }
+</style>
+<link rel="stylesheet" href="/css/base.css">
+<!-- page-specific stylesheets / inline styles go here (see styles.md) -->
+</head>
+<body>
+<div id="layout-wrapper" class="">
+        
+
+
+<!-- removeNotificationModal -->
+<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mt-2 text-center">
+                    <lord-icon src="https://cdn.lo<!-- [CAPTURE GAP: ~600 chars withheld by the browser tool output filter — see shell/notes below] -->       <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
+                </div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ========== App Menu ========== -->
+
+<div class="app-menu navbar-menu" id="appMenuBar">
+    <div class="layout-btn-open-menu">
+        <button id="sliderMenuBtn" class="btn-open-menu">
+            <i class="fa fa-chevron-left slide-menu-icon"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar" class="scroll-bar" data-simplebar="init">
+      <!-- [CAPTURE GAP: ~600 chars withheld by the browser tool output filter — see shell/notes below] -->  <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content">
+                        <div class="simplebar-content">
+                        
+                            <div class="container-fluid">
+                                <div id="two-column-menu">
+                                </div>
+                                <ul class="navbar-nav" id="navbar-nav">
+                                        <li class="menu-title sideMenu">
+                                            <span data-i18n="miniGameMainMenu.menuHead">มินิเกมส์</span>
+                                        </li>
+                                        <li class="nav-item sideMenu setting-promotion-mini-game active">
+                                            <a href="/promotion/mini-game-v2" class="nav-link active">
+                                                <img src="/assets/images/menu/ic-minigame.svg" alt="minigame icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.setting">ตั้งค่ามินิเกมส์</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu report-promotion-mini-game ">
+                                            <a href="/report/promotion/minigame" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-history.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.report">สรุปรายงานมินิเกมส์</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu promotion-mini-game-history ">
+                                            <a href="/promotion/minigame/history" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-history.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.history">ประวัติการรับ/ใช้สิทธิ์มินิเกมส์</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu promotion-mini-game-period ">
+                                            <a href="/promotion/minigame/minigame-period-deposit" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-history.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.depositCheck">ตรวจสอบยอดฝาก</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-title sideMenu">
+                                            <span data-i18n="miniGameMainMenu.mission">ภารกิจ</span>
+                                        </li>
+                                        <li class="nav-item sideMenu setting-mission ">
+                                            <a href="/mission" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-task-setting.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.missionSetting">ตั้งค่าภารกิจ</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu report-mission-member ">
+                                            <a href="/mission/report" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-history.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.summaryMemberReport">สรุปรายงานรายสมาชิก</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu report-mission ">
+                                            <a href="/mission/report-mission" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-history.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.summaryMissionReport">สรุปรายงานรายภารกิจ</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item sideMenu mission-redeem-point ">
+                                            <a href="/mission/redeem-points" class="nav-link ">
+                                                <img src="/assets/images/menu/ic-reward.svg" alt="history icon" draggable="false">
+
+                                                <span data-i18n="miniGameMainMenu.points">แต้มแลกรางวัล</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simplebar-lang">
+                        <div class="simplebar-lang-title" data-i18n="sms.changeLanguage">เปลี่ยนภาษา</div>
+
+                        <div id="toggleLanguageSidebar" class="simplebar-lang-wrapper" onclick="$toggleLanguage()">
+                                <div class="simplebar-lang-text">THA</div>
+
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.7306 16.004C30.7306 19.9371 29.199 23.6348 26.4179 26.4159C23.6368 29.1971 19.9391 30.7287 16.0059 30.7287C12.0728 30.7287 8.37513 29.1971 5.594 26.4159C2.81288 23.6348 1.28125 19.9371 1.28125 16.004C1.28125 12.0709 2.81288 8.37317 5.594 5.59205C8.37513 2.81092 12.0728 1.2793 16.0059 1.2793C19.9391 1.2793 23.6368 2.81092 26.4179 5.59205C29.199 8.37317 30.7306 12.0709 30.7306 16.004Z" fill="#EFEFEF"></path>
+                                    <path d="M30.7313 15.9967C30.7313 17.843 30.3938 19.638 29.7475 21.3098H2.265C1.61875 19.638 1.28125 17.843 1.28125 15.9967C1.28125 14.1505 1.61875 12.3555 2.265 10.6836H29.7475C30.3938 12.3555 30.7313 14.1505 30.7313 15.9967Z" fill="#241D4E"></path>
+                                    <path d="M27.7891 7.17805H4.21094C4.62781 6.62242 5.08781 6.09242 5.58781 5.59242C8.36906 2.81117 12.0666 1.2793 15.9997 1.2793C19.9328 1.2793 23.6303 2.81117 26.4116 5.59242C26.9116 6.09242 27.3716 6.62242 27.7891 7.17805ZM5.58781 26.4162C8.36906 29.1974 12.0666 30.7293 15.9997 30.7293C19.9328 30.7293 23.6303 29.1974 26.4116 26.4162C26.9116 25.9162 27.3716 25.3862 27.7891 24.8305H4.21094C4.62781 25.3862 5.08781 25.9162 5.58781 26.4162Z" fill="#E91C24"></path>
+                                    <path opacity="0.13" d="M30.7169 15.9986C30.7169 19.9317 29.185 23.6292 26.4038 26.4105C23.6225 29.1917 19.925 30.7236 15.9919 30.7236C12.9906 30.7236 10.1269 29.8317 7.70312 28.1736C10.1906 29.2567 12.9344 29.6392 15.69 29.258C19.6425 28.7111 23.145 26.6573 25.5531 23.4761C27.9606 20.2942 28.9856 16.3655 28.4388 12.4136C27.96 8.95922 26.3319 5.84859 23.805 3.51172C24.7356 4.09609 25.6075 4.79047 26.4038 5.58672C29.185 8.36797 30.7169 12.0655 30.7169 15.9986Z" fill="#160204"></path>
+                                    <path opacity="0.25" d="M23.0056 3.0418C20.3838 2.28555 17.5963 2.2493 14.8894 2.96492C10.9438 4.00867 7.64125 6.52617 5.58875 10.0537C3.53688 13.5818 2.98125 17.6974 4.025 21.643C4.66188 24.0518 5.84813 26.2206 7.47875 28.0124C6.81375 27.5387 6.18375 27.0056 5.59438 26.4162C2.81313 23.6349 1.28125 19.9374 1.28125 16.0043C1.28125 12.0712 2.81313 8.37367 5.59438 5.59242C8.37563 2.81117 12.0731 1.2793 16.0063 1.2793C18.4906 1.2793 20.8806 1.89055 23.0056 3.0418Z" fill="#FBFBFB"></path>
+                                </svg>
+                            </div>
+                    </div>
+
+                    <div id="dropdownLanguageSidebar" class="dropdown-wrapper">
+                        <div class="custom-dropdown simplebar-lang-dropdown">
+                            <div data-value="en" class="custom-dropdown-item simplebar-lang-wrapper">
+                                <div class="simplebar-lang-text">ENG</div>
+
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.7205 16.0014C30.7205 16.862 30.6474 17.7114 30.5036 18.5426C30.0461 21.1857 28.8768 23.642 27.0905 25.6826C26.8724 25.9326 26.6443 26.1764 26.4074 26.4132C26.1999 26.6207 25.9874 26.8214 25.7699 27.0145C23.7186 28.8401 21.2393 30.0357 18.568 30.5039C17.7268 30.6514 16.8668 30.7264 15.9955 30.7264C15.1455 30.7264 14.3068 30.6545 13.4855 30.5145C10.8143 30.0582 8.33176 28.8751 6.27551 27.0626C6.03926 26.8545 5.80863 26.6382 5.58363 26.4132C5.36426 26.1939 5.15238 25.9682 4.94863 25.7376C3.13488 23.6857 1.94926 21.2089 1.48738 18.5426C1.34363 17.7114 1.27051 16.862 1.27051 16.0014C1.27051 15.1407 1.34363 14.2914 1.48738 13.4601C1.94863 10.797 3.13238 8.32262 4.94176 6.27262C5.14738 6.03949 5.36176 5.81137 5.58363 5.58949C5.80613 5.36699 6.03426 5.15262 6.26801 4.94699C8.32613 3.13074 10.8111 1.94512 13.4855 1.48824C14.3068 1.34824 15.1455 1.27637 15.9955 1.27637C16.8668 1.27637 17.7268 1.35137 18.568 1.49887C21.2286 1.96512 23.6999 3.15387 25.7461 4.96699C25.9718 5.16699 26.1924 5.37449 26.4074 5.58949C26.6368 5.81887 26.8574 6.05387 27.0693 6.29512C28.8674 8.34074 30.0443 10.8064 30.5036 13.4601C30.6474 14.2914 30.7205 15.1407 30.7205 16.0014Z" fill="#0153B5"></path>
+                                    <path d="M30.2305 19.7926H22.9461L27.8774 24.7026C27.4355 25.3039 26.9449 25.8757 26.4074 26.4132C25.8999 26.9207 25.3618 27.387 24.7968 27.8095L19.818 22.8514V30.2276C18.5861 30.557 17.3036 30.7264 15.9955 30.7264C14.7093 30.7264 13.448 30.5626 12.2355 30.2445V22.8764L7.25301 27.8532C6.66676 27.4189 6.10863 26.9382 5.58363 26.4132C5.06363 25.8932 4.58738 25.3414 4.15676 24.7614L9.13238 19.7926H1.76051C1.43738 18.5707 1.27051 17.2989 1.27051 16.0014C1.27051 14.7039 1.43738 13.432 1.76051 12.2101H9.13301L4.15113 7.24887C4.58301 6.66637 5.06113 6.11199 5.58363 5.58949C6.10613 5.06699 6.66113 4.58824 7.24426 4.15574L12.2355 9.12637V1.75824C13.448 1.44012 14.7093 1.27637 15.9955 1.27637C17.3036 1.27637 18.5861 1.44574 19.818 1.77512V9.12074L24.7711 4.17387C25.3455 4.60199 25.8924 5.07449 26.4074 5.58949C26.9374 6.11949 27.4211 6.68199 27.858 7.27387L22.9155 12.2101H30.2305C30.5536 13.432 30.7205 14.7039 30.7205 16.0014C30.7205 17.2989 30.5536 18.5707 30.2305 19.7926Z" fill="#EFEFEF"></path>
+                                    <path d="M12.2355 19.7926V21.1101L6.27551 27.0626C6.03926 26.8545 5.80863 26.6382 5.58363 26.4132C5.36426 26.1939 5.15238 25.9682 4.94863 25.7376L10.9011 19.7926H12.2355ZM26.4074 5.58949C26.1924 5.37449 25.9718 5.16699 25.7461 4.96699L19.818 10.887V12.2101H21.1468L27.0693 6.29512C26.8574 6.05387 26.6368 5.81887 26.4074 5.58949ZM6.26801 4.94699C6.03426 5.15262 5.80613 5.36699 5.58363 5.58949C5.36176 5.81137 5.14738 6.03949 4.94176 6.27262L10.9043 12.2101H12.2355V10.8895L6.26801 4.94699ZM21.1755 19.7926H19.818V21.087L25.7699 27.0145C25.9874 26.8214 26.1999 26.6207 26.4074 26.4132C26.6443 26.1764 26.8724 25.9326 27.0905 25.6826L21.1755 19.7926ZM30.5036 13.4601H18.568V1.49887C17.7268 1.35137 16.8668 1.27637 15.9955 1.27637C15.1455 1.27637 14.3068 1.34824 13.4855 1.48824V13.4601H1.48738C1.34363 14.2914 1.27051 15.1407 1.27051 16.0014C1.27051 16.862 1.34363 17.7114 1.48738 18.5426H13.4855V30.5145C14.3068 30.6545 15.1455 30.7264 15.9955 30.7264C16.8668 30.7264 17.7268 30.6514 18.568 30.5039V18.5426H30.5036C30.6474 17.7114 30.7205 16.862 30.7205 16.0014C30.7205 15.1407 30.6474 14.2914 30.5036 13.4601Z" fill="#D90028"></path>
+                                    <path opacity="0.13" d="M30.7237 16.0015C30.7237 19.9346 29.1918 23.6321 26.4106 26.4134C23.6293 29.1946 19.9318 30.7265 15.9987 30.7265C12.9975 30.7265 10.1337 29.8346 7.70996 28.1765C10.1975 29.2596 12.9412 29.6421 15.6968 29.2609C19.6493 28.714 23.1518 26.6603 25.56 23.479C27.9675 20.2971 28.9925 16.3684 28.4456 12.4165C27.9668 8.96215 26.3387 5.85152 23.8118 3.51465C24.7425 4.09902 25.6143 4.7934 26.4106 5.58965C29.1918 8.3709 30.7237 12.0684 30.7237 16.0015Z" fill="#160204"></path>
+                                    <path opacity="0.25" d="M22.9949 3.03887C20.373 2.28262 17.5855 2.24637 14.8786 2.96199C10.933 4.00574 7.63051 6.52324 5.57801 10.0507C3.52613 13.5789 2.97051 17.6945 4.01426 21.6401C4.65113 24.0489 5.83738 26.2176 7.46801 28.0095C6.80301 27.5357 6.17301 27.0026 5.58363 26.4132C2.80238 23.632 1.27051 19.9345 1.27051 16.0014C1.27051 12.0682 2.80238 8.37074 5.58363 5.58949C8.36488 2.80824 12.0624 1.27637 15.9955 1.27637C18.4799 1.27637 20.8699 1.88762 22.9949 3.03887Z" fill="#FBFBFB"></path>
+                                </svg>
+                            </div>
+                            <div data-value="th" class="custom-dropdown-item simplebar-lang-wrapper selected">
+                                <div class="simplebar-lang-text">THA</div>
+
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.7306 16.004C30.7306 19.9371 29.199 23.6348 26.4179 26.4159C23.6368 29.1971 19.9391 30.7287 16.0059 30.7287C12.0728 30.7287 8.37513 29.1971 5.594 26.4159C2.81288 23.6348 1.28125 19.9371 1.28125 16.004C1.28125 12.0709 2.81288 8.37317 5.594 5.59205C8.37513 2.81092 12.0728 1.2793 16.0059 1.2793C19.9391 1.2793 23.6368 2.81092 26.4179 5.59205C29.199 8.37317 30.7306 12.0709 30.7306 16.004Z" fill="#EFEFEF"></path>
+                                    <path d="M30.7313 15.9967C30.7313 17.843 30.3938 19.638 29.7475 21.3098H2.265C1.61875 19.638 1.28125 17.843 1.28125 15.9967C1.28125 14.1505 1.61875 12.3555 2.265 10.6836H29.7475C30.3938 12.3555 30.7313 14.1505 30.7313 15.9967Z" fill="#241D4E"></path>
+                                    <path d="M27.7891 7.17805H4.21094C4.62781 6.62242 5.08781 6.09242 5.58781 5.59242C8.36906 2.81117 12.0666 1.2793 15.9997 1.2793C19.9328 1.2793 23.6303 2.81117 26.4116 5.59242C26.9116 6.09242 27.3716 6.62242 27.7891 7.17805ZM5.58781 26.4162C8.36906 29.1974 12.0666 30.7293 15.9997 30.7293C19.9328 30.7293 23.6303 29.1974 26.4116 26.4162C26.9116 25.9162 27.3716 25.3862 27.7891 24.8305H4.21094C4.62781 25.3862 5.08781 25.9162 5.58781 26.4162Z" fill="#E91C24"></path>
+                                    <path opacity="0.13" d="M30.7169 15.9986C30.7169 19.9317 29.185 23.6292 26.4038 26.4105C23.6225 29.1917 19.925 30.7236 15.9919 30.7236C12.9906 30.7236 10.1269 29.8317 7.70312 28.1736C10.1906 29.2567 12.9344 29.6392 15.69 29.258C19.6425 28.7111 23.145 26.6573 25.5531 23.4761C27.9606 20.2942 28.9856 16.3655 28.4388 12.4136C27.96 8.95922 26.3319 5.84859 23.805 3.51172C24.7356 4.09609 25.6075 4.79047 26.4038 5.58672C29.185 8.36797 30.7169 12.0655 30.7169 15.9986Z" fill="#160204"></path>
+                                    <path opacity="0.25" d="M23.0056 3.0418C20.3838 2.28555 17.5963 2.2493 14.8894 2.96492C10.9438 4.00867 7.64125 6.52617 5.58875 10.0537C3.53688 13.5818 2.98125 17.6974 4.025 21.643C4.66188 24.0518 5.84813 26.2206 7.47875 28.0124C6.81375 27.5387 6.18375 27.0056 5.59438 26.4162C2.81313 23.6349 1.28125 19.9374 1.28125 16.0043C1.28125 12.0712 2.81313 8.37367 5.59438 5.59242C8.37563 2.81117 12.0731 1.2793 16.0063 1.2793C18.4906 1.2793 20.8806 1.89055 23.0056 3.0418Z" fill="#FBFBFB"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+         <!-- [CAPTURE GAP: ~600 chars withheld by the browser tool output filter — see shell/notes below] -->"></div>
+</div>
+
+<div class="vertical-overlay"></div>
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay">
+        </div>
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="btn-logout-custom-mini-game logout">
+                <h4 class="mb-0">
+                    Logout
+                </h4>
+                <svg class="ms-2" width="24" height="24" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.69179 5.7824C7.69971 2.67308 12.2715 2.17071 15.7859 4.27046C16.2742 4.5622 16.4412 5.20786 16.1591 5.71259C15.8768 6.21733 15.2522 6.38999 14.764 6.09826C12.0299 4.46478 8.47361 4.8587 6.13591 7.2752C3.34442 10.1608 3.34442 14.8392 6.13591 17.7249C8.47361 20.1413 12.0299 20.5352 14.764 18.9017C15.2522 18.6101 15.8768 18.7826 16.1591 19.2874C16.4412 19.7922 16.2742 20.4378 15.7859 20.7295C12.2715 22.8293 7.69971 22.3269 4.69179 19.2176C1.10274 15.5076 1.10274 9.49242 4.69179 5.7824ZM17.6163 8.58689C18.0151 8.17466 18.6617 8.17466 19.0604 8.58689L20.9916 10.5832C21.1739 10.7716 21.3514 10.9549 21.4895 11.123C21.641 11.3076 21.804 11.5418 21.9001 11.8476C22.0333 12.2717 22.0333 12.7284 21.9001 13.1523C21.804 13.4582 21.641 13.6925 21.4895 13.877C21.3514 14.045 21.1739 14.2285 20.9916 14.4168L19.0604 16.4131C18.6617 16.8253 18.0151 16.8253 17.6163 16.4131C17.2176 16.0009 17.2176 15.3325 17.6163 14.9203L18.9366 13.5556H11.1903C10.6264 13.5556 10.1692 13.083 10.1692 12.5C10.1692 11.917 10.6264 11.4444 11.1903 11.4444H18.9366L17.6163 10.0797C17.2176 9.66747 17.2176 8.99911 17.6163 8.58689Z"></path>
+                </svg>
+            </div>
+
+            
+<!-- PAGE CONTENT -->
+
+<!-- page-specific element div id=offcanvasMinigameSetting (see pages/*/modals) -->
+
+<!-- page-specific element div id=modalShowWheelDetail (see pages/*/modals) -->
+
+<!-- page-specific element input id=hiddenCountImgMiniGame (see pages/*/modals) -->
+
+
+
+        </div>
+        <!-- end main content-->
+
+    </div><!-- body > #back-to-top --><button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button><!-- body > #preloader --><div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+<!-- body-level hidden elements listed in the header comment -->
+</body>
+</html>

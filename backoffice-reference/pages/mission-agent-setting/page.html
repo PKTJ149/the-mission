@@ -1,0 +1,159 @@
+<div class="page-content mission-agent-setting">
+<div class="container-fluid full-container">
+<svg width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="filter-gradient" x1="7.91113" y1="0.666748" x2="7.91113" y2="17.3334" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#50A198"></stop>
+<stop offset="1" stop-color="#FEDB6B"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="inner-container full-flex">
+<div class="custom-card full-card full-flex">
+<div class="title-header-custom-mission">
+<div class="group-btn-title">
+<div class="group-title-header">
+<h4 class="mb-0 mission-page" data-i18n="missionAgentPage.missionSetting">ตั้งค่าภารกิจ</h4>
+<div class="group-title-header-path">
+<img src="/assets/images/mission/icon-mission.png" width="24" height="24">
+<span class="mission-page" data-i18n="missionAgentPage.missionListName">รายชื่อภารกิจ</span>&gt; <span class="text-teal-green mission-page" data-i18n="missionAgentPage.agentSetting">ตั้งค่าการจัดการ Agent</span>
+</div>
+</div>
+<div class="group-btn">
+<a class="mission-btn-outline" href="/mission/mission/history">
+<img src="/assets/images/mission/icon-time-past.png" alt="history" width="24" height="24">
+<span class="mission-page" data-i18n="missionAgentPage.history">ประวัติการแก้ไข</span>
+</a>
+<a class="mission-btn" href="/mission/setting">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="สร้างภารกิจ" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.createMission">สร้างภารกิจ</span>
+</a>
+</div>
+</div>
+</div>
+<div class="group-content-page">
+<div class="main-content-setting-mission" id="dropdownMainMissionSetting">
+<div class="dropdown-main">
+<div class="dropdown-mission-setting" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownMissionSetting1" aria-expanded="true" aria-controls="openDropdownMissionSetting1" onclick="validateMission1()">
+<div class="group-title-mission-setting">
+<span class="title-mission-setting mission-page" data-i18n="missionAgentPage.agentSetting">ตั้งค่าการจัดการ Agent</span>
+<div class="group-mission-setting-status-control">
+<div class="group-status-control">
+<span class="mission-setting-status-count-on-title mission-page" id="missionAgentStatusOn">เปิดใช้งาน 2 Agents</span>
+<span class="mission-setting-status-count-off-title mission-page" id="missionAgentStatusOff">ปิดใช้งาน 0 Agents</span>
+</div>
+<img src="/assets/images/mission/icon-arrow-down.png" width="32" height="32" class="icon-arrow-down">
+</div>
+</div>
+</div>
+<div class="box-content-mission-setting collapse show" id="openDropdownMissionSetting1" data-bs-parent="#dropdownMainMissionSetting">
+<div class="group-content-mission-setting-agent" id="rootScrollMission">
+<div class="label-title">
+<span class="text-in-label mission-page" data-i18n="missionAgentPage.missionSettingWhenFinished">ตั้งค่าการเสร็จสิ้นภารกิจ</span>
+<span class="sub-title-text mission-page" data-i18n="missionAgentPage.missionSettingWhenFinishedText">เมื่อเปิดการใช้งานแต่ละ Agent ใบหวยนี้จะแสดงให้เห็นได้ที่หน้าเล่นของ Agent นั้น ๆ และสมากชิกใช้งานได้ตามปกติ</span>
+</div>
+<div class="group-mission-agent-box" id="missionAgentBox">
+<template id="missionAgentItemTemplate">
+<div class="group-mission-agent-item" data-agent="template" id="missionAgentItem-template">
+<input type="hidden" id="missionAgentTenantId-template">
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionAgentStatus-template">
+</div>
+<span class="switch-title1" id="missionAgentNumber-template">Agent 1 : </span>
+<span class="switch-title2 mission-page" id="missionAgentName-template">name</span>
+</div>
+<span class="box-text mission-page" data-i18n="missionAgentPage.agentIconSetting">กำหนดรูป icon เมนูที่หน้าเล่นสำหรับ Agent นี้</span>
+<div class="group-preview-agent-icon">
+<div class="box-preview-agent-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/icon/Vector.png" alt="icon Agent" width="50" height="50" class="inputFileIconAgent-template">
+</div>
+<div class="box-preview-agent-text">
+<span class="text-label-bold-agent mission-page" data-i18n="missionAgentPage.agentIconText">อัพโหลดไอคอนเมนูหน้าเล่น</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionAgentPage.agentIconRec">ขนาดไอคอนที่แนะนำ : 128px x 128px และนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+<div class="group-btn-agent-icon">
+<span class="change-color-mission-link mission-page" data-i18n="missionAgentPage.resetDefault" id="resetImageIconAgent-template" onclick="resetImageIconAgent('template')">คืนค่าเริ่มต้น</span>
+<label class="mission-btn-outline" for="inputFileIconAgent-template">
+<input type="file" id="inputFileIconAgent-template" class="d-none" onchange="handleFileMission(event)" name="inputFileIconAgent-template">
+<img src="/assets/images/mission/image-upload.png" alt="add icon" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.uploadImage">อัพโหลดรูป</span>
+</label>
+</div>
+</div>
+</div>
+</template>
+<div class="group-mission-agent-item" data-agent="1" id="missionAgentItem-1">
+<input type="hidden" id="missionAgentTenantId-1" value="501">
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionAgentStatus-1" checked="">
+</div>
+<span class="switch-title1" id="missionAgentNumber-1">Agent 1 : </span>
+<span class="switch-title2 mission-page" id="missionAgentName-1">superx</span>
+</div>
+<span class="box-text mission-page" data-i18n="missionAgentPage.agentIconSetting">กำหนดรูป icon เมนูที่หน้าเล่นสำหรับ Agent นี้</span>
+<div class="group-preview-agent-icon">
+<div class="box-preview-agent-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/icon/Vector.png" alt="icon Agent" width="50" height="50" class="inputFileIconAgent-1">
+</div>
+<div class="box-preview-agent-text">
+<span class="text-label-bold-agent mission-page" data-i18n="missionAgentPage.agentIconText">อัพโหลดไอคอนเมนูหน้าเล่น</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionAgentPage.agentIconRec">ขนาดไอคอนที่แนะนำ : 128px x 128px และนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+<div class="group-btn-agent-icon">
+<span class="change-color-mission-link mission-page" data-i18n="missionAgentPage.resetDefault" id="resetImageIconAgent-1" onclick="resetImageIconAgent('1')">คืนค่าเริ่มต้น</span>
+<label class="mission-btn-outline" for="inputFileIconAgent-1">
+<input type="file" id="inputFileIconAgent-1" class="d-none" onchange="handleFileMission(event)" name="inputFileIconAgent-1">
+<img src="/assets/images/mission/image-upload.png" alt="add icon" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.uploadImage">อัพโหลดรูป</span>
+</label>
+</div>
+</div>
+</div><div class="group-mission-agent-item" data-agent="2" id="missionAgentItem-2">
+<input type="hidden" id="missionAgentTenantId-2" value="669">
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionAgentStatus-2" checked="">
+</div>
+<span class="switch-title1" id="missionAgentNumber-2">Agent 2 : </span>
+<span class="switch-title2 mission-page" id="missionAgentName-2">superxx</span>
+</div>
+<span class="box-text mission-page" data-i18n="missionAgentPage.agentIconSetting">กำหนดรูป icon เมนูที่หน้าเล่นสำหรับ Agent นี้</span>
+<div class="group-preview-agent-icon">
+<div class="box-preview-agent-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/icon/Vector.png" alt="icon Agent" width="50" height="50" class="inputFileIconAgent-2">
+</div>
+<div class="box-preview-agent-text">
+<span class="text-label-bold-agent mission-page" data-i18n="missionAgentPage.agentIconText">อัพโหลดไอคอนเมนูหน้าเล่น</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionAgentPage.agentIconRec">ขนาดไอคอนที่แนะนำ : 128px x 128px และนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+<div class="group-btn-agent-icon">
+<span class="change-color-mission-link mission-page" data-i18n="missionAgentPage.resetDefault" id="resetImageIconAgent-2" onclick="resetImageIconAgent('2')">คืนค่าเริ่มต้น</span>
+<label class="mission-btn-outline" for="inputFileIconAgent-2">
+<input type="file" id="inputFileIconAgent-2" class="d-none" onchange="handleFileMission(event)" name="inputFileIconAgent-2">
+<img src="/assets/images/mission/image-upload.png" alt="add icon" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.uploadImage">อัพโหลดรูป</span>
+</label>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="group-btn-mission-setting-footer">
+<a class="mission-btn-outline" href="/mission">
+<img src="/assets/images/mission/icon-cancel-save.png" alt="cancel" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.cancel">ยกเลิก</span>
+</a>
+<button class="mission-btn" id="btnSaveMission" onclick="saveMissionAgent()">
+<img src="/assets/images/mission/icon-confirm-save.png" alt="confirm" width="20" height="20">
+<span class="mission-page" data-i18n="missionAgentPage.confirm">ยืนยันการสร้างภารกิจ</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,5 @@
+{
+ "_note": "Inline style values (element.style, longhand) read live in round 2; Popper-computed position at capture time (viewport 1704x1675).",
+ ".tooltip.promotion-deposit-tooltip": {"bottom": "0px", "left": "auto", "margin-bottom": "0px", "margin-left": "0px", "margin-right": "0px", "margin-top": "0px", "position": "absolute", "right": "0px", "top": "auto", "transform": "translate(-220px, -1030px)"},
+ ".tooltip.promotion-deposit-tooltip > div.tooltip-arrow:nth-of-type(1)": {"left": "0px", "position": "absolute", "transform": "translate(162px, 0px)"}
+}

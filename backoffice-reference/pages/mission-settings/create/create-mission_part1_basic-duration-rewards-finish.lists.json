@@ -1,0 +1,91 @@
+{
+ "_note": "Full item lists of sibling groups that were collapsed in create-mission_part1_basic-duration-rewards-finish.html (value | text, text truncated to 90 chars).",
+ "groups": [
+  {
+   "items": [
+    "1349 | SEO (กลุ่มสมาชิกทั่วไป)",
+    "1386 | test",
+    "1492 | ทดสอบถอนรวม",
+    "1525 | ทดสอบ Gateway",
+    "1567 | SigmaP2P",
+    "1569 | ทดสอบเกตเวย์ QR",
+    "1648 | ทดสอบสร้างกลุ่ม 01",
+    "1673 | ปิดทุกสำหรับสมัครจากหน้าเว็บ",
+    "1691 | test one2coin pay",
+    "1697 | Lineliff Player",
+    "1747 | test redesign"
+   ],
+   "sig": "DIV custom-dropdown-item"
+  },
+  {
+   "items": [
+    "monday | MON",
+    "tuesday | TUE",
+    "wednesday | WED",
+    "thursday | THU",
+    "friday | FRI",
+    "saturday | SAT",
+    "sunday | SUN"
+   ],
+   "sig": "LABEL mission-checkbox-label border-1"
+  },
+  {
+   "items": [
+    "1 | 1",
+    "2 | 2",
+    "3 | 3",
+    "4 | 4",
+    "5 | 5",
+    "6 | 6",
+    "7 | 7",
+    "8 | 8",
+    "9 | 9",
+    "10 | 10",
+    "11 | 11",
+    "12 | 12",
+    "13 | 13",
+    "14 | 14",
+    "15 | 15",
+    "16 | 16",
+    "17 | 17",
+    "18 | 18",
+    "19 | 19",
+    "20 | 20",
+    "21 | 21",
+    "22 | 22",
+    "23 | 23",
+    "24 | 24",
+    "25 | 25",
+    "26 | 26",
+    "27 | 27",
+    "28 | 28",
+    "29 | 29",
+    "30 | 30",
+    "31 | 31"
+   ],
+   "sig": "LABEL mission-checkbox-label border-1 active"
+  },
+  {
+   "items": [
+    "credit | เครดิต",
+    "mini-game-chance | สิทธิ์มินิเกมส์",
+    "promotion-chance | สิทธิ์โปรโมชั่น",
+    "point | แต้มสะสม",
+    "reward | ของรางวัล"
+   ],
+   "sig": "DIV custom-dropdown-item mission-page"
+  },
+  {
+   "items": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "sig": "IMG "
+  }
+ ]
+}

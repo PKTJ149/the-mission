@@ -1,0 +1,92 @@
+<div id="offcanvasRedeemConditions" class="offcanvas-minigame-custom offcanvas offcanvas-end show" data-bs-focus="false" aria-modal="true" role="dialog">
+<div class="offcanvas-header offcanvas-header-minigame">
+<h4 class="mb-0 mission-page" data-i18n="missionPointsPage.exchangeCondition">เงื่อนไขการแลกของรางวัล</h4>
+<div class="flex-fill"></div>
+<div class="icon-close-offcanvas-minigame-custom" onclick="cancelRedeemCondition()">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.8965 1.09832C18.6183 0.820264 18.2412 0.664062 17.8479 0.664062C17.4546 0.664062 17.0774 0.820264 16.7993 1.09832L9.9974 7.90018L3.19553 1.09832C2.9174 0.820264 2.54021 0.664062 2.14693 0.664062C1.75364 0.664062 1.37646 0.820264 1.09832 1.09832C0.820264 1.37646 0.664062 1.75364 0.664062 2.14693C0.664062 2.54021 0.820264 2.9174 1.09832 3.19553L7.90018 9.9974L1.09832 16.7993C0.820264 17.0774 0.664063 17.4546 0.664062 17.8479C0.664063 18.2412 0.820264 18.6183 1.09832 18.8965C1.37646 19.1745 1.75364 19.3307 2.14693 19.3307C2.54021 19.3307 2.9174 19.1745 3.19553 18.8965L9.9974 12.0946L16.7993 18.8965C17.0774 19.1745 17.4546 19.3307 17.8479 19.3307C18.2412 19.3307 18.6183 19.1745 18.8965 18.8965C19.1745 18.6183 19.3307 18.2412 19.3307 17.8479C19.3307 17.4546 19.1745 17.0774 18.8965 16.7993L12.0946 9.9974L18.8965 3.19553C19.1745 2.9174 19.3307 2.54021 19.3307 2.14693C19.3307 1.75364 19.1745 1.37646 18.8965 1.09832Z"></path>
+</svg>
+</div>
+</div>
+<div class="offcanvas-body">
+<div class="redeem-point-condition-card">
+<div class="redeem-point-condition-head">
+<p class="p1 fw-700 mb-0 mission-page" data-i18n="missionPointsPage.exchangeConditionSetting">กำหนดเงื่อนไขการแลกของรางวัล</p>
+<div class="flex-fill"></div>
+<div class="mission-switch-btn me-2">
+<input id="enablePointExchange" class="mission-switch-check-input" type="checkbox" checked="">
+</div>
+<p class="p1 fw-700 mb-0 mission-page" data-i18n="missionPointsPage.activeDeactiveSet">เปิด / ปิด การใช้งาน</p>
+</div>
+<div class="redeem-point-condition-body">
+<div class="row gx-4">
+<div class="col-6">
+<p class="p1 fw-700 mb-2 mission-page" data-i18n="missionPointsPage.langaugeSetting">กำหนดรายละเอียดแต่ละภาษา</p>
+<p class="p3 text-tertiary mb-10">
+<span class="mission-page" data-i18n="missionPointsPage.langaugeSettingText1">เมื่อกำหนดรายละเอียดให้ภาษาใดแล้ว</span><br>
+<span class="mission-page" data-i18n="missionPointsPage.langaugeSettingText2">ภาษานั้นจะสามารถเลือกให้เแสดงที่หน้าเล่นของสมาชิกได้</span>
+</p>
+<div class="multi-language-button-div">
+<button class="btn multi-lang-button btn-lang-th multi-lang-selected" lang-select-btn="th" onclick="selectMultiLanguage('th')">
+<span class="row">
+<span class="col-12">
+<span class="mission-page" data-i18n="missionPointsPage.langaugeDefault">ค่าเริ่มต้น (ไทย)</span>
+</span>
+<span class="col-12">
+<span class="p3 multi-setting-th multi-lang-status-t mission-page" data-i18n="missionPointsPage.set">(ตั้งค่าแล้ว)</span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-en" lang-select-btn="en" onclick="selectMultiLanguage('en')">
+<span class="row">
+<span class="col-4">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12">EN;</span>
+<span class="col-12 multi-setting-en multi-lang-status-f p3 mission-page" data-i18n="missionPointsPage.notSet">(ยังไม่กำหนด)</span>
+</span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-tl" lang-select-btn="tl" onclick="selectMultiLanguage('tl')">
+<span class="row">
+<span class="col-4">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12">TL;</span>
+<span class="col-12 multi-setting-tl multi-lang-status-f p3 mission-page" data-i18n="missionPointsPage.notSet">(ยังไม่กำหนด)</span>
+</span>
+</span>
+</span>
+</button>
+</div>
+</div>
+<div class="col-6">
+<div class="redeem-point-condition-editor group-input-thin">
+<p class="p2 mb-0 mission-page" data-i18n="missionPointsPage.rewardCondition">เงื่อนไขการแลกรางวัล</p>
+<div class="input-thin">
+<div class="textarea-condition-th">
+<textarea class="redeem-editor input-promotion-condition-th" data-condition-lang="th" id="redeemCondition" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><figure class="image ck-widget image_resized ck-widget_selected ck-widget_with-resizer" contenteditable="false" data-capture-style-props="width"><figure data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="ck ck-reset_all ck-widget__type-around"><div class="ck ck-widget__type-around__button ck-widget__type-around__button_before" title="แทรกย่อหน้าก่อนบล็อก" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8"><path d="M9.055.263v3.972h-6.77M1 4.216l2-2.038m-2 2 2 2.038"></path></svg></div><div class="ck ck-widget__type-around__button ck-widget__type-around__button_after" title="แทรกย่อหน้าหลังบล็อก" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8"><path d="M9.055.263v3.972h-6.77M1 4.216l2-2.038m-2 2 2 2.038"></path></svg></div><div class="ck ck-widget__type-around__fake-caret"></div></div><div class="ck ck-reset_all ck-widget__resizer" data-capture-style-props="height left top width"><div class="ck-widget__resizer__handle ck-widget__resizer__handle-top-left"></div><div class="ck-widget__resizer__handle ck-widget__resizer__handle-top-right"></div><div class="ck-widget__resizer__handle ck-widget__resizer__handle-bottom-right"></div><div class="ck-widget__resizer__handle ck-widget__resizer__handle-bottom-left"></div><div class="ck ck-size-view" data-capture-style-props="display"></div></div></figure><p><br data-cke-filler="true"></p><p><br data-cke-filler="true"></p><p><br data-cke-filler="true"></p><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><div class="textarea-condition-en d-none">
+<textarea class="redeem-editor input-promotion-condition-en" data-condition-lang="en" id="redeemCondition-en" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+<div class="textarea-condition-tl d-none">
+<textarea class="redeem-editor input-promotion-condition-tl" data-condition-lang="tl" id="redeemCondition-tl" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><div class="d-flex align-items-center justify-content-end">
+<button class="btn system-btn btn-a btn-rounded" onclick="cancelRedeemCondition()" data-i18n="missionPointsPage.cancel" data-capture-style-props="width">ยกเลิก</button>
+<button id="buttonRecordRedeemCondition" class="btn system-btn btn-rounded ms-2" onclick="recordRedeemCondition()" data-i18n="missionPointsPage.save" data-capture-style-props="width">บันทึก</button>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div> dropped-->

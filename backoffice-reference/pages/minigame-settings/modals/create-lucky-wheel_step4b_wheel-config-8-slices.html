@@ -1,0 +1,662 @@
+<div class="canvas-box-body-custom-mini-game">
+<div class="main-in-detail-body-custom content-col-1">
+<div>
+<div class="label-minigame luckyWheelShowLayout label-minigame-custom">
+<span id="textTabsStep2-3-3"><span data-i18n="minigameSetting.luckyWheelEditAndSetting">การปรับแต่งและตั้งค่าวงล้อนำโชค</span></span>
+</div>
+<div class="input-col-1-p position-relative luckyWheelShowLayout p-4">
+<div>
+<div class="text-start">
+<span class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.settingMinigameStep3SubText">กำหนดยอดฝากที่สมาชิกต้องทำเพื่อให้เข้าเงื่อนไขการได้สิทธิ์มินิเกมส์ จำนวน 1 สิทธิ์</span>
+</div>
+<div class="d-flex justify-content-between align-items-center p2 mb-2 fw-700">
+<span class="color-emerald-title-1" data-i18n="minigameSetting.settingLuckyWheel">ตั้งค่าและตกแต่งมินิเกมส์ : วงล้อหรรษาลุ้น</span>
+<div class="d-flex align-items-center gap-2">
+<span class="color-emerald-title-1" data-i18n="minigameSetting.luckyWheelSlice">จำนวนชิ้นส่วน :</span>
+<div id="customNumberPartsLuckywheel" class="custom-input dropdown-wrapper fill">
+<div class="dropdown-toggler" data-capture-style-props="height">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple p2 fw-700" data-capture-style-props="height width">8 ชิ้น</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="6" data-chip="6" class="custom-dropdown-item">6 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+<div data-value="8" data-chip="8" class="custom-dropdown-item selected">8 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+<div data-value="10" data-chip="10" class="custom-dropdown-item">10 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-NumberPartsLuckywheel" data-i18n="minigameSetting.settingLuckyWheelErrorText" data-capture-style-props="display">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+</div>
+<div class="justify-content-between align-items-center p2 fw-700 col-12">
+<div class="text-start p2 color-emerald-title-3 fw-700 mb-2">
+<span data-i18n="minigameSetting.settingBonus">การได้รับโบนัส</span>
+</div>
+<div class="row ms-0">
+<div class="form-check col d-flex align-items-center">
+<input class="form-check-input me-2" type="radio" name="turnOverBeforeOrAfterLuckyWheel" id="turnOverBeforeLuckyWheel" data-value="true" oninput="" checked="" value="true">
+<label class="form-check-label d-flex flex-column" for="turnOverBeforeLuckyWheel">
+<span class="p2 color-emerald-title-1 pt-1" data-i18n="minigameSetting.settingGetBeforeTurnOver">ได้รับก่อนทำเทิร์นโอเวอร์สำเร็จ</span>
+</label>
+</div>
+<div class="form-check col d-flex align-items-center">
+<input class="form-check-input me-2" type="radio" name="turnOverBeforeOrAfterLuckyWheel" id="turnOverAfterLuckyWheel" data-value="false" oninput="" value="false">
+<label class="form-check-label d-flex flex-column" for="turnOverAfterLuckyWheel">
+<span class="p2 color-emerald-title-1 pt-1" data-i18n="minigameSetting.settingGetAfterTurnOver">ได้รับหลังทำเทิร์นโอเวอร์สำเร็จ</span>
+</label>
+</div>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-5 mb-3">
+<div class="minigame-upload-field">
+<div class="d-flex custom-input mb-3">
+<div class="setting-minigame-upload-img" onclick="luckywheelFrame.click()">
+<svg id="luckywheelFramePlaceholder" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-capture-style-props="display">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.8898 0.765625H5.26262C4.06973 0.765625 2.92608 1.23899 2.08253 2.08253C1.23899 2.92608 0.765625 4.06973 0.765625 5.26262V14.73C0.765625 15.9229 1.23899 17.0665 2.08253 17.9101C2.92608 18.7536 4.06973 19.227 5.26262 19.227H14.73C15.9229 19.227 17.0665 18.7536 17.9101 17.9101C18.7536 17.0665 19.227 15.9229 19.227 14.73C19.227 11.7515 19.227 8.10283 19.227 8.10283C19.227 7.71088 18.9089 7.39278 18.5169 7.39278C18.125 7.39278 17.8069 7.71088 17.8069 8.10283V14.73C17.8069 15.5461 17.4831 16.329 16.9056 16.9056C16.329 17.4831 15.5461 17.8069 14.73 17.8069H5.26262C4.44653 17.8069 3.66358 17.4831 3.08702 16.9056C2.50951 16.329 2.18573 15.5461 2.18573 14.73C2.18573 11.9115 2.18573 8.08105 2.18573 5.26262C2.18573 4.44653 2.50951 3.66358 3.08702 3.08702C3.66358 2.50951 4.44653 2.18573 5.26262 2.18573H11.8898C12.2817 2.18573 12.5998 1.86763 12.5998 1.47568C12.5998 1.08373 12.2817 0.765625 11.8898 0.765625Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.9618 13.2265C18.9618 13.2265 17.0267 11.6795 15.6312 10.5633C14.55 9.69706 12.9794 9.83055 12.0592 10.8663C9.92523 13.2663 5.67912 18.0435 5.67912 18.0435C5.41877 18.336 5.44528 18.7857 5.73877 19.0461C6.03131 19.3064 6.48101 19.2799 6.74136 18.9864C6.74136 18.9864 10.9865 14.2102 13.1205 11.8092C13.5389 11.3387 14.2528 11.2781 14.7441 11.672L18.0738 14.3361C18.3805 14.5803 18.8274 14.5311 19.0726 14.2253C19.3169 13.9186 19.2676 13.4717 18.9618 13.2265Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.9475 12.3111C10.9475 12.3111 8.43202 10.0248 6.8983 8.63024C5.97429 7.79048 4.58353 7.72421 3.58473 8.47403C2.48178 9.30053 1.04937 10.3751 1.04937 10.3751C0.736 10.6099 0.672569 11.0558 0.907359 11.3691C1.14215 11.6825 1.58806 11.7459 1.90143 11.5112C1.90143 11.5112 3.33384 10.4366 4.43679 9.61011C4.89028 9.26928 5.5227 9.29863 5.94305 9.68111L9.99129 13.362C10.2819 13.6252 10.7316 13.6044 10.9948 13.3147C11.258 13.024 11.2372 12.5743 10.9475 12.3111Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0126 0.97367C16.7352 0.696277 16.2855 0.696277 16.0081 0.97367L12.6614 4.32038C12.5279 4.45387 12.4531 4.6347 12.4531 4.8231V6.83112C12.4531 7.22307 12.7712 7.54118 13.1632 7.54118H15.1712C15.3596 7.54118 15.5404 7.46638 15.6739 7.3329L19.0206 3.98618C19.298 3.70879 19.298 3.25909 19.0206 2.9817L17.0126 0.97367ZM16.5108 2.47993L17.5144 3.48347L14.8777 6.12107H13.8732V5.11659L16.5108 2.47993Z" fill="#C8C8C8"></path>
+<path d="M7.63104 6.2074C8.41534 6.2074 9.05115 5.57159 9.05115 4.78729C9.05115 4.00299 8.41534 3.36719 7.63104 3.36719C6.84674 3.36719 6.21094 4.00299 6.21094 4.78729C6.21094 5.57159 6.84674 6.2074 7.63104 6.2074Z" fill="#C8C8C8"></path>
+</svg>
+<img class="luckywheelFrameSrc" style="" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/frame.png">
+<div class="setting-minigame-upload-img-button system-btn-a">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.19765 0.171875H3.01208C2.25868 0.171875 1.53637 0.470844 1.00361 1.00361C0.470844 1.53637 0.171875 2.25868 0.171875 3.01208V8.99147C0.171875 9.74487 0.470844 10.4672 1.00361 10.9999C1.53637 11.5327 2.25868 11.8317 3.01208 11.8317H8.99147C9.74487 11.8317 10.4672 11.5327 10.9999 10.9999C11.5327 10.4672 11.8317 9.74487 11.8317 8.99147C11.8317 7.11035 11.8317 4.8059 11.8317 4.8059C11.8317 4.55835 11.6308 4.35744 11.3832 4.35744C11.1357 4.35744 10.9348 4.55835 10.9348 4.8059V8.99147C10.9348 9.50689 10.7303 10.0014 10.3655 10.3655C10.0014 10.7303 9.50689 10.9348 8.99147 10.9348H3.01208C2.49666 10.9348 2.00216 10.7303 1.63802 10.3655C1.27328 10.0014 1.06878 9.50689 1.06878 8.99147C1.06878 7.2114 1.06878 4.79215 1.06878 3.01208C1.06878 2.49666 1.27328 2.00216 1.63802 1.63802C2.00216 1.27328 2.49666 1.06878 3.01208 1.06878H7.19765C7.4452 1.06878 7.64611 0.867875 7.64611 0.620329C7.64611 0.372782 7.4452 0.171875 7.19765 0.171875Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6663 8.04272C11.6663 8.04272 10.4441 7.06569 9.56272 6.36072C8.87988 5.81361 7.8879 5.89792 7.3067 6.55206C5.95895 8.06783 3.27719 11.085 3.27719 11.085C3.11276 11.2698 3.1295 11.5538 3.31486 11.7182C3.49963 11.8827 3.78365 11.8659 3.94808 11.6806C3.94808 11.6806 6.62924 8.66398 7.97699 7.14761C8.24128 6.85043 8.69212 6.81216 9.00245 7.06091L11.1054 8.74351C11.2991 8.89777 11.5814 8.86668 11.7362 8.67355C11.8905 8.47981 11.8594 8.19759 11.6663 8.04272Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.60253 7.46337C6.60253 7.46337 5.01381 6.01935 4.04515 5.13859C3.46156 4.60822 2.58319 4.56636 1.95236 5.03993C1.25576 5.56193 0.351082 6.24059 0.351082 6.24059C0.153164 6.38888 0.113103 6.67051 0.261391 6.86842C0.40968 7.06634 0.691309 7.1064 0.889226 6.95811C0.889226 6.95811 1.79391 6.27945 2.49051 5.75745C2.77692 5.5422 3.17634 5.56073 3.44183 5.8023L5.99861 8.12708C6.18218 8.29331 6.4662 8.28016 6.63242 8.09719C6.79865 7.91362 6.7855 7.6296 6.60253 7.46337Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4344 0.303272C10.2592 0.128076 9.97514 0.128076 9.79995 0.303272L7.68623 2.41698C7.60192 2.50129 7.55469 2.6155 7.55469 2.73449V4.00272C7.55469 4.25026 7.75559 4.45117 8.00314 4.45117H9.27137C9.39036 4.45117 9.50456 4.40393 9.58887 4.31962L11.7026 2.20591C11.8778 2.03072 11.8778 1.7467 11.7026 1.5715L10.4344 0.303272ZM10.1175 1.25459L10.7513 1.88841L9.08601 3.55426H8.4516V2.91985L10.1175 1.25459Z"></path>
+<path d="M4.50628 3.60632C5.00163 3.60632 5.40319 3.20476 5.40319 2.70941C5.40319 2.21406 5.00163 1.8125 4.50628 1.8125C4.01093 1.8125 3.60938 2.21406 3.60938 2.70941C3.60938 3.20476 4.01093 3.60632 4.50628 3.60632Z"></path>
+</svg>
+</div>
+</div>
+<div class="ms-3 text-start">
+<p class="p2 fw-700 mb-1 color-emerald-title-3" data-i18n="minigameSetting.uploadLuckyWheelBorderImage">อัพโหลดรูปกรอบวงล้อ</p>
+<p class="p4 fw-400 text-gray30 mb-0">
+<b><span data-i18n="minigameSetting.uploadLuckyWheelBorderImageSize">คำแนะนำ</span></b><span data-i18n="minigameSetting.uploadLuckyWheelBorderImageSize2"> : ขนาดรูป 440 px x 440 px</span><br><span data-i18n="minigameSetting.uploadLuckyWheelBorderImageSize3"> สกุล png, gif, jpg</span>
+</p>
+<div class="invalid-feedback"></div>
+</div>
+<input id="luckywheelFrame" type="file" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป กรอบวงล้อ (Please Upload Image)">
+</div>
+<div class="d-flex custom-input mb-3">
+<div class="setting-minigame-upload-img" onclick="luckywheelSpinBtn.click()">
+<svg id="luckywheelSpinBtnPlaceholder" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-capture-style-props="display">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.8898 0.765625H5.26262C4.06973 0.765625 2.92608 1.23899 2.08253 2.08253C1.23899 2.92608 0.765625 4.06973 0.765625 5.26262V14.73C0.765625 15.9229 1.23899 17.0665 2.08253 17.9101C2.92608 18.7536 4.06973 19.227 5.26262 19.227H14.73C15.9229 19.227 17.0665 18.7536 17.9101 17.9101C18.7536 17.0665 19.227 15.9229 19.227 14.73C19.227 11.7515 19.227 8.10283 19.227 8.10283C19.227 7.71088 18.9089 7.39278 18.5169 7.39278C18.125 7.39278 17.8069 7.71088 17.8069 8.10283V14.73C17.8069 15.5461 17.4831 16.329 16.9056 16.9056C16.329 17.4831 15.5461 17.8069 14.73 17.8069H5.26262C4.44653 17.8069 3.66358 17.4831 3.08702 16.9056C2.50951 16.329 2.18573 15.5461 2.18573 14.73C2.18573 11.9115 2.18573 8.08105 2.18573 5.26262C2.18573 4.44653 2.50951 3.66358 3.08702 3.08702C3.66358 2.50951 4.44653 2.18573 5.26262 2.18573H11.8898C12.2817 2.18573 12.5998 1.86763 12.5998 1.47568C12.5998 1.08373 12.2817 0.765625 11.8898 0.765625Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.9618 13.2265C18.9618 13.2265 17.0267 11.6795 15.6312 10.5633C14.55 9.69706 12.9794 9.83055 12.0592 10.8663C9.92523 13.2663 5.67912 18.0435 5.67912 18.0435C5.41877 18.336 5.44528 18.7857 5.73877 19.0461C6.03131 19.3064 6.48101 19.2799 6.74136 18.9864C6.74136 18.9864 10.9865 14.2102 13.1205 11.8092C13.5389 11.3387 14.2528 11.2781 14.7441 11.672L18.0738 14.3361C18.3805 14.5803 18.8274 14.5311 19.0726 14.2253C19.3169 13.9186 19.2676 13.4717 18.9618 13.2265Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.9475 12.3111C10.9475 12.3111 8.43202 10.0248 6.8983 8.63024C5.97429 7.79048 4.58353 7.72421 3.58473 8.47403C2.48178 9.30053 1.04937 10.3751 1.04937 10.3751C0.736 10.6099 0.672569 11.0558 0.907359 11.3691C1.14215 11.6825 1.58806 11.7459 1.90143 11.5112C1.90143 11.5112 3.33384 10.4366 4.43679 9.61011C4.89028 9.26928 5.5227 9.29863 5.94305 9.68111L9.99129 13.362C10.2819 13.6252 10.7316 13.6044 10.9948 13.3147C11.258 13.024 11.2372 12.5743 10.9475 12.3111Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0126 0.97367C16.7352 0.696277 16.2855 0.696277 16.0081 0.97367L12.6614 4.32038C12.5279 4.45387 12.4531 4.6347 12.4531 4.8231V6.83112C12.4531 7.22307 12.7712 7.54118 13.1632 7.54118H15.1712C15.3596 7.54118 15.5404 7.46638 15.6739 7.3329L19.0206 3.98618C19.298 3.70879 19.298 3.25909 19.0206 2.9817L17.0126 0.97367ZM16.5108 2.47993L17.5144 3.48347L14.8777 6.12107H13.8732V5.11659L16.5108 2.47993Z" fill="#C8C8C8"></path>
+<path d="M7.63104 6.2074C8.41534 6.2074 9.05115 5.57159 9.05115 4.78729C9.05115 4.00299 8.41534 3.36719 7.63104 3.36719C6.84674 3.36719 6.21094 4.00299 6.21094 4.78729C6.21094 5.57159 6.84674 6.2074 7.63104 6.2074Z" fill="#C8C8C8"></path>
+</svg>
+<img class="luckywheelSpinBtnSrc" style="" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/button.png">
+<div class="setting-minigame-upload-img-button system-btn-a">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.19765 0.171875H3.01208C2.25868 0.171875 1.53637 0.470844 1.00361 1.00361C0.470844 1.53637 0.171875 2.25868 0.171875 3.01208V8.99147C0.171875 9.74487 0.470844 10.4672 1.00361 10.9999C1.53637 11.5327 2.25868 11.8317 3.01208 11.8317H8.99147C9.74487 11.8317 10.4672 11.5327 10.9999 10.9999C11.5327 10.4672 11.8317 9.74487 11.8317 8.99147C11.8317 7.11035 11.8317 4.8059 11.8317 4.8059C11.8317 4.55835 11.6308 4.35744 11.3832 4.35744C11.1357 4.35744 10.9348 4.55835 10.9348 4.8059V8.99147C10.9348 9.50689 10.7303 10.0014 10.3655 10.3655C10.0014 10.7303 9.50689 10.9348 8.99147 10.9348H3.01208C2.49666 10.9348 2.00216 10.7303 1.63802 10.3655C1.27328 10.0014 1.06878 9.50689 1.06878 8.99147C1.06878 7.2114 1.06878 4.79215 1.06878 3.01208C1.06878 2.49666 1.27328 2.00216 1.63802 1.63802C2.00216 1.27328 2.49666 1.06878 3.01208 1.06878H7.19765C7.4452 1.06878 7.64611 0.867875 7.64611 0.620329C7.64611 0.372782 7.4452 0.171875 7.19765 0.171875Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6663 8.04272C11.6663 8.04272 10.4441 7.06569 9.56272 6.36072C8.87988 5.81361 7.8879 5.89792 7.3067 6.55206C5.95895 8.06783 3.27719 11.085 3.27719 11.085C3.11276 11.2698 3.1295 11.5538 3.31486 11.7182C3.49963 11.8827 3.78365 11.8659 3.94808 11.6806C3.94808 11.6806 6.62924 8.66398 7.97699 7.14761C8.24128 6.85043 8.69212 6.81216 9.00245 7.06091L11.1054 8.74351C11.2991 8.89777 11.5814 8.86668 11.7362 8.67355C11.8905 8.47981 11.8594 8.19759 11.6663 8.04272Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.60253 7.46337C6.60253 7.46337 5.01381 6.01935 4.04515 5.13859C3.46156 4.60822 2.58319 4.56636 1.95236 5.03993C1.25576 5.56193 0.351082 6.24059 0.351082 6.24059C0.153164 6.38888 0.113103 6.67051 0.261391 6.86842C0.40968 7.06634 0.691309 7.1064 0.889226 6.95811C0.889226 6.95811 1.79391 6.27945 2.49051 5.75745C2.77692 5.5422 3.17634 5.56073 3.44183 5.8023L5.99861 8.12708C6.18218 8.29331 6.4662 8.28016 6.63242 8.09719C6.79865 7.91362 6.7855 7.6296 6.60253 7.46337Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4344 0.303272C10.2592 0.128076 9.97514 0.128076 9.79995 0.303272L7.68623 2.41698C7.60192 2.50129 7.55469 2.6155 7.55469 2.73449V4.00272C7.55469 4.25026 7.75559 4.45117 8.00314 4.45117H9.27137C9.39036 4.45117 9.50456 4.40393 9.58887 4.31962L11.7026 2.20591C11.8778 2.03072 11.8778 1.7467 11.7026 1.5715L10.4344 0.303272ZM10.1175 1.25459L10.7513 1.88841L9.08601 3.55426H8.4516V2.91985L10.1175 1.25459Z"></path>
+<path d="M4.50628 3.60632C5.00163 3.60632 5.40319 3.20476 5.40319 2.70941C5.40319 2.21406 5.00163 1.8125 4.50628 1.8125C4.01093 1.8125 3.60938 2.21406 3.60938 2.70941C3.60938 3.20476 4.01093 3.60632 4.50628 3.60632Z"></path>
+</svg>
+</div>
+</div>
+<div class="ms-3 text-start">
+<p class="p2 fw-700 mb-1 color-emerald-title-3" data-i18n="minigameSetting.uploadLuckyWheelImageButton">อัพโหลดรูปปุ่มหมุนวงล้อ</p>
+<p class="p4 fw-400 text-gray30 mb-0">
+<b><span data-i18n="minigameSetting.uploadLuckyWheelImageButtonSize">คำแนะนำ</span></b><span data-i18n="minigameSetting.uploadLuckyWheelImageButtonSize2"> : ขนาดรูป 189 px x 189 px</span><br><span data-i18n="minigameSetting.uploadLuckyWheelImageButtonSize3"> สกุล png, gif, jpg</span>
+</p>
+<div class="invalid-feedback"></div>
+</div>
+<input id="luckywheelSpinBtn" type="file" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป ปุ่มหมุนวงล้อ (Please Upload Image)">
+</div>
+<div class="d-flex custom-input mb-3">
+<div class="setting-minigame-upload-img" onclick="luckywheelGetReward.click()">
+<svg id="luckywheelGetRewardPlaceholder" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-capture-style-props="display">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.8898 0.765625H5.26262C4.06973 0.765625 2.92608 1.23899 2.08253 2.08253C1.23899 2.92608 0.765625 4.06973 0.765625 5.26262V14.73C0.765625 15.9229 1.23899 17.0665 2.08253 17.9101C2.92608 18.7536 4.06973 19.227 5.26262 19.227H14.73C15.9229 19.227 17.0665 18.7536 17.9101 17.9101C18.7536 17.0665 19.227 15.9229 19.227 14.73C19.227 11.7515 19.227 8.10283 19.227 8.10283C19.227 7.71088 18.9089 7.39278 18.5169 7.39278C18.125 7.39278 17.8069 7.71088 17.8069 8.10283V14.73C17.8069 15.5461 17.4831 16.329 16.9056 16.9056C16.329 17.4831 15.5461 17.8069 14.73 17.8069H5.26262C4.44653 17.8069 3.66358 17.4831 3.08702 16.9056C2.50951 16.329 2.18573 15.5461 2.18573 14.73C2.18573 11.9115 2.18573 8.08105 2.18573 5.26262C2.18573 4.44653 2.50951 3.66358 3.08702 3.08702C3.66358 2.50951 4.44653 2.18573 5.26262 2.18573H11.8898C12.2817 2.18573 12.5998 1.86763 12.5998 1.47568C12.5998 1.08373 12.2817 0.765625 11.8898 0.765625Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.9618 13.2265C18.9618 13.2265 17.0267 11.6795 15.6312 10.5633C14.55 9.69706 12.9794 9.83055 12.0592 10.8663C9.92523 13.2663 5.67912 18.0435 5.67912 18.0435C5.41877 18.336 5.44528 18.7857 5.73877 19.0461C6.03131 19.3064 6.48101 19.2799 6.74136 18.9864C6.74136 18.9864 10.9865 14.2102 13.1205 11.8092C13.5389 11.3387 14.2528 11.2781 14.7441 11.672L18.0738 14.3361C18.3805 14.5803 18.8274 14.5311 19.0726 14.2253C19.3169 13.9186 19.2676 13.4717 18.9618 13.2265Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.9475 12.3111C10.9475 12.3111 8.43202 10.0248 6.8983 8.63024C5.97429 7.79048 4.58353 7.72421 3.58473 8.47403C2.48178 9.30053 1.04937 10.3751 1.04937 10.3751C0.736 10.6099 0.672569 11.0558 0.907359 11.3691C1.14215 11.6825 1.58806 11.7459 1.90143 11.5112C1.90143 11.5112 3.33384 10.4366 4.43679 9.61011C4.89028 9.26928 5.5227 9.29863 5.94305 9.68111L9.99129 13.362C10.2819 13.6252 10.7316 13.6044 10.9948 13.3147C11.258 13.024 11.2372 12.5743 10.9475 12.3111Z" fill="#C8C8C8"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0126 0.97367C16.7352 0.696277 16.2855 0.696277 16.0081 0.97367L12.6614 4.32038C12.5279 4.45387 12.4531 4.6347 12.4531 4.8231V6.83112C12.4531 7.22307 12.7712 7.54118 13.1632 7.54118H15.1712C15.3596 7.54118 15.5404 7.46638 15.6739 7.3329L19.0206 3.98618C19.298 3.70879 19.298 3.25909 19.0206 2.9817L17.0126 0.97367ZM16.5108 2.47993L17.5144 3.48347L14.8777 6.12107H13.8732V5.11659L16.5108 2.47993Z" fill="#C8C8C8"></path>
+<path d="M7.63104 6.2074C8.41534 6.2074 9.05115 5.57159 9.05115 4.78729C9.05115 4.00299 8.41534 3.36719 7.63104 3.36719C6.84674 3.36719 6.21094 4.00299 6.21094 4.78729C6.21094 5.57159 6.84674 6.2074 7.63104 6.2074Z" fill="#C8C8C8"></path>
+</svg>
+<img class="luckywheelGetRewardSrc" style="" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/popup.png">
+<div class="setting-minigame-upload-img-button system-btn-a">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.19765 0.171875H3.01208C2.25868 0.171875 1.53637 0.470844 1.00361 1.00361C0.470844 1.53637 0.171875 2.25868 0.171875 3.01208V8.99147C0.171875 9.74487 0.470844 10.4672 1.00361 10.9999C1.53637 11.5327 2.25868 11.8317 3.01208 11.8317H8.99147C9.74487 11.8317 10.4672 11.5327 10.9999 10.9999C11.5327 10.4672 11.8317 9.74487 11.8317 8.99147C11.8317 7.11035 11.8317 4.8059 11.8317 4.8059C11.8317 4.55835 11.6308 4.35744 11.3832 4.35744C11.1357 4.35744 10.9348 4.55835 10.9348 4.8059V8.99147C10.9348 9.50689 10.7303 10.0014 10.3655 10.3655C10.0014 10.7303 9.50689 10.9348 8.99147 10.9348H3.01208C2.49666 10.9348 2.00216 10.7303 1.63802 10.3655C1.27328 10.0014 1.06878 9.50689 1.06878 8.99147C1.06878 7.2114 1.06878 4.79215 1.06878 3.01208C1.06878 2.49666 1.27328 2.00216 1.63802 1.63802C2.00216 1.27328 2.49666 1.06878 3.01208 1.06878H7.19765C7.4452 1.06878 7.64611 0.867875 7.64611 0.620329C7.64611 0.372782 7.4452 0.171875 7.19765 0.171875Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.6663 8.04272C11.6663 8.04272 10.4441 7.06569 9.56272 6.36072C8.87988 5.81361 7.8879 5.89792 7.3067 6.55206C5.95895 8.06783 3.27719 11.085 3.27719 11.085C3.11276 11.2698 3.1295 11.5538 3.31486 11.7182C3.49963 11.8827 3.78365 11.8659 3.94808 11.6806C3.94808 11.6806 6.62924 8.66398 7.97699 7.14761C8.24128 6.85043 8.69212 6.81216 9.00245 7.06091L11.1054 8.74351C11.2991 8.89777 11.5814 8.86668 11.7362 8.67355C11.8905 8.47981 11.8594 8.19759 11.6663 8.04272Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.60253 7.46337C6.60253 7.46337 5.01381 6.01935 4.04515 5.13859C3.46156 4.60822 2.58319 4.56636 1.95236 5.03993C1.25576 5.56193 0.351082 6.24059 0.351082 6.24059C0.153164 6.38888 0.113103 6.67051 0.261391 6.86842C0.40968 7.06634 0.691309 7.1064 0.889226 6.95811C0.889226 6.95811 1.79391 6.27945 2.49051 5.75745C2.77692 5.5422 3.17634 5.56073 3.44183 5.8023L5.99861 8.12708C6.18218 8.29331 6.4662 8.28016 6.63242 8.09719C6.79865 7.91362 6.7855 7.6296 6.60253 7.46337Z"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.4344 0.303272C10.2592 0.128076 9.97514 0.128076 9.79995 0.303272L7.68623 2.41698C7.60192 2.50129 7.55469 2.6155 7.55469 2.73449V4.00272C7.55469 4.25026 7.75559 4.45117 8.00314 4.45117H9.27137C9.39036 4.45117 9.50456 4.40393 9.58887 4.31962L11.7026 2.20591C11.8778 2.03072 11.8778 1.7467 11.7026 1.5715L10.4344 0.303272ZM10.1175 1.25459L10.7513 1.88841L9.08601 3.55426H8.4516V2.91985L10.1175 1.25459Z"></path>
+<path d="M4.50628 3.60632C5.00163 3.60632 5.40319 3.20476 5.40319 2.70941C5.40319 2.21406 5.00163 1.8125 4.50628 1.8125C4.01093 1.8125 3.60938 2.21406 3.60938 2.70941C3.60938 3.20476 4.01093 3.60632 4.50628 3.60632Z"></path>
+</svg>
+</div>
+</div>
+<div class="ms-3 text-start">
+<p class="p2 fw-700 mb-1 color-emerald-title-3" data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpen">อัพโหลดรูปตอนได้รับรางวัล</p>
+<p class="p4 fw-400 text-gray30 mb-3">
+<b><span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize">คำแนะนำ</span></b><span data-i18n="minigameSetting.uploadLuckyWheelImageAfterOpenSize2"> : รูปต้องเว้นพื้นที่สำรับคำ</span><br><br><br><br><!-- [collapsed 4 more siblings "SPAN " with identical structure; values in data.json] -->
+</p>
+<div class="invalid-feedback"></div>
+</div>
+<input id="luckywheelGetReward" type="file" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป ตอนได้รับรางวัล (Please Upload Image)">
+</div>
+</div>
+<div class="custom-input custom-float d-none">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2" data-i18n="minigameSetting.uploadLuckyWheelSound">เลือกเสียงประกอบวงล้อ</div>
+<div id="customLuckywheelSoundEffectDropdown" class="custom-input dropdown-wrapper disabled fill">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">เสียงดนตรี 1</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="/audios/spin-tick.mp3" data-chip="/audios/spin-tick.mp3" class="custom-dropdown-item selected" data-i18n="minigameSetting.luckyWheelSound1">เสียงดนตรี 1</div>
+<div data-value="/audios/spin-tick.mp3" data-chip="/audios/spin-tick.mp3" class="custom-dropdown-item selected" data-i18n="minigameSetting.luckyWheelSound2">เสียงดนตรี 2</div>
+<div data-value="/audios/spin-tick.mp3" data-chip="/audios/spin-tick.mp3" class="custom-dropdown-item selected" data-i18n="minigameSetting.luckyWheelSound3">เสียงดนตรี 3</div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-LuckywheelSoundEffectDropdown" data-i18n="minigameSetting.uploadLuckyWheelSoundErrorText" data-capture-style-props="display">กรุณาเลือกเสียงประกอบวงล้อ</div>
+</div>
+</div>
+<div class="my-3">
+<button class="btn system-btn btn-rounded w-100" id="btnWindowTestLuckywheelSpin" data-bs-focus="false" aria-modal="true" role="dialog" data-i18n="minigameSetting.testLuckyWheel">ทดลองหมุนวงล้อ</button>
+</div>
+</div>
+<div class="d-flex col-7 mb-3 flex-column align-items-center justify-content-center">
+<div class="d-flex w-100 mb-3 flex-column align-items-end justify-content-center mb-1">
+<button class="btn system-btn btn-rounded btn-outline btn-default btnSetDefault disabled" data-bs-focus="false" aria-modal="true" role="dialog" onclick="setDefaultImg()" data-i18n="minigameSetting.resetToDefault">คืนค่าเริ่มต้น</button>
+</div>
+<div class="wheel-main">
+<div class="wheel-wrapper" id="wheelShow1"><div class="custom-wheel wheel-8" data-deg="0">
+<div class="wheel-item-all"><div class="wheel-item" data-capture-style-props="--item">
+<div class="wheel-image">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/pie-1.png" class="luckywheelWheel1Src">
+</div>
+</div><!-- [collapsed 7 more siblings "DIV wheel-item" with identical structure; values in data.json] --></div></div><div class="wheel-spin">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/button.png" class="luckywheelSpinBtnSrc">
+</div>
+<div class="wheel-frame">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/frame.png" class="luckywheelFrameSrc">
+</div></div>
+<div class="wheel-wrapper-out" id="wheelInputShow1"><div class="custom-wheel-out wheel-8"><div class="wheel-item-out" data-capture-style-props="--item">
+<div class="wheel-image">
+<div class="btn-text" onclick="luckywheelWheel1.click()" data-capture-style-props="--item">
+<img src="/assets/images/minigame/add-img.png" width="16" height="16">
+<span>Wheel 1</span>
+</div>
+<input id="luckywheelWheel1" type="file" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป Wheel 1">
+</div>
+</div><!-- [collapsed 7 more siblings "DIV wheel-item-out" with identical structure; values in data.json] --></div></div>
+</div>
+<div class="mt-5 p4 text-gray30">
+<div>
+<span data-i18n="minigameSetting.pressIcon">กดที่รูป icon </span><img src="/assets/images/minigame/add-img.png" width="16" height="16"><span data-i18n="minigameSetting.pressIcon2"> หรือกดที่รูปชิ้นส่วนของวงล้อ เพื่อทำการอัพโหลดรูป</span>
+</div>
+<div class="mb-3">
+<span class="fw-700">คำแนะนำ : </span><span id="showLabalLuckywheelImagePixel">ขนากรูป 150px x 196px สกุลไฟล์ .png. .jpg</span>
+</div>
+<a class="fw-700 txt-download-template color-emerald-title-3" href="/files/all_spin_template.zip" data-i18n="minigameSetting.downloadTemplateForLuckyWheel" target="_blank">ดาวน์โหลด Template สำหรับทำรูปวงล้อ</a>
+</div>
+</div>
+</div>
+</div>
+<div class="minigame-test-layout justify-content-center align-items-center flex-column" tabindex="-1" role="dialog" id="minigameTestLayout">
+<span class="p1 fw-700 mb-4" data-i18n="minigameSetting.testingOpenMinigame">กำหนดเงื่อนไขการรับโบนัส</span>
+<div class="wheel-main">
+<div class="wheel-wrapper" id="wheelShowTest"><div class="custom-wheel wheel-8 test-spin" data-deg="0">
+<div class="wheel-item-all"><div class="wheel-item" data-capture-style-props="--item">
+<div class="wheel-image">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/pie-1.png" class="luckywheelWheel1Src">
+</div>
+</div><!-- [collapsed 7 more siblings "DIV wheel-item" with identical structure; values in data.json] --></div></div><div class="wheel-spin" onclick="spinWheel()">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/button.png" class="luckywheelSpinBtnSrc">
+</div>
+<div class="wheel-frame">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/frame.png" class="luckywheelFrameSrc">
+</div></div>
+</div>
+<div class="wheel-display-reward-main" id="wheelDisplayRewardMain">
+<div class="position-relative">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/popup.png" class="luckywheelGetRewardSrc">
+<div id="wheelDisplayRewardText" class="position-absolute top-50 start-50 translate-middle wheel-display-reward-text">
+<span data-i18n="minigameSetting.luckyWheelCongratsText1" data-capture-style-props="font-family font-size font-weight text-align color">ยินดีด้วย !!!</span>
+<p data-i18n="minigameSetting.luckyWheelCongratsText2" data-capture-style-props="font-family font-size font-weight text-align color">คุณได้รางวัลเครคิด 1,500 เครดิต</p>
+<span data-i18n="minigameSetting.luckyWheelCongratsText3" data-capture-style-props="font-family font-size font-weight text-align color">กรุณติดต่อแอดมิน</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4">
+<div class="label-minigame minigameShowLayout label-minigame-custom-v2" data-capture-style-props="display">
+<span data-i18n="minigameSetting.minigameEditAndSetting">การปรับแต่งและตั้งค่ามินิเกมส์</span>
+</div>
+</div>
+<div class="input-col-1-p position-relative minigameShowLayout p-4" data-capture-style-props="display">
+<div>
+<div class="d-flex justify-content-between align-items-center p2 fw-700">
+<div class="d-none align-items-center gap-2">
+<span class="color-emerald-title-1" data-i18n="minigameSetting.luckyWheelSlice">จำนวนชิ้นส่วน :</span>
+<div id="customNumberPartsMinigame" class="custom-input dropdown-wrapper fill">
+<div class="dropdown-toggler" data-capture-style-props="height">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple p2 fw-700" data-capture-style-props="height width">6 ชิ้น</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="3" data-chip="3" class="custom-dropdown-item">3 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+<div data-value="6" data-chip="6" class="custom-dropdown-item selected">6 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+<div data-value="9" data-chip="9" class="custom-dropdown-item">9 <span data-i18n="minigameSetting.piece">ชิ้น</span></div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-customNumberPartsMinigame" data-i18n="minigameSetting.minigameSettingErrorText" data-capture-style-props="display">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+</div>
+<div class="justify-content-between align-items-center p2 fw-700 col-12">
+<div class="row ms-0">
+<div class="col">
+<div class="form-check">
+<input class="form-check-input me-2" type="radio" name="turnOverBeforeOrAfterMiniGame" id="turnOverBeforeMiniGame" data-value="true" oninput="" checked="" value="true">
+<label class="form-check-label d-flex flex-column" for="turnOverBeforeMiniGame">
+<span class="p2 color-emerald-title-1 pt-1" data-i18n="minigameSetting.settingGetBeforeTurnOver">ได้รับก่อนทำเทิร์นโอเวอร์สำเร็จ</span>
+<small class="txt-small-radio">
+<span data-i18n="minigameSetting.getBeforeTurnOverSubText1">หลังจากเล่นมินิเกมส์ สมาชิกจะได้รับโบนัสทันที</span><br>
+<span data-i18n="minigameSetting.getBeforeTurnOverSubText2">แล้วค่อยไปทำเทิร์นโอเวอร์</span>
+</small>
+</label>
+</div>
+</div>
+<div class="col">
+<div class="form-check">
+<input class="form-check-input me-2" type="radio" name="turnOverBeforeOrAfterMiniGame" id="turnOverAfterMiniGame" data-value="false" oninput="" value="false">
+<label class="form-check-label d-flex flex-column" for="turnOverAfterMiniGame">
+<span class="p2 color-emerald-title-1 pt-1" data-i18n="minigameSetting.settingGetAfterTurnOver">ได้รับหลังทำเทิร์นโอเวอร์สำเร็จ</span>
+<small class="txt-small-radio">
+<span data-i18n="minigameSetting.getAfterTurnOverSubText1">หลังจากเล่นมินิเกมส์ สมาชิกจะจ้องทำเทิร์นโอเวอร์ให้สำเร็จก่อน</span><br>
+<span data-i18n="minigameSetting.getAfterTurnOverSubText2">ถึงจะได้รับโบนัส</span>
+</small>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-4 d-none">
+<div class="col-6 mb-3">
+<div class="minigame-upload-field">
+<div class="d-flex justify-content-center align-items-center p2 color-emerald-title-3 fw-700 mb-1  gap-1">
+<span>อัพโหลดรูปก่อนเปิด</span><img src="/assets/images/minigame/add-img.png" width="24" height="24">
+</div>
+<label class="position-relative cursor-pointer" for="imgMinigameReward" data-capture-style-props="height width">
+<div class="box-img1 h-100">
+<img src="/assets/images/promotion/img-upload.png" class="img-fluid" id="imgMinigameRewardPlaceholder" data-capture-style-props="z-index display">
+<div class="box-img2">
+<div class="d-flex align-items-center gap-3 h-100" id="eleMinigameReward">
+<img src="https://p88.blob.core.windows.net/images/minigame/minigame-reward.png" class="box-img3 showImagePreviewPromotionDetail imgMinigameRewardMainSrc">
+</div>
+</div>
+</div>
+</label>
+<input type="file" id="imgMinigameReward" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป อัพโหลดก่อนเปิด">
+<div class="ms-3 text-center">
+<p class="p4 fw-400 text-gray30 mb-2">
+<b><span data-i18n="minigameSetting.minigameImageBeforeOpen">คำแนะนำ</span></b><span data-i18n="minigameSetting.minigameImageBeforeOpen2"> : ขนาดรูป 112px x 112px / สกุล png, gif, jpg</span><br><span data-i18n="minigameSetting.minigameImageBeforeOpen3">โดยจะต้องเว้นพื้นที่ตรงกลางไว้ใส่คำอธิบายรางวัลด้วย</span>
+</p>
+<div class="invalid-feedback"></div>
+</div>
+</div>
+<div class="custom-input custom-float">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2" data-i18n="minigameSetting.uploadMinigameSound">เลือกเสียงประกอบวงล้อ</div>
+<div id="customMinigameSoundEffectDropdown" class="custom-input dropdown-wrapper disabled fill">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">เสียงดนตรี 1</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="1" data-chip="1" class="custom-dropdown-item selected" data-i18n="minigameSetting.minigameSound1">เสียงดนตรี 1</div>
+<div data-value="2" data-chip="2" class="custom-dropdown-item" data-i18n="minigameSetting.minigameSound2">เสียงดนตรี 2</div>
+<div data-value="3" data-chip="3" class="custom-dropdown-item" data-i18n="minigameSetting.minigameSound3">เสียงดนตรี 3</div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-customMinigameSoundEffectDropdown" data-i18n="minigameSetting.uploadMinigameSoundErrorText" data-capture-style-props="display">กรุณาเลือกเสียงประกอบวงล้อ</div>
+</div>
+</div>
+<div class="my-3">
+<button class="btn system-btn btn-rounded w-100" id="btnWindowTestMinigame" data-bs-focus="false" aria-modal="true" role="dialog" data-i18n="minigameSetting.testMinigame">ทดลองกดเปิด</button>
+</div>
+</div>
+<div class="d-flex col-6 mb-3 flex-column align-items-center justify-content-space-between">
+<div class="d-flex w-100 mb-3 flex-column align-items-end justify-content-center mb-1">
+<button class="btn system-btn btn-rounded btn-outline btn-default btnSetDefault disabled" data-bs-focus="false" aria-modal="true" role="dialog" onclick="setDefaultImg()" data-i18n="minigameSetting.resetToDefault">คืนค่าเริ่มต้น</button>
+</div>
+<div>
+<div class="d-flex justify-content-center align-items-center p2 color-emerald-title-3 fw-700 mb-1 gap-1">
+<span data-i18n="minigameSetting.updatePopup">อัพโหลดหลังเปิด (Pop up)</span><img src="/assets/images/minigame/add-img.png" width="24" height="24">
+</div>
+<label class="position-relative cursor-pointer" for="imgMinigamePopup" data-capture-style-props="height width">
+<div class="box-img1 h-100">
+<img src="/assets/images/promotion/img-upload.png" class="img-fluid" id="imgMinigamePopupPlaceholder" data-capture-style-props="z-index display">
+<div class="box-img2">
+<div class="d-flex align-items-center gap-3 h-100">
+<img src="https://p88.blob.core.windows.net/images/minigame/minigame-popup.png" class="box-img3 showImagePreviewPromotionDetail imgMinigamePopupSrc">
+</div>
+</div>
+</div>
+</label>
+<input type="file" id="imgMinigamePopup" class="d-none" onchange="handleUploadBlob(event)" data-error="โปรดอัพโหลดรูป อัพโหลดหลังเปิด (Please upload Pop up impage.)">
+<div class="ms-3 text-start">
+<p class="p4 fw-400 text-gray30 mb-2">
+<b><span data-i18n="minigameSetting.uploadPopup">คำแนะนำ</span></b><span data-i18n="minigameSetting.uploadPopup2"> : ขนาดรูป 342px x 240px / สกุล png, gif, jpg </span><br><span data-i18n="minigameSetting.uploadPopup3"> โดยจะต้องเว้นพื้นที่ตรงกลางไว้ใส่คำอธิบายรางวัลด้วย</span>
+</p>
+<div class="invalid-feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="minigame-test-layout justify-content-center align-items-center flex-column" tabindex="-1" role="dialog" id="minigameTestLayout">
+<span class="p1 fw-700 mb-4" data-i18n="minigameSetting.testingOpenMinigame">กำหนดเงื่อนไขการรับโบนัส</span>
+<div class="wheel-main">
+<div class="wheel-wrapper" id="wheelShow1">
+<div class="custom-wheel wheel-8" data-deg="0">
+<div class="wheel-item-all">
+<div class="wheel-item" data-capture-style-props="--item">
+<div class="wheel-image">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/pie-1.png" class="luckywheelWheel1Src">
+</div>
+</div>
+
+
+
+
+
+
+<!-- [collapsed 7 more siblings "DIV wheel-item" with identical structure; values in data.json] -->
+</div>
+</div>
+<div class="wheel-spin" onclick="spinWheel()">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/button.png" class="luckywheelSpinBtnSrc">
+</div>
+<div class="wheel-frame">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/frame.png" class="luckywheelFrameSrc">
+</div>
+</div>
+</div>
+<div class="wheel-display-reward-main" id="wheelDisplayRewardMain">
+<div class="position-relative">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/popup.png" class="luckywheelGetRewardSrc">
+<div id="wheelDisplayRewardText" class="position-absolute top-50 start-50 translate-middle wheel-display-reward-text">
+<span data-i18n="minigameSetting.luckyWheelCongratsText1" data-capture-style-props="font-family font-size font-weight text-align color">ยินดีด้วย !!!</span>
+<p data-i18n="minigameSetting.luckyWheelCongratsText2" data-capture-style-props="font-family font-size font-weight text-align color">คุณได้รางวัลเครคิด 1,500 เครดิต</p>
+<span data-i18n="minigameSetting.luckyWheelCongratsText3" data-capture-style-props="font-family font-size font-weight text-align color">กรุณติดต่อแอดมิน</span>
+</div>
+</div>
+</div>
+</div>
+<div class="minigame-test-layout justify-content-center align-items-center flex-column" tabindex="-1" role="dialog" id="minigameTestLayout2">
+<span class="p1 fw-700 mb-4" data-i18n="minigameSetting.testingOpenMinigame">กำหนดเงื่อนไขการรับโบนัส</span>
+<div class="minigame-main">
+<div class="minigame-wrapper">
+<div class="custom-minigame minigame-6 test-spin" data-deg="0">
+<div class="minigame-item-all" id="minigameShowTest">
+<div class="card-item" id="item-wheel-1" onclick="testMinigame()" data-capture-style-props="--item">
+<div class="card-image">
+<img src="https://p88.blob.core.windows.net/images/minigame/minigame-reward.png" class="imgMinigameRewardSrc">
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- [collapsed 8 more siblings "DIV card-item" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+</div>
+<div class="wheel-display-reward-main" id="minigameDisplayRewardMain">
+<div class="position-relative">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/minigame-popup.png" class="imgMinigamePopupSrc">
+<div id="wheelDisplayRewardText" class="position-absolute top-50 start-50 translate-middle wheel-display-reward-text">
+<span data-i18n="minigameSetting.luckyWheelCongratsText1" data-capture-style-props="font-family font-size font-weight text-align color">ยินดีด้วย !!!</span>
+<p data-i18n="minigameSetting.luckyWheelCongratsText2" data-capture-style-props="font-family font-size font-weight text-align color">คุณได้รางวัลเครคิด 1,500 เครดิต</p>
+<span data-i18n="minigameSetting.luckyWheelCongratsText3" data-capture-style-props="font-family font-size font-weight text-align color">กรุณติดต่อแอดมิน</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="custom-minigame-wheel-section" id="customMinigameWheelSection"><div id="minigameWheelMain-1" class="custom-minigame-wheel-section" data-minigame-wheel="1">
+<div class="px-4">
+<div class="label-minigame-custom-v2">
+<span id="minigameSequence-1">Wheel 1</span>
+</div>
+</div>
+<div class="input-col-1-p">
+<div class="p-4">
+<div class="row mb-3">
+<div class="col-12 col-md-6">
+<div class="custom-input custom-float fistempty" id="inputMinigameRewardDescription-1">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2">
+<span class="reward-description-text" data-i18n="minigameSetting.rewardDescription">คำอธิบายรางวัล</span>
+<span class="text-red-50">
+*
+</span>
+</div>
+<div class="input-group">
+<input id="minigameRewardDescription-1" oninput="validateStep()" type="text" class="form-control" placeholder="description">
+</div>
+<div class="invalid-feedback error-reward-description-text" id="error-minigameRewardDescription-1" data-i18n="minigameSetting.rewardDescriptionErrorText" data-capture-style-props="display">กรุณากรอกคำอธิบายรางวัล</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-float fistempty" id="inputMinigameLuckyWheelRewardPercentage-1">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 reward-chance-text" data-i18n="minigameSetting.rewardRate">โอกาสออก</div>
+<div class="input-group">
+<input id="minigameLuckyWheelRewardPercentage-1" oninput="validateStep()" type="number" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" min="0" max="100" onkeyup="enforceMinMax(this)">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">%</span>
+</div>
+<div class="invalid-feedback error-reward-chance-text" id="error-minigameLuckyWheelRewardPercentage-1" data-i18n="minigameSetting.rewardRateErrorText" data-capture-style-props="display">กรุณากรอกโอกาสออก</div>
+</div>
+</div>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-rate-text" data-i18n="minigameSetting.fixBonusRateHeader">การจำกัดจำนวนครั้งในการแจกโบนัส</div>
+<div class="row ms-0">
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameNoLimitAmountBonus-1">
+<div class="p2 color-emerald-title-1 bonus-rate-unlimited-text" data-i18n="minigameSetting.fixBonusRateUnlimit">ไม่จำกัดจำนวนแจก</div>
+</label>
+</div>
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameLimitAmountBonus-1">
+<div class="p2 color-emerald-title-1 bonus-rate-limited-text" data-i18n="minigameSetting.fixBonusRatelimit">จำกัดจำนวนแจก</div>
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-notification-send" data-i18n="minigameSetting.rewardNotification">การแจ้งเตือนไปที่หน้ารวมมินิเกมส์เมื่อของรางวัลใกล้หมด</div>
+<div class="row ms-0 minigame-reset disabled fistempty" id="minigameIsAlert-1">
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameIsAlertOff-1">
+<div class="p2 color-emerald-title-1 bonus-no-notification" data-i18n="minigameSetting.rewardNoNotification">ไม่ต้องแจ้งเตือน</div>
+</label>
+</div>
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameIsAlertOn-1">
+<div class="p2 color-emerald-title-1 bonus-notification" data-i18n="minigameSetting.rewardWithNotification">แจ้งเตือน</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6">
+<div class="custom-input custom-input-disabled custom-float minigame-reset fistempty disabled" id="inputMinigameLimitAmount-1">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-setting-given-text" data-i18n="minigameSetting.rewardSettingNoMoreThan">จำกัดจำนวนการแจกไม่เกิน x ครั้ง</div>
+<div class="input-group">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="input-group-text custom-color text-count" data-i18n="minigameSetting.count" data-capture-style-props="border-radius">ครั้ง</span>
+</div>
+<div class="invalid-feedback error-bonus-setting-given-text" id="error-minigameLimitAmount-1" data-i18n="minigameSetting.rewardSettingNoMoreThanErrorText" data-capture-style-props="display">กรุณากรอกจำนวนการแจกไม่เกิน</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" id="inputminigameIsAlert-1">
+<div class="custom-input custom-input-disabled custom-float minigame-reset fistempty disabled" id="inputMinigameAlertAmount-1">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-setting-given-when-text" data-i18n="minigameSetting.notiWhenRewardToX">แจ้งเตือนเมื่อแจกรางวัลไปแล้ว x ครั้ง</div>
+<div class="input-group">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="input-group-text custom-color text-count" data-i18n="minigameSetting.count" data-capture-style-props="border-radius">ครั้ง</span>
+</div>
+<div class="invalid-feedback error-bonus-setting-given-when-text" id="error-minigameAlertAmount-1" data-i18n="minigameSetting.notiWhenRewardToXErrorText" data-capture-style-props="display">กรุณากรอกจำนวนการแจกรางวัลไม่เกิน</div>
+</div>
+</div>
+</div>
+<div class="col-12" id="customPromotionConditionTypeSection-1">
+<div class="row mb-0" id="promotion-condition-type-1-1" data-time-promotion-condition-type="1" data-time-promotion-condition-type-1="1">
+<input type="hidden" name="minigameBonuseAnyGameId-1-1" id="minigameBonuseAnyGameId-1-1">
+<input type="hidden" name="minigameBonuseName-1-1" id="minigameBonuseName-1-1">
+<input type="hidden" name="minigameBonuseType-1-1" id="minigameBonuseType-1-1">
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-float">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" id="promotionConditionTypeText-1-1" data-i18n="minigameSetting.bonusType">ประเภทโบนัส</div>
+<div class="custom-input dropdown-wrapper require customPromotionBonusTypeDropdown-template empty">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">เลือกประเภทโบนัส</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit_fix" data-chip="credit_fix" class="custom-dropdown-item" data-i18n="minigameSetting.creditDropdown">เครดิต Fixed Rate</div>
+<div data-value="credit_percentage" data-chip="credit_percentage" class="custom-dropdown-item" data-i18n="minigameSetting.percentageDropdown">เครดิต เป็น Percentage (%)</div>
+<div data-value="mini-game" data-chip="mini-game" class="custom-dropdown-item" data-i18n="minigameSetting.miniGameDropdown">สิทธิ์มินิเกมส์</div>
+</div>
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-promotionDepositTypeDropdown" data-i18n="minigameSetting.chooseDepositMethod" data-capture-style-props="display">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 d-none" id="showBoxPromotionDepositBonusDropdownSub-1-1"></div>
+<div class="col-12 col-md-6 mb-3 d-none" id="showBoxPromotionDepositBonusDropdown-1-1">
+<div class="custom-input custom-float">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" id="promotionConditionTypeText-template">มินิเกมส์</div>
+<div class="custom-input dropdown-wrapper require customPromotionDepositBonusDropdown empty" id="inputPromotionDepositBonusDropdown-1-1">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">เลือกมินิเกมส์</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<span class="search-icon input-group-text custom-color">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</span>
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body boxPromotionDepositBonusDropdown">
+</div>
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-promotionDepositBonusDropdown-1-1" data-i18n="minigameSetting.minigameDropdownErrorText" data-capture-style-props="display">กรุณาเลือกมินิเกมส์</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxPromotionBonusFixed-1-1" data-capture-style-props="display">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.creditCount">จำนวนเงิน</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputCredit-1-1">
+<input id="credit-1-1" type="text" class="form-control" placeholder="0.00" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'numberPositive')">
+<div class="text-prepend">บาท</div>
+<div class="cursor-pointer checkShowDeletePromotionConditionType-1 deleteTemplatePromotionConditionType-1-1 order-3 ps-3 m-auto" onclick="deleteTemplatePromotionConditionType('1-1')" data-capture-style-props="display">
+<img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-credit-1-1" data-i18n="minigameSetting.creditCountErrorText" data-capture-style-props="display">กรุณากรอกจำนวนเงิน</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxPromotionBonusPercentage-1-1" data-capture-style-props="display">
+<div class="row">
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.creditCountPercent">% คิดจากยอดฝาก</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPercent-1-1">
+<input id="percent-1-1" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">%</div>
+<div class="invalid-feedback" id="error-percent-1-1" data-i18n="minigameSetting.creditCountPercentErrorText" data-capture-style-props="display">กรุณากรอกจำนวนเปอร์เซ็น</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.creditNotHigherThan">สูงไม่เกิน</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPercentMax-1-1">
+<input id="percentMax-1-1" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend text-baht" data-i18n="minigameSetting.baht">บาท</div>
+<div class="cursor-pointer checkShowDeletePromotionConditionType-1 deleteTemplatePromotionConditionType-1-1 order-3 ps-3 m-auto" onclick="deleteTemplatePromotionConditionType('1-1')" data-capture-style-props="display">
+<img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-percentMax-1-1" data-i18n="minigameSetting.creditNotHigherThanErrorText" data-capture-style-props="display">กรุณากรอกจำนวนสูงไม่เกิน</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxPromotionBonusPoint-1-1" data-capture-style-props="display">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.pointCount">จำนวนแต้ม</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPoint-1-1">
+<input id="point-1-1" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">แต้ม</div>
+<div class="cursor-pointer checkShowDeletePromotionConditionType-1 deleteTemplatePromotionConditionType-1-1 order-3 ps-3 m-auto" onclick="deleteTemplatePromotionConditionType('1-1')" data-capture-style-props="display">
+<img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-point-1-1" data-i18n="minigameSetting.pointCountErrorText" data-capture-style-props="display">กรุณากรอกจำนวนแต้ม</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxPromotionBonusMiniGameAndLottery-1-1" data-capture-style-props="display">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.rightsCount">จำนวนสิทธิ์</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputQuota-1-1">
+<input id="quota-1-1" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">สิทธิ์</div>
+<div class="cursor-pointer checkShowDeletePromotionConditionType-1 deleteTemplatePromotionConditionType-1-1 order-3 ps-3 m-auto" onclick="deleteTemplatePromotionConditionType('1-1')" data-capture-style-props="display">
+<img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-quota-1-1" data-i18n="minigameSetting.rightsCountErrorText" data-capture-style-props="display">กรุณากรอกจำนวนสิทธิ์</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxPromotionBonusReward-1-1" data-capture-style-props="display">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.rewardName">ระบุชื่อของรางวัล</div>
+<div class="custom-input custom-float d-flex justify-content-between align-items-center fistempty" id="inputRewardName-1-1">
+<input id="rewardName-1-1" type="text" class="form-control" oninput="validateStep()">
+<div class="cursor-pointer checkShowDeletePromotionConditionType-1 deleteTemplatePromotionConditionType-1-1 order-3 ps-3 m-auto" onclick="deleteTemplatePromotionConditionType('1-1')" data-capture-style-props="display">
+<img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+</div>
+<div class="invalid-feedback error-mini-game-bonus-type" id="error-rewardName-1-1" data-i18n="minigameSetting.rewardNameErrorText" data-capture-style-props="display">กรุณากรอกชื่อของรางวัล</div>
+</div>
+</div></div>
+<button class="btn system-btn btn-outline btn-rounded btn-add-minigame" onclick="addTemplatePromotionConditionType(1)">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17316C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8078C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C21.9971 9.34871 20.9426 6.80684 19.0679 4.9321C17.1932 3.05736 14.6513 2.00287 12 2ZM12 20.3333C10.3518 20.3333 8.74066 19.8446 7.37025 18.9289C5.99984 18.0132 4.93174 16.7117 4.30101 15.189C3.67028 13.6663 3.50525 11.9908 3.82679 10.3742C4.14834 8.75774 4.94201 7.27288 6.10745 6.10744C7.27288 4.94201 8.75774 4.14833 10.3743 3.82679C11.9908 3.50525 13.6663 3.67027 15.189 4.301C16.7117 4.93173 18.0132 5.99984 18.9289 7.37025C19.8446 8.74066 20.3333 10.3518 20.3333 12C20.3309 14.2094 19.4522 16.3276 17.8899 17.8899C16.3276 19.4522 14.2094 20.3309 12 20.3333ZM16.1667 12C16.1667 12.221 16.0789 12.433 15.9226 12.5893C15.7663 12.7455 15.5543 12.8333 15.3333 12.8333H12.8333V15.3333C12.8333 15.5543 12.7455 15.7663 12.5893 15.9226C12.433 16.0789 12.221 16.1667 12 16.1667C11.779 16.1667 11.567 16.0789 11.4107 15.9226C11.2545 15.7663 11.1667 15.5543 11.1667 15.3333V12.8333H8.66667C8.44566 12.8333 8.23369 12.7455 8.07741 12.5893C7.92113 12.433 7.83334 12.221 7.83334 12C7.83334 11.779 7.92113 11.567 8.07741 11.4107C8.23369 11.2545 8.44566 11.1667 8.66667 11.1667H11.1667V8.66667C11.1667 8.44565 11.2545 8.23369 11.4107 8.07741C11.567 7.92113 11.779 7.83333 12 7.83333C12.221 7.83333 12.433 7.92113 12.5893 8.07741C12.7455 8.23369 12.8333 8.44565 12.8333 8.66667V11.1667H15.3333C15.5543 11.1667 15.7663 11.2545 15.9226 11.4107C16.0789 11.567 16.1667 11.779 16.1667 12Z" fill="#E9E9E9"></path>
+</svg>
+<span class="add-bonus-btn-text" data-i18n="minigameSetting.addBonus">เพิ่มโบนัส</span>
+</button>
+</div>
+</div>
+</div><!-- [collapsed 7 more siblings "DIV custom-minigame-wheel-section" with identical structure; values in data.json] --></div>
+</div>
+</div>

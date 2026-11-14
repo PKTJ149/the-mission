@@ -1,0 +1,1494 @@
+<div class="page-content">
+<div class="container-fluid full-container">
+<svg width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="filter-gradient" x1="7.91113" y1="0.666748" x2="7.91113" y2="17.3334" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#50A198"></stop>
+<stop offset="1" stop-color="#FEDB6B"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="inner-container full-flex">
+<div class="custom-card full-card full-flex">
+<div class="title-header-custom-mission">
+<div class="group-title-header">
+<h4 class="mb-0 mission-page" data-i18n="missionPage.title">ตั้งค่าภารกิจ</h4>
+<div class="group-title-header-path">
+<img src="/assets/images/mission/icon-mission.png" width="24" height="24">
+<span><span class="mission-page" data-i18n="missionPage.missionListHeader">รายชื่อภารกิจ</span> &gt; <span class="text-teal-green mission-page" data-i18n="missionPage.createMission">สร้างภารกิจ</span></span>
+</div>
+</div>
+</div>
+<div class="mission-copy-setting-group">
+<span class="mission-copy-setting-title mission-page" data-i18n="missionPage.missionCopySetting">คัดลอกการตั้งค่าจากภารกิจอื่น</span>
+<div class="col-auto">
+<button id="selectMissionCopy" class="custom-filter">
+<div class="input-fake single mission-page" data-i18n="missionPage.missionChoose">เลือกภารกิจ</div>
+<span class="filter-value"></span>
+<span class="filter-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+<span class="filter-close">
+<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33716 2.66285C9.23285 2.55858 9.09141 2.5 8.94393 2.5C8.79644 2.5 8.655 2.55858 8.5507 2.66285L6 5.21354L3.4493 2.66285C3.345 2.55858 3.20356 2.5 3.05607 2.5C2.90859 2.5 2.76715 2.55858 2.66285 2.66285C2.55858 2.76715 2.5 2.90859 2.5 3.05607C2.5 3.20356 2.55858 3.345 2.66285 3.4493L5.21354 6L2.66285 8.5507C2.55858 8.655 2.5 8.79644 2.5 8.94393C2.5 9.09141 2.55858 9.23285 2.66285 9.33716C2.76715 9.44143 2.90859 9.5 3.05607 9.5C3.20356 9.5 3.345 9.44143 3.4493 9.33716L6 6.78646L8.5507 9.33716C8.655 9.44143 8.79644 9.5 8.94393 9.5C9.09141 9.5 9.23285 9.44143 9.33716 9.33716C9.44143 9.23285 9.5 9.09141 9.5 8.94393C9.5 8.79644 9.44143 8.655 9.33716 8.5507L6.78646 6L9.33716 3.4493C9.44143 3.345 9.5 3.20356 9.5 3.05607C9.5 2.90859 9.44143 2.76715 9.33716 2.66285Z"></path>
+</svg></span></button>
+<div id="dropdownSelectMissionCopy" class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div class="custom-dropdown-item" data-value="uuid-1">QA Test Mission 0911</div><div class="custom-dropdown-item" data-value="uuid-2">QA Mission Rewards 20261015 Updated</div><div class="custom-dropdown-item" data-value="uuid-3">QA Happy Mission Retest 20261015</div><div class="custom-dropdown-item" data-value="uuid-4">ภารกิจ 001</div></div>
+</div>
+</div>
+</div>
+<button class="mission-btn" disabled="" id="btnCopyMission">
+<span class="mission-page" data-i18n="missionPage.missionConfirmCopy">ยินยันคัดลอก</span>
+</button>
+</div>
+<div class="group-content-page">
+<div class="main-content-setting-mission" id="dropdownMainMissionSetting">
+<div class="dropdown-main">
+<div class="dropdown-mission-setting" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownMissionSetting1" aria-expanded="true" aria-controls="openDropdownMissionSetting1">
+<div class="group-title-mission-setting">
+<span class="title-mission-setting mission-page" data-i18n="missionPage.mbsHeader">ตั้งค่าข้อมูลพื้นฐานภารกิจ</span>
+<div class="group-mission-setting-status">
+<span class="mission-setting-status-title mission-page" data-i18n="missionPage.dataNotComplete" id="missionBasicStatusTitle">ข้อมูลไม่สมบูรณ์</span>
+<img src="/assets/images/mission/icon-arrow-down.png" width="32" height="32" class="icon-arrow-down">
+</div>
+</div>
+</div>
+<div class="box-content-mission-setting collapse show" id="openDropdownMissionSetting1" data-bs-parent="#dropdownMainMissionSetting">
+<div class="group-content-mission-setting" id="rootScrollMission">
+<div class="group-item">
+<div class="group-content-mission-setting-item">
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionBasicMissionStatus" checked="">
+</div>
+<span class="switch-title mission-page" data-i18n="missionPage.mbsOnOffMission">เปิด/ปิดการใช้งานภารกิจ</span>
+</div>
+<div class="group-preview-mission">
+<div class="img-preview-mission">
+<img src="https://cdn.lsmloyalty.com/images/mission/cover/preview-pic.png" class="img-preview-mission-cover missionBasicInputFileMission">
+<div class="box-title-mission">
+<div class="box-title-mission-text">
+<span class="text-title-mission" id="displayMissionName"></span>
+<span id="displaySubMissionCount">1</span><span class="mission-page" data-i18n="missionPage.mbsSubMission">ภารกิจย่อย</span>
+</div>
+<div class="box-title-mission-date">
+<img src="/assets/images/mission/icon-clock.png">
+<span id="displayMissionTimeAndReward">1/10/2024 00:00 - 7/10/2024 23:59</span>
+</div>
+</div>
+</div>
+<span class="title-preview-mission mission-page" data-i18n="missionPage.mbsUploadImageEx">ตัวอย่างรูปภาพภารกิจ</span>
+</div>
+<div class="group-upload-mission">
+<span class="label-upload-mission mission-page" data-i18n="missionPage.mbsUploadImage">อัพโหลดรูปภาพภารกิจ</span>
+<div class="group-upload-and-select">
+<label class="mission-btn-outline btn-upload-mission" for="missionBasicInputFileMission">
+<input type="file" id="missionBasicInputFileMission" class="d-none" onchange="handleFileMission(event)">
+<img src="/assets/images/mission/image-upload.png" width="16" height="16">
+<span class="mission-page" data-i18n="missionPage.mbsUploadImage">อัพโหลดรูปภาพภารกิจ</span>
+</label>
+<span class="text-select-mission mission-page" data-i18n="missionPage.or">หรือ</span>
+<span class="text-select-mission-link mission-page" data-i18n="missionPage.mbsSelectFromSyst" onclick="showPopupImageStyle()">เลือกรูปจากระบบ</span>
+</div>
+<div>
+<p class="text-mission-link-note mission-page" data-i18n="missionPage.uploadDescription2">ขนาดรูปภาพที่แนะนำ : 312px x 390px และรูปภาพจะต้องเป็น นามสกุลไฟล์ png, jpg และ gif เท่านั้น</p>
+<p class="text-mission-link-note-advice">
+<span class="mission-page" data-i18n="missionPage.uploadDescription3">คำแนะนำ:</span>
+<span class="mission-page" data-i18n="missionPage.uploadDescription4">ควรเว้นช่วงด้านล่างอย่างน้อย 72px เพื่อให้สามารถอ่านรายละเอียดภารกิจได้ชัดเจน เหมือนรูปตัวอย่าง</span>
+</p>
+</div>
+</div>
+<div class="group-color-mission">
+<span class="label-color-mission mission-page" data-i18n="missionPage.mbsSelectMissionColor">กำหนดสีประจำภารกิจ</span>
+<p class="text-color-mission mission-page" data-i18n="missionPage.mbsSelectMissionColorText">เมื่อกำหนดสีประจำภารกิจแล้วสีการแสดงผลต่าง ๆ ของภารกิจนี้จะเป็นสี ตามที่คุณกำหนด</p>
+<div class="group-change-color">
+<div class="change-color-item">
+<span class="text-change-color mission-page" data-i18n="missionPage.mbsSelectMissionColorSet">สีพื้นหลัง / ลิงก์ / ปุ่ม</span>
+<div class="group-btn">
+<div class="asColorPicker-wrap"><input type="text" class="getColorBGAndLinkAndBTN asColorPicker-input" data-mode="gradient" data-value="linear-gradient(90deg, #BA8A46 0%, #F5E386 50%, #BA8A46 100%)" value="Linear" data-capture-style-props="width height"><a href="#" class="asColorPicker-clear"></a><div class="asColorPicker-trigger"><span data-capture-style-props="background"></span></div></div>
+<span class="change-color-mission-link mission-page" data-i18n="missionPage.resetToDefault" onclick="resetColorMission('bg')">คืนค่าเริ่มต้น</span>
+</div>
+</div>
+<div class="change-color-item">
+<span class="text-change-color mission-page" data-i18n="missionPage.mbsSelectMissionColorSet2">สีตัวอักษรบนพื้นหลัง/ปุ่ม</span>
+<div class="group-btn">
+<div class="asColorPicker-wrap"><input type="text" class="getColorTextAndBTN asColorPicker-input" data-mode="simple" data-value="#1e1e1e" value="#1e1e1e" data-capture-style-props="width height text-transform"><a href="#" class="asColorPicker-clear"></a><div class="asColorPicker-trigger"><span data-capture-style-props="background"></span></div></div>
+<span class="change-color-mission-link mission-page" data-i18n="missionPage.resetToDefault" onclick="resetColorMission('text')">คืนค่าเริ่มต้น</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.mbsMissionInfo">ข้อมูลพื้นฐานภารกิจ</span>
+</div>
+<div class="multi-language-body-mission">
+<div class="multi-language-header">
+<span class="text-white fw-700 mission-page" data-i18n="missionPage.langaugeSettingText1">กำหนดรายละเอียดแต่ละภาษา</span><span class="p3 mission-page" data-i18n="missionPage.langaugeSettingText2"> เมื่อกำหนดรายละเอียดให้ภาษาใดแล้ว ภาษานั้นจะสามารถเลือกให้เแสดงที่หน้าเล่นของสมาชิกได้</span>
+</div>
+<div class="multi-language-button-div">
+<button class="btn multi-lang-button btn-lang-th multi-lang-selected" lang-select-btn="th" onclick="selectMultiLanguage('th')">
+<span class="row">
+<span class="col-12">
+<span class="mission-page" data-i18n="missionPage.langaugeDefault">ค่าเริ่มต้น (ไทย)</span>
+</span>
+<span class="col-12">
+<span class="p3 multi-setting-th multi-lang-status-t mission-page" data-i18n="missionPage.setting">(ตั้งค่าแล้ว)</span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-en" lang-select-btn="en" onclick="selectMultiLanguage('en')">
+<span class="row">
+<span class="col-4">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12">EN;</span>
+<span class="col-12 multi-setting-en multi-lang-status-f p3 mission-page" data-i18n="missionPage.notSetting">(ยังไม่กำหนด)</span>
+</span>
+</span>
+</span>
+</button>
+<button class="btn multi-lang-button btn-lang-tl" lang-select-btn="tl" onclick="selectMultiLanguage('tl')">
+<span class="row">
+<span class="col-4">
+<svg data-capture-gap="opening tag attributes withheld by browser tool output filter"></svg>
+</span>
+<span class="col-8">
+<span class="row">
+<span class="col-12">TL;</span>
+<span class="col-12 multi-setting-tl multi-lang-status-f p3 mission-page" data-i18n="missionPage.notSetting">(ยังไม่กำหนด)</span>
+</span>
+</span>
+</span>
+</button>
+</div>
+</div>
+<div class="group-input">
+<label for="" class="labal mission-page" data-i18n="missionPage.mbsMissionName">ชื่อภารกิจ</label>
+<div class="input-outer">
+<input type="text" class="input" placeholder="" id="missionBasicMissionName" data-name-lang="th" oninput="changeMissionName(event)" data-capture-style-props="border-color">
+<input type="text" class="input display-none input-promotion-name-en" id="missionBasicMissionName-en" data-name-lang="en" oninput="changeMissionName(event)">
+<input type="text" class="input display-none input-promotion-name-tl" id="missionBasicMissionName-tl" data-name-lang="tl" oninput="changeMissionName(event)">
+</div>
+</div>
+<div class="group-input-thin">
+<label for="" class="labal mission-page" data-i18n="missionPage.mbsMissionCondition">เงื่อนไขภารกิจ</label>
+<div class="input-thin">
+<div class="textarea-condition-th">
+<textarea class="input-promotion-condition-th" data-condition-lang="th" id="missionConditionHtml" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+<div class="textarea-condition-en" data-capture-style-props="display">
+<textarea class="display-none input-promotion-condition-en" data-condition-lang="en" id="missionConditionHtml-en" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+<div class="textarea-condition-tl" data-capture-style-props="display">
+<textarea class="display-none input-promotion-condition-tl" data-condition-lang="tl" id="missionConditionHtml-tl" data-capture-style-props="display"></textarea><!-- CKEditor5 classic editor UI generated at runtime by ckeditor.js (toolbar markup omitted); editable content below --><div data-capture="ckeditor5-ui-omitted" data-ck-class="ck ck-reset ck-editor ck-rounded-corners" data-editable-class="ck-restricted-editing_mode_standard ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline"><p><br data-cke-filler="true"></p></div>
+</div>
+</div>
+</div>
+<div class="group-input-thin">
+<label for="" class="labal mission-page" data-i18n="missionPage.mbsMissionConditionType">รูปแบบการทำภารกิจ</label>
+<div class="group-btn-mission-format">
+<label class="mission-radio-label active" for="missionBasicMissionFormat1">
+<input type="radio" name="missionBasicMissionFormat" value="option1" id="missionBasicMissionFormat1" checked="" onclick="changeRadio(event)" onchange="changeRadio(event)">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-no-sort-mission.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title mission-page" data-i18n="missionPage.mbsMissionCondition11">ไม่เรียงลำดับการทำภารกิจ</div>
+<div class="mission-radio-subtitle mission-page" data-i18n="missionPage.mbsMissionCondition12">สามารถทำภารกิจใดก่อนก็ได้</div>
+</div>
+</div>
+</label>
+<label class="mission-radio-label" for="missionBasicMissionFormat2">
+<input type="radio" name="missionBasicMissionFormat" value="option2" id="missionBasicMissionFormat2" onclick="changeRadio(event)">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-sort-mission.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title mission-page" data-i18n="missionPage.mbsMissionCondition21">เรียงลำดับการทำภารกิจ</div>
+<div class="mission-radio-subtitle mission-page" data-i18n="missionPage.mbsMissionCondition22">ต้องทำภารกิจตามลำดับที่กำหนด</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="group-btn-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionBasicMissionShowTime">
+</div>
+<div class="group-title-subtitle">
+<span class="title-label mission-page" data-i18n="missionPage.mbsOnOffCountdown">เปิด / ปิด การแสดงผลการนับเวลาถอยหลังภารกิจ</span>
+<span class="subtitle-label mission-page" data-i18n="missionPage.mbsOnOffCountdownText">เมื่อปิดการแสดงผลสมาชิกจะไม่เห็นการนับเวลาถอยหลังของภารกิจนี้</span>
+</div>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.mbsMissionInfo">ข้อมูลพื้นฐานภารกิจ</span>
+</div>
+<div class="custom-input group-input">
+<div class="d-flex align-items-center justify-content-between">
+<label class="form-label labal mission-page" data-i18n="missionPage.availableAgent">Agent ที่ใช้ได้</label>
+</div>
+<div class="custom-input custom-float pb-2">
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper empty custom-invalid multiple" id="dropdownSelectMissionAgent">
+<div class="dropdown-toggler dropdown-toggler-mission">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake multiple">Choose Agent</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body" id="agent-dropdown-body"><div data-value="501" data-chip="superx" class="custom-dropdown-item">superx</div><div data-value="669" data-chip="superxx" class="custom-dropdown-item">superxx</div></div>
+</div>
+<div class="invalid-feedback mission-page" id="error-selectAgentDropdown" data-i18n="missionPage.selectAgentError" style="">กรุณาเลือก Agent</div>
+</div>
+</div>
+<div class="text-start invalid-feedback invalid-feedback-minigame-name"></div>
+</div>
+<div class="box-warning-mission">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission">
+<span class="mission-page" data-i18n="missionPage.mbsWarningMissionText1">หากไม่ได้เปิดใช้งานการกำหนดสิทธิ์</span><br>
+<span class="mission-page" data-i18n="missionPage.mbsWarningMissionText2">เฉพาะ Agent, Agent ทุกคนจะใช้ได้</span>
+</span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.mbsMissionLimitMember">จำกัดสิทธิ์สมาชิกที่สามารถทำภารกิจได้</span>
+</div>
+<div class="group-btn-switch-label">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionBasicSwichEnableCustomerPrivilege" onclick="togglemissionBasicSwich1(this)">
+</div>
+<div class="group-title-subtitle">
+<span class="title-label mission-page" data-i18n="missionPage.mbsOnOffMissionLimitMember">เปิด / ปิดใช้งานการจำกัดสิทธิ์สมาชิก</span>
+</div>
+</div>
+<div class="box-warning-mission missionBasicSwichEnableCustomerPrivilege">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission">
+<span class="mission-page" data-i18n="missionPage.mbsWarningMissionText1">หากไม่ได้เปิดใช้งานการกำหนดสิทธิ์</span><br>
+<span class="mission-page" data-i18n="missionPage.mbsWarningMissionText3">เฉพาะสมาชิก, สมาชิกทุกคนจะใช้ได้</span>
+</span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-windows-limit-member missionBasicSwichEnableCustomerPrivilege2 d-none">
+<label class="labal mission-page" data-i18n="missionPage.mbsOnOffMissionMemberCondition">กำหนดสิทธิ์ให้สมาชิกเงื่อนไขใดทำภารกิจได้</label>
+<div id="group-windows-limit-member-content" class="group-windows-limit-member-content"><div class="box-type-member missionBasicSwichEnableCustomerPrivilege2 d-none" id="type-member-1" data-type-member="1">
+<input type="hidden" name="typeMember-template" id="typeMember-1">
+<input type="hidden" name="groupMember-template" id="groupMember-1">
+<input type="hidden" name="ageMemberTimeType-template" id="ageMemberTimeType-1">
+<input type="hidden" name="ageMemberDateType-template" id="ageMemberDateType-1">
+<div class="type-member-header d-flex justify-content-between align-items-center">
+<span class="mission-page" data-i18n="missionPage.mbsMemberType">ประเภทสมาชิก</span> <span class="text-type-member">1</span>
+<div class="group-btn-delete" onclick="deleteTemplateTypeMember(1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+<div class="type-member-item">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.mbsMemberType">ประเภทสมาชิก</label>
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper dropdownSelectTypeMember require empty" data-value="inputTypeMember-1">
+<div class="dropdown-toggler dropdown-toggler-mission">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake single">Select member type</div>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="member-group" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsMemberGroup">กลุ่มสมาชิก</div>
+<div data-value="life-span" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsMembershipDuration">อายุการใช้งานของสมาชิก</div>
+<div data-value="created-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsOnRegisterDate">วันที่สมัครของสมาชิก</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback text-p3-regular mission-page" data-i18n="missionPage.mbsMemberTypeError" id="error-TypeMember-1" data-capture-style-props="display">กรุณาเลือกประเภทสมาชิก</div>
+</div>
+</div>
+<div class="groupGroupMember group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.mbsMemberGroup">กลุ่มสมาชิก</label>
+<div class="custom-input custom-float pb-2">
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper dropdownSelectGroupMember empty multiple">
+<div class="dropdown-toggler dropdown-toggler-mission">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake multiple">Select member type</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body" id="agent-dropdown-body">
+<div class="custom-dropdown-item" data-value="1349">SEO (กลุ่มสมาชิกทั่วไป)</div><!-- [collapsed 10 more siblings "DIV custom-dropdown-item" with identical structure; values in data.json] --></div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.mbsMemberGroupError" id="error-GroupMember-1" data-capture-style-props="display">กรุณาเลือกกลุ่มสมาชิก</div>
+</div>
+</div>
+</div>
+<div class="groupAgeMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.mbsMembershipDuration">อายุการใช้งานของสมาชิก</label>
+<div class="group-dropdown group-dropdown-age group-dropdown-age-input">
+<div class="col-auto dropdownSelectAgeMemberTimeType require fill">
+<button class="custom-filter custom-filter-time" data-capture-style-props="width">
+<div class="input-fake single">
+ตั้งแต่
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="from" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.from">ตั้งแต่</div>
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.equal">เท่ากับ</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="text" class="input input-age-member-value" id="inputAgeMemberValue-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAgeMemberDateType require fill">
+<button class="custom-filter custom-filter-date" data-capture-style-props="width">
+<div class="input-fake single">daily</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body"><div data-value="daily" data-chip="daily" class="custom-dropdown-item selected">daily</div><div data-value="weekly" data-chip="weekly" class="custom-dropdown-item">weekly</div><div data-value="monthly" data-chip="monthly" class="custom-dropdown-item">monthly</div><div data-value="yearly" data-chip="yearly" class="custom-dropdown-item">yearly</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.mbsMembershipError" id="error-AgeMemberTimeType-1" data-capture-style-props="display">กรุณาเลือกและกรอกข้อมูลอายุการใช้งานให้ครบถ้วน</div>
+</div>
+<div class="groupRegisterMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.register">สมัครสมาชิก</label>
+<div class="group-dropdown group-dropdown-age group-dropdown-register-input">
+<div class="col-auto dropdownSelectRegisterMemberDateType require fill">
+<button class="custom-filter custom-filter-time" data-capture-style-props="width">
+<div class="input-fake single">
+วันที่
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="on-date" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.date">วันที่</div>
+<div data-value="before-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.beforeDate">ก่อนวันที่</div>
+<div data-value="after-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.afterDate">หลังวันที่</div>
+<div data-value="between-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.betweenDate">ระหว่างวันที่</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-100">
+<div class="custom-input">
+<input type="text" class="date-center-input form-control custom-date-flatpickr flatpickr-input" id="inputRegisterMemberValue-1" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="choose date" oninput="" readonly="readonly">
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.registerDateError" id="error-RegisterMemberDateType-1" data-capture-style-props="display">กรุณาเลือกและกรอกข้อมูลวันที่สมัครสมาชิกให้ครบถ้วน</div>
+</div>
+</div>
+</div></div>
+</div>
+<template id="templateTypeMember">
+<div class="box-type-member missionBasicSwichEnableCustomerPrivilege2" id="type-member-template" data-type-member="template">
+<input type="hidden" name="typeMember-template" id="typeMember-template">
+<input type="hidden" name="groupMember-template" id="groupMember-template">
+<input type="hidden" name="ageMemberTimeType-template" id="ageMemberTimeType-template">
+<input type="hidden" name="ageMemberDateType-template" id="ageMemberDateType-template">
+<div class="type-member-header d-flex justify-content-between align-items-center">
+<span class="mission-page" data-i18n="missionPage.mbsMemberType">ประเภทสมาชิก</span> <span class="text-type-member">1</span>
+<div class="group-btn-delete">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+<div class="type-member-item">
+<div class="group-input custom-input custom-float">
+<label class="labal mission-page" data-i18n="missionPage.mbsMemberType">ประเภทสมาชิก</label>
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper dropdownSelectTypeMember require">
+<div class="dropdown-toggler dropdown-toggler-mission">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake single"></div>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="member-group" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsMemberGroup">
+กลุ่มสมาชิก
+</div>
+<div data-value="life-span" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsMembershipDuration">
+อายุการใช้งานของสมาชิก
+</div>
+<div data-value="created-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.mbsOnRegisterDate">
+วันที่สมัครของสมาชิก
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกประเภทสมาชิก
+</div>
+</div>
+</div>
+<div class="groupGroupMember group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.mbsMemberGroup">กลุ่มสมาชิก</label>
+<div class="custom-input custom-float pb-2">
+<div class="custom-dropdown-wrapper custom-input dropdown-wrapper dropdownSelectGroupMember">
+<div class="dropdown-toggler dropdown-toggler-mission">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</div>
+<div class="input-fake multiple"></div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body" id="agent-dropdown-body">
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณาเลือกกลุ่มสมาชิก</div>
+</div>
+</div>
+</div>
+<div class="groupAgeMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.mbsMembershipDuration">อายุการใช้งาน</label>
+<div class="group-dropdown group-dropdown-age group-dropdown-age-input">
+<div class="col-auto dropdownSelectAgeMemberTimeType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="from" class="custom-dropdown-item mission-page" data-i18n="missionPage.from">
+ตั้งแต่
+</div>
+<div data-value="equal" class="custom-dropdown-item mission-page" data-i18n="missionPage.equal">
+เท่ากับ
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-outer">
+<input type="text" class="input input-age-member-value" id="inputAgeMemberValue-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAgeMemberDateType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="daily" class="custom-dropdown-item mission-page" data-i18n="missionPage.day">
+วัน
+</div>
+<div data-value="weekly" class="custom-dropdown-item mission-page" data-i18n="missionPage.week">
+สัปดาห์
+</div>
+<div data-value="monthly" class="custom-dropdown-item mission-page" data-i18n="missionPage.month">
+เดือน
+</div>
+<div data-value="yearly" class="custom-dropdown-item mission-page" data-i18n="missionPage.year">
+ปี
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณาเลือกและกรอกข้อมูลอายุการใช้งานให้ครบถ้วน</div>
+</div>
+<div class="groupRegisterMember group-input custom-input custom-float d-none">
+<label class="labal mission-page" data-i18n="missionPage.register">สมัครสมาชิก</label>
+<div class="group-dropdown group-dropdown-age group-dropdown-register-input">
+<div class="col-auto dropdownSelectRegisterMemberDateType require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single"></div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="on-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.date">
+วันที่
+</div>
+<div data-value="before-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.beforeDate">
+ก่อนวันที่
+</div>
+<div data-value="after-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.afterDate">
+หลังวันที่
+</div>
+<div data-value="between-date" class="custom-dropdown-item mission-page" data-i18n="missionPage.betweenDate">
+ระหว่างวันที่
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-100">
+<div class="custom-input">
+<input type="text" class="date-center-input form-control custom-date-flatpickr flatpickr-input" id="inputRegisterMemberValue-template" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="choose date" oninput="" readonly="readonly">
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกและกรอกข้อมูลวันที่สมัครสมาชิกให้ครบถ้วน
+</div>
+</div>
+</div>
+</div>
+</template>
+<div class="d-flex justify-content-center missionBasicSwichEnableCustomerPrivilege2 d-none">
+<button class="mission-btn-outline" onclick="addTemplateTypeMember()">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="mission-create" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.mbsAddMemberType">เพิ่มประเภทสมาชิก</span>
+</button>
+</div>
+<div class="group-btn-switch-label align-items-start missionBasicSwichEnableCustomerPrivilege2 d-none">
+<div class="mission-switch-btn mt-2">
+<input class="mission-switch-check-input" type="checkbox" id="missionBasicSwichEnableVisible" onclick="togglemissionBasicSwich1(this)">
+</div>
+<div class="group-title-subtitle">
+<span class="title-label mission-page" data-i18n="missionPage.mbsOnOffRestrictedVisibility">เปิด / ปิดใช้งาน การจำกัดการมองเห็นภารกิจของสมาชิกที่ไม่มีสิทธิ์ทำภารกิจ</span>
+<span class="subtitle-label mission-page" data-i18n="missionPage.mbsRestrictedVisibilityText">เมื่อเปิดใช้งานสมาชิกที่ไม่ได้ถูกกำหนดสิทธิ์ให้สามารถทำภารกิจนี้ได้จะไม่สามารถมองเห็นภารกิจนี้ที่หน้าเล่นของตัวเอง</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropdown-main">
+<div class="dropdown-mission-setting collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownMissionSetting2" aria-expanded="true" aria-controls="openDropdownMissionSetting2">
+<div class="group-title-mission-setting">
+<span class="title-mission-setting mission-page" data-i18n="missionPage.missionDurationAndReward">ตั้งค่าระยะเวลาภารกิจและของรางวัล</span>
+<div class="group-mission-setting-status">
+<span class="mission-setting-status-title mission-page" data-i18n="missionPage.settingMissionNotComplete" id="missionTimeAndRewardStatusTitle">ข้อมูลไม่สมบูรณ์</span>
+<img src="/assets/images/mission/icon-arrow-down.png" width="32" height="32" class="icon-arrow-down">
+</div>
+</div>
+</div>
+<div class="box-content-mission-setting collapse" id="openDropdownMissionSetting2" data-bs-parent="#dropdownMainMissionSetting">
+<div class="group-content-mission-setting" id="rootScrollMission">
+<div class="group-item">
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionDuration">ระยะเวลาเริ่มต้นและสิ้นสุดภารกิจ</span>
+</div>
+<div class="group-input group-input-gap">
+<label for="" class="labal">
+<span class="mission-page" data-i18n="missionPage.missionDurationSettingStart">กำหนดวันและเวลาเริ่มต้นภารกิจ</span> <span class="text-required">*</span>
+</label>
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxStartMission" onchange="handleMissionTimeAndRewardCheckboxStartMission(this)">
+<label for="missionTimeAndRewardCheckboxStartMission" class="label-checkbox mission-page" data-i18n="missionPage.missionDurationStart">เริ่มภารกิจทันทีที่สร้างเสร็จ</label>
+</div>
+<div class="custom-input group-date-time">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input date-picker" id="missionTimeAndRewardInputStartMissionDate" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="Select date" oninput="handleMissionTimeAndRewardInput()" readonly="readonly">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input time-picker" id="missionTimeAndRewardInputStartMissionTime" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="Select time" oninput="handleMissionTimeAndRewardInput()" readonly="readonly">
+</div>
+<div class="invalid-feedback mission-page" id="error-StartMissionDate-template" data-i18n="missionPage.missionDurationErrorText1" data-capture-style-props="display">กรุณาเลือกและกรอกข้อมูลวันที่เริ่มต้นภารกิจให้ครบถ้วน</div>
+</div>
+<div class="group-input group-input-gap">
+<label for="" class="labal">
+<span class="mission-page" data-i18n="missionPage.missionDurationSettingEnd">กำหนดวันและเวลาสิ้นสุดภารกิจ</span> <span class="text-required">*</span>
+</label>
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxNotEndMission" onchange="handleMissionTimeAndRewardCheckboxNotEndMission(this)">
+<label for="missionTimeAndRewardCheckboxNotEndMission" class="label-checkbox mission-page" data-i18n="missionPage.missionDurationInfinite">ภารกิจไม่มีวันสิ้นสุด</label>
+</div>
+<div class="custom-input group-date-time">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input date-picker" id="missionTimeAndRewardInputEndMissionDate" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="Select date" oninput="handleMissionTimeAndRewardInput()" readonly="readonly">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input time-picker" id="missionTimeAndRewardInputEndMissionTime" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="Select time" oninput="handleMissionTimeAndRewardInput()" readonly="readonly">
+</div>
+<div class="invalid-feedback mission-page" id="error-EndMissionDate-template" data-i18n="missionPage.missionDurationErrorText2" data-capture-style-props="display">กรุณาเลือกและกรอกข้อมูลวันที่สิ้นสุดภารกิจให้ครบถ้วน</div>
+</div>
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionActiveTime">รอบเวลาทำภารกิจ</span>
+</div>
+<p class="text-p3-regular mission-page" data-i18n="missionPage.missionActiveTimeSubText">กำหนดช่วงวันและเวลาที่สมาชิกสามารถทำภารกิจได้ โดยจะสามารถกำหนดให้อยู่ในช่วงระยะเวลาเริ่มต้น - สิ้นสุด ภารกิจเท่านั้น</p>
+<div class="group-element-time-mission">
+<div class="group-btn-time-mission">
+<label class="mission-btn-outline btn-time-mission active" for="missionTimeAndRewardRadioTimeSetCustom">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="mission-page" data-i18n="missionPage.ownSetting">กำหนดเอง</span>
+</label>
+<label class="mission-btn-outline btn-time-mission" for="missionTimeAndRewardRadioTimeSetDaily">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="mission-page" data-i18n="missionPage.everyDay">ทุกวัน</span>
+</label>
+<label class="mission-btn-outline btn-time-mission" for="missionTimeAndRewardRadioTimeSetWeekly">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="mission-page" data-i18n="missionPage.everyWeek">ทุกสัปดาห์</span>
+</label>
+<label class="mission-btn-outline btn-time-mission" for="missionTimeAndRewardRadioTimeSetMonthly">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><span class="mission-page" data-i18n="missionPage.everyMonth">ทุกเดือน</span>
+</label>
+<!--capture: unmatched </div>
+ dropped--><div class="group-select-time-mission">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionSelectDateType">เลือกรูปแบบวัน ที่ต้องการกำหนด</span>
+<div class="group-radio-time-mission">
+<div class="group-radio custom-radio">
+<input type="radio" name="MissionRoundTypeCustom" id="MissionRoundTypeCustomDayOfWeek" value="day-of-week" onchange="handleMissionRoundTypeCustom(event)" checked="">
+<span class="checkmark"></span>
+<label class="mission-page" for="MissionRoundTypeCustomDayOfWeek" data-i18n="missionPage.missionSelectDateType1">ระบุวัน (วันจันทร์ - อาทิตย์)</label>
+</div>
+<div class="group-radio custom-radio">
+<input type="radio" name="MissionRoundTypeCustom" id="MissionRoundTypeCustomDayOfMonth" value="day-of-month" onchange="handleMissionRoundTypeCustom(event)">
+<span class="checkmark"></span>
+<label class="mission-page" for="MissionRoundTypeCustomDayOfMonth" data-i18n="missionPage.missionSelectDateType2">ระบุวันที่ (1 -31)</label>
+</div>
+</div>
+</div>
+<div class="group-box-time-mission" id="group-box-time-mission"><div class="box-time-mission" id="time-mission-1" data-time-mission="1">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold">
+<span class="mission-page" data-i18n="missionPage.missionActiveDateNo">รอบเวลาทำภารกิจที่</span> <span id="text-header-time-mission-template">1</span>
+</div>
+<div class="group-btn-close-time-mission" onclick="deleteTemplateTimeMission(1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+<div class="group-text-time-mission">
+<span class="text-1"><span class="mission-page" data-i18n="missionPage.day">วัน</span> <span id="display-day-mission-1">-</span></span>
+<span class="text-2" id="display-time-mission-1">00:00 - 00:00</span>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="group-day-btn-time-mission">
+<div class="group-btn-day-mission"><label class="mission-checkbox-label border-1" for="checkboxDayMission-1-1">
+<input type="checkbox" name="checkboxDayMission-1" value="monday" id="checkboxDayMission-1-1" onchange="changeCheckbox(event)">
+<div class="mission-checkbox-content">
+<span class="text-p2-regular">MON</span>
+</div>
+</label><!-- [collapsed 6 more siblings "LABEL mission-checkbox-label border-1" with identical structure; values in data.json] --></div>
+<div class="group-btn-specify-date-mission d-none">
+<div class="custom-input">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputSpecifyDateMission-1" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="dd/mm/yyyy" oninput="" readonly="readonly">
+</div>
+</div>
+<div class="text-p2-bold label-title-month d-none mission-page" data-i18n="missionPage.selectDate">เลือกวันที่</div>
+<div class="group-btn-month-mission d-none"><label class="mission-checkbox-label border-1 active" for="checkboxMonthMission1">
+<input type="checkbox" name="checkboxMonthMission-1" value="1" id="checkboxMonthMission1" onchange="changeCheckbox(event)" checked="">
+<div class="mission-checkbox-content">
+<span class="text-p2-regular">1</span>
+</div>
+</label><!-- [collapsed 30 more siblings "LABEL mission-checkbox-label border-1 active" with identical structure; values in data.json] --><label class="mission-checkbox-label border-1 end-month active" for="checkboxMonthMission32">
+<input type="checkbox" name="checkboxMonthMission-1" value="end" id="checkboxMonthMission32" onchange="changeCheckbox(event)" checked="">
+<div class="mission-checkbox-content">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.missionLastDate">วันสุดท้ายของเดือน</span>
+</div>
+</label></div>
+<div class="invalid-feedback mission-page" id="error-TimeMissionSelectDay-1" data-i18n="missionPage.missionDurationErrorText3" data-capture-style-props="display">กรุณาเลือกวันที่ทำภารกิจ</div>
+<div class="group-input-time-mission">
+<div class="custom-input group-date-time">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputStartTimeMission-1" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="00 : 00" oninput="handleTimeAndRewardInputStartTimeMission(event)" readonly="readonly">
+<span>-</span>
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputEndTimeMission-1" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="00 : 00" oninput="handleTimeAndRewardInputEndTimeMission(event)" readonly="readonly">
+</div>
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxAllDayMission-1" onchange="handleMissionTimeAndRewardCheckboxAllDayMission(this)">
+<label for="missionTimeAndRewardCheckboxAllDayMission-1" class="label-checkbox mission-page" data-i18n="missionPage.allDay">ทั้งวัน</label>
+</div>
+</div>
+<div class="invalid-feedback mission-page" id="error-TimeMission-1" data-i18n="missionPage.missionDurationErrorText4" data-capture-style-props="display">กรุณาเลือกรอบเวลาทำภารกิจ</div>
+</div>
+<div class="group-checkbox group-checkbox-reset-mission">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxResetMission-1">
+<label for="missionTimeAndRewardCheckboxResetMission-1" class="label-checkbox text-p2-regular">
+<span class="mission-page" data-i18n="missionPage.missionDurationTimeSubText1">เมื่อครบรอบการทำภารกิจ ให้ Reset ภารกิจทั้งหมดใหม่ โดยไม่สนใจว่าสมาชิกจะทำภารกิจเสร็จหรือไม่</span>
+<p class="text-p3-regular text-example mb-0 mission-page" data-i18n="missionPage.missionDurationTimeSubText2">ตัวอย่าง : หากกำหนดรอบการทำภารกิจ คือ วันจันทร์​ 12:00 - 18:00 เมื่อเวลาเกิน 18:00 ไปแล้วจะถือว่าจบรอบ ภารกิจจะถูก reset ใหม่ทันที โดยสมาชิกที่ยังทำไม่เสร็จ จะต้องเริ่มทำใหม่เมื่อถึงวันจันทร์หน้า (รอบต่อไป)</p>
+</label>
+</div>
+</div>
+</div></div>
+<template id="templateTimeMission">
+<div class="box-time-mission" id="time-mission-template" data-time-mission="template">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold">
+<span class="mission-page" data-i18n="missionPage.missionActiveDateNo">รอบเวลาทำภารกิจที่</span> <span id="text-header-time-mission-template"></span>
+</div>
+<div class="group-btn-close-time-mission">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+<div class="group-text-time-mission">
+<span class="text-1"><span class="mission-page" data-i18n="missionPage.day">วัน</span> <span id="display-day-mission-template">-</span></span>
+<span class="text-2" id="display-time-mission-template">00:00 - 00:00</span>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="group-day-btn-time-mission">
+<div class="group-btn-day-mission d-none">
+</div>
+<div class="group-btn-specify-date-mission d-none">
+<div class="custom-input">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputSpecifyDateMission-template" data-provider="flatpickr" data-date-format="d/m/Y" value="" placeholder="dd/mm/yyyy" oninput="" readonly="readonly">
+</div>
+</div>
+<div class="text-p2-bold label-title-month d-none mission-page" data-i18n="missionPage.selectDate">
+เลือกวันที่
+</div>
+<div class="group-btn-month-mission d-none">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกวันที่ทำภารกิจ
+</div>
+<div class="group-input-time-mission">
+<div class="custom-input group-date-time">
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputStartTimeMission-template" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="00 : 00" oninput="handleTimeAndRewardInputStartTimeMission(event)" readonly="readonly">
+<span>-</span>
+<input type="text" class="form-control custom-date-flatpickr flatpickr-input" id="missionTimeAndRewardInputEndTimeMission-template" data-provider="timepickr" data-date-format="H:i" data-no-calendar="true" data-enable-time="true" data-time_24hr="true" value="" placeholder="00 : 00" oninput="handleTimeAndRewardInputEndTimeMission(event)" readonly="readonly">
+</div>
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxAllDayMission-template" onchange="handleMissionTimeAndRewardCheckboxAllDayMission(this)">
+<label for="missionTimeAndRewardCheckboxAllDayMission-template" class="label-checkbox mission-page" data-i18n="missionPage.allDay">ทั้งวัน</label>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกรอบเวลาทำภารกิจ
+</div>
+</div>
+<div class="group-checkbox group-checkbox-reset-mission">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxResetMission-template">
+<label for="missionTimeAndRewardCheckboxResetMission-template" class="label-checkbox text-p2-regular">
+<span class="mission-page" data-i18n="missionPage.missionDurationTimeSubText1">
+เมื่อครบรอบการทำภารกิจ ให้ Reset ภารกิจทั้งหมดใหม่ โดยไม่สนใจว่าสมาชิกจะทำภารกิจเสร็จหรือไม่
+</span>
+<p class="text-p3-regular text-example mb-0 mission-page" data-i18n="missionPage.missionDurationTimeSubText2">
+ตัวอย่าง : หากกำหนดรอบการทำภารกิจ คือ วันจันทร์​ 12:00 - 18:00 เมื่อเวลาเกิน 18:00 ไปแล้วจะถือว่าจบรอบ ภารกิจจะถูก reset ใหม่ทันที โดยสมาชิกที่ยังทำไม่เสร็จ จะต้องเริ่มทำใหม่เมื่อถึงวันจันทร์หน้า (รอบต่อไป)
+</p>
+</label>
+</div>
+</div>
+</div>
+</template>
+<div class="d-flex justify-content-center">
+<button class="mission-btn-outline" id="btnAddTemplateTimeMission" onclick="addTemplateTimeMission()">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="Add mission active time" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.missionDurationAddActiveTime">เพิ่มรอบเวลาทำภารกิจ</span>
+</button>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionRewardCondition">กำหนดเงื่อนไขการได้รับของรางวัล</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionTimeAndRewardSwitchRewardMission" onchange="toggleMissionTimeAndRewardSwitchRewardMission(this)">
+</div>
+<span class="switch-title mission-page" data-i18n="missionPage.missionRewardOnOff">เปิด / ปิดใช้งาน การให้ของรางวัลภารกิจ</span>
+</div>
+<div class="box-warning-mission missionTimeAndRewardSwitchRewardMission">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission"><span class="mission-page" data-i18n="missionPage.missionRewardSubText1">หากไม่เปิดใช้งานการให้ของรางวัล</span><br><span class="mission-page" data-i18n="missionPage.missionRewardSubText2">หมายถึงภารกิจหลักจะไม่มีของรางวัล</span></span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-input-thin missionTimeAndRewardSwitchRewardMission2 d-none">
+<label class="labal mission-page" data-i18n="missionPage.missionRewardGetWhenFinish">กำหนดเงื่อนไขการรับของรางวัลเมื่อทำภารกิจสำเร็จ</label>
+<div class="group-btn-mission-format">
+<label class="mission-radio-label active" for="missionTimeAndRewardRadioMissionRewardSelf">
+<input type="radio" name="missionTimeAndRewardRadioMissionReward" value="manual" id="missionTimeAndRewardRadioMissionRewardSelf" onchange="changeRadio(event)" checked="">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-mission-reward-self.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title mission-page" data-i18n="missionPage.missionRewardGetWhenFinishType1">สมาชิกรับรางวัลเอง</div>
+<div class="mission-radio-subtitle mission-page" data-i18n="missionPage.missionRewardGetWhenFinishType2">เมื่อทำภารกิจสำเร็จ สมาชิกจะสามารถกดรับได้ด้วยตนเอง</div>
+</div>
+</div>
+</label>
+<label class="mission-radio-label" for="missionTimeAndRewardRadioMissionRewardAuto">
+<input type="radio" name="missionTimeAndRewardRadioMissionReward" value="auto" id="missionTimeAndRewardRadioMissionRewardAuto" onchange="changeRadio(event)">
+<div class="mission-radio-content">
+<div class="mission-radio-icon">
+<img src="/assets/images/mission/icon-mission-reward-auto.png">
+</div>
+<div class="mission-radio-text">
+<div class="mission-radio-title mission-page" data-i18n="missionPage.missionRewardGetWhenFinishType3">ระบบให้รางวัลโดยอัตโนมัติ (Auto)</div>
+<div class="mission-radio-subtitle mission-page" data-i18n="missionPage.missionRewardGetWhenFinishType4">เมื่อสมาชิกทำภารกิจสำเร็จแล้ว ระบบจะให้รางวัลโดยอัตโนมัติ</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="label-title-bg missionTimeAndRewardSwitchRewardMission2 d-none">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionRewardSettingGetWhenFinish">กำหนดของรางวัลเมื่อทำภารกิจสำเร็จ</span>
+</div>
+<div class="group-box-reward missionTimeAndRewardSwitchRewardMission2 d-none" id="group-box-reward"><div class="box-time-mission box-time-reward" id="time-reward-1" data-reward-mission="1">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold"><span class="mission-page" data-i18n="missionPage.reward">ของรางวัล</span> <span id="text-header-reward-1">1</span></div>
+<div class="group-btn-delete" onclick="deleteTemplateRewardMission(1)" data-capture-style-props="display">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="two-column">
+<div class="box-preview-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png" alt="reward" width="50" height="50" class="inputFileReward-1">
+</div>
+<div class="box-preview-reward-text">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.uploadRewardIcon">อัพโหลดรูปไอคอนของรางวัล</span>
+<label class="mission-btn-outline" for="inputFileReward-1">
+<input type="file" id="inputFileReward-1" class="d-none" onchange="handleFileMission(event)" name="inputFileReward-1">
+<img src="/assets/images/mission/image-upload.png" alt="add-icon" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.uploadImage">อัพโหลดรูป</span>
+</label>
+<span class="text-example text-p2-regular-i">
+<span class="mission-page" data-i18n="missionPage.or">หรือ</span> <span class="text-link popup-select-icon-style-reward mission-page" data-i18n="missionPage.missionSubImageSystem" onclick="showPopupIconStyle('inputFileReward-1')">เลือกรูปจากระบบ</span>
+</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.uploadDescription">ขนาดรูปภาพที่แนะนำ : 128px x 128px และรูปภาพจะต้องเป็นนามสกุลไฟล์ png, jpg และ gif เท่านั้น</span>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardType">ประเภทของรางวัล</label>
+<div class="col-auto dropdownSelectTypeReward require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectRewardType">เลือกประเภทของรางวัล</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit" class="custom-dropdown-item mission-page" data-i18n="missionPage.credit">เครดิต</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV custom-dropdown-item mission-page" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectRewardTypeError" id="error-RewardMissionType-1" data-capture-style-props="display">กรุณาเลือกประเภทของรางวัล</div>
+</div>
+</div>
+<div class="groupCredit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.fixRateCredit">จำนวนเครดิต Fix Rate</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputCreditFixRateValue-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectCreditFixRate fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.baht">บาท</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.fixRateCreditError" id="error-CreditFixRate-1" data-capture-style-props="display">กรุณากรอกจำนวนเครดิต Fix Rate</div>
+</div>
+<div class="groupMinigame group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.miniGame">มินิเกมส์</label>
+<div class="col-auto dropdownSelectMinigame require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectMiniGame">Select mini game</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div class="custom-dropdown-item" data-value="uuid-5">QA Test Wheel 0911</div><div class="custom-dropdown-item" data-value="uuid-6">QA Wheel Retest 20261015</div><div class="custom-dropdown-item" data-value="uuid-7">QA Other Retest 20261015</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rightsCount">จำนวนสิทธิ์</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputAuthorityMinigame-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAuthority fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.rights">จำนวนสิทธิ์</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="authority" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.rights">จำนวนสิทธิ์</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.miniGameError" id="error-Minigame-1" data-capture-style-props="display">กรุณาเลือกมินิเกมส์</div>
+<div class="groupPromotion group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.promotion">โปรโมชั่น</label>
+<div class="col-auto dropdownSelectPromotion require empty">
+<button class="custom-filter" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.selectPromotion">เลือกโปรโมชั่น</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.selectPromotionError" id="error-Promotion-1" data-capture-style-props="display">กรุณาเลือกโปรโมชั่น</div>
+</div>
+</div>
+<div class="groupPoint group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.pointCount">จำนวนแต้ม</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputPointValue-1" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectPoint fill">
+<button class="custom-filter right" data-capture-style-props="width">
+<div class="input-fake single mission-page" data-i18n="missionPage.point2">แต้ม</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="point" class="custom-dropdown-item mission-page selected" data-i18n="missionPage.point2">แต้ม</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.pointError" id="error-Point-1" data-capture-style-props="display">กรุณากรอกจำนวนแต้ม</div>
+</div>
+<div class="groupNameReward group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardName">ชื่อของรางวัล</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="text" class="input" id="inputNameReward-1" placeholder="reward name">
+</div>
+</div>
+<div class="invalid-feedback mission-page" data-i18n="missionPage.rewardNameError" id="error-NameReward-1" data-capture-style-props="display">กรุณากรอกชื่อของรางวัล</div>
+</div>
+</div>
+</div></div>
+<template id="templateReward">
+<div class="box-time-mission box-time-reward" id="time-reward-template" data-reward-mission="template">
+<div class="box-time-mission-header">
+<div class="group-header-time-mission">
+<div class="text-p2-bold"><span class="mission-page" data-i18n="missionPage.reward">ของรางวัล</span> <span id="text-header-reward-template"></span></div>
+<div class="group-btn-delete">
+<img src="/assets/images/mission/icon-trash.png" alt="ลบ" width="20" height="20">
+<span class="text-link color-red mission-page" data-i18n="missionPage.delete">ลบ</span>
+</div>
+</div>
+</div>
+<div class="box-time-mission-content">
+<div class="two-column">
+<div class="box-preview-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png" alt="reward" width="50" height="50" class="inputFileReward-template">
+</div>
+<div class="box-preview-reward-text">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.uploadRewardIcon">อัพโหลดรูปไอคอนของรางวัล</span>
+<label class="mission-btn-outline" for="inputFileReward-template">
+<input type="file" id="inputFileReward-template" class="d-none" onchange="handleFileMission(event)">
+<img src="/assets/images/mission/image-upload.png" alt="add-icon" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.uploadImage">อัพโหลดรูป</span>
+</label>
+<span class="text-example text-p2-regular-i">
+<span class="mission-page" data-i18n="missionPage.or">หรือ</span> <span class="text-link popup-select-icon-style-reward mission-page" data-i18n="missionPage.missionSubImageSystem">เลือกรูปจากระบบ</span>
+</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.uploadDescription">
+ขนาดรูปภาพที่แนะนำ : 128px x 128px และรูปภาพจะต้องเป็นนามสกุลไฟล์ png, jpg และ gif เท่านั้น
+</span>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardType">ประเภทของรางวัล</label>
+<div class="col-auto dropdownSelectTypeReward require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectRewardType">
+เลือกประเภทของรางวัล
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit" class="custom-dropdown-item mission-page" data-i18n="missionPage.credit">
+เครดิต
+</div>
+<div data-value="mini-game-chance" class="custom-dropdown-item mission-page" data-i18n="missionPage.miniGamePoints">
+สิทธิ์มินิเกมส์
+</div>
+<div data-value="promotion-chance" class="custom-dropdown-item mission-page" data-i18n="missionPage.promotionPoints">
+สิมธิ์รับโปรโมชัน
+</div>
+<div data-value="point" class="custom-dropdown-item mission-page" data-i18n="missionPage.points">
+แต้มสะสม
+</div>
+<div data-value="reward" class="custom-dropdown-item mission-page" data-i18n="missionPage.reward">
+ของรางวัล
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกประเภทของรางวัล
+</div>
+</div>
+</div>
+<div class="groupCredit group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.fixRateCredit">จำนวนเครดิต Fix Rate</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputCreditFixRateValue-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectCreditFixRate">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.baht">บาท</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="bath" class="custom-dropdown-item mission-page" data-i18n="missionPage.baht">
+บาท
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนเครดิต Fix Rate
+</div>
+</div>
+<div class="groupMinigame group-input-two-col d-none">
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.miniGame">มินิเกมส์</label>
+<div class="col-auto dropdownSelectMinigame require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectMiniGame">
+เลือกมินิเกมส์
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-input custom-input custom-float">
+<label for="" class="labal mission-page" data-i18n="missionPage.rightsCount">จำนวนสิทธิ์</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputAuthorityMinigame-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectAuthority">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.rights">สิทธิ์</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="authority" class="custom-dropdown-item mission-page" data-i18n="missionPage.rights">
+สิทธิ์
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกมินิเกมส์
+</div>
+<div class="groupPromotion group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.promotion">โปรโมชั่น</label>
+<div class="col-auto dropdownSelectPromotion require">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.selectPromotion">
+เลือกโปรโมชั่น
+</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณาเลือกโปรโมชั่น
+</div>
+</div>
+</div>
+<div class="groupPoint group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.pointCount">จำนวนแต้ม</label>
+<div class="group-dropdown-label group-dropdown-input-dropdown">
+<div class="input-outer">
+<input type="number" class="input left" id="inputPointValue-template" placeholder="0">
+</div>
+<div class="col-auto dropdownSelectPoint">
+<button data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="input-fake single mission-page" data-i18n="missionPage.point2">แต้ม</div>
+<span class="dropdown-toggler">
+<img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24">
+</span>
+</button>
+<div class="dropdown-wrapper">
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="point" class="custom-dropdown-item mission-page" data-i18n="missionPage.point2">
+แต้ม
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกจำนวนแต้ม
+</div>
+</div>
+<div class="groupNameReward group-input custom-input custom-float d-none">
+<label for="" class="labal mission-page" data-i18n="missionPage.rewardName">ชื่อของรางวัล</label>
+<div class="group-dropdown-label">
+<div class="input-outer">
+<input type="text" class="input" id="inputNameReward-template" placeholder="reward name">
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">
+กรุณากรอกชื่อของรางวัล
+</div>
+</div>
+</div>
+</div>
+</template>
+<div class="d-flex justify-content-center missionTimeAndRewardSwitchRewardMission2 d-none">
+<button class="mission-btn-outline" onclick="addTemplateRewardMission()">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="missionAddReward" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.missionAddReward">เพิ่มของรางวัล</span>
+</button>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionRewardTurnOver">กำหนดการติดเทิร์นโอเวอร์ (Turnover)</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionTimeAndRewardSwitchTurnover" onclick="togglemissionBasicSwich1(this)">
+</div>
+<span class="switch-title mission-page" data-i18n="missionPage.missionRewardTurnOverOnOff">เปิด / ปิดใช้งาน การติดเทิร์นโอเวอร์</span>
+</div>
+<div class="box-warning-mission missionTimeAndRewardSwitchTurnover">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission"><span class="mission-page" data-i18n="missionPage.missionRewardWarningText1">หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์</span><br><span class="mission-page" data-i18n="missionPage.missionRewardWarningText2">ของรางวัลทุกชิ้นที่ให้สมาชิกจะไม่มี</span><br><span class="mission-page" data-i18n="missionPage.missionRewardWarningText3">การติดเทริ์น</span></span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-card-select missionTimeAndRewardSwitchTurnover2 d-none">
+<label class="card-select-item d-none" for="missionTurnOverTypeByTime">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="group-card-content">
+<div class="card-icon">
+<img src="/assets/images/mission/icon-turnover-min.png" width="32" height="32">
+</div>
+<div class="card-select-detail">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.missionTurnOverText">ทำเทิร์นโอเวอร์ ขั้นต่ำ x เท่า</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.missionTurnOverSubText">ตัวอย่าง : ลูกค้ารับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = 200 x 5 = 1,000 ถึงจะถอนเครดิตได้</span>
+<div class="custom-input group-input group-input-card disabled">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.doTurnOver">ทำเทิร์นโอเวอร์</span>
+</div>
+<input type="number" class="input input-card" placeholder="" id="missionTurnOverTypeByTimeValue" disabled="">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.times">เท่า</span>
+</div>
+</div>
+<div class="invalid-feedback mission-page" id="error-TurnoverByTime-template" data-i18n="missionPage.missionDurationErrorText5" data-capture-style-props="display">กรุณากรอกจำนวนเทิร์นโอเวอร์</div>
+</div>
+</div>
+</div>
+</label>
+<label class="card-select-item active" for="missionTurnOverTypeByUnit">
+<label data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="group-card-content">
+<div class="card-icon">
+<img src="/assets/images/mission/icon-turnover-min.png" width="32" height="32">
+</div>
+<div class="card-select-detail">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.missionTurnOverText2">ทำเทิร์นโอเวอร์ ขั้นต่ำ x บาท</span>
+<span class="text-p3-regular text-example mission-page" data-i18n="missionPage.missionTurnOverSubText2">ตัวอย่าง : รับรางวัล 5 แต้ม หากตั้งค่า ทำ เทิร์นเท่ากับ 500 ลูกค้าจะต้องทำเทิร์น = 500 ถึงจะถอนเครดิตได้</span>
+<div class="custom-input group-input group-input-card">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.doTurnOver">ทำเทิร์นโอเวอร์</span>
+</div>
+<input type="number" class="input input-card" placeholder="" id="missionTurnOverTypeByUnitValue">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.baht">บาท</span>
+</div>
+</div>
+<div class="invalid-feedback mission-page" id="error-TurnoverByUnit-template" data-i18n="missionPage.missionDurationErrorText6" data-capture-style-props="display">กรุณากรอกจำนวนเทิร์นโอเวอร์</div>
+</div>
+</div>
+</div>
+</label>
+<!--capture: unmatched </div>
+ dropped--><div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionNotification">รูปแบบการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="missionTimeAndRewardSwitchAlertMission" onclick="togglemissionBasicSwich1(this)">
+</div>
+<span class="switch-title mission-page" data-i18n="missionPage.missionNotificationOnOff">เปิด / ปิดใช้งาน การแจ้งเตือนภารกิจ</span>
+</div>
+<div class="box-warning-mission missionTimeAndRewardSwitchAlertMission">
+<div class="icon-warning-mission">
+<img src="/assets/images/mission/icon-warning.png" width="32" height="32">
+</div>
+<div class="box-warning-mission-text">
+<span class="text-warning-mission"><span class="mission-page" data-i18n="missionPage.missionNotificationSubText1">เมื่อเปิดใช้งานการแจ้งเตือนภารกิจ</span><br><span class="mission-page" data-i18n="missionPage.missionNotificationSubText2">ระบบะจะแจ้งเตือกให้สมาชิกรู้เสมอ</span></span>
+</div>
+<div class="btn-close-warning-mission">
+<img src="/assets/images/mission/icon-close-warning.png" width="20" height="20">
+</div>
+</div>
+<div class="group-alert-mission missionTimeAndRewardSwitchAlertMission2 d-none">
+<div class="title-alert-mission">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.missionNotificationType">เลือกกำหนดรูปแบบการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="content-alert-mission-popup">
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxAlertMissionPopup">
+<div class="group-text-checkbox">
+<label for="missionTimeAndRewardCheckboxAlertMissionPopup" class="label-checkbox mission-page" data-i18n="missionPage.missionNotificationStartUp">แจ้งเตือนเป็น Pop Up เมื่อเข้าสู่ระบบ</label>
+<span class="text-example mission-page" data-i18n="missionPage.missionNotificationStartUpType1">Pop up จะแสดงเพียงครั้งเดียวที่เข้าสู่ระบบสำเร็จ</span>
+</div>
+</div>
+<div class="preview-popup-mission">
+<div class="preview-popup-container">
+<img src="https://cdn.lsmloyalty.com/images/mission/popup/1.png" alt="ex 1">
+
+
+
+
+
+<!-- [collapsed 6 more siblings "IMG " with identical structure; values in data.json] -->
+</div>
+</div>
+<span class="preview-title mission-page" data-i18n="missionPage.missionNotificationEx">ตัวอย่างการแจ้งเตือนภารกิจ</span>
+</div>
+<div class="content-alert-mission-floating-action-button">
+<div class="group-checkbox">
+<input type="checkbox" class="checkbox" id="missionTimeAndRewardCheckboxAlertMissionFloatingActionButton">
+<div class="group-text-checkbox">
+<label for="missionTimeAndRewardCheckboxAlertMissionFloatingActionButton" class="label-checkbox mission-page" data-i18n="missionPage.missionNotificationFloat">แจ้งเตือนเป็น Floating Action Button บนหน้าจอ</label>
+<span class="text-p3-regular text-example">
+<span class="mission-page" data-i18n="missionPage.missionNotificationFloatSubText1">ปุ่มจะแสดงลอยอยู่บนหน้าจอตลอดเวลาและสามารถเลื่อน</span><br>
+<span class="mission-page" data-i18n="missionPage.missionNotificationFloatSubText2">หรือปิดปุ่มได้แต่จะกลับมาแสดงอีกครั้งเมื่อเข้าสู่ระบบใหม่</span>
+</span>
+</div>
+</div>
+<div class="preview-popup-mission">
+<img src="https://cdn.lsmloyalty.com/images/mission/popup/floating.png" alt="ตัวอย่างการแจ้งเตือน 1">
+</div>
+<span class="preview-title mission-page" data-i18n="missionPage.missionNotificationFloatEx">รูปตัวอย่างการแจ้งเตือนแบบ Floating Action Button</span>
+</div>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!-- #group-box-sub-mission (sub-mission 1 accordion) captured in create-mission_part2_submission-1.html -->
+<!-- template#templateSubMission omitted: same markup as sub-mission 1 with -template ids (see create-mission_part2_submission-1.html) -->
+<div class="d-flex justify-content-start">
+<button class="mission-btn" onclick="addTemplateSubMission()">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="create-mission" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.createSubMission">เพิ่มภารกิจย่อย</span>
+</button>
+</div>
+<div class="dropdown-main">
+<div class="dropdown-mission-setting collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#openDropdownMissionSetting4" aria-expanded="true" aria-controls="openDropdownMissionSetting4" onclick="validateMission4()">
+<div class="group-title-mission-setting">
+<span class="title-mission-setting mission-page" data-i18n="missionPage.settingMissionFinished">ตั้งค่าการเสร็จสิ้นภารกิจ</span>
+<div class="group-mission-setting-status">
+<span class="mission-setting-status-title mission-page" id="missionEndStatusTitle" data-i18n="missionPage.settingMissionNotComplete">ข้อมูลไม่สมบูรณ์</span>
+<img src="/assets/images/mission/icon-arrow-down.png" width="32" height="32" class="icon-arrow-down">
+</div>
+</div>
+</div>
+<div class="box-content-mission-setting collapse" id="openDropdownMissionSetting4" data-bs-parent="#dropdownMainMissionSetting">
+<div class="group-content-mission-setting" id="rootScrollMission">
+<div class="group-item">
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.settingMissionFinished">ตั้งค่าการเสร็จสิ้นภารกิจ</span>
+</div>
+<div class="group-mission-start">
+<span class="text-p2-bold mission-page" data-i18n="missionPage.settingMissionFinish1">ต้องทำสำเร็จครบทุกภารกิจ</span>
+<div class="group-radio-mission-start">
+<div class="group-radio custom-radio">
+<input type="radio" name="complete-mission" id="complete-mission-all" onchange="handleCompleteMission(this)" value="all">
+<span class="checkmark"></span>
+<label for="complete-mission-all" class="text-p2-regular mission-page" data-i18n="missionPage.settingMissionFinish2">กำหนดให้การทำภารกิจเสร็จสิ้นได้ต่อเมื่อ</label>
+</div>
+<div class="group-radio custom-radio">
+<input type="radio" name="complete-mission" id="complete-mission-some" onchange="handleCompleteMission(this)" value="some">
+<span class="checkmark"></span>
+<label for="complete-mission-some" class="text-p2-regular mission-page" data-i18n="missionPage.settingMissionFinish3">ทำสำเร็จเพียงบางภารกิจ</label>
+</div>
+</div>
+<div class="custom-input group-input group-input-card">
+<div class="input-outer input-outer-card">
+<div class="input-outer-card-suffix start">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.settingMissionDone">ทำภารกิจสำเร็จ</span>
+</div>
+<input type="number" class="input input-card" placeholder="0" id="complete-mission-some-value">
+<div class="input-outer-card-suffix">
+<span class="text-p2-regular mission-page" data-i18n="missionPage.mission">ภารกิจ</span>
+</div>
+</div>
+<div class="invalid-feedback mission-page" id="error-CompleteMission-some-value" data-i18n="missionPage.settingMissionErrorText1" data-capture-style-props="display">กรุณากรอกจำนวนภารกิจที่ทำสำเร็จ</div>
+</div>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+<div class="label-title-bg">
+<span class="text-in-label mission-page" data-i18n="missionPage.missionResetCondition">Reset ภารกิจย่อย กรณีที่ทำภารกิจเสร็จก่อน</span>
+</div>
+<div class="group-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" id="mission-some-reset">
+</div>
+<span class="switch-title text-p2-regular"><span class="mission-page" data-i18n="missionPage.missionResetConditionText1">เปิด / ปิดใช้งาน การ Reset ภารกิจย่อย</span><br><span class="mission-page" data-i18n="missionPage.missionResetConditionText2">กรณีที่ทำภารกิจเสร็จก่อน</span></span>
+</div>
+</div>
+<div class="group-content-mission-setting-item">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-btn-mission-setting-footer">
+<a class="mission-btn-outline" href="/mission">
+<img src="/assets/images/mission/icon-cancel-save.png" alt="cancel" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.missionCancelButton">ยกเลิก</span>
+</a>
+<button class="mission-btn" id="btnSaveMission" onclick="saveMission()">
+<img src="/assets/images/mission/icon-confirm-save.png" alt="confirm" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.missionConfirmButton">ยืนยันการสร้างภารกิจ</span>
+</button>
+</div>
+<!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!--capture: unmatched </div>
+ dropped--><!-- #popup-image-style captured in modals/ -->
+<!-- #popup-icon-style captured in modals/ -->
+<!-- #popup-game-type captured in modals/ -->
+<input type="hidden" id="allSubMissionCount" value="1">
+<input type="hidden" id="editMission" value="false">
+<input type="hidden" id="missionId" value="">
+<input type="hidden" id="iconSelectSection" value="">
+<!--capture: unmatched </div> dropped-->

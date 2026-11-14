@@ -1,0 +1,145 @@
+{
+ "_note": "All 28 asColorPicker inputs in step 4c (input.asColorPicker-input[data-mode=gradient]); value shown in the input is the hex lower-cased, or the word 'Linear' for gradients. Defaults match the :root --color-* variables in the page's inline <style>.",
+ "pickers": [
+  {
+   "inputClass": "getColorBgMainColor",
+   "label": "สี พื้นหลังหน้าจอมินิเกมส์",
+   "default": "rgba(0, 0, 0, 0.36)"
+  },
+  {
+   "inputClass": "getColorBgInBoxMiniGameColor",
+   "label": "สี พื้นหลังหน้าจอมินิเกมส์",
+   "default": "rgba(0, 0, 0, 0.36)"
+  },
+  {
+   "inputClass": "getColorFontHeaderMainGroup1",
+   "label": "สี Header หลัก",
+   "default": "#FFFFFF"
+  },
+  {
+   "inputClass": "getColorFontMessageMainGroup1",
+   "label": "สี ข้อความหลัก",
+   "default": "#E9E9E9"
+  },
+  {
+   "inputClass": "getColorFontHighlightsGroup1",
+   "label": "สี ข้อความไฮไลท์ 1",
+   "default": "linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)"
+  },
+  {
+   "inputClass": "getColorFontHeaderSecondaryGroup1",
+   "label": "สี Header รอง",
+   "default": "#FFE666"
+  },
+  {
+   "inputClass": "getColorFontMessageSecondaryGroup1",
+   "label": "สี Header หลัก",
+   "default": "#AB8B4D"
+  },
+  {
+   "inputClass": "getColorFontCountDownGroup1",
+   "label": "สี ข้อความนับถอยหลัง",
+   "default": "#EB3333"
+  },
+  {
+   "inputClass": "getColorBtnBgGroup2",
+   "label": "สี พื้นหลัง",
+   "default": "linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)"
+  },
+  {
+   "inputClass": "getColorBtnMessageGroup2",
+   "label": "สี ข้อความ",
+   "default": "#1E1E1E"
+  },
+  {
+   "inputClass": "getColorBtnBorderGroup2",
+   "label": "สี เส้นกรอบ",
+   "default": "#000000"
+  },
+  {
+   "inputClass": "getColorDisplayBgGroup2",
+   "label": "สี พื้นหลัง",
+   "default": "#151515"
+  },
+  {
+   "inputClass": "getColorDisplayBorderGroup2",
+   "label": "สี พื้นหลัง",
+   "default": "linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)"
+  },
+  {
+   "inputClass": "getColorTableThBgGroup3",
+   "label": "สี พื้นหลัง",
+   "default": "linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)"
+  },
+  {
+   "inputClass": "getColorTableThFontGroup3",
+   "label": "สี ข้อความ",
+   "default": "#202020"
+  },
+  {
+   "inputClass": "getColorTableThBorderGroup3",
+   "label": "สี เส้นกรอบ",
+   "default": "linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)"
+  },
+  {
+   "inputClass": "getColorPaginationFontInActiveGroup3",
+   "label": "สี เลขหน้า Inactive",
+   "default": "#E9E9E9"
+  },
+  {
+   "inputClass": "getColorPaginationFontActiveGroup3",
+   "label": "สี เลขหน้า Active",
+   "default": "#000000"
+  },
+  {
+   "inputClass": "getColorPaginationBgInActiveGroup3",
+   "label": "สี พื้นหลังเลขหน้า Inactive",
+   "default": "transparent"
+  },
+  {
+   "inputClass": "getColorPaginationBgActiveGroup3",
+   "label": "สี พื้นหลังเลขหน้า Active",
+   "default": "#FFE666"
+  },
+  {
+   "inputClass": "getColorPaginationArrowInActiveGroup3",
+   "label": "สี ลูกศร Inactive",
+   "default": "#A8A8A8"
+  },
+  {
+   "inputClass": "getColorPaginationArrowActiveGroup3",
+   "label": "สี ลูกศร Active",
+   "default": "#FFE666"
+  },
+  {
+   "inputClass": "getColorTableTdBg1Group3",
+   "label": "สี พื้นหลัง 1",
+   "default": "#000000"
+  },
+  {
+   "inputClass": "getColorTableTdBg2Group3",
+   "label": "(label not captured; group 'เนื้อหาตาราง')",
+   "default": "#FFFFFF"
+  },
+  {
+   "inputClass": "getColorTableTdFontGroup3",
+   "label": "(label not captured)",
+   "default": "#E9E9E9"
+  },
+  {
+   "inputClass": "getColorTableTdFontHighlights1Group3",
+   "label": "(label not captured)",
+   "default": "#F10000"
+  },
+  {
+   "inputClass": "getColorTableTdFontHighlights2Group3",
+   "label": "(label not captured)",
+   "default": "#72DCD9"
+  },
+  {
+   "inputClass": "getColorTableTdBorderGroup3",
+   "label": "(label not captured)",
+   "default": "#E9E9E9"
+  }
+ ]
+}

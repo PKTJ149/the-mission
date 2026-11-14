@@ -1,0 +1,35 @@
+{
+ "title": "ตั้งค่าแบนเนอร์ภารกิจ",
+ "breadcrumb": ["รายชื่อภารกิจ", "ตั้งค่าแบนเนอร์ภารกิจ"],
+ "sectionTitle": "ตั้งค่าแบนเนอร์ภารกิจ",
+ "autoSlide": {"label": "สไลด์ออร์โต้", "checked": true},
+ "addButton": "เพิ่มรูปแบนเนอร์",
+ "menuOptions": [
+  {"value": "mission", "chip": "mission", "text": "ทำภารกิจ"},
+  {"value": "mission-history", "chip": "mission-history", "text": "ประวัติรับรางวัล"},
+  {"value": "mission-point-exchange", "chip": "mission-point-exchange", "text": "แลกรางวัล"},
+  {"value": "uuid-1", "chip": "mission-info", "text": "QA Happy Mission Retest 20261015"},
+  {"value": "uuid-2", "chip": "mission-info", "text": "ภารกิจ 001"}
+ ],
+ "menuPlaceholder": "เลือกเมนูในเว็บ",
+ "banners": [
+  {"no": 1, "image": "https://storage.googleapis.com/one-loyalty-stg-media/uploads/setting-mission-banner/20261111T100814383.png", "showOnMissionPage": true, "linkType": "เมนูภายในภารกิจ", "menu": "ประวัติรับรางวัล", "url": ""},
+  {"no": 2, "image": "https://storage.googleapis.com/one-loyalty-stg-media/uploads/setting-mission-banner/20261111T100757764.png", "showOnMissionPage": true, "linkType": "เมนูภายในภารกิจ", "menu": "แลกรางวัล", "url": ""},
+  {"no": 3, "image": "https://storage.googleapis.com/one-loyalty-stg-media/uploads/setting-mission-banner/20261111T100740943.png", "showOnMissionPage": true, "linkType": "เมนูภายในภารกิจ", "menu": "ทำภารกิจ", "url": "https://superx.l3t.lsmview.com/mission"}
+ ],
+ "newBannerDefaults": {"no": 4, "image": "https://cdn.lsmloyalty.com/images/mission/banner/default.png", "showOnMissionPage": false, "linkType": null, "menu": "เลือกเมนูในเว็บ (placeholder)", "url": ""},
+ "cardText": {
+  "title": "รูปแบนเนอร์ N",
+  "uploadLabel": "อัพโหลดรูปแบนเนอร์ N",
+  "uploadButton": "อัพโหลดรูป",
+  "uploadHint": "ขนาดรูปภาพที่แนะนำ : 574px x 286px สกุลไฟล์ png, jpg และ gif เท่านั้น",
+  "showCheckbox": "แสดงแบนเนอร์ที่หน้ารวมภารกิจ",
+  "linkTitle": "กำหนดลิ้งค์แบนเนอร์ (ระบุหรือไม่ก็ได้)",
+  "radio1": "เมนูภายในภารกิจ",
+  "radio2": "กำหนด URL",
+  "urlPlaceholder": "ระบุ URL",
+  "menuError": "กรุณาเลือกเมนูในเว็บ",
+  "cancel": "ยกเลิก",
+  "confirm": "ยืนยัน"
+ }
+}

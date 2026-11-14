@@ -1,0 +1,61 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#reportMemberTable > div.table-loading:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr.tr-summary:nth-of-type(10)": {
+  "bottom": "0px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(2) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(3) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(4) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(5) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(6) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(7) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(8) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > tbody > tr:nth-of-type(9) > td:nth-of-type(2) > div.white-space-normal": {
+  "width": "216px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(1) > th.text-center:nth-of-type(4) > span.custom-badge": {
+  "height": "34px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(1)": {
+  "min-width": "142px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(1) > span.custom-badge": {
+  "height": "29px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(2) > span.custom-badge": {
+  "height": "29px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(3) > span.custom-badge": {
+  "height": "29px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(4) > span.custom-badge": {
+  "height": "29px"
+ },
+ "#reportMemberTable > div.table-scrollable:nth-of-type(2) > table > thead > tr:nth-of-type(2) > th.text-center:nth-of-type(5) > span.custom-badge": {
+  "--badge-divider-color": "#608D9D",
+  "height": "29px"
+ },
+ ".page-content > div.container-fluid > div.inner-container > div.custom-card > div.row:nth-of-type(2) > div.col-auto:nth-of-type(1)": {
+  "flex-basis": "264px"
+ }
+}

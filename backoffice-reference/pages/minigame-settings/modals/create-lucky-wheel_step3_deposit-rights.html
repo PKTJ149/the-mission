@@ -1,0 +1,436 @@
+<div class="canvas-box-body" id="SettingMinigameStep3" data-capture-style-props="display">
+<div class="tab-header">
+<div class="header-in-body active">
+<div class="tab-group">
+<span class="p1 fw-700" id="textTabsStep2-3-1"><span data-i18n="minigameSetting.luckyWheelRightsSetting">กำหนดการได้รับสิทธิ์ และตั้งค่ามินิเกมส์วงล้อนำโชค</span></span>
+</div>
+</div>
+</div>
+<div class="main-in-detail-body content-col-1">
+<div class="label-minigame">
+<span id="textTabsStep2-3-2"><span data-i18n="minigameSetting.luckyWheelHowToGetluckyWheel">การได้รับสิทธิ์มินิเกมส์วงล้อนำโชค</span></span>
+</div>
+<div class="input-col-1-p setting-minigame-step-3-row-1">
+<div>
+<div class="text-start">
+<span class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.settingMinigameStep3SubText">กำหนดยอดฝากที่สมาชิกต้องทำเพื่อให้เข้าเงื่อนไขการได้สิทธิ์มินิเกมส์ จำนวน 1 สิทธิ์</span>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6">
+<div class="custom-input custom-float">
+<div class="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositType">ประเภทการฝาก</div>
+<div id="customMinigameDepositTypeDropdown" class="custom-input dropdown-wrapper fill">
+<input type="hidden" name="depositType" id="depositType" value="deposit-once">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">ฝากครั้งเดียว</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="deposit-once" data-chip="deposit-once" class="custom-dropdown-item selected" data-i18n="minigameSetting.depositOnce">ฝากครั้งเดียว</div>
+<div data-value="accumulated-deposit" data-chip="accumulated-deposit" class="custom-dropdown-item" data-i18n="minigameSetting.accumulatedDeposit">ฝากสะสม</div>
+<div data-value="continuous-deposit" data-chip="continuous-deposit" class="custom-dropdown-item" data-i18n="minigameSetting.continuousDeposit">ฝากติดต่อกัน</div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-customMinigameDepositTypeDropdown" data-i18n="minigameSetting.depositTypeErrorText" data-capture-style-props="display">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12 col-md-6 mb-3 mb-md-0" id="showBoxDepositOnceAndContinue">
+<div class="custom-input custom-float">
+<div class="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositTransactionType">ประเภทยอดฝาก</div>
+<div id="customMinigameDepositAmountTypeDropdown" class="custom-input dropdown-wrapper require fill">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple">ฝากขั้นต่ำ</div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="equal-deposit" data-chip="equal-deposit" class="custom-dropdown-item" data-i18n="minigameSetting.equalDeposit">ฝากเท่ากับ</div>
+<div data-value="min-deposit" data-chip="min-deposit" class="custom-dropdown-item selected" data-i18n="minigameSetting.minDeposit">ฝากขั้นต่ำ</div>
+<div data-value="max-deposit" data-chip="max-deposit" class="custom-dropdown-item showOnlyBoxDepositOnce" data-i18n="minigameSetting.maxDeposit">ฝากสูงสุด</div>
+<div data-value="deposit-period" data-chip="deposit-period" class="custom-dropdown-item showOnlyBoxDepositOnce" data-i18n="minigameSetting.depositPeriod">ช่วงยอดฝาก</div>
+</div>
+</div>
+<div class="invalid-feedback" id="error-customMinigameDepositAmountTypeDropdown" data-i18n="minigameSetting.depositTransactionTypeErrorText" data-capture-style-props="display">กรุณาเลือกประเภทยอดฝาก</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" id="showBoxDepositTypeEqualAndCollect" data-capture-style-props="display">
+<div class="custom-input custom-float fistempty" id="inputMinigameAmountAutoDeposit">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2" data-i18n="minigameSetting.depositTransactionCount">จำนวนยอดฝาก</div>
+<div class="input-group">
+<input id="minigameAmountAutoDeposit" type="text" class="form-control validatezero fistempty" placeholder="0.00" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameAmountAutoDeposit" data-i18n="minigameSetting.depositTransactionCountErrorText" data-capture-style-props="display">กรุณากรอกจำนวนยอดฝาก</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" id="showBoxDepositTypeMin" style="">
+<div class="custom-input custom-float fistempty" id="inputMinigameMinAmountAutoDeposit">
+<div class="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositTransactionMin">จำนวนยอดฝากขั้นต่ำ</div>
+<div class="input-group">
+<input id="minigameMinAmountAutoDeposit" type="text" class="form-control validatezero fistempty" placeholder="0.00" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameMinAmountAutoDeposit" data-i18n="minigameSetting.depositTransactionMinErrorText" data-capture-style-props="display">กรุณากรอกจำนวนยอดฝากขั้นต่ำ</div>
+</div>
+</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV col-12 col-md-6 mb-3" with identical structure; values in data.json] -->
+</div>
+<div class="row">
+<div class="col-12 col-md-12 mb-3">
+<div class="text-start">
+<span class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.promotionMinigame">กำหนดการอนุมัติรับสิทธิ์มินิเกมส์</span>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.promotionMinigameSubText">(ในกรณีที่สมาชิกติดเทิร์นโอเวอร์โปรโมชั่นอยู่)</span>
+</div>
+</div>
+<div class="col-6 col-md-6" id="boxGetPromotionPerUserDay">
+<div class="col-12 col-md-12 mb-3">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="isMemberPromotionSuccess" data-value="minigameEnableWhenTurnOverComplete" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableWhenTurnOverComplete">
+<span class="p2 color-emerald-title-1" data-i18n="minigameSetting.getPromotionPerUserDay">อนุมัติให้รับสิทธิ์มินิเกมส์เมื่อทำเทิร์นโอเวอร์สำเร็จ </span>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.getPromotionPerUserDaySubText">สมาชิกจะสามารถรับสิทธิ์ได้ทันทีเมื่อทำเทิร์นโอเวอร์ที่ค้างจนสำเร็จ</span>
+</label>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-6" id="boxGetPromotionPerUserWeek">
+<div class="col-12 col-md-12 mb-3">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="isMemberCanCancel" data-value="minigameEnableCancelPromotionForMiniGame" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableCancelPromotionForMiniGame">
+<span class="p2 color-emerald-title-1" data-i18n="minigameSetting.getPromotionPerUserWeek">อนุญาตให้สมาชิกยกเลิกโปรโมชั่นเพื่อรับสิทธิ์มินิเกมส์ได้</span>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.getPromotionPerUserWeekSubText">ให้สมาชิกยกเลิกโปรโมชั่นปัจจุบัน เพื่อรับสิทธิ์มินิเกมส์ได้</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="input-col-1-p">
+<div class="text-start">
+<span class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.withdrawnSettingHeader">ตั้งค่าตรวจสอบยอด Balance และ ยอดถอน เมื่อสมาชิกทำการถอนเงิน</span>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6 mb-3">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="enableCustomerCreditBalance" onclick="enableCreditBalance()">
+<label class="form-check-label d-flex flex-column" for="enableCustomerCreditBalance">
+<div class="p2 color-emerald-title-1">
+<span data-i18n="minigameSetting.withdrawnSetting">ตรวจสอบยอด Balance หลังจากทำการถอนเงิน หากมี ยอด Balance น้อยกว่า x บาท จะทำการหัก </span> <br><span data-i18n="minigameSetting.withdrawnSetting2"> สิทธิ์มินิเกมส์</span>
+</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.withdrawnSettingSubText">คำนวนยอด Balance หลังจากทำการหักจากยอดที่ถอนออกไป</span>
+</label>
+</div>
+<div class="custom-input custom-input-disabled custom-float mt-2">
+<div class="input-group">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.balanceLowerThan" data-capture-style-props="border-radius">Balance น้อยกว่า</span>
+<input id="customerCreditBalance" type="text" class="form-control" placeholder="0.0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" disabled="">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+</div>
+<div class="col-12 col-md-12 mb-3 mb-md-0">
+<div class="text-start color-emerald-title-1 p2 fw-700 mb-2 mt-2" data-i18n="minigameSetting.deductMemberMinigame">หักสิทธิ์มินิเกมส์สมาชิก</div>
+<div class="row">
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="custom-input custom-float" id="boxReduceQuota">
+<div class="input-group">
+<input id="reduceQuota" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" disabled="">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.rights" data-capture-style-props="border-radius">สิทธิ์</span>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" data-capture-style-props="align-self">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="enableReduceAllQuota" disabled="">
+<label class="form-check-label d-flex flex-column" for="">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.deductAll">หักสิทธิ์ทั้งหมด</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="enableCustomerCreditWithdraw" onclick="enableCreditBalanceWithdraw()">
+<label class="form-check-label d-flex flex-column" for="enableCustomerCreditWithdraw">
+<div class="p2 color-emerald-title-1">
+<span data-i18n="minigameSetting.enableCustomerCreditWithdraw">ตรวจสอบ ยอดถอน หลังจากทำการถอนเงิน หากมี ยอดถอน น้อยกว่า x บาท จะทำการหัก </span> <br> <span data-i18n="minigameSetting.enableCustomerCreditWithdraw2"> สิทธิ์มินิเกมส์</span>
+</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.enableCustomerCreditWithdrawSubText">คำนวนยอด ถอน หลังจากทำการหักจากยอดที่ถอนออกไป</span>
+</label>
+</div>
+<div class="custom-input custom-float mt-2">
+<div class="input-group">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.withdrawnIsLower" data-capture-style-props="border-radius">ยอดถอน น้อยกว่า</span>
+<input id="customerCreditWithdraw" type="text" class="form-control" placeholder="0.0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" disabled="">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+</div>
+<div class="col-12 col-md-12 mb-3 mb-md-0">
+<div class="text-start color-emerald-title-1 p2 fw-700 mb-2 mt-2" data-i18n="minigameSetting.deductMemberMinigame">หักสิทธิ์มินิเกมส์สมาชิก</div>
+<div class="row">
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="custom-input custom-float">
+<div class="input-group">
+<input id="reduceQuotaWithdraw" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" disabled="">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.rights" data-capture-style-props="border-radius">สิทธิ์</span>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0" data-capture-style-props="align-self">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="enableReduceAllQuotaWithdraw" disabled="">
+<label class="form-check-label d-flex flex-column" for="">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.deductAll">หักสิทธิ์ทั้งหมด</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<template id="templateMinigameWheel">
+<div id="minigameWheelMain-template" class="custom-minigame-wheel-section" data-minigame-wheel="template">
+<div class="px-4">
+<div class="label-minigame-custom-v2">
+<span id="minigameSequence-template">Wheel 1</span>
+</div>
+</div>
+<div class="input-col-1-p">
+<div class="p-4">
+<div class="row mb-3">
+<div class="col-12 col-md-6">
+<div class="custom-input custom-float fistempty" id="inputMinigameRewardDescription-template">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2">
+<span class="reward-description-text" data-i18n="minigameSetting.rewardDescription">คำอธิบายรางวัล</span>
+<span class="text-red-50">
+*
+</span>
+</div>
+<div class="input-group">
+<input id="minigameRewardDescription-template" oninput="validateStep()" type="text" class="form-control" placeholder="description">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกคำอธิบายรางวัล</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-float fistempty" id="inputMinigameLuckyWheelRewardPercentage-template">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 reward-chance-text" data-i18n="minigameSetting.rewardRate">โอกาสออก</div>
+<div class="input-group">
+<input id="minigameLuckyWheelRewardPercentage-template" oninput="validateStep()" type="number" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" min="0" max="100" onkeyup="enforceMinMax(this)">
+<span data-capture-gap="opening tag attributes withheld by browser tool output filter">%</span>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกโอกาสออก</div>
+</div>
+</div>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-rate-text" data-i18n="minigameSetting.fixBonusRateHeader">การจำกัดจำนวนครั้งในการแจกโบนัส</div>
+<div class="row ms-0">
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameNoLimitAmountBonus-template">
+<div class="p2 color-emerald-title-1 bonus-rate-unlimited-text" data-i18n="minigameSetting.fixBonusRateUnlimit">ไม่จำกัดจำนวนแจก</div>
+</label>
+</div>
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameLimitAmountBonus-template">
+<div class="p2 color-emerald-title-1 bonus-rate-limited-text" data-i18n="minigameSetting.fixBonusRatelimit">จำกัดจำนวนแจก</div>
+</label>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-notification-send" data-i18n="minigameSetting.rewardNotification">การแจ้งเตือนไปที่หน้ารวมมินิเกมส์เมื่อของรางวัลใกล้หมด</div>
+<div class="row ms-0 minigame-reset" id="minigameIsAlert-template">
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameIsAlertOff-template">
+<div class="p2 color-emerald-title-1 bonus-no-notification" data-i18n="minigameSetting.rewardNoNotification">ไม่ต้องแจ้งเตือน</div>
+</label>
+</div>
+<div class="form-check col d-flex align-items-center">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><label class="form-check-label d-flex flex-column" for="minigameIsAlertOn-template">
+<div class="p2 color-emerald-title-1 bonus-notification" data-i18n="minigameSetting.rewardWithNotification">แจ้งเตือน</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="row my-3">
+<div class="col-12 col-md-6">
+<div class="custom-input custom-input-disabled custom-float minigame-reset fistempty" id="inputMinigameLimitAmount-template">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-setting-given-text" data-i18n="minigameSetting.rewardSettingNoMoreThan">จำกัดจำนวนการแจกไม่เกิน x ครั้ง</div>
+<div class="input-group">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><span data-capture-gap="opening tag attributes withheld by browser tool output filter">ครั้ง</span>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนการแจกไม่เกิน</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" id="inputminigameIsAlert-template">
+<div class="custom-input custom-input-disabled custom-float minigame-reset fistempty" id="inputMinigameAlertAmount-template">
+<div class="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-setting-given-when-text" data-i18n="minigameSetting.notiWhenRewardToX">แจ้งเตือนเมื่อแจกรางวัลไปแล้ว x ครั้ง</div>
+<div class="input-group">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><span data-capture-gap="opening tag attributes withheld by browser tool output filter">ครั้ง</span>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนการแจกรางวัลไม่เกิน</div>
+</div>
+</div>
+</div>
+<div class="col-12" id="customPromotionConditionTypeSection-template">
+</div>
+<button class="btn system-btn btn-outline btn-rounded btn-add-minigame" onclick="addTemplatePromotionConditionType(template)">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17316C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8078C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C21.9971 9.34871 20.9426 6.80684 19.0679 4.9321C17.1932 3.05736 14.6513 2.00287 12 2ZM12 20.3333C10.3518 20.3333 8.74066 19.8446 7.37025 18.9289C5.99984 18.0132 4.93174 16.7117 4.30101 15.189C3.67028 13.6663 3.50525 11.9908 3.82679 10.3742C4.14834 8.75774 4.94201 7.27288 6.10745 6.10744C7.27288 4.94201 8.75774 4.14833 10.3743 3.82679C11.9908 3.50525 13.6663 3.67027 15.189 4.301C16.7117 4.93173 18.0132 5.99984 18.9289 7.37025C19.8446 8.74066 20.3333 10.3518 20.3333 12C20.3309 14.2094 19.4522 16.3276 17.8899 17.8899C16.3276 19.4522 14.2094 20.3309 12 20.3333ZM16.1667 12C16.1667 12.221 16.0789 12.433 15.9226 12.5893C15.7663 12.7455 15.5543 12.8333 15.3333 12.8333H12.8333V15.3333C12.8333 15.5543 12.7455 15.7663 12.5893 15.9226C12.433 16.0789 12.221 16.1667 12 16.1667C11.779 16.1667 11.567 16.0789 11.4107 15.9226C11.2545 15.7663 11.1667 15.5543 11.1667 15.3333V12.8333H8.66667C8.44566 12.8333 8.23369 12.7455 8.07741 12.5893C7.92113 12.433 7.83334 12.221 7.83334 12C7.83334 11.779 7.92113 11.567 8.07741 11.4107C8.23369 11.2545 8.44566 11.1667 8.66667 11.1667H11.1667V8.66667C11.1667 8.44565 11.2545 8.23369 11.4107 8.07741C11.567 7.92113 11.779 7.83333 12 7.83333C12.221 7.83333 12.433 7.92113 12.5893 8.07741C12.7455 8.23369 12.8333 8.44565 12.8333 8.66667V11.1667H15.3333C15.5543 11.1667 15.7663 11.2545 15.9226 11.4107C16.0789 11.567 16.1667 11.779 16.1667 12Z" fill="#E9E9E9"></path>
+</svg>
+<span class="add-bonus-btn-text" data-i18n="minigameSetting.addBonus">เพิ่มโบนัส</span>
+</button>
+</div>
+</div>
+</div>
+<!--capture: unmatched </template>
+ dropped--><template id="templatePromotionConditionType">
+<div class="row mb-0" id="promotion-condition-type-template" data-time-promotion-condition-type="template">
+<input type="hidden" name="minigameBonuseAnyGameId-template" id="minigameBonuseAnyGameId-template">
+<input type="hidden" name="minigameBonuseName-template" id="minigameBonuseName-template">
+<input type="hidden" name="minigameBonuseType-template" id="minigameBonuseType-template">
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-float">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" id="promotionConditionTypeText-template" data-i18n="minigameSetting.bonusType">ประเภทโบนัส<span class="text-red-50">*</span></div>
+<div class="custom-input dropdown-wrapper require customPromotionBonusTypeDropdown-template">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple"></div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-body">
+<div data-value="credit_fix" data-chip="credit_fix" class="custom-dropdown-item" data-i18n="minigameSetting.creditDropdown">เครดิต Fixed Rate</div>
+<div data-value="credit_percentage" data-chip="credit_percentage" class="custom-dropdown-item" data-i18n="minigameSetting.percentageDropdown">เครดิต เป็น Percentage (%)</div>
+<div data-value="mini-game" data-chip="mini-game" class="custom-dropdown-item" data-i18n="minigameSetting.miniGameDropdown">สิทธิ์มินิเกมส์</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณาเลือกประเภทการฝาก</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 d-none" id="showBoxPromotionDepositBonusDropdownSub-template"></div>
+<div class="col-12 col-md-6 mb-3 d-none" id="showBoxPromotionDepositBonusDropdown-template">
+<div class="custom-input custom-float">
+<div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" id="promotionConditionTypeText-template">มินิเกมส์</div>
+<div class="custom-input dropdown-wrapper require customPromotionDepositBonusDropdown" id="inputPromotionDepositBonusDropdown-template">
+<div class="dropdown-toggler">
+<svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
+</svg>
+</div>
+<div class="input-fake multiple"></div>
+<div class="custom-dropdown">
+<div class="custom-dropdown-search">
+<div class="input-group">
+<span class="search-icon input-group-text custom-color">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</span>
+<input type="text" class="input-search form-control" placeholder="Search">
+<button class="btn-search btn sms-btn" type="button">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.3536 14.6465L11.1614 10.4544C12.0557 9.39963 12.5969 8.0365 12.5969 6.54862C12.5968 3.21338 9.8835 0.5 6.54838 0.5C3.21325 0.5 0.5 3.21338 0.5 6.54862C0.5 9.88375 3.21325 12.597 6.54838 12.597C8.03638 12.597 9.39963 12.0559 10.4543 11.1615L14.6465 15.3536C14.7441 15.4513 14.8721 15.5001 15.0001 15.5001C15.1281 15.5001 15.256 15.4513 15.3538 15.3536C15.5489 15.1584 15.5489 14.8416 15.3536 14.6465ZM1.5 6.54862C1.5 3.76475 3.76463 1.5 6.54838 1.5C9.33212 1.5 11.5969 3.76475 11.5969 6.54862C11.5969 9.33237 9.33212 11.597 6.54838 11.597C3.76463 11.5969 1.5 9.33225 1.5 6.54862Z"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="custom-dropdown-body boxPromotionDepositBonusDropdown">
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณาเลือกมินิเกมส์</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.creditCount">จำนวนเงิน</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputCredit-template">
+<input id="credit-template" type="text" class="form-control" placeholder="0.00" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'numberPositive')">
+<div class="text-prepend">บาท</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนเงิน</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="row">
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.creditCountPercent">% คิดจากยอดฝาก</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPercent-template">
+<input id="percent-template" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">%</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนเปอร์เซ็น</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3 mb-md-0">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.creditNotHigherThan">สูงไม่เกิน</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPercentMax-template">
+<input id="percentMax-template" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend text-baht" data-i18n="minigameSetting.baht">บาท</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนสูงไม่เกิน</div>
+</div>
+</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.pointCount">จำนวนแต้ม</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputPoint-template">
+<input id="point-template" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">แต้ม</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนแต้ม</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.rightsCount">จำนวนสิทธิ์</div>
+<div class="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id="inputQuota-template">
+<input id="quota-template" type="text" class="form-control" placeholder="0" oninput="validateStep()" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<div class="text-prepend">สิทธิ์</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกจำนวนสิทธิ์</div>
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><div class="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.rewardName">ระบุชื่อของรางวัล</div>
+<div class="custom-input custom-float d-flex justify-content-between align-items-center fistempty" id="inputRewardName-template">
+<input id="rewardName-template" type="text" class="form-control" oninput="validateStep()">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"><img src="/assets/images/icon-minus.png" width="20" height="20">
+</div>
+</div>
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter">กรุณากรอกชื่อของรางวัล</div>
+</div>
+</div>
+</template>
+</div>
+<div class="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame3" data-capture-style-props="display">
+<div class="d-flex align-items-center justify-content-between">
+<div>
+<button id="buttonNextPromotionStepfinal3" class="btn btn-outline-warning btn-clone" data-type="next" onclick="nextPromotionMiniGameStepFinal(this, '3', '6')" data-i18n="minigameSetting.summarizeAndSave" data-capture-style-props="width display">ไปหน้าสรุป</button>
+</div>
+<div>
+<button class="btn system-btn btn-outline btn-rounded btn-clone" data-type="previous" onclick="btnStepSettingMinigame(this,'3','2-3')" data-i18n="minigameSetting.back" data-capture-style-props="width">ขั้นตอนก่อนหน้า</button>
+<button class="btn system-btn btn-rounded ms-2 btn-clone" data-type="next" onclick="btnStepSettingMinigame(this,'3','4')" data-i18n="minigameSetting.next" data-capture-style-props="width">ถัดไป</button>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,382 @@
+<div class="page-content">
+<div class="container-fluid full-container">
+<svg width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="filter-gradient" x1="7.91113" y1="0.666748" x2="7.91113" y2="17.3334" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#50A198"></stop>
+<stop offset="1" stop-color="#FEDB6B"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="inner-container full-flex">
+<div class="custom-card full-card full-flex">
+<div class="title-header-custom-mission">
+<div class="group-btn-title">
+<div class="group-title">
+<h4 class="mb-0 mission-page" data-i18n="missionPage.title">ตั้งค่าภารกิจ</h4>
+<a class="mission-btn-outline btn-settings" href="/mission/agent-setting">
+<img src="/assets/images/mission/icon-settings.png" alt="setting-mission" width="24" height="24">
+</a>
+</div>
+<div class="group-btn">
+<a class="mission-btn-outline" href="/mission/banner-setting">
+<img src="/assets/images/mission/image-upload.png" alt="upload-banner" width="24" height="24">
+<span class="mission-page" data-i18n="missionPage.buttonHeader1">อัพโหลดแบนเนอร์</span>
+</a>
+<a class="mission-btn-outline" href="/mission/mission/history">
+<img src="/assets/images/mission/icon-time-past.png" alt="history" width="24" height="24">
+<span class="mission-page" data-i18n="missionPage.buttonHeader2">ประวัติการแก้ไข</span>
+</a>
+<a class="mission-btn" href="/mission/setting">
+<img src="/assets/images/mission/icon-add-mission-btn.png" alt="create-mission" width="20" height="20">
+<span class="mission-page" data-i18n="missionPage.buttonHeader3">สร้างภารกิจ</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mission-data-title">
+<img src="/assets/images/mission/icon-purpose.png">
+<h4 class="mb-0 mission-page" data-i18n="missionPage.missionListHeader">รายชื่อภารกิจ</h4>
+</div>
+<div class="group-content-page">
+<div class="d-flex justify-content-between group-box-dashboard-mission">
+<div class="custom-box">
+<div class="group-content-title">
+<img src="/assets/images/mission/icon-mission-statement-1.png">
+<h5 class="mission-page" data-i18n="missionPage.missionAllCount">จำนวนภารกิจทั้งหมด</h5>
+</div>
+<p class="text">4 <span class="mission-page" data-i18n="missionPage.mission">ภารกิจ</span></p>
+</div>
+<div class="custom-box">
+<div class="group-content-title">
+<img src="/assets/images/mission/icon-mission-statement-2.png">
+<h5 class="mission-page" data-i18n="missionPage.missionOnlineCount">จำนวน Online ภารกิจ</h5>
+</div>
+<p class="text text-teal">2 <span class="mission-page" data-i18n="missionPage.mission">ภารกิจ</span></p>
+</div>
+<div class="custom-box">
+<div class="group-content-title">
+<img src="/assets/images/mission/icon-mission-statement-3.png">
+<h5 class="mission-page" data-i18n="missionPage.missionExpireCount">จำนวนภารกิจ หมดอายุ</h5>
+</div>
+<p class="text text-red">2 <span class="mission-page" data-i18n="missionPage.mission">ภารกิจ</span></p>
+</div>
+<div class="custom-box">
+<div class="group-content-title">
+<img src="/assets/images/mission/icon-mission-statement-4.png">
+<h5 class="mission-page" data-i18n="missionPage.missionOfflineCount">จำนวน Offline ภารกิจ</h5>
+</div>
+<p class="text text-gray">0 <span class="mission-page" data-i18n="missionPage.mission">ภารกิจ</span></p>
+</div>
+</div>
+<div class="main-content-mission">
+<div class="main-content-mission-inner">
+<div class="box-content-mission ">
+<div class="box-content-mission-header">
+<div class="group-header-mission">
+<img class="img-header-mission group-disable" src="https://cdn.lsmloyalty.com/images/mission/cover/01/mission-01.webp">
+<div class="box-title-mission group-disable">
+<div class="box-title-mission-text">
+<span class="text-title-mission">QA Happy Mission Retest 20261015</span>
+<span class="text-sub-mission">1 <span class="mission-page" data-i18n="missionPage.subMission">ภารกิจย่อย</span></span>
+</div>
+<div class="box-title-mission-date">
+<img src="/assets/images/mission/icon-clock.png">
+<span>15/10/2026 11:46 / เป็นต้นไป</span>
+</div>
+</div>
+<div class="box-mission-status">
+<span>online</span>
+</div>
+</div>
+</div>
+<div class="box-content-mission-body">
+<div class="box-content-mission-body-header">
+<div class="group-header-mission-status-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="toggleMissionStatus(`uuid-1`, this)" checked="">
+</div>
+<span class="mission-page" data-i18n="missionPage.onOff">เปิด/ปิด</span>
+</div>
+<div class="group-header-mission-status-btn">
+<div class="group-header-mission-status-btn-edit" onclick="toggleMissionEdit(`uuid-1`)">
+<img width="24" height="24" src="/assets/images/mission/icon-file.png">
+</div>
+<div class="group-header-mission-status-btn-delete" onclick="toggleMissionDelete(`uuid-1`)">
+<img width="24" height="24" src="/assets/images/mission/icon-trash.png">
+</div>
+</div>
+</div>
+<div class="group-mission-data">
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionReward">รางวัลเมื่อทำภารกิจย่อยสำเร็จ</h5>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+</div>
+</div>
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionCondition">เงื่อนไขภารกิจ</h5>
+</div>
+<div class="mission-body-condition">
+<p>ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ</p>
+</div>
+<div class="group-header-mission-body">
+<h5><span class="mission-page" data-i18n="missionPage.subMissionNo">ภารกิจย่อยที่</span> 1</h5>
+</div>
+<div class="mission-body-detail-per-mission">
+<div class="mission-body-detail-per-mission-text">
+Login ครบ 1 วัน<br>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box-content-mission ">
+<div class="box-content-mission-header">
+<div class="group-header-mission">
+<img class="img-header-mission group-disable" src="https://cdn.lsmloyalty.com/images/mission/cover/preview-pic.png">
+<div class="box-title-mission group-disable">
+<div class="box-title-mission-text">
+<span class="text-title-mission">ภารกิจ 001</span>
+<span class="text-sub-mission">1 <span class="mission-page" data-i18n="missionPage.subMission">ภารกิจย่อย</span></span>
+</div>
+<div class="box-title-mission-date">
+<img src="/assets/images/mission/icon-clock.png">
+<span>14/10/2026 22:26 / เป็นต้นไป</span>
+</div>
+</div>
+<div class="box-mission-status">
+<span>online</span>
+</div>
+</div>
+</div>
+<div class="box-content-mission-body">
+<div class="box-content-mission-body-header">
+<div class="group-header-mission-status-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="toggleMissionStatus(`uuid-2`, this)" checked="">
+</div>
+<span class="mission-page" data-i18n="missionPage.onOff">เปิด/ปิด</span>
+</div>
+<div class="group-header-mission-status-btn">
+<div class="group-header-mission-status-btn-edit" onclick="toggleMissionEdit(`uuid-2`)">
+<img width="24" height="24" src="/assets/images/mission/icon-file.png">
+</div>
+<div class="group-header-mission-status-btn-delete" onclick="toggleMissionDelete(`uuid-2`)">
+<img width="24" height="24" src="/assets/images/mission/icon-trash.png">
+</div>
+</div>
+</div>
+<div class="group-mission-data">
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionReward">รางวัลเมื่อทำภารกิจย่อยสำเร็จ</h5>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+</div>
+</div>
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionCondition">เงื่อนไขภารกิจ</h5>
+</div>
+<div class="mission-body-condition">
+<p> </p>
+</div>
+<div class="group-header-mission-body">
+<h5><span class="mission-page" data-i18n="missionPage.subMissionNo">ภารกิจย่อยที่</span> 1</h5>
+</div>
+<div class="mission-body-detail-per-mission">
+<div class="mission-body-detail-per-mission-text">
+ทำเทิร์นเท่ากับ 10.00 บาท<br>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box-content-mission expired">
+<div class="box-content-mission-header">
+<div class="group-header-mission">
+<img class="img-header-mission group-disable" src="https://cdn.lsmloyalty.com/images/mission/cover/01/mission-07.webp">
+<div class="box-title-mission group-disable">
+<div class="box-title-mission-text">
+<span class="text-title-mission">QA Test Mission 0911</span>
+<span class="text-sub-mission">1 <span class="mission-page" data-i18n="missionPage.subMission">ภารกิจย่อย</span></span>
+</div>
+<div class="box-title-mission-date">
+<img src="/assets/images/mission/icon-clock.png">
+<span>09/11/2026 14:00 / 09/11/2026 17:00</span>
+</div>
+</div>
+<div class="box-mission-status">
+<span>expired</span>
+</div>
+</div>
+</div>
+<div class="box-content-mission-body">
+<div class="box-content-mission-body-header">
+<div class="group-header-mission-status-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="toggleMissionStatus(`uuid-3`, this)">
+</div>
+<span class="mission-page" data-i18n="missionPage.onOff">เปิด/ปิด</span>
+</div>
+<div class="group-header-mission-status-btn">
+<div class="group-header-mission-status-btn-edit" onclick="toggleMissionEdit(`uuid-3`)">
+<img width="24" height="24" src="/assets/images/mission/icon-file.png">
+</div>
+<div class="group-header-mission-status-btn-delete" onclick="toggleMissionDelete(`uuid-3`)">
+<img width="24" height="24" src="/assets/images/mission/icon-trash.png">
+</div>
+</div>
+</div>
+<div class="group-mission-data">
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionReward">รางวัลเมื่อทำภารกิจย่อยสำเร็จ</h5>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+</div>
+</div>
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionCondition">เงื่อนไขภารกิจ</h5>
+</div>
+<div class="mission-body-condition">
+<p>ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ</p>
+</div>
+<div class="group-header-mission-body">
+<h5><span class="mission-page" data-i18n="missionPage.subMissionNo">ภารกิจย่อยที่</span> 1</h5>
+</div>
+<div class="mission-body-detail-per-mission">
+<div class="mission-body-detail-per-mission-text">
+Login ครบ 1 วัน<br>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="box-content-mission expired">
+<div class="box-content-mission-header">
+<div class="group-header-mission">
+<img class="img-header-mission group-disable" src="https://cdn.lsmloyalty.com/images/mission/cover/01/mission-02.webp">
+<div class="box-title-mission group-disable">
+<div class="box-title-mission-text">
+<span class="text-title-mission">QA Mission Rewards 20261015 Updated</span>
+<span class="text-sub-mission">2 <span class="mission-page" data-i18n="missionPage.subMission">ภารกิจย่อย</span></span>
+</div>
+<div class="box-title-mission-date">
+<img src="/assets/images/mission/icon-clock.png">
+<span>15/10/2026 14:15 / 14/11/2026 12:00</span>
+</div>
+</div>
+<div class="box-mission-status">
+<span>expired</span>
+</div>
+</div>
+</div>
+<div class="box-content-mission-body">
+<div class="box-content-mission-body-header">
+<div class="group-header-mission-status-switch">
+<div class="mission-switch-btn">
+<input class="mission-switch-check-input" type="checkbox" onclick="toggleMissionStatus(`uuid-4`, this)">
+</div>
+<span class="mission-page" data-i18n="missionPage.onOff">เปิด/ปิด</span>
+</div>
+<div class="group-header-mission-status-btn">
+<div class="group-header-mission-status-btn-edit" onclick="toggleMissionEdit(`uuid-4`)">
+<img width="24" height="24" src="/assets/images/mission/icon-file.png">
+</div>
+<div class="group-header-mission-status-btn-delete" onclick="toggleMissionDelete(`uuid-4`)">
+<img width="24" height="24" src="/assets/images/mission/icon-trash.png">
+</div>
+</div>
+</div>
+<div class="group-mission-data">
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionReward">รางวัลเมื่อทำภารกิจย่อยสำเร็จ</h5>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png">
+<span>1 ฿</span>
+</div>
+<div class="mission-item-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png">
+<span>1 สิทธิ์</span>
+</div>
+<div class="mission-item-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png">
+<span>1 pt.</span>
+</div>
+<div class="mission-item-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png">
+<span>QA ของรางวัลทดสอบ ไม่จัดส่งจริง</span>
+</div>
+</div>
+</div>
+<div class="group-header-mission-body">
+<h5 class="mission-page" data-i18n="missionPage.missionCondition">เงื่อนไขภารกิจ</h5>
+</div>
+<div class="mission-body-condition">
+<p>ทดสอบ Mission แบบมีรางวัลและตรวจข้อมูลหลังบันทึก บน staging</p>
+</div>
+<div class="group-header-mission-body">
+<h5><span class="mission-page" data-i18n="missionPage.subMissionNo">ภารกิจย่อยที่</span> 1</h5>
+</div>
+<div class="mission-body-detail-per-mission">
+<div class="mission-body-detail-per-mission-text">
+Login ครบ 1 วัน<br>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward">
+<div class="mission-item-reward-icon">
+<img src="https://cdn.lsmloyalty.com/images/mission/reward/icon-reward-1.png">
+<span>1 ฿</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-header-mission-body">
+<h5><span class="mission-page" data-i18n="missionPage.subMissionNo">ภารกิจย่อยที่</span> 2</h5>
+</div>
+<div class="mission-body-detail-per-mission">
+<div class="mission-body-detail-per-mission-text">
+ฝากขั้นต่ำ 1.00 บาท จำนวน 1 ครั้ง<br>
+</div>
+<div class="group-header-mission-body-reward">
+<div class="mission-item-reward-group">
+<div class="mission-item-reward">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

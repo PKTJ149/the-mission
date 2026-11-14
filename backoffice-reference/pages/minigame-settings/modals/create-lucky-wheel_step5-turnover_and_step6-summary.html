@@ -1,0 +1,1035 @@
+<div data-capture="wrapper: #SettingMinigameStep5 followed by #SettingMinigameStep6"><div class="canvas-box-body" id="SettingMinigameStep5" data-capture-style-props="display">
+<div class="tab-header">
+<div class="header-in-body active">
+<div class="tab-group">
+<span class="p1 fw-700" data-i18n="minigameSetting.settingMinigameStep4Header">กำหนดเงื่อนไขการติดเทิร์น ถอนเงิน การหลุดโปร และเงื่อนไขพิเศษอื่น ๆ</span>
+</div>
+</div>
+</div>
+<div class="main-in-detail-body content-col-1">
+<div class="label-minigame">
+<span data-i18n="minigameSetting.settingMinigameTurnOver">กำหนดเงื่อนไขการติด Turnover</span>
+<div class="switch">
+<div class="custom-switch switch-alone form-check form-switch">
+<div data-capture-gap="opening tag attributes withheld by browser tool output filter"></div>
+<span class="color-emerald-title-1" data-i18n="minigameSetting.onAndOffSetting">เปิด / ปิด การใช้งาน</span>
+</div>
+</div>
+<div class="input-col-1-p switch-2-3-6">
+<div>
+<div class="text-start">
+<span class="p3" data-capture-style-props="color">
+<span data-i18n="minigameSetting.settingMinigameTurnOverSubText">เมื่อสมาชิกรับโปรไปแล้ว สมาชิกจะต้องทำ Turnover ให้ได้ตามที่กำหนดให้ครบถึงจะสามารถทำการถอน</span><br><span data-i18n="minigameSetting.settingMinigameTurnOverSubText2">เงินได้ตามปกติ</span>
+</span>
+</div>
+<div class="row mt-3">
+<div class="col-12 col-md-6 mb-3" type="button" onclick="selectChangeMinigameBoxRadio(this)" data-value-id1="boxMinigameTurnoverRadioPoint" data-value-id2="boxMinigameTurnoverRadioBath" data-value-id="1">
+<div class="custom-card h-100 box-minigame-click-select minigame-box-reset fistempty disabled" id="boxMinigameTurnoverRadioPoint">
+<input id="minigameEnableWithdrawConditionMinTurnover" name="minigameConditionTurnoverRadioBox" class="box-radio" type="radio" hidden="">
+<div class="row flex-column justify-content-between h-100">
+<div class="row pe-0">
+<div class="col-3 mb-3">
+<img src="/assets/images/minigame/3d-trade-icon.png" width="64" height="64">
+</div>
+<div class="col-9 mb-3">
+<div class="p2 fw-700" data-i18n="minigameSetting.settingMinigameTurnOverMin">ต้องทำ Turnover ขั้นต่ำ x เท่า</div>
+<span class="p3" data-i18n="minigameSetting.settingMinigameTurnOverExampleText" data-capture-style-props="color">ตัวอย่าง : ลูกค้าฝาก 1,000 บาท รับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = (1,000 + 200) x 5 = 6,000 ถึงจะถอนเครดิตได้</span>
+</div>
+</div>
+<div class="">
+<div class="col-12 mb-2">
+<div class="custom-input custom-float box-promotion-item-checkbox-radio" id="inputMinigameWithdrawConditionMinTurnover">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.minigameTurnOverPoint" data-capture-style-props="text-align">ค่า Turnover</div>
+<div class="input-group minigame-box-reset disabled">
+<input id="minigameWithdrawConditionMinTurnover" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" oninput="validateStep()">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.times" data-capture-style-props="border-radius">เท่า</span>
+</div>
+<div class="invalid-feedback" id="error-minigameWithdrawConditionMinTurnover" data-i18n="minigameSetting.minigameTurnOverPointErrorText" data-capture-style-props="display">กรุณากรอกค่า Turnover</div>
+</div>
+</div>
+<div class="col-12">
+<div class="row">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.minigameTurnOverSettingMinimum" data-capture-style-props="text-align">ติดเทิร์นโอเวอร์ขั้นต่ำ</div>
+<div class="col-6">
+<div class="custom-input custom-float box-promotion-item-checkbox-radio" id="inputMinigameWithdrawConditionMinTurnoverMinCredit">
+<div>
+<div class="input-group minigame-box-reset disabled" id="boxInputMinTurnoverMinCredit">
+<input id="minigameWithdrawConditionMinTurnoverMinCredit" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6 align-self-center">
+<div class="form-check">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="disableMinTurnOverMinCredit" onchange="changDisableMinTurnoverMinCredit()">
+<label class="form-check-label d-flex flex-column" for="">
+<span class="p2 color-emerald-title-1" data-i18n="minigameSetting.minigameTurnOverNotSetting">ไม่กำหนดขั้นต่ำ</span>
+</label>
+</div>
+</div>
+<div class="invalid-feedback" id="error-minigameWithdrawConditionMinTurnoverMinCredit" data-i18n="minigameSetting.minigameTurnOverPointErrorText" data-capture-style-props="display">กรุณากรอกค่า Turnover</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" type="button" onclick="selectChangeMinigameBoxRadio(this)" data-value-id1="boxMinigameTurnoverRadioPoint" data-value-id2="boxMinigameTurnoverRadioBath" data-value-id="2">
+<div class="custom-card h-100 box-minigame-click-select minigame-box-reset disabled" id="boxMinigameTurnoverRadioBath">
+<input id="minigameEnableWithdrawConditionMinTurnoverCredit" name="minigameConditionTurnoverRadioBox" class="box-radio" type="radio" hidden="">
+<div class="row flex-column justify-content-between h-100">
+<div class="row pe-0">
+<div class="col-3 mb-3">
+<img src="/assets/images/minigame/3d-trade-icon.png" width="64" height="64">
+</div>
+<div class="col-9 mb-3">
+<div class="p2 fw-700" data-i18n="minigameSetting.settingMinigameTurnOverMinBaht">ต้องทำ Turnover ขั้นต่ำ x บาท</div>
+<span class="p3" data-i18n="minigameSetting.settingMinigameTurnOverMinBahtExampleText" data-capture-style-props="color">ตัวอย่าง : ลูกค้าฝาก 1,000 บาท รับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 10,000 บาท ลูกค้าจะต้องทำเทิร์นรวมให้ได้ = 10,000 เท่านั้น ถึงจะทำถอนเครดิตได้</span>
+</div>
+</div>
+<div class="">
+<div class="col-12">
+<div class="custom-input custom-float box-promotion-item-checkbox-radio" id="inputMinigameWithdrawConditionMinTurnoverCredit">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.minigameTurnOverPoint" data-capture-style-props="text-align">ค่า Turnover</div>
+<div class="input-group minigame-box-reset disabled">
+<input id="minigameWithdrawConditionMinTurnoverCredit" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')" oninput="validateStep()">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameWithdrawConditionMinTurnoverCredit" data-i18n="minigameSetting.minigameTurnOverPointErrorText" data-capture-style-props="display">กรุณากรอกค่า Turnover</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-start">
+<span class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.minigameTurnOverTime">เวลาในการทำเทิร์นโอเวอร์</span>
+</div>
+<input id="boxTurnoverPeriodSettingRadio" name="boxTurnoverPeriodSettingRadioBox" class="box-radio" type="radio" hidden="">
+<div class="row box-promotion-item-checkbox-radio" id="boxTurnoverPeriodSettingOffRadio">
+<div class="col-12 col-md-6 mb-3" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2" type="radio" name="minigameTurnoverPeriodSettingRadio" id="minigameTurnoverPeriodSettingOffRadio" value="false" data-value1="inputMinigameTurnoverPeriodSettingOnRadio" data-value2="inputMinigameTurnoverPeriodSettingOffRadio" onchange="changeMinigameradioinput(this)" checked="">
+<label class="form-check-label d-flex flex-column" for="minigameTurnoverPeriodSettingOffRadio">
+<span class="p2 color-emerald-title-1" data-i18n="minigameSetting.minigameTurnOverTimeNotFix">ไม่กำหนดเวลาในการทำเทิร์นโอเวอร์</span>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.minigameTurnOverTimeNoTime">สมาชิกสามารถทำเทิร์นโอเวอร์ได้โดยไม่มีเวลากำหนด</span>
+</label>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxTurnoverPeriodSettingOnRadio">
+<div class="col-12 col-md-6 mb-3 mb-md-0" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2" type="radio" name="minigameTurnoverPeriodSettingRadio" id="minigameTurnoverPeriodSettingOnRadio" value="true" data-value1="inputMinigameTurnoverPeriodSettingOffRadio" data-value2="inputMinigameTurnoverPeriodSettingOnRadio" onchange="changeMinigameradioinput(this)">
+<label class="form-check-label d-flex flex-column" for="minigameTurnoverPeriodSettingOnRadio">
+<span class="p2 color-emerald-title-1" data-i18n="minigameSetting.minigameTurnoverPeriodFix">กำหนดระยะเวลาในการทำเทิร์นโอเวอร์</span>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.minigameTurnoverPeriodCondition">สมาชิกมีระยะเวลาในการทำเทิร์นโอเวอร์ หากทำไม่ทันตามเวลาที่กำหนด สมาชิกจะต้องติดต่อเจ้าหน้าที่เพื่อให้ดำเนินการให้</span>
+</label>
+</div>
+</div>
+<div class="col-12 col-md-6">
+<div class="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameTurnoverPeriodSettingOffRadio">
+<div class="input-group">
+<input id="inputMinigameTurnOverHours" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.hours" data-capture-style-props="border-radius">ชั่วโมง</span>
+</div>
+<div class="invalid-feedback" id="error-minigameTurnoverPeriodSetting" data-i18n="minigameSetting.minigameTurnoverPeriodErrorText" data-capture-style-props="display">กรุณากรอกเวลาในการทำเทิร์นโอเวอร์</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.withdrawnCondition">กำหนดเงื่อนไขการถอนเงิน</span>
+<div class="switch">
+<div class="custom-switch switch-alone form-check form-switch">
+<input class="form-check-input" type="checkbox" id="minigameEnableWithdrawCondition" onclick="changeStatusSwitch(this,'2-3-7')" value="minigameEnableWithdrawCondition">
+</div>
+<span class="color-emerald-title-1" data-i18n="minigameSetting.onAndOffSetting">เปิด / ปิด การใช้งาน</span>
+</div>
+</div>
+<div class="input-col-1-p switch-2-3-7 d-none">
+<div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionWithdrawMinBalance">
+<div class="col-12 col-md-6 mb-3">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameEnableCreditRemain" data-value="inputMinigameCreditRemain" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableCreditRemain">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.withdrawnCondition1">กำหนดยอดเครดิตคงเหลือขั้นต่ำ x บาท</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.withdrawnCondition2">เมื่อถอนแล้วจะต้องเหลือเครดิตที่ยอดคงเหลือไม่น้อยกว่า x บาท ถึงจะทำการถอนเครดิตได้</span>
+</label>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameCreditRemain">
+<div class="input-group">
+<input id="minigameCreditRemain" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameCreditRemain" data-i18n="minigameSetting.withdrawnConditionErrorText" data-capture-style-props="display">กรุณากรอกกำหนดยอดเครดิตคงเหลือขั้นต่ำ x บาท</div>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionWithdrawMaxBalance">
+<div class="col-12 col-md-6 mb-3">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameEnableMaxWithdraw" data-value="inputMinigameMaxWithdraw" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableMaxWithdraw">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.withdrawnCondition3">จำกัดการถอนสูงสุดไม่เกินจำนวนที่กำหนด</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.withdrawnCondition4">ลูกค้าสามารถถอนเครดิตได้สูงสุดไม่เกิน x บาท ในแต่ละครั้งที่ทำการถอนเครดิต</span>
+</label>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxWithdraw">
+<div class="input-group">
+<input id="minigameMaxWithdraw" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-maxWithdraw" data-i18n="minigameSetting.withdrawnConditionErrorText2" data-capture-style-props="display">กรุณากรอกจำกัดการถอนสูงสุดไม่เกินจำนวนที่กำหนด</div>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionWithdrawAllBalance">
+<div class="col-12 col-md-6 mb-3">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameEnableDeductCreditAll" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableDeductCreditAll">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.withdrawnCondition5">หักเครดิตที่เหลือทั้งหมดเมื่อทำการถอน</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.withdrawnCondition6">เมื่อถอนเงินออกจากกระเป๋าแล้ว มีเศษคงเหลือในกระเป๋าระบบจะทำการหักทั้งหมดออกให้เป็น 0</span>
+</label>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionWithdrawNoAutoBalance">
+<div class="col-12 col-md-6">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameDisableAutoWithdraw" onclick="changeMinigamecheckbox(this)">
+<label class="form-check-label d-flex flex-column" for="minigameDisableAutoWithdraw">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.withdrawnCondition7">ไม่อนุญาตให้ถอนอัตโนมัติ เมื่อสมาชิกรับโปรโมชั่น</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.withdrawnCondition8">ปิดการถอนอัตโนมัติเมื่อสมาชิกรับโปรโมชั่นใด ๆ</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.turnOverFinishCondition">กำหนดเงื่อนไขการปลดเทิร์น (หลุดโปร)</span>
+<div class="switch">
+<div class="custom-switch switch-alone form-check form-switch">
+<input class="form-check-input" type="checkbox" id="minigameEnableCreditToClearTurnover" onclick="changeStatusSwitch(this,'2-3-8')">
+</div>
+<span class="color-emerald-title-1" data-i18n="minigameSetting.onAndOffSetting">เปิด / ปิด การใช้งาน</span>
+</div>
+</div>
+<div class="input-col-1-p switch-2-3-8 d-none">
+<div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionUnlockTurnRadioBath">
+<div class="col-12 col-md-6 mb-3" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2" type="radio" name="minigameCreditToClearTurnoverRadio" id="minigameEnableMaxRemainCreditToClearTurnover" data-value1="inputMinigameMaxRemainCreditToClearTurnover" data-value2="inputMinigameMaxRemainCreditToClearTurnoverPercentage" onchange="changeMinigameradioinput(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableMaxRemainCreditToClearTurnover">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.turnOverFinishCondition1">ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x บาท</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.turnOverFinishCondition2">ระบบจะปลดเทิร์นเมื่อเครดิตเหลือน้อยกว่า x บาท</span>
+</label>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3">
+<div class="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxRemainCreditToClearTurnover">
+<div class="input-group">
+<input id="minigameMaxRemainCreditToClearTurnover" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameMaxRemainCreditToClearTurnover" data-i18n="minigameSetting.turnOverFinishConditionErrorText" data-capture-style-props="display">รกรุณากรอกปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x บาท</div>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionUnlockTurnRadioPercentage">
+<div class="col-12 col-md-6 mb-3 mb-md-0" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2" type="radio" name="minigameCreditToClearTurnoverRadio" id="minigameEnableMaxRemainCreditToClearTurnoverPercentage" data-value1="inputMinigameMaxRemainCreditToClearTurnoverPercentage" data-value2="inputMinigameMaxRemainCreditToClearTurnover" onchange="changeMinigameradioinput(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableMaxRemainCreditToClearTurnoverPercentage">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.turnOverFinishCondition3">ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x%</div>
+<span class="p3 color-emerald-title-2" data-i18n="minigameSetting.turnOverFinishCondition4">ระบบจะปลดเทิร์น เมื่อลูกค้าฝากเงิน ณ ตอนที่มีเครดิต คงเหลือน้อยกว่า x% (คิดจาก โบนัส + ยอดฝาก)</span>
+</label>
+</div>
+</div>
+<div class="col-12 col-md-6">
+<div class="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxRemainCreditToClearTurnoverPercentage">
+<div class="input-group">
+<input id="minigameMaxRemainCreditToClearTurnoverPercentage" type="text" class="form-control" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">%</span>
+</div>
+<div class="invalid-feedback" id="error-minigameMaxRemainCreditToClearTurnoverPercentage" data-i18n="minigameSetting.turnOverFinishConditionErrorText2" data-capture-style-props="display">กรุณากรอกปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.addCreditCondition">กำหนดเงื่อนไขการเพิ่มทุน</span>
+<div class="switch">
+<div class="custom-switch switch-alone form-check form-switch">
+<input class="form-check-input" type="checkbox" id="minigameEnableIncreaseTurnOver" onclick="changeStatusSwitch(this,'2-3-9')">
+</div>
+<span class="color-emerald-title-1" data-i18n="minigameSetting.onAndOffSetting">เปิด / ปิด การใช้งาน</span>
+</div>
+</div>
+<div class="input-col-1-p switch-2-3-9 d-none">
+<div>
+<div class="row box-promotion-item-checkbox-radio d-none" id="boxPromotionAddCostRadioInactive">
+<div class="col-12 col-md-6 mb-2" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2 active" type="radio" name="minigameIncreaseTurnOverRadio" id="minigameEnableTurnOverDepositOff" data-value-id1="boxMinigameAddCostActiveRadioPoint" data-value-id2="boxMinigameAddCostActiveRadioBath" onclick="changeMinigameCountdownRadio(this)" data-value-other="minigameEnableTurnOverDepositOn" checked="">
+<label class="form-check-label d-flex flex-column" for="minigameEnableTurnOverDepositOff">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.addCreditCondition1">ไม่กำหนด Turnover จากยอดฝากใหม่</div>
+</label>
+</div>
+</div>
+</div>
+<div class="row box-promotion-item-checkbox-radio" id="boxPromotionAddCostRadioActive">
+<div class="col-12 col-md-6 mb-2 mb-md-0" type="button">
+<div class="form-check minigame-reset disabled fistempty">
+<input class="form-check-input me-2 active" type="radio" name="minigameIncreaseTurnOverRadio" id="minigameEnableTurnOverDepositOn" data-value-id1="boxMinigameAddCostActiveRadioPoint" data-value-id2="boxMinigameAddCostActiveRadioBath" data-value-id="2" data-value-other="minigameEnableTurnOverDepositOff" onclick="changeMinigameCountdownRadio(this)">
+<label class="form-check-label d-flex flex-column" for="minigameEnableTurnOverDepositOn">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.addCreditCondition2">กำหนด Turnover จากยอดฝากใหม่</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-3 box-promotion-item-checkbox-radio" id="boxMinigameAddCostRadioActiveInactive">
+<div class="col-12 col-md-6 mb-3" type="button" onclick="selectChangeMinigameBoxRadio(this)" data-value-id1="boxMinigameAddCostActiveRadioPoint" data-value-id2="boxMinigameAddCostActiveRadioBath" data-value-id="1">
+<div class="custom-card h-100 box-minigame-click-select minigame-box-reset disabled" id="boxMinigameAddCostActiveRadioPoint">
+<input id="minigameEnableMinTurnover" name="minigameIncreaseTurnOverRadioBox" class="box-radio active" type="radio" hidden="" checked="">
+<div class="row flex-column justify-content-between h-100">
+<div class="row pe-0">
+<div class="col-3 mb-3">
+<img src="/assets/images/minigame/3d-trade-icon.png" width="64" height="64">
+</div>
+<div class="col-9 mb-3">
+<div class="p2 fw-700" data-i18n="minigameSetting.settingMinigameTurnOverMin">ต้องทำ Turnover ขั้นต่ำ x เท่า</div>
+<span class="p3" data-i18n="minigameSetting.settingMinigameTurnOverExampleText" data-capture-style-props="color">ตัวอย่าง : ลูกค้าฝาก 1,000 บาท รับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = (1,000 + 200) x 5 = 6,000 ถึงจะถอนเครดิตได้</span>
+</div>
+</div>
+<div class="">
+<div class="col-12">
+<div class="custom-input custom-float" id="inputMinigameMinTurnover">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.minigameTurnOverPoint">ค่า Turnover</div>
+<div class="input-group minigame-box-reset disabled">
+<input id="minigameMinTurnover" type="text" class="form-control validatezero active" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-capture-style-props="border-radius">เท่า</span>
+</div>
+<div class="invalid-feedback text-center" id="error-minigameMinTurnover" data-i18n="minigameSetting.minigameTurnOverPointErrorText" data-capture-style-props="display">กรุณากรอกค่า Turnover</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 mb-3" type="button" onclick="selectChangeMinigameBoxRadio(this)" data-value-id1="boxMinigameAddCostActiveRadioPoint" data-value-id2="boxMinigameAddCostActiveRadioBath" data-value-id="2">
+<div class="custom-card h-100 box-minigame-click-select minigame-box-reset disabled" id="boxMinigameAddCostActiveRadioBath">
+<input id="minigameEnableMinTurnoverCredit" name="minigameIncreaseTurnOverRadioBox" class="box-radio active" type="radio" hidden="">
+<div class="row flex-column justify-content-between h-100">
+<div class="row pe-0">
+<div class="col-3 mb-3">
+<img src="/assets/images/minigame/3d-trade-icon.png" width="64" height="64">
+</div>
+<div class="col-9 mb-3">
+<div class="p2 fw-700" data-i18n="minigameSetting.settingMinigameTurnOverMin">ต้องทำ Turnover ขั้นต่ำ x เท่า</div>
+<span class="p3" data-i18n="minigameSetting.settingMinigameTurnOverExampleText" data-capture-style-props="color">ตัวอย่าง : ลูกค้าฝาก 1,000 บาท รับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = (1,000 + 200) x 5 = 6,000 ถึงจะถอนเครดิตได้</span>
+</div>
+</div>
+<div class="">
+<div class="col-12">
+<div class="custom-input custom-float" id="inputMinigameminTurnoverCredit">
+<div class="p2 fw-700 mb-2" data-i18n="minigameSetting.minigameTurnOverPoint">ค่า Turnover</div>
+<div class="input-group minigame-box-reset disabled">
+<input id="minigameminTurnoverCredit" type="text" class="form-control active" placeholder="0" onkeydown="Form.inputAcceptKey(event, 'integerPositive')">
+<span class="input-group-text custom-color" data-i18n="minigameSetting.baht" data-capture-style-props="border-radius">บาท</span>
+</div>
+<div class="invalid-feedback" id="error-minigameminTurnoverCredit" data-i18n="minigameSetting.minigameTurnOverPointErrorText" data-capture-style-props="display">กรุณากรอกค่า Turnover</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame5" data-capture-style-props="display">
+<div class="d-flex align-items-center justify-content-between">
+<div>
+<button id="buttonNextPromotionStepfinal5" class="btn btn-outline-warning" data-type="next" onclick="nextPromotionMiniGameStepFinal(this, '5', '6')" data-i18n="minigameSetting.summarizeAndSave" data-capture-style-props="width display">ไปหน้าสรุป</button>
+</div>
+<div>
+<button class="btn system-btn btn-outline btn-rounded" data-type="previous" onclick="btnStepSettingMinigame(this,'5','4')" data-i18n="minigameSetting.back" data-capture-style-props="width">ขั้นตอนก่อนหน้า</button>
+<button class="btn system-btn btn-rounded ms-2" data-type="next" onclick="btnStepSettingMinigame(this,'5','6')" data-i18n="minigameSetting.next" data-capture-style-props="width">ถัดไป</button>
+</div>
+</div>
+</div>
+</div><div class="canvas-box-body" id="SettingMinigameStep6" data-capture-style-props="display">
+<div class="tab-header">
+<div class="header-in-body active">
+<div class="tab-group justify-content-center">
+<span class="p1 fw-700" id="textHeadDetail">
+<span data-i18n="minigameSetting.luckyWheelSummarizeDetails">สรุปรายละเอียดมินิเกมส์ - วงล้อนำโชค</span>
+</span>
+</div>
+</div>
+</div>
+<div class="main-in-detail-body content-col-1">
+<div class="input-col-1-p">
+<div class="d-flex align-items-center justify-content-center">
+<div class="wheel-wrapper" id="showStepEnd"><div class="custom-wheel wheel-8" data-deg="0">
+<div class="wheel-item-all">
+<div class="wheel-item" data-capture-style-props="--item">
+<div class="wheel-image">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/pie-1.png" class="luckywheelWheel1Src">
+</div>
+</div>
+
+
+
+
+
+
+<!-- [collapsed 7 more siblings "DIV wheel-item" with identical structure; values in data.json] -->
+</div>
+</div>
+<div class="wheel-spin">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/button.png" class="luckywheelSpinBtnSrc">
+</div>
+<div class="wheel-frame">
+<img draggable="false" src="https://p88.blob.core.windows.net/images/minigame/wheel-8/frame.png" class="luckywheelFrameSrc">
+</div></div>
+</div>
+</div>
+<div class="label-minigame" id="textHeaderAllDetail">
+<span data-i18n="minigameSetting.luckyWheelDetail">รายละเอียดมินิเกมส์วงล้อ: </span>
+</div>
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textStatusDetail">
+สถานะวงล้อ :
+</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showStatusDetail1" data-capture-style-props="display"><img src="/assets/images/minigame/switch-on.svg" data-capture-style-props="display"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showStatusDetail2"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textNameDetail">
+<span data-i18n="minigameSetting.summaryHeaderName">ชื่อ :</span>
+</div>
+</div>
+<div class="col mb-1">
+<div class="p2 color-emerald-title-1" id="showName">
+ฝากประจำนับโปร ทุกวัน รับไม่เว้น ไม่เน้น รับไปเล้ย
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textConditionDetail">
+<span data-i18n="minigameSetting.summaryDetail">เงื่อนไขวงล้อ :</span>
+</div>
+</div>
+<div class="col mb-1">
+<div class="show-condition-html color-emerald-title-1" id="showconditionHtml">
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" id="textTestDetail">
+<span data-i18n="minigameSetting.summaryAgentChoose">Agent ที่เลือก :</span>
+</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap align-items-center gap-2" id="showLimitAgentGroupActiveHtml">
+<div class="text-center">
+<span class="custom-badge bg-green-10">agent demo 1</span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryPromotionPeriod">ระยะเวลาโปรโมชั่น :</div>
+</div>
+<div class="col mb-1">
+<div class="p2 color-emerald-title-1" id="showStartDateEndDate">
+-
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryDateActive">วันทำงานของโปรโมชั่น :</div>
+</div>
+<div class="col mb-1">
+<div class="row mb-2">
+<div class="col-12 col-lg-3">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryActive" data-capture-style-props="width">วันทำงาน :</div>
+</div>
+<div class="col-12 col-lg-9">
+<div class="d-flex flex-wrap gap-2">
+<div id="showEnableEveryday">
+<div class="d-flex align-items-center gap-1">
+<div class="box-list-date-promotion" data-capture-style-props="background"></div>
+<div class="p3 color-emerald-title-1" data-i18n="minigameSetting.allDate">ทุกวัน</div>
+</div>
+</div>
+
+
+
+
+
+
+<!-- [collapsed 7 more siblings "DIV " with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<div class="row color-emerald-title-1" id="showMinigameTime">
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableCountDown1"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableCountDown2"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCountdownType">รูปแบบการนับถอยหลัง :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableCountDownCreated" data-i18n="minigameSetting.summaryCountdownType1">นับถอยหลังทันทีที่สร้างวงล้อนำโชคสำเร็จ</div>
+<div class="p2 color-emerald-title-1" id="showEnableCountDownSetTime" data-i18n="minigameSetting.summaryCountdownType2" data-capture-style-props="display">นับถอยหลังทันทีเมื่อถึงกำหนด</div>
+<div class="p2 color-emerald-title-1" data-capture-style-props="display">
+<span data-i18n="minigameSetting.summaryCountdownType3">นับถอยหลังทันทีเมื่อเหลืออีก</span> <span id="showEnableRemainingDay">7</span> <span data-i18n="minigameSetting.day">วัน</span>
+</div>
+<div class="p2 color-emerald-title-1" data-capture-style-props="display">
+<span data-i18n="minigameSetting.summaryCountdownType3">นับถอยหลังทันทีเมื่อเหลืออีก</span> <span id="showEnableRemainingDateTime"></span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row d-none">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCountdownClock">รูปแบบนาฬิกา Countdown :</div>
+</div>
+<div class="col mb-1" id="showCountDownColorCode">
+</div>
+</div>
+<hr class="d-none" data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableMaxPromotion1"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableMaxPromotion2"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCouponDeduct">การจำกัดสิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerDayActive">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerDayInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponPerDay">จำกัดสิทธิ์การรับ “ต่อวัน”</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showMaxCountPerDayActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerDayInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerWeekActive">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerWeekInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponPerWeek">จำกัดสิทธิ์การรับ “ต่อสัปดาห์”</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showMaxCountPerWeekActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerWeekInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerMonthActive">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerMonthInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponPerMonth">จำกัดสิทธิ์การรับ “ต่อเดือน”</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showMaxCountPerMonthActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerMonthInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/minigame/icon-check-active.png" id="showEnableMaxCountPerPromotionActive">
+<img src="/assets/images/minigame/icon-check-inactive.png" id="showEnableMaxCountPerPromotionInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponPerPromotion">จำกัดสิทธิ์การรับ “ตลอดอายุโปรโมชั่น”</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showMaxCountPerPromotionActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerPromotionInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableMaxPromotionPerPersonActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableMaxPromotionPerPersonInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCouponDeduct">การจำกัดสิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerTimePerPersonActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerTimePerPersonInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponDeductPerCount">จำกัดสิทธิ์การรับ “ต่อครั้ง”</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showMaxCountPerTimePerPersonActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showMaxCountPerTimePerPersonInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV d-flex flex-wrap justify-content-between align-items-center mb-2" with identical structure; values in data.json] -->
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableLimitCustomerGroupActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableLimitCustomerGroupInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCouponGroupGet">กลุ่มลูกค้าที่มีสิทธิ์ได้รับ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showLimitCustomerGroupInactive">
+-
+</div>
+<div id="showLimitCustomerGroupActive" data-capture-style-props="display">
+<div class="p2 d-flex align-items-center flex-wrap gap-2" id="showLimitCustomerGroupActiveHtml">
+<div class="px-3" data-capture-style-props="background color border-radius">New Customer</div>
+<div class="px-3" data-capture-style-props="background color border-radius">Commander</div>
+<div class="px-3" data-capture-style-props="background color border-radius">VIP</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableResetActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableResetInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryResetCouponType">รูปแบบการ reset สิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableResetExpired" data-i18n="minigameSetting.summaryResetCouponType1">Reset สิทธิ์ ทันทีที่มินิเกมหมดอายุ</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV p2 color-emerald-title-1" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showMinigameEnableRemoveChance1"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showMinigameEnableRemoveChance2"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryDeductCouponMiniGame">มินิเกมส์ที่หักสิทธิ์ :</div>
+</div>
+<div class="col color-emerald-title-1 mb-1" id="showMinigameEnableRemoveChance">
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showminigameEnableFixChance11"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showminigameEnableFixChance12"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryCouponDeduct">การจำกัดสิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitPerGamePerDayActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitPerGamePerDayInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponDeductMemberPerDay">จำกัดการใช้สิทธิ์ของสมาชิกต่อมินิเกมส์ ต่อวัน</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showLimitPerGamePerDayActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerGamePerDayInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitPerPersonActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitPerPersonInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponDeductMemberPerPerson">จำกัดการรับสิทธิ์สมาชิก หากมีสิทธิ์อยู่แล้ว x สิทธิ์</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showLimitPerPersonActive">20</span> <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitPerPersonInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.summaryCoupon">สิทธิ์</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableLimitBalanceActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableLimitBalanceInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponDeductLimitBalance" data-capture-style-props="text-overflow">จำกัดการรับสิทธิ์สมาชิกหากมียอดเครดิตที่ยอดคงเหลือ</div>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitBalanceActive">
+<span id="showLimitPerPersonActive">20</span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showLimitBalanceInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryHowToGetText">เงื่อนไขการได้รับสิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="p2 color-emerald-title-1" id="showConditionGetBonus">
+-
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryHowToGetText">เงื่อนไขการได้รับสิทธิ์ :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1">
+<span id="showNumberPartsLuckywheelType">วงล้อ</span> <span id="showNumberPartsLuckywheel">ชิ้น</span> <span data-i18n="minigameSetting.piece">ชิ้น</span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div id="showPartsLuckywheelluckyWheelRewards">
+</div>
+</div>
+</div>
+<!-- [collapsed 10 more siblings "DIV label-minigame" with identical structure; values in data.json] -->
+<div class="input-col-1-p">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableConditionTurnoverActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableConditionTurnoverInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryTurnoverText">รูปแบบการติด Turnover :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableWithdrawConditionMinTurnover" data-i18n="minigameSetting.summaryTurnoverMinTurnoverTimes">ต้องทำ Turnover ขั้นต่ำ x เท่า</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinTurnover">
+<span id="showWithdrawConditionMinTurnoverText"></span> <span data-i18n="minigameSetting.times">เท่า</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableWithdrawConditionMinTurnoverCredit" data-capture-style-props="display">
+<span data-i18n="minigameSetting.summaryTurnoverMinRequire">ต้องทำ Turnover ขั้นต่ำ</span> <span id="showEnableWithdrawConditionMinTurnoverCreditText"></span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+<div class="p2 color-emerald-title-1" data-capture-style-props="display">
+<span id="showWithdrawConditionMinTurnoverCredit"></span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.summaryWithdrawRequirement">เงื่อนไขการถอน</span>
+</div>
+<div class="input-col-1-p d-none">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableWithdrawConditionActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableWithdrawConditionInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryWithdrawRequirementText">เงื่อนไขการถอน :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableWithdrawConditionMinRemainCreditActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableWithdrawConditionMinRemainCreditInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryWithdrawRequireType1">ยอดเครดิตคงเหลือขั้นต่ำ x บาท</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showWithdrawConditionMinRemainCreditActive">100</span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMinRemainCreditInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableWithdrawConditionMaxWithdrawActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableWithdrawConditionMaxWithdrawInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryWithdrawRequireType2">ถอนสูงสุดไม่เกินจำนวนที่กำหนด</div>
+</div>
+<div class="p2 color-emerald-title-1">
+<span id="showWithdrawConditionMaxWithdrawActive">100</span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showWithdrawConditionMaxWithdrawInactive" data-capture-style-props="display">
+- <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableSetZeroCreditAfterWithdrawActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableSetZeroCreditAfterWithdrawInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryWithdrawRequireType3">หักเครดิตที่เหลือทั้งหมดเมื่อทำการถอน</div>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+<div class="d-flex gap-2 align-items-center">
+<img src="/assets/images/icon-check-active.png" id="showEnableCloseAutoWithdrawActive">
+<img src="/assets/images/icon-check-inactive.png" id="showEnableCloseAutoWithdrawInactive" data-capture-style-props="display">
+<div class="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryWithdrawRequireType4">ไม่อนุญาตให้ถอนอัตโนมัติ เมื่อสมาชิกรับโปรโมชั่น</div>
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.summaryPromotionRequireFinHeader">เงื่อนไขการหลุดโปร</span>
+</div>
+<div class="input-col-1-p d-none">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableCreditToClearTurnoverActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableCreditToClearTurnoverInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryPromotionRequireFin">รูปแบบการหลุดโปร :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableMaxRemainCreditToClearTurnover" data-i18n="minigameSetting.summaryPromotionRequireFinType1">ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x บาท</div>
+<div class="p2 color-emerald-title-1" id="showMaxRemainCreditToClearTurnover">
+<span id="showMaxRemainCreditToClearTurnover">100</span> <span data-i18n="minigameSetting.baht">บาท</span>
+</div>
+<div class="p2 color-emerald-title-1" id="showEnableMaxRemainCreditToClearTurnoverPercentage" data-i18n="minigameSetting.summaryPromotionRequireFinType2" data-capture-style-props="display">ปลดเทิร์นเมื่อเครดิตคงเหลือน้อยกว่า x %</div>
+<div class="p2 color-emerald-title-1" id="showMaxRemainCreditToClearTurnoverPercentage" data-capture-style-props="display">
+100 %
+</div>
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+<div class="label-minigame d-none">
+<span data-i18n="minigameSetting.summaryAddCreditHeader">เงื่อนไขการเพิ่มทุน</span>
+</div>
+<div class="input-col-1-p d-none">
+<div class="col-12 mb-2 text-start">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryStatus">สถานะ :</div>
+</div>
+<div class="col mb-1">
+<div class="status-minigame minigame-on" id="showEnableIncreaseTurnOverActive"><img src="/assets/images/minigame/switch-on.svg"><span data-i18n="minigameSetting.filterStatusOn">เปิดใช้งาน</span></div>
+<div class="status-minigame minigame-off" id="showEnableIncreaseTurnOverInactive"><img src="/assets/images/minigame/switch-off.svg"><span data-i18n="minigameSetting.filterStatusOff">ปิดใช้งาน</span></div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+<div class="row">
+<div class="col-4 mb-1">
+<div class="p2 color-emerald-title-1 fw-700" data-i18n="minigameSetting.summaryAddCreditText">รูปแบบการเพิ่มทุน :</div>
+</div>
+<div class="col mb-1">
+<div class="d-flex flex-wrap justify-content-between align-items-center">
+<div class="p2 color-emerald-title-1" id="showEnableMinTurnover" data-i18n="minigameSetting.summaryAddCreditType1" data-capture-style-props="display">ต้องทำ Turnover ขั้นต่ำ x เท่า</div>
+
+
+
+<!-- [collapsed 4 more siblings "DIV p2 color-emerald-title-1" with identical structure; values in data.json] -->
+</div>
+</div>
+</div>
+<hr data-capture-style-props="margin">
+</div>
+</div>
+</div>
+<div class="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame6" data-capture-style-props="display">
+<div class="d-flex align-items-center justify-content-between">
+<div>
+<button id="buttonPreviousPromotionStepfinal" class="btn btn-outline-warning" onclick="previousPromotionStepFinal()" data-i18n="minigameSetting.backToEditButton" data-capture-style-props="width display">กลับไปแก้ไข</button>
+</div>
+<div>
+<button class="btn system-btn btn-outline btn-rounded" data-type="previous" onclick="btnStepSettingMinigame(this,'6','5')" data-i18n="minigameSetting.backButton" data-capture-style-props="width">ก่อนหน้า</button>
+<button class="btn system-btn btn-rounded ms-2" data-type="end" onclick="openConfirmUpdatePromotionSwal('create')" data-i18n="minigameSetting.confirmPromotionButton" data-capture-style-props="width">ยืนยันการสร้างโปร</button>
+</div>
+</div>
+</div>
+</div></div>

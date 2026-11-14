@@ -1,0 +1,319 @@
+{
+ "_note": "Inline style values (element.style, longhand properties) read from the live DOM in round 2. Keys are CSS selector paths from the captured root (id where available, else tag.firstClass:nth-of-type). '::content' = inside a <template>. Values are runtime values at capture time (viewport 1704x1675 CSS px).",
+ "#boxUpLoadImgAfter1 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter1 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter2": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter2 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter2 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter3": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter3 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter3 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter4": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter4 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter4 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter5": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter5 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter5 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter6": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter6 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter6 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter7": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter7 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter7 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter8": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter8 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter8 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter9": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter9 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgAfter9 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore1 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore1 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore2": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore2 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore2 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore3": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore3 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore3 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore4": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore4 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore4 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore5": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore5 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore5 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore6": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore6 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore6 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore7": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore7 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore7 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore8": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore8 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore8 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore9": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore9 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUpLoadImgBefore9 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults1 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults1 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults2": {
+  "display": "none"
+ },
+ "#boxUploadImgResults2 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults2 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults3": {
+  "display": "none"
+ },
+ "#boxUploadImgResults3 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults3 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults4": {
+  "display": "none"
+ },
+ "#boxUploadImgResults4 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults4 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults5": {
+  "display": "none"
+ },
+ "#boxUploadImgResults5 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults5 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults6": {
+  "display": "none"
+ },
+ "#boxUploadImgResults6 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults6 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults7": {
+  "display": "none"
+ },
+ "#boxUploadImgResults7 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults7 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults8": {
+  "display": "none"
+ },
+ "#boxUploadImgResults8 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults8 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#boxUploadImgResults9": {
+  "display": "none"
+ },
+ "#boxUploadImgResults9 > div.body-box-upload:nth-of-type(2) > div.btn-close-img-mini-game": {
+  "display": "none"
+ },
+ "#boxUploadImgResults9 > div.body-box-upload:nth-of-type(2) > img.img-show-in-box-upload:nth-of-type(1)": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame1": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame2": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame3": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame4": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame5": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame6": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame7": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame8": {
+  "display": "none"
+ },
+ "#fileImageUploadAfterMiniGame9": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame1": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame2": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame3": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame4": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame5": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame6": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame7": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame8": {
+  "display": "none"
+ },
+ "#fileImageUploadBeforeMiniGame9": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame1": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame2": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame3": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame4": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame5": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame6": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame7": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame8": {
+  "display": "none"
+ },
+ "#fileImageUploadResultsMiniGame9": {
+  "display": "none"
+ },
+ ".settingImgMiniGameCustom > div.main-in-detail-body:nth-of-type(2) > div.body-setting-img-select-mini-game-step-1:nth-of-type(3) > div.session-box-drop-setting-img-mini-game-step-1:nth-of-type(2) > div.session-upload-img-step-1:nth-of-type(3) > div.session-error-img-require:nth-of-type(3)": "[BLOCKED: Sensitive key]"
+}
