@@ -73,8 +73,8 @@ export function WheelDetailModal({ control, detail, onClose }: { control: Return
           })}
         </div>
         <div className="text-center mt-3">
-          {/* Width not captured; the screenshot shows the plain btn-a text button */}
-          <button type="button" className="btn system-btn btn-a btn-rounded" onClick={onClose}>
+          {/* closeModalShowWheelDetail(); inline width measured on staging */}
+          <button type="button" className="btn system-btn btn-a btn-rounded" style={{ width: "168px" }} onClick={onClose}>
             ปิดหน้าต่าง
           </button>
         </div>

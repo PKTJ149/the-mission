@@ -19,6 +19,9 @@ export type FloatingOptions = {
   offsetMargin?: number; // gap between anchor and dropdown, default 5
   maxHeight?: number;
   noMaxHeight?: boolean;
+  // Original `root` option: the list sits inside this (transformed) element, so its top/left are
+  // written relative to it (e.g. the customer picker inside #redeemModalContent)
+  root?: () => HTMLElement | null;
 };
 
 const PLACEMENTS: Placement[] = ["top", "left", "right", "bottom", "center"];
@@ -43,8 +46,14 @@ export function positionDropdown(dropdown: HTMLElement, anchor: HTMLElement, opt
   const rect = anchor.getBoundingClientRect();
   const box = dropdown.getBoundingClientRect();
   const offsetMargin = options.offsetMargin ?? 5;
-  const offsetX = options.offsetX ?? 0;
-  const offsetY = options.offsetY ?? 0;
+  let offsetX = options.offsetX ?? 0;
+  let offsetY = options.offsetY ?? 0;
+  const root = options.root?.();
+  if (root) {
+    const rectRoot = root.getBoundingClientRect();
+    offsetX = -rectRoot.x;
+    offsetY = -rectRoot.y;
+  }
 
   let bh = box.height;
   let bw = box.width;

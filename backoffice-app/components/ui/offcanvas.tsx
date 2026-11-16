@@ -88,15 +88,12 @@ export function useOffcanvas(options: OffcanvasOptions = {}) {
     timer.current = setTimeout(() => finish("hiding"), TRANSITION_MS + 5);
   }, [finish, setPhase]);
 
-  // Escape closes (Bootstrap "keyboard" option)
-  useEffect(() => {
-    if (phase !== "shown" && phase !== "showing") return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && latest.current.keyboard !== false) hide();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [phase, hide]);
+  // Escape closes (Bootstrap "keyboard" option). Bootstrap listens on the offcanvas element itself,
+  // so it only works while focus is inside it (on the original, focus stays on the button that
+  // opened it until the user clicks a field). <Offcanvas> calls this from that element's keydown.
+  const onEscapeKey = useCallback(() => {
+    if (latest.current.keyboard !== false) hide();
+  }, [hide]);
 
   const onTransitionEnd = (event: TransitionEvent<HTMLElement>) => {
     if (event.target !== event.currentTarget) return;
@@ -108,7 +105,7 @@ export function useOffcanvas(options: OffcanvasOptions = {}) {
     hide();
   };
 
-  return { phase, isOpen: phase === "showing" || phase === "shown", show, hide, backdrop, onTransitionEnd, onBackdropClick };
+  return { phase, isOpen: phase === "showing" || phase === "shown", show, hide, backdrop, onTransitionEnd, onBackdropClick, onEscapeKey };
 }
 
 export type OffcanvasControl = ReturnType<typeof useOffcanvas>;
@@ -126,10 +123,33 @@ const STATE_CLASS: Record<Phase, string> = { hidden: "", showing: "showing", sho
 export function Offcanvas({ control, className, children, ...rest }: OffcanvasProps) {
   // Bootstrap sets aria-modal/role when showing starts and removes them once hidden
   const open = control.phase !== "hidden";
+  const ref = useRef<HTMLDivElement>(null);
+  const { onEscapeKey } = control;
+  // Bootstrap 5.2 appends the backdrop to the offcanvas's parent (.main-content on every page), not <body>
+  const [backdropRoot, setBackdropRoot] = useState<HTMLElement | null>(null);
+  const setElement = useCallback((element: HTMLDivElement | null) => {
+    ref.current = element;
+    setBackdropRoot(element?.parentElement ?? null);
+  }, []);
+
+  // A native listener (not React's onKeyDown): keys typed in dropdowns that render into <body>
+  // (select2, flatpickr…) must not count as "inside", exactly like on the original DOM.
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onEscapeKey();
+    };
+    element.addEventListener("keydown", onKey);
+    return () => element.removeEventListener("keydown", onKey);
+  }, [onEscapeKey]);
+
   return (
     <>
+      {/* No tabindex: the original offcanvases have none, so a click on empty space inside does not
+          focus the panel (and Escape then does not close it). Pass tabIndex if one ever needs it. */}
       <div
-        tabIndex={-1}
+        ref={setElement}
         {...rest}
         className={cx(className, STATE_CLASS[control.phase])}
         aria-modal={open ? true : undefined}
@@ -144,7 +164,7 @@ export function Offcanvas({ control, className, children, ...rest }: OffcanvasPr
             className={control.backdrop === "show" ? "offcanvas-backdrop fade show" : "offcanvas-backdrop fade"}
             onClick={control.onBackdropClick}
           ></div>,
-          document.body,
+          backdropRoot ?? document.body,
         )}
     </>
   );

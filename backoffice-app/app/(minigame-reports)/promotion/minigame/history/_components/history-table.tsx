@@ -91,12 +91,16 @@ export function HistoryTable({ rows, openStatusRowId, onStatusClick, onSearchCus
                   {changeable ? (
                     <span
                       className={cx(
-                        `promotion-deposit-change-status system-label label-xs ${status.label} label-hover label-dropdown`,
+                        // Staging's markup differs per status (class order, align-middle, no promotion-deposit-change-status)
+                        row.status === "waiting"
+                          ? `promotion-deposit-change-status system-label label-xs ${status.label} label-hover label-dropdown`
+                          : `system-label ${status.label} label-xs align-middle label-hover label-dropdown`,
                         openStatusRowId === row.id && "dropdown-show dropdown-fill",
                       )}
                       onClick={(event) => onStatusClick(event, row)}
                     >
-                      <span>{row.status === "waiting" ? t("reportMiniGameHistory.text14", status.text) : status.text}</span>
+                      {/* The label says "ใช้แล้ว" (text13) while the (i) tooltip says "ใช้โปรแล้ว" */}
+                      <span>{row.status === "waiting" ? t("reportMiniGameHistory.text14", status.text) : t("reportMiniGameHistory.text13", "ใช้แล้ว")}</span>
                       <span className="label-icon ms-1">
                         <LabelChevronIcon />
                       </span>
@@ -104,7 +108,7 @@ export function HistoryTable({ rows, openStatusRowId, onStatusClick, onSearchCus
                   ) : (
                     <span className={`system-label ${status.label} label-xs align-middle`}>{status.text}</span>
                   )}
-                  <StatusInfo row={row} tooltip={tooltip} />
+                  <StatusInfo row={row} tooltip={tooltip} rowTag={row.status === "accept" ? "span" : "div"} />
                 </td>
                 <MakeByCell makeBy={row.makeBy} />
               </tr>

@@ -12,8 +12,8 @@ type ManualPromotionOffcanvasProps = {
 };
 
 const HIDDEN: CSSProperties = { display: "none" };
-// Width of the two footer buttons (inline, not captured) — measured on the screenshot
-const BUTTON_STYLE: CSSProperties = { width: "110px" };
+// Width of the two footer buttons: inline style on staging
+const BUTTON_STYLE: CSSProperties = { width: "168px" };
 
 // #offcanvasCreateManual — "เพิ่มโปรให้สมาชิก (Manual)". Nothing is sent: confirming adds the row
 // to the in-memory history only. The page script (createManual) was not captured, so no dialog is shown.
@@ -90,6 +90,9 @@ export function ManualPromotionOffcanvas({ control, miniGames, onCreated }: Manu
               value={customer}
               onChange={setCustomer}
               onSearch={searchCustomers}
+              // Page script options: maxHeight 285, stretch (the original also pages the results 10 at a time)
+              maxHeight={285}
+              stretch
             >
               <div className="invalid-feedback"></div>
             </GoogleDropdown>

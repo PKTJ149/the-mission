@@ -4,6 +4,7 @@
 // each body for a real fetch() without changing its components.
 
 import {
+  customerDirectory,
   missionHistory,
   redeemConditions,
   redeemHistory,
@@ -23,10 +24,14 @@ export type ReportMission = {
   name: string;
   duration: string; // as displayed, e.g. "15/10/2026 11:46 - เป็นต้นไป"
   status: MissionStatus;
-  subMissions: { id: string; name: string }[];
+  // searchNames: what the report-mission search matches for this sub-mission (default: its name)
+  subMissions: { id: string; name: string; searchNames?: string[] }[];
 };
 
 export type ReportMember = { id: string; username: string };
+
+// A customer as the customer picker lists it ("username : name")
+export type Customer = { id: string; username: string; name: string; memberId: string | null };
 
 export type Rewards = {
   credit: number;
@@ -69,6 +74,10 @@ const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 function dayNumber(ddmmyyyy: string) {
   const [d, m, y] = ddmmyyyy.split("/").map(Number);
   return y * 10000 + m * 100 + d;
+}
+
+function toDdMmYyyy(date: Date) {
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 }
 
 function inRange(ddmmyyyy: string, range: DateRange) {
@@ -140,17 +149,20 @@ export async function getManualRewardOptions(): Promise<ManualMissionOption[]> {
     ]);
 }
 
-// Customer typeahead (original: POSTs the keyword and gets select2-style results back)
-export async function searchMembers(keyword: string): Promise<ReportMember[]> {
+// Customer picker (original: POST /api/customer/select2 { q, page, limit: 10 }). Only page 1 is
+// mocked (the original loads more pages on scroll).
+export async function searchCustomers(keyword: string): Promise<Customer[]> {
   await wait(300);
-  return structuredClone(reportMembers.filter((member) => contains(member.username, keyword)));
+  return structuredClone(customerDirectory.filter((c) => contains(`${c.username} : ${c.name}`, keyword)).slice(0, 10));
 }
 
 // ---------------------------------------------------------------- /mission/report and drill-downs
 
-// Values of the "ประเภท" filter. Only Complete/Manual rows exist on staging, so what Auto/Admin
-// match is a guess (here: the maker).
+// Values of the "ประเภท" filter. Only Complete/Manual rows exist on staging; picking Auto or
+// Admin there shows no rows (measured 15/11/2026), so they match no entry type here either.
 export type RewardCategory = "auto" | "admin" | "manual" | "mission-complete";
+
+const CATEGORY_OF_TYPE: Record<RewardType, RewardCategory> = { complete: "mission-complete", manual: "manual" };
 
 export type RewardFilters = {
   search: string;
@@ -162,12 +174,11 @@ export type RewardFilters = {
 
 function matchesFilters(row: RewardReportRow, filters: RewardFilters) {
   const { search, dates, missionId, category, maker } = filters;
-  if (search && !contains(`${row.memberName} ${memberName(row.memberId)} ${row.missionText}`, search)) return false;
+  // Search (Enter) looks in the "Mission - Sub mission" text only, not the member name (staging)
+  if (search && !contains(row.missionText, search)) return false;
   if (!inRange(row.date, dates)) return false;
   if (missionId && missionId !== "all" && row.missionId !== missionId) return false;
-  if (category === "manual" && row.type !== "manual") return false;
-  if (category === "mission-complete" && row.type !== "complete") return false;
-  if ((category === "auto" || category === "admin") && row.maker !== category) return false;
+  if (category && category !== "all" && CATEGORY_OF_TYPE[row.type] !== category) return false;
   if (maker && maker !== "all" && row.maker !== maker) return false;
   return true;
 }
@@ -217,8 +228,9 @@ export async function getReportMissionIds(): Promise<{ missions: string[]; subMi
 }
 
 // Manual reward (popup on /mission/report). Saved in memory only — lost on reload.
-// The rewards of each mission were not captured, so the entry carries no reward amounts.
-export async function addManualReward(input: { memberId: string; missionId: string }) {
+// The missions offered here (the active ones) have no rewards on staging, so the entry carries none.
+// Original: POST /mission/mission-manual-add after /mission/mission-manual-check.
+export async function addManualReward(input: { customer: Customer; missionId: string }) {
   const mission = reportMissions.find((m) => m.id === input.missionId || m.subMissions.some((s) => s.id === input.missionId));
   if (!mission) throw new Error("Unknown mission " + input.missionId);
   const now = new Date();
@@ -227,8 +239,8 @@ export async function addManualReward(input: { memberId: string; missionId: stri
     id: "local-" + now.getTime(),
     date: `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()}`,
     time: `${pad(now.getHours())}:${pad(now.getMinutes())}`,
-    memberId: input.memberId,
-    memberName: memberName(input.memberId),
+    memberId: input.customer.memberId ?? input.customer.id,
+    memberName: input.customer.username,
     missionId: mission.id,
     subMissionId: mission.id === input.missionId ? null : input.missionId,
     type: "manual",
@@ -267,18 +279,31 @@ function aggregate(entries: RewardLogRow[]) {
   };
 }
 
+// "15/10/2026 11:46 - เป็นต้นไป" → the start day as a number (see dayNumber)
+function startDay(duration: string) {
+  return dayNumber(duration.slice(0, 10));
+}
+
 // Original: POST /mission/report-mission-table (no pager; totals row at the end).
 // Counts are worked out from the reward entries; with the captured entries they give exactly
 // the captured numbers (e.g. QA Login ครบ 1 วัน: 6 rewards, 4 members, credit 6; totals 7/4/7/1/0/1/1).
+// Filter behaviour measured on staging (15/11/2026):
+// - วันที่สรุป keeps the missions whose START day is in the range; the counts are not date-filtered.
+// - Search (Enter) matches sub-mission names only (case-insensitive "contains"), see searchNames.
+// ORIGINAL BUG (kept on purpose, PK 15/11/2026): the "ยอดรวมทั้งหมด" row always shows the totals of
+// ALL missions, whatever the filters; the fix would be to total only the rows shown.
 export async function getMissionReport(filters: MissionReportFilters) {
   const { search, dates, status, missionId } = filters;
+  const from = dates ? dayNumber(toDdMmYyyy(dates.from)) : 0;
+  const to = dates ? dayNumber(toDdMmYyyy(dates.to)) : 0;
   const missions = reportMissions.filter(
     (mission) =>
       (!status || status === "all" || mission.status === status) &&
       (!missionId || missionId === "all" || mission.id === missionId) &&
-      (!search || contains([mission.name, ...mission.subMissions.map((s) => s.name)].join(" "), search)),
+      (!dates || (startDay(mission.duration) >= from && startDay(mission.duration) <= to)) &&
+      (!search || mission.subMissions.some((sub) => (sub.searchNames ?? [sub.name]).some((name) => contains(name, search)))),
   );
-  const entries = rewardLog.filter((row) => inRange(row.date, dates));
+  const entries = rewardLog;
 
   const rows: MissionReportRow[] = missions.flatMap((mission) => [
     {
@@ -299,8 +324,7 @@ export async function getMissionReport(filters: MissionReportFilters) {
     })),
   ]);
 
-  const ids = new Set(missions.map((mission) => mission.id));
-  const summary = aggregate(entries.filter((row) => ids.has(row.missionId)));
+  const summary = aggregate(entries);
   return structuredClone({ rows, summary });
 }
 
@@ -400,7 +424,8 @@ export type MissionHistoryFilters = { search: string; dates: DateRange };
 export async function getMissionHistory(filters: MissionHistoryFilters & Paging) {
   const rows = missionHistory.filter(
     (row) =>
-      (!filters.search || contains(`${row.mission} ${row.detail} ${row.editor}`, filters.search)) &&
+      // Staging (15/11/2026) searches the mission name and the detail only: "superx" → 0 rows, "20:36" → 0
+      (!filters.search || contains(row.mission, filters.search) || contains(row.detail, filters.search)) &&
       inRange(row.editDate.slice(0, 10), filters.dates),
   );
   return structuredClone(page(rows, filters));

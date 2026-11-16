@@ -38,10 +38,12 @@ export function BannerSettingPage({ initialBanners, menuOptions, initialAutoSlid
     setCards((list) => [{ ...banner, editing: true, saved: null }, ...list]);
   };
 
-  // cancelBannerMission(N): back to the read-only state (and the last confirmed values)
+  // cancelBannerMission(N): only re-adds .banner-disable. Measured on staging 15/11/2026: values changed in
+  // edit mode (radio, checkbox, URL, menu) stay as they are after ยกเลิก — they are NOT reset.
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): cancel keeps the unsaved edits on screen; the fix would be
+  // to restore the last saved values (card.saved) here.
   const cancel = (card: Card) => {
-    setMenuErrors((list) => list.filter((id) => id !== card.id));
-    update(card.id, { ...(card.saved ?? {}), editing: false });
+    update(card.id, { editing: false });
   };
 
   // saveBannerMission(N) — local only

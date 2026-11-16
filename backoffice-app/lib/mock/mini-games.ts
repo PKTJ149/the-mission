@@ -32,6 +32,27 @@ const qaDetail = (slices: number): MiniGameDetail => ({
   slices: qaSlices(slices),
 });
 
+// "QA Other Retest 20261015" as staging shows it in its detail view (15/11/2026)
+const qaOtherSlice = (description: string, percentage: string, bonus: MiniGameSlice["bonuses"][number]): MiniGameSlice => ({
+  description,
+  percentage,
+  isUnlimited: true,
+  isAlert: false,
+  bonuses: [bonus],
+});
+const qaOtherDetail: MiniGameDetail = {
+  ...qaDetail(6),
+  conditionTh: "<p>ทดสอบมินิเกมส์อื่น ๆ และรางวัลครบสามประเภท บน staging</p>",
+  slices: [
+    qaOtherSlice("QA เครดิตคงที่ 1 บาท", "17", { type: "credit_fix", credit: "1" }),
+    qaOtherSlice("QA เครดิต 1% สูงสุด 1 บาท", "17", { type: "credit_percentage", percent: "1", maxCredit: "1" }),
+    qaOtherSlice("QA สิทธิ์วงล้อ 1 สิทธิ์", "17", { type: "mini-game", gameId: "uuid-2", quota: "1" }),
+    qaOtherSlice("QA เครดิตคงที่ 4 บาท", "17", { type: "credit_fix", credit: "4" }),
+    qaOtherSlice("QA เครดิตคงที่ 5 บาท", "16", { type: "credit_fix", credit: "5" }),
+    qaOtherSlice("QA เครดิตคงที่ 6 บาท", "16", { type: "credit_fix", credit: "6" }),
+  ],
+};
+
 export const miniGames: MiniGame[] = [
   {
     id: "uuid-1",
@@ -49,6 +70,7 @@ export const miniGames: MiniGame[] = [
       frame: `${WHEEL_8}/frame.png`,
     },
     cover: null,
+    icon: "https://storage.googleapis.com/one-loyalty-stg-media/uploads/icon-image/20261109T070820011.png",
     bonusCounts: counts([3, 2, 2, 1, 1, 1, 0, 0]),
     detail: qaDetail(8),
   },
@@ -80,7 +102,7 @@ export const miniGames: MiniGame[] = [
     wheel: null,
     cover: "https://storage.googleapis.com/one-loyalty-stg-media/uploads/mini-game-image/20261015T045904756.png",
     bonusCounts: counts([1207, 1208, 1208, 1208, 1136, 1136]),
-    detail: qaDetail(6),
+    detail: qaOtherDetail,
   },
 ];
 

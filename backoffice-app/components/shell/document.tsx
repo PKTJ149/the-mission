@@ -35,6 +35,9 @@ export function BackOfficeDocument({ group, children }: { group: PageGroupKey; c
       data-preloader="disable"
     >
       <head>
+        <meta content="Themesbrand" name="author" />
+        {/* Same tab icon as the original (served from the original host, like content images) */}
+        <link rel="shortcut icon" href="https://op.88ref.com/assets/images/favicon.ico" />
         <HeadItems items={[...COMMON_HEAD, ...page.head]} />
       </head>
       <body>

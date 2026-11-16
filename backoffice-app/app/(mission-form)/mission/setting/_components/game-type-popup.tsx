@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- original markup: plain <img> */
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { SystemPopup, type useSystemPopup } from "@/components/ui";
 import { useT } from "@/lib/i18n";
 import type { GameCategory, GameProvider } from "@/lib/api/missions";
@@ -13,6 +13,15 @@ type GameTypePopupProps = {
   session: number; // increases every time the popup is opened
   onSave: (selected: string[]) => void;
 };
+
+// chooseGameType() / closePopupGameType() only add / remove "show": unlike the image and icon popups
+// there is no animate-in / animate-out
+export function useGameTypePopup(): ReturnType<typeof useSystemPopup> {
+  const [state, setState] = useState("");
+  const open = useCallback(() => setState("show"), []);
+  const close = useCallback(() => setState(""), []);
+  return { isOpen: state === "show", open, close, state };
+}
 
 // Menu buttons: id suffix, category key, icon number, i18n key, label
 const MENU: { id: string; category: GameCategory; icon: number; alt: string; i18nKey: string; label: string }[] = [

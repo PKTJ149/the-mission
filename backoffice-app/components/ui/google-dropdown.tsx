@@ -15,10 +15,17 @@ type GoogleDropdownProps = FloatingOptions & {
   // Mock search; the original posts the keyword and gets select2-style results back
   onSearch: (keyword: string) => Promise<DropdownItem[]>;
   minimumCharacters?: number;
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): pages that pass `root: '#someId'` (a string) make the
+  // original calculate() throw, so the list is never positioned and stays at its static spot with
+  // only "inset: auto". The fix would be to pass the element. true = copy that.
+  unpositioned?: boolean;
   disabled?: boolean;
   invalid?: boolean;
   children?: ReactNode; // e.g. <div className="invalid-feedback" />
 };
+
+// No anchor = the floating hook never positions the list (see `unpositioned`)
+const NO_ANCHOR = { current: null };
 
 const NOT_FOUND = (
   <div className="dropdown-body-caption">
@@ -42,6 +49,7 @@ export function GoogleDropdown({
   onChange,
   onSearch,
   minimumCharacters = 0,
+  unpositioned,
   disabled,
   invalid,
   children,
@@ -55,7 +63,7 @@ export function GoogleDropdown({
   const ticket = useRef(0);
 
   const dropdown = useFloatingDropdown({
-    anchorRef: wrapperRef,
+    anchorRef: unpositioned ? NO_ANCHOR : wrapperRef,
     dropdownRef,
     // The original forces offsetMargin 0 for this theme ("seamless")
     options: { offsetMargin: 0, ...floating },
@@ -118,7 +126,11 @@ export function GoogleDropdown({
           onChange={(event) => search(event.target.value)}
         />
       </div>
-      <div ref={dropdownRef} className={cx("custom-dropdown dropdown-wrap", dropdown.stateClassName)}>
+      <div
+        ref={dropdownRef}
+        className={cx("custom-dropdown dropdown-wrap", dropdown.stateClassName)}
+        style={unpositioned ? { inset: "auto" } : undefined}
+      >
         <div className="custom-dropdown-body">
           <div className="dropdown-body-scrollable">
             {loading

@@ -18,7 +18,7 @@ import { ReportCalendarIcon } from "@/app/(mission-reports)/mission/_components/
 import { useReportTable } from "@/app/(mission-reports)/mission/_components/use-report-table";
 import { MakerFilter } from "./maker-filter";
 import { RedeemConditionsOffcanvas } from "./redeem-conditions-offcanvas";
-import { ExchangeIcon } from "./redeem-icons";
+import { ConditionsGearIcon, ExchangeIcon, RedeemHistoryIcon } from "./redeem-icons";
 import { RedeemModal } from "./redeem-modal";
 
 type Filters = RedeemFilters & { offset: number; limit: number };
@@ -41,12 +41,19 @@ export function RedeemPointsPage({ makers, conditions, initialData }: RedeemPoin
   const { filters, data, loading } = table;
   const filter = (patch: Partial<Filters>) => table.update({ ...patch, offset: 0 });
 
-  // The page script was not captured: the generic mission "saved" popup is used as feedback (guess)
-  const showSaved = () =>
+  // recordRedeemCondition() success popup (page script read on staging 15/11/2026)
+  const showConditionsSaved = () =>
     popupAlert.show({
-      title: t("missionPage.js.uploadPass", "บันทึกสำเร็จ"),
-      type: "success",
-      message: t("missionPage.js.uploadPassMsg", "ระบบได้ทำการบันทึกเรียบร้อย"),
+      title: "บันทึกเงื่อนไขการแลกของรางวัล สำเร็จ !",
+      type: "edit-3",
+      message: (
+        <>
+          {" "}
+          ระบบทำการบันทึกรายละเอียดเงื่อนไข
+          <br /> การแลกของรางวัลสำเร็จแล้ว{" "}
+        </>
+      ),
+      needConfirmation: false,
     });
 
   return (
@@ -60,8 +67,7 @@ export function RedeemPointsPage({ makers, conditions, initialData }: RedeemPoin
                 <h4 className="mb-0 mission-page">{t("missionPointsPage.title", "แต้มแลกรางวัล")}</h4>
                 <div className="group-btn gap-4">
                   <button className="mission-btn-outline" onClick={conditionsPanel.show}>
-                    {/* CAPTURE GAP: this icon (a teal gear in the screenshot) was withheld; empty box of the same size */}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+                    <ConditionsGearIcon />
                     <span className="mission-page">{t("missionPointsPage.rewardCondition", "เงื่อนไขการแลกรางวัล")}</span>
                   </button>
                   <button className="mission-btn" onClick={redeemPopup.open}>
@@ -71,8 +77,7 @@ export function RedeemPointsPage({ makers, conditions, initialData }: RedeemPoin
                 </div>
               </div>
               <h3 className="ps-4 mb-4">
-                {/* CAPTURE GAP: this icon (a document with a blue badge in the screenshot) was withheld; empty box */}
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+                <RedeemHistoryIcon />
                 <span className="mission-page">{t("missionPointsPage.rewardExchangeHistory", "ประวัติการใช้แต้มแลกรางวัล")}</span>
               </h3>
               <div className="row align-items-center gx-2 mb-3">
@@ -174,15 +179,9 @@ export function RedeemPointsPage({ makers, conditions, initialData }: RedeemPoin
           </div>
         </div>
         {/* #redeemModal sits at the end of .page-content on the original */}
-        <RedeemModal
-          control={redeemPopup}
-          onSaved={() => {
-            showSaved();
-            table.refresh();
-          }}
-        />
+        <RedeemModal control={redeemPopup} onSaved={table.refresh} />
       </div>
-      <RedeemConditionsOffcanvas control={conditionsPanel} initial={conditions} onSaved={showSaved} />
+      <RedeemConditionsOffcanvas control={conditionsPanel} initial={conditions} onSaved={showConditionsSaved} />
       {popupAlertHolder}
     </>
   );

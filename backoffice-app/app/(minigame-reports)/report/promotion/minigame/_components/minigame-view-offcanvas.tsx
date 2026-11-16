@@ -4,12 +4,14 @@
 
 import { Fragment, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Offcanvas, type useOffcanvas } from "@/components/ui";
-import type { MinigameOtherView, MinigameReward } from "@/lib/api/minigame-reports";
+import type { MinigameView, MinigameReward } from "@/lib/api/minigame-reports";
 import { ChevronIcon } from "@/app/(minigame-reports)/_components/report-icons";
+import { WheelImage } from "./detail-panel";
 
 // #offcanvasMinigameSetting opened by the eye in the drill-down card (viewMinigameDetail()).
 // The original offcanvas holds the whole create/edit wizard; in view mode only the header and
-// #SettingMinigameStep5 (summary) are visible, so only those are rebuilt here.
+// #SettingMinigameStep5 (summary) are visible, so only those are rebuilt here. The same markup serves
+// both kinds; a lucky wheel only changes a few labels and the image (8-slice wheel).
 // Every pair of "on / off" elements is in the DOM with one of them display:none, like the original.
 
 const HIDDEN: CSSProperties = { display: "none" };
@@ -142,7 +144,7 @@ const COLLAPSE_CLASS: Record<CollapsePhase, string> = {
 };
 
 // "Minigame N :" row: Bootstrap collapse (data-bs-toggle="collapse"), first one open
-function RewardRow({ index, reward }: { index: number; reward: MinigameReward }) {
+function RewardRow({ index, reward, prefix }: { index: number; reward: MinigameReward; prefix: string }) {
   const bodyRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<CollapsePhase>(index === 0 ? "shown" : "hidden");
   const [height, setHeight] = useState<string | undefined>();
@@ -186,7 +188,7 @@ function RewardRow({ index, reward }: { index: number; reward: MinigameReward })
     >
       <div className="col-4 mb-1">
         <div className="d-flex flex-wrap justify-content-between align-items-center">
-          <div className="p2 color-emerald-title-1 fw-700">{`Minigame ${index + 1} :`}</div>
+          <div className="p2 color-emerald-title-1 fw-700">{`${prefix} ${index + 1} :`}</div>
           <div>
             <ChevronIcon />
           </div>
@@ -246,7 +248,31 @@ function CountdownClock() {
   );
 }
 
-function Summary({ view }: { view: MinigameOtherView }) {
+// Labels that the page script switches by game type
+const TYPE_TEXT = {
+  "mini-game": {
+    header: "รายละเอียดมินิเกมส์",
+    status: "สถานะมินิเกมส์ : ",
+    name: "ชื่อมินิเกมส์ : ",
+    condition: "เงื่อนไขมินิเกมส์ : ",
+    reward: "Minigame",
+  },
+  "lucky-wheel": {
+    header: "รายละเอียดมินิเกมส์วงล้อ",
+    status: "สถานะมินิเกมส์วงล้อ : ",
+    name: "ชื่อมินิเกมส์วงล้อ : ",
+    condition: "เงื่อนไขมินิเกมส์วงล้อ : ",
+    reward: "Wheel",
+  },
+};
+
+function Summary({ view, wheelViewed }: { view: MinigameView; wheelViewed: boolean }) {
+  const text = TYPE_TEXT[view.type];
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): #showStepEnd starts as "wheel-wrapper"; a mini-game
+  // view adds "preview-minigame", a lucky-wheel view removes both classes and nothing adds "wheel-wrapper"
+  // back. So once a wheel was viewed, the mini-game image sits 31px higher. The fix would be to reset
+  // the class to "wheel-wrapper preview-minigame" for a mini-game.
+  const miniGameClass = wheelViewed ? "preview-minigame" : "wheel-wrapper preview-minigame";
   return (
     <div className="canvas-box-body" id="SettingMinigameStep5">
       <div className="tab-header">
@@ -261,29 +287,38 @@ function Summary({ view }: { view: MinigameOtherView }) {
       <div className="main-in-detail-body content-col-1">
         <div className="input-col-1-p">
           <div className="d-flex align-items-center justify-content-center">
-            <div className="wheel-wrapper preview-minigame" id="showStepEnd">
-              <img src={view.image} className="box-img3 showImagePreviewPromotionDetail imgMinigameRewardSrc" />
-            </div>
+            {view.wheelArt ? (
+              // Lucky wheel: the page script replaces #showStepEnd's class and content with the wheel
+              <div className="" id="showStepEnd">
+                <div>
+                  <WheelImage art={view.wheelArt} spin={view.image} className="wheel-wrapper" />
+                </div>
+              </div>
+            ) : (
+              <div className={miniGameClass} id="showStepEnd">
+                <img src={view.image} className="box-img3 showImagePreviewPromotionDetail imgMinigameRewardSrc" />
+              </div>
+            )}
           </div>
         </div>
 
         <div className="label-minigame" id="textHeaderAllDetail">
-          รายละเอียดมินิเกมส์
+          {text.header}
         </div>
         <div className="input-col-1-p">
           <div className="col-12 mb-2 text-start">
-            <Row label="สถานะมินิเกมส์ : " labelId="textStatusDetail">
+            <Row label={text.status} labelId="textStatusDetail">
               {/* ORIGINAL: the switch icon of the "on" badge is display:none in view mode */}
               <StatusPair onId="showStatusDetail1" offId="showStatusDetail2" on={view.statusOn} hideOnIcon />
             </Row>
             <Hr />
-            <Row label="ชื่อมินิเกมส์ : " labelId="textNameDetail">
+            <Row label={text.name} labelId="textNameDetail">
               <div className="p2 color-emerald-title-1" id="showName">
                 {view.name}
               </div>
             </Row>
             <Hr />
-            <Row label="เงื่อนไขมินิเกมส์ : " labelId="textConditionDetail">
+            <Row label={text.condition} labelId="textConditionDetail">
               <div className="show-condition-html color-emerald-title-1" id="showconditionHtml" dangerouslySetInnerHTML={{ __html: view.conditionHtml }}></div>
             </Row>
             <Hr />
@@ -480,7 +515,7 @@ function Summary({ view }: { view: MinigameOtherView }) {
           <div id="showPartsLuckywheelluckyWheelRewards">
             {view.rewards.map((reward, index) => (
               <Fragment key={index}>
-                <RewardRow index={index} reward={reward} />
+                <RewardRow index={index} reward={reward} prefix={text.reward} />
                 <Hr />
               </Fragment>
             ))}
@@ -574,12 +609,21 @@ function Summary({ view }: { view: MinigameOtherView }) {
 
 type MinigameViewOffcanvasProps = {
   control: ReturnType<typeof useOffcanvas>;
-  view: MinigameOtherView | null;
+  view: MinigameView | null;
+  opening: number; // changes on every opening: the reward rows start again with only the first one open
+  wheelViewed: boolean; // a lucky-wheel view was opened before on this page
 };
 
-export function MinigameViewOffcanvas({ control, view }: MinigameViewOffcanvasProps) {
+export function MinigameViewOffcanvas({ control, view, opening, wheelViewed }: MinigameViewOffcanvasProps) {
   return (
-    <Offcanvas control={control} className="offcanvas offcanvas-end offcanvas-minigame-custom" id="offcanvasMinigameSetting" data-bs-focus="false">
+    // Like every original offcanvas, no tabindex (the shared <Offcanvas> adds none): a click inside does
+    // not focus it, so Escape only closes the panel while focus is on something focusable inside it
+    <Offcanvas
+      control={control}
+      className="offcanvas offcanvas-end offcanvas-minigame-custom"
+      id="offcanvasMinigameSetting"
+      data-bs-focus="false"
+    >
       <div className="offcanvas-header offcanvas-header-minigame border-bottom">
         <h4 className="mb-0" id="offcanvasMinigameDetailLabel">
           {view?.title}
@@ -607,7 +651,7 @@ export function MinigameViewOffcanvas({ control, view }: MinigameViewOffcanvasPr
             </div>
           </div>
         </div>
-        {view && <Summary view={view} />}
+        {view && <Summary key={opening} view={view} wheelViewed={wheelViewed} />}
       </div>
     </Offcanvas>
   );

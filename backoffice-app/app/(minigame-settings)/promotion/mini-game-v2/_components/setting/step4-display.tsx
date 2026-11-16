@@ -75,14 +75,14 @@ function WheelInputs({ count }: { count: number }) {
   );
 }
 
-type BonusRow = { key: number; type: MiniGameSliceBonus["type"] | null; credit?: string; game?: string | null };
+type BonusRow = { key: number; type: MiniGameSliceBonus["type"] | null; credit?: string; percent?: string; maxCredit?: string; quota?: string; game?: string | null };
 let nextBonusKey = 1;
 
 // One "Wheel N" / "ตั้งค่ารางวัลตัวเลือกที่ N" section (#minigameWheelMain-N, addtemplateMinigameWheel)
 function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGameType; slice: MiniGameSlice | undefined; gameItems: DropdownItem[] }) {
   const t = useT();
   const [bonuses, setBonuses] = useState<BonusRow[]>(() =>
-    slice?.bonuses.length ? slice.bonuses.map((b) => ({ key: nextBonusKey++, type: b.type, credit: b.credit })) : [{ key: nextBonusKey++, type: null }],
+    slice?.bonuses.length ? slice.bonuses.map((b) => ({ key: nextBonusKey++, type: b.type, credit: b.credit, percent: b.percent, maxCredit: b.maxCredit, quota: b.quota, game: b.gameId ?? null })) : [{ key: nextBonusKey++, type: null }],
   );
   const bonusTypeItems: DropdownItem[] = [
     { value: "credit_fix", chip: "credit_fix", label: t("minigameSetting.creditDropdown", "เครดิต Fixed Rate") },
@@ -159,7 +159,7 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
             </div>
             <div className="col-12 col-md-6 mb-3">
               <div className="text-start p2 color-emerald-title-1 fw-700 mb-2 bonus-notification-send" data-i18n="minigameSetting.rewardNotification">{t("minigameSetting.rewardNotification", "การแจ้งเตือนไปที่หน้ารวมมินิเกมส์เมื่อของรางวัลใกล้หมด")}</div>
-              <div className="row ms-0 minigame-reset disabled" id={`minigameIsAlert-${n}`}>
+              <div className="row ms-0 minigame-reset disabled fistempty" id={`minigameIsAlert-${n}`}>
                 <div className="form-check col d-flex align-items-center">
                   <input className="form-check-input me-2" type="radio" name={`minigameIsAlert-${n}`} id={`minigameIsAlertOff-${n}`} data-value={JSON.stringify([`inputMinigameAlertAmount-${n}`])} value="minigameIsAlertOn" defaultChecked onChange={(e) => dom.getMinigameRadio(e.currentTarget, false)} />
                   <label className="form-check-label d-flex flex-column" htmlFor={`minigameIsAlertOff-${n}`}>
@@ -215,10 +215,12 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
     </CustomDropdown>
                 </div>
               </div>
-              <div className="col-12 col-md-6 d-none" id={`showBoxPromotionDepositBonusDropdownSub-${n}-${m}`} />
+              {/* Staging shows this empty half-width column for "สิทธิ์มินิเกมส์", which pushes the mini-game dropdown to the next line */}
+              <div className={bonus.type === "mini-game" ? "col-12 col-md-6" : "col-12 col-md-6 d-none"} id={`showBoxPromotionDepositBonusDropdownSub-${n}-${m}`} />
               <div className={bonus.type === "mini-game" ? "col-12 col-md-6 mb-3" : "col-12 col-md-6 mb-3 d-none"} id={`showBoxPromotionDepositBonusDropdown-${n}-${m}`}>
                 <div className="custom-input custom-float">
-                  <div className="text-start p2 fw-700 mb-2 mini-game-bonus-type" id="promotionConditionTypeText-template">มินิเกมส์</div>
+                  {/* Added rows (cloned in the original) rename this id to the same one as the bonus-type label above */}
+                  <div className="text-start p2 fw-700 mb-2 mini-game-bonus-type" id={m === 1 ? "promotionConditionTypeText-template" : `promotionConditionTypeText-${n}-${m}`}>มินิเกมส์</div>
                   <CustomDropdown id={`inputPromotionDepositBonusDropdown-${n}-${m}`} className="custom-input dropdown-wrapper require customPromotionDepositBonusDropdown" fakeClassName="multiple" placeholder="เลือกมินิเกมส์" search auto stretch dropdownClassName="boxPromotionDepositBonusDropdown" items={gameItems} value={bonus.game ?? null} onChange={(value) => setBonusGame(bonus.key, value)}>
     <div className="invalid-feedback error-mini-game-bonus-type" id={`error-promotionDepositBonusDropdown-${n}-${m}`} data-i18n="minigameSetting.minigameDropdownErrorText" >{t("minigameSetting.minigameDropdownErrorText", "กรุณาเลือกมินิเกมส์")}</div>
     </CustomDropdown>
@@ -240,7 +242,7 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
                   <div className="col-12 col-md-6 mb-3 mb-md-0">
                     <div className="p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.creditCountPercent">{t("minigameSetting.creditCountPercent", "% คิดจากยอดฝาก")}</div>
                     <div className="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id={`inputPercent-${n}-${m}`}>
-                      <input id={`percent-${n}-${m}`} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                      <input id={`percent-${n}-${m}`} defaultValue={bonus.percent} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                       <div className="text-prepend">%</div>
                       <div className="invalid-feedback" id={`error-percent-${n}-${m}`} data-i18n="minigameSetting.creditCountPercentErrorText" >{t("minigameSetting.creditCountPercentErrorText", "กรุณากรอกจำนวนเปอร์เซ็น")}</div>
                     </div>
@@ -248,7 +250,7 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
                   <div className="col-12 col-md-6 mb-3 mb-md-0">
                     <div className="p2 fw-700 mb-2" data-i18n="minigameSetting.creditNotHigherThan">{t("minigameSetting.creditNotHigherThan", "สูงไม่เกิน")}</div>
                     <div className="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id={`inputPercentMax-${n}-${m}`}>
-                      <input id={`percentMax-${n}-${m}`} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                      <input id={`percentMax-${n}-${m}`} defaultValue={bonus.maxCredit} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                       <div className="text-prepend text-baht" data-i18n="minigameSetting.baht">{t("minigameSetting.baht", "บาท")}</div>
                       <div className={`cursor-pointer checkShowDeletePromotionConditionType-${n} deleteTemplatePromotionConditionType-${n}-${m} order-3 ps-3 m-auto`} style={shownWhen(bonuses.length > 1)} onClick={() => actions.deleteBonus(bonus.key)} >
                         <img src="/assets/images/icon-minus.png" width="20" height="20" />
@@ -272,7 +274,7 @@ function SliceSection({ n, type, slice, gameItems }: { n: number; type: MiniGame
               <div className="col-12 col-md-6 mb-3 mb-md-0" id={`showBoxPromotionBonusMiniGameAndLottery-${n}-${m}`} style={shownWhen(bonus.type === "mini-game" || bonus.type === "lotto")} >
                 <div className="text-start p2 fw-700 mb-2 mini-game-bonus-type" data-i18n="minigameSetting.rightsCount">{t("minigameSetting.rightsCount", "จำนวนสิทธิ์")}</div>
                 <div className="custom-input custom-input-group has-prepend box-promotion-item-checkbox-radio fistempty" id={`inputQuota-${n}-${m}`}>
-                  <input id={`quota-${n}-${m}`} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                  <input id={`quota-${n}-${m}`} defaultValue={bonus.quota} type="text" className="form-control" placeholder="0"  onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                   <div className="text-prepend">สิทธิ์</div>
                   <div className={`cursor-pointer checkShowDeletePromotionConditionType-${n} deleteTemplatePromotionConditionType-${n}-${m} order-3 ps-3 m-auto`} style={shownWhen(bonuses.length > 1)} onClick={() => actions.deleteBonus(bonus.key)} >
                     <img src="/assets/images/icon-minus.png" width="20" height="20" />
@@ -314,7 +316,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
   const mini = type === "mini-game";
   const rootRef = useRef<HTMLDivElement>(null);
   const [gameItems, setGameItems] = useState<DropdownItem[]>([]);
-  const sliceItems: DropdownItem[] = ["6", "8", "10"].map((value) => ({ value, chip: value, label: `${value} ${t("minigameSetting.piece", "ชิ้น")}` }));
+  // Staging items read "6 <span>ชิ้น</span>"
+  const sliceItems: DropdownItem[] = ["6", "8", "10"].map((value) => ({ value, chip: value, label: <>{value} <span>{t("minigameSetting.piece", "ชิ้น")}</span></> }));
 
   useEffect(() => {
     // Original: GET /api/promotion/get-promotion-deposit-mini-game (mini-game coupons as a bonus)
@@ -504,7 +507,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-1" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame1" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame1" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame1">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -530,7 +533,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-2" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame2" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame2" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame2">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -556,7 +559,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-3" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame3" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame3" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame3">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -582,7 +585,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-4" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame4" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame4" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame4">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -608,7 +611,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-5" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame5" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame5" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame5">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -634,7 +637,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-6" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame6" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame6" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame6">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -660,7 +663,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-7" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame7" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame7" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame7">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -686,7 +689,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-8" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame8" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame8" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame8">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -712,7 +715,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                     {" "}
                     <img className="img-default-box-upload-mini-game default-img-mini-game-before-9" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                     {" "}
-                    <input type="hidden" id="imgBeforeMiniGame9" defaultValue="" />
+                    <input type="hidden" id="imgBeforeMiniGame9" />
                   </div>
                   <label className="btn-box-upload" htmlFor="fileImageUploadBeforeMiniGame9">
                     <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -723,7 +726,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   </label>
                 </div>
               </div>
-              <div className="session-error-img-require" /* STYLE display: [BLOCKED: Sensitive key] */>
+              <div className="session-error-img-require" style={{ display: "none" }}>
                 <small className="txt-error-img-require" />
               </div>
             </div>
@@ -831,7 +834,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-1" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame1" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame1" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame1">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -856,7 +859,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-2" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame2" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame2" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame2">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -881,7 +884,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-3" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame3" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame3" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame3">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -906,7 +909,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-4" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame4" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame4" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame4">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -931,7 +934,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-5" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame5" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame5" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame5">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -956,7 +959,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-6" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame6" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame6" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame6">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -981,7 +984,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-7" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame7" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame7" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame7">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1006,7 +1009,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-8" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame8" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame8" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame8">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1031,7 +1034,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-after-9" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgAfterMiniGame9" defaultValue="" />
+                  <input type="hidden" id="imgAfterMiniGame9" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadAfterMiniGame9">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1141,7 +1144,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-1" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame1" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame1" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame1">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1166,7 +1169,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-2" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame2" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame2" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame2">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1191,7 +1194,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-3" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame3" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame3" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame3">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1216,7 +1219,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-4" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame4" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame4" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame4">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1241,7 +1244,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-5" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame5" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame5" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame5">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1266,7 +1269,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-6" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame6" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame6" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame6">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1291,7 +1294,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-7" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame7" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame7" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame7">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1316,7 +1319,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-8" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame8" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame8" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame8">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1341,7 +1344,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   {" "}
                   <img className="img-default-box-upload-mini-game default-img-mini-game-results-9" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                   {" "}
-                  <input type="hidden" id="imgResultsMiniGame9" defaultValue="" />
+                  <input type="hidden" id="imgResultsMiniGame9" />
                 </div>
                 <label className="btn-box-upload" htmlFor="fileImageUploadResultsMiniGame9">
                   <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
@@ -1824,7 +1827,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       {" "}
                       <img className="img-default-bg-mb-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
-                      <input type="hidden" id="imgBgMobileMiniGame" defaultValue="" />
+                      <input type="hidden" id="imgBgMobileMiniGame" />
                     </div>
                     <div className="session-btn-upload-bg">
                       <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetMinigame">{t("minigameSetting.displayPresetMinigame", "การแสดงผลภาพรวมมินิเกมส์")}</div>
@@ -1855,7 +1858,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       {" "}
                       <img className="img-default-bg-pc-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
-                      <input type="hidden" id="imgBgPcMiniGame" defaultValue="" />
+                      <input type="hidden" id="imgBgPcMiniGame" />
                     </div>
                     <div className="session-btn-upload-bg">
                       <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetDesktopBackground">{t("minigameSetting.displayPresetDesktopBackground", "รูปพื้นหลังเวอร์ชั่น Desktop")}</div>
@@ -1910,7 +1913,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       {" "}
                       <img className="img-default-bg-mb-display-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
-                      <input type="hidden" id="imgBgMbDisplayMiniGame" defaultValue="" />
+                      <input type="hidden" id="imgBgMbDisplayMiniGame" />
                     </div>
                     <div className="session-btn-upload-bg">
                       <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetMobileBackground">{t("minigameSetting.displayPresetMobileBackground", "รูปพื้นหลังเวอร์ชั่น Mobile")}</div>
@@ -1941,7 +1944,7 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       {" "}
                       <img className="img-default-bg-pc-display-mini-game" src="https://p88.blob.core.windows.net/images/default/icon-center-box-upload-mini-game.png" alt="img" />
                       {" "}
-                      <input type="hidden" id="imgBgPcDisplayMiniGame" defaultValue="" />
+                      <input type="hidden" id="imgBgPcDisplayMiniGame" />
                     </div>
                     <div className="session-btn-upload-bg">
                       <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetDesktopBackground">{t("minigameSetting.displayPresetDesktopBackground", "รูปพื้นหลังเวอร์ชั่น Desktop")}</div>
@@ -2115,29 +2118,27 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   </h4>
                   <ColorPicker className="getColorTableTdBg1Group3" defaultValue="#000000" onChange={(value) => setThemeColor("getColorTableTdBg1Group3", value)} />
                 </div>
-                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
+                {/* ORIGINAL BUG (kept on purpose, PK 15/11/2026): staging labels this picker and the next four
+                    "ปรับแต่งสีตาราง"; the fix would be "สี พื้นหลัง 2", "สี ข้อความ", "สี ข้อความไฮไลท์ 1",
+                    "สี ข้อความไฮไลท์ 2" and "สี เส้นกรอบ". */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">สี พื้นหลัง 2</h4>
-                  <ColorPicker className="getColorTableTdBg2Group3" defaultValue="#FFFFFF" onChange={(value) => setThemeColor("getColorTableTdBg2Group3", value)} />
+                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <ColorPicker className="getColorTableTdBg2Group3" defaultValue="#232121" onChange={(value) => setThemeColor("getColorTableTdBg2Group3", value)} />
                 </div>
-                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">สี ข้อความ</h4>
+                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
                   <ColorPicker className="getColorTableTdFontGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdFontGroup3", value)} />
                 </div>
-                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">สี ข้อความไฮไลท์ 1</h4>
+                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
                   <ColorPicker className="getColorTableTdFontHighlights1Group3" defaultValue="#F10000" onChange={(value) => setThemeColor("getColorTableTdFontHighlights1Group3", value)} />
                 </div>
-                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">สี ข้อความไฮไลท์ 2</h4>
+                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
                   <ColorPicker className="getColorTableTdFontHighlights2Group3" defaultValue="#72DCD9" onChange={(value) => setThemeColor("getColorTableTdFontHighlights2Group3", value)} />
                 </div>
-                {/* ORIGINAL: staging shows "ปรับแต่งสีตาราง" here (bug) */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">สี เส้นกรอบ</h4>
+                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
                   <ColorPicker className="getColorTableTdBorderGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdBorderGroup3", value)} />
                 </div>
               </div>
@@ -2148,14 +2149,14 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
     </div>
 
     {/* #groupBtnSettingMinigame4 was not captured: rebuilt like the step 3 footer, as the last child of #SettingMinigameStep4 (staging) */}
-    <div className="group-btn-minigame-setting ms-0 me-0" id="groupBtnSettingMinigame4">
+    <div className="group-btn-minigame-setting ms-0 me-0 px-4" id="groupBtnSettingMinigame4">
       <div className="d-flex align-items-center justify-content-between">
         <div>
-          <button id="buttonNextPromotionStepfinal4" className="btn btn-outline-warning btn-clone" data-type="next" data-i18n="minigameSetting.summarizeAndSave" style={nav.summaryButtonStyle} onClick={() => nav.toSummary("4")}>{t("minigameSetting.summarizeAndSave", "ไปหน้าสรุป")}</button>
+          <button id="buttonNextPromotionStepfinal4" className="btn btn-outline-warning" data-type="next" data-i18n="minigameSetting.summarizeAndSave" style={nav.summaryButtonStyle} onClick={() => nav.toSummary("4")}>{t("minigameSetting.summarizeAndSave", "ไปหน้าสรุป")}</button>
         </div>
         <div>
-          <button className="btn system-btn btn-outline btn-rounded btn-clone" data-type="previous" data-i18n="minigameSetting.back" style={{ width: "168px" }} onClick={() => nav.go("4", "3")}>{t("minigameSetting.back", "ขั้นตอนก่อนหน้า")}</button>{" "}
-          <button className="btn system-btn btn-rounded ms-2 btn-clone" data-type="next" data-i18n="minigameSetting.next" style={{ width: "168px" }} onClick={() => nav.go("4", "5")}>{t("minigameSetting.next", "ถัดไป")}</button>
+          <button className="btn system-btn btn-outline btn-rounded" data-type="previous" data-i18n="minigameSetting.back" style={{ width: "168px" }} onClick={() => nav.go("4", "3")}>{t("minigameSetting.back", "ขั้นตอนก่อนหน้า")}</button>{" "}
+          <button className="btn system-btn btn-rounded ms-2" data-type="next" data-i18n="minigameSetting.next" style={{ width: "168px" }} onClick={() => nav.go("4", "5")}>{t("minigameSetting.next", "ถัดไป")}</button>
         </div>
       </div>
     </div>

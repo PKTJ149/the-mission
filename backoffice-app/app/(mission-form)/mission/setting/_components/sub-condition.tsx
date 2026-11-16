@@ -6,6 +6,7 @@ import type { ConditionType, SubConditionForm } from "@/lib/api/missions";
 import { DeleteButton, Feedback } from "./form-bits";
 import { FilterSelect, StaticFilter, type MissionDropdownItem } from "./mission-dropdowns";
 import { UnitSelect } from "./reward-item";
+import { useShownErrors } from "./form-state";
 import { affiliateUsesValue, conditionErrors } from "./validation";
 
 type SubConditionBoxProps = {
@@ -21,7 +22,11 @@ type SubConditionBoxProps = {
 // One condition of a sub-mission ("เงื่อนไข": deposit / turnover / login / affiliate / points)
 export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onDelete, onChooseGameType }: SubConditionBoxProps) {
   const t = useT();
-  const errors = conditionErrors(condition);
+  const errors = useShownErrors(condition.id, conditionErrors(condition));
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): these error elements keep the template's "-template" id,
+  // so validateSubMission (which looks them up by row number) never shows them; the condition still counts
+  // as incomplete. The fix would be to rename the ids when the row is cloned.
+  const templateIdErrorShown = false;
   const set = (patch: Partial<SubConditionForm>) => onChange({ ...condition, ...patch });
   const n = `${subNo}-${no}`;
   const { type, depositType } = condition;
@@ -40,7 +45,8 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
         <div className="group-header-sub-condition">
           <span className="text-type-member">
             {/* data-i18n points at a key missing from the locale files: the span stays empty */}
-            <span className="mission-page" data-i18n="missionPage.missionSettingNo"></span>{" "}
+            <span className="mission-page" data-i18n="missionPage.missionSettingNo"></span>
+            {"\u00a0"}
             <span id={`text-header-sub-condition-${n}`}>{no}</span>
           </span>
           <DeleteButton show={canDelete} onClick={onDelete}>
@@ -227,7 +233,7 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
                 </div>
               </StaticFilter>
             </div>
-            <Feedback id="error-TurnOverTypeSubCondition-template" show={errors.turnOver} i18nKey="missionPage.turnoverTypeConditionError">
+            <Feedback id="error-TurnOverTypeSubCondition-template" show={templateIdErrorShown && errors.turnOver} i18nKey="missionPage.turnoverTypeConditionError">
               {t("missionPage.turnoverTypeConditionError", "กรุณากรอกยอดทำเทิร์นโอเวอร์")}
             </Feedback>
           </div>
@@ -286,7 +292,7 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
                 </div>
               </StaticFilter>
             </div>
-            <Feedback id="error-LoginTypeSubCondition-template" show={errors.login} i18nKey="missionPage.dayInputError">
+            <Feedback id="error-LoginTypeSubCondition-template" show={templateIdErrorShown && errors.login} i18nKey="missionPage.dayInputError">
               {t("missionPage.dayInputError", "กรุณากรอกจำนวนวัน")}
             </Feedback>
           </div>
@@ -312,7 +318,7 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
             placeholder={t("missionPage.selectAffiliateType", "เลือกประเภทการแนะนำเพื่อน")}
             placeholderI18n="missionPage.selectAffiliateType"
           >
-            <Feedback id="error-AffiliateTypeSubCondition-template" show={errors.affiliateType} i18nKey="missionPage.affiliateTypeError">
+            <Feedback id="error-AffiliateTypeSubCondition-template" show={templateIdErrorShown && errors.affiliateType} i18nKey="missionPage.affiliateTypeError">
               {t("missionPage.affiliateTypeError", "กรุณาเลือกประเภทการแนะนำเพื่อน")}
             </Feedback>
           </FilterSelect>
@@ -354,7 +360,7 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
             </div>
           </div>
         </div>
-        <Feedback id="error-InputAffiliateTypeSubCondition-template" show={errors.affiliateInput} i18nKey="missionPage.numberOfAffiliateError">
+        <Feedback id="error-InputAffiliateTypeSubCondition-template" show={templateIdErrorShown && errors.affiliateInput} i18nKey="missionPage.numberOfAffiliateError">
           {t("missionPage.numberOfAffiliateError", "กรุณากรอกจำนวนแนะนำเพื่อน")}
         </Feedback>
 
@@ -378,7 +384,7 @@ export function SubConditionBox({ condition, subNo, no, canDelete, onChange, onD
                 </div>
               </StaticFilter>
             </div>
-            <Feedback id="error-PointAmountSubCondition-template" show={errors.point} i18nKey="missionPage.pointError">
+            <Feedback id="error-PointAmountSubCondition-template" show={templateIdErrorShown && errors.point} i18nKey="missionPage.pointError">
               {t("missionPage.pointError", "กรุณากรอกจำนวนแต้ม")}
             </Feedback>
           </div>

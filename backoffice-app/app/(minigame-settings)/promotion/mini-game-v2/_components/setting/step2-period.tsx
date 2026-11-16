@@ -12,6 +12,7 @@ import { useT } from "@/lib/i18n";
 import { getCustomerGroups, getGameProviders, getMiniGames, type GameProvider } from "@/lib/api/mini-games";
 import * as dom from "./wizard-dom";
 import { TypeText } from "./wizard-texts";
+import { GameCategoryIcon } from "./game-category-icons";
 import { raw, shownWhen, type StepProps } from "./wizard-types";
 
 type TimeSlot = { key: number; start: string; end: string };
@@ -53,14 +54,14 @@ function WorkDays() {
         ))}
       </div>
       <div className="input-days">
-        <button id="boxPromotionSelectWeekday" className={cx("btn system-btn btn-rounded btn-custom-day-1", !weekday && "no-select")} onClick={() => pick(WEEKDAYS, weekday)}>
+        <button id="boxMinigameSelectWeekday" className={cx("btn system-btn btn-rounded w-100 btn-custom-day-1 p-0 btn-active-all-day-custom-mini-game", !weekday && "no-select")} onClick={() => pick(WEEKDAYS, weekday)}>
           วันปกติ (weekday)
         </button>{" "}
-        <button id="boxPromotionSelectWeekend" className={cx("btn system-btn btn-rounded btn-custom-day-2", !weekend && "no-select")} onClick={() => pick(WEEKEND, weekend)}>
+        <button id="boxMinigameSelectWeekend" className={cx("btn system-btn btn-rounded w-100 btn-custom-day-2 p-0 btn-active-all-day-custom-mini-game", !weekend && "no-select")} onClick={() => pick(WEEKEND, weekend)}>
           วันสุดสัปดาห์ (weekend)
         </button>
       </div>
-      <button id="boxPromotionSelectEveryday" className={cx("btn system-btn btn-rounded everyday btn-custom-day-3", !everyday && "no-select")} onClick={() => pick(DAYS.map(([day]) => day), everyday)}>
+      <button id="boxMinigameSelectEveryday" className={cx("btn system-btn btn-rounded everyday btn-custom-day-3 btn-active-all-day-custom-mini-game", !everyday && "no-select")} onClick={() => pick(DAYS.map(([day]) => day), everyday)}>
         ทุกวัน จันทร์ - อาทิตย์ (everyday)
       </button>
     </>
@@ -97,15 +98,8 @@ function CountdownChoices({ type }: { type: StepProps["type"] }) {
         </div>
       </div>
       <div className="col-12"></div>
-      <div className="col-12">
-        <div
-          className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled"
-          id="boxMinigameCountdownRadioDays"
-          data-value-id="1"
-          data-value-id1="boxMinigameCountdownRadioDays"
-          data-value-id2="boxMinigameCountdownRadioDaterange"
-          onClick={selectBox}
-        >
+      <div className="col-12" {...raw({ type: "button" })} data-value-id1="boxMinigameCountdownRadioDays" data-value-id2="boxMinigameCountdownRadioDaterange" data-value-id="1" onClick={selectBox}>
+        <div className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled" id="boxMinigameCountdownRadioDays" {...raw({ htmlFor: "minigameEnableRemainingDay" })}>
           <input className="box-radio" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDay" style={{ display: "none" }} />
           <div className="row flex-column justify-content-between h-100">
             <div className="row pe-0">
@@ -139,15 +133,8 @@ function CountdownChoices({ type }: { type: StepProps["type"] }) {
           </div>
         </div>
       </div>
-      <div className="col-12">
-        <div
-          className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled"
-          id="boxMinigameCountdownRadioDaterange"
-          data-value-id="2"
-          data-value-id1="boxMinigameCountdownRadioDays"
-          data-value-id2="boxMinigameCountdownRadioDaterange"
-          onClick={selectBox}
-        >
+      <div className="col-12" {...raw({ type: "button" })} data-value-id1="boxMinigameCountdownRadioDays" data-value-id2="boxMinigameCountdownRadioDaterange" data-value-id="2" onClick={selectBox}>
+        <div className="custom-card h-100 box-minigame-click-select minigame-box-reset disabled" id="boxMinigameCountdownRadioDaterange">
           <input className="box-radio" type="radio" name="minigameCountdownBoxRadio" id="minigameEnableRemainingDateTime" style={{ display: "none" }} />
           <div className="row flex-column justify-content-between h-100">
             <div className="row pe-0">
@@ -206,7 +193,9 @@ function CountdownChoices({ type }: { type: StepProps["type"] }) {
 
 let nextKey = 1;
 
-export function Step2Period({ type, step, nav, initial }: StepProps) {
+const CREATE_CATEGORIES = ["sport", "game", "casino", "lotto"];
+
+export function Step2Period({ type, action, step, nav, initial }: StepProps) {
   const t = useT();
   const [times, setTimes] = useState<TimeSlot[]>(() => (initial?.detail.times ?? [{ start: "00:00", end: "23:59" }]).map((slot) => ({ ...slot, key: nextKey++ })));
   const [groupsOn, setGroupsOn] = useState(false);
@@ -218,6 +207,8 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
   const [chances, setChances] = useState<{ key: number; game: string | null }[]>(() => (initial ? [] : [{ key: nextKey++, game: null }]));
   const [gameItems, setGameItems] = useState<DropdownItem[]>([]);
   const [providers, setProviders] = useState<GameProvider[]>([]);
+  // A loaded mini-game fills every limit input with its saved number (0 when unused), create leaves them empty
+  const limitDefault = initial ? "0" : undefined;
   const pickers = useRef(new Map<string, Instance>());
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -442,8 +433,10 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                       </div>
                     </div>
                     <div className="btn-allday">
-                      {/* ORIGINAL: staging renders this button EMPTY (data-i18n is never applied to cloned rows); kept with its label until PK decides */}
-                      <button className={isAllDay(slot) ? "btn system-btn btn-rounded w-100" : "btn system-btn btn-rounded w-100 no-select"} data-i18n="minigameSetting.allDay" id={`boxMinigameSelectAllDay-${n}`} onClick={() => actions.changeMinigameSelectTimeAllDay(n)}>{t("minigameSetting.allDay", "")}</button>
+                      {/* ORIGINAL BUG (kept on purpose, PK 15/11/2026): staging renders this button EMPTY because the
+                          data-i18n label is never applied to the cloned time rows; the fix would be to render
+                          t("minigameSetting.allDay", "ทั้งวัน") here. */}
+                      <button className={isAllDay(slot) ? "btn system-btn btn-rounded w-100" : "btn system-btn btn-rounded w-100 no-select"} data-i18n="minigameSetting.allDay" id={`boxMinigameSelectAllDay-${n}`} onClick={() => actions.changeMinigameSelectTimeAllDay(n)}></button>
                     </div>
                   </div>
     );
@@ -621,7 +614,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerDay">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerDay" type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerDay" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerDay" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerDay", "สิทธิ์ / วัน")}</span>
                   </div>
@@ -646,7 +639,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerWeek">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerWeek" type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerWeek" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerWeek" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerWeek", "สิทธิ์ / สัปดาห์")}</span>
                   </div>
@@ -671,7 +664,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerMonth">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerMonth" type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerMonth" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerMonth" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerMonth", "สิทธิ์ / เดือน")}</span>
                   </div>
@@ -696,7 +689,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerPromotion">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerPromotion" type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerPromotion" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MaxPromotion" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerAll" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerAll", "สิทธิ์ / ตลอดอายุโปร")}</span>
                   </div>
@@ -734,7 +727,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerTimePerPerson">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerTimePerPerson" type="text" className="form-control" placeholder="0" data-group="MinigamePerTimePerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <input id="minigameMaxCountPerTimePerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MinigamePerTimePerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                     {" "}
                     <span className="input-group-text custom-color" style={{ borderRadius: "0px 8px 8px 0px" }}>สิทธิ์ / ครั้ง</span>
                   </div>
@@ -760,7 +753,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerDayPerPerson">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerDayPerPerson" type="text" className="form-control" placeholder="0" data-group="MinigamePerDayPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerDayPerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MinigamePerDayPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerDay" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerDay", "สิทธิ์ / วัน")}</span>
                   </div>
@@ -785,7 +778,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerWeekPerPerson">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerWeekPerPerson" type="text" className="form-control" placeholder="0" data-group="MinigamePerWeekPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerWeekPerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MinigamePerDayPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerWeek" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerWeek", "สิทธิ์ / สัปดาห์")}</span>
                   </div>
@@ -810,7 +803,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerMonthPerPerson">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerMonthPerPerson" type="text" className="form-control" placeholder="0" data-group="MinigamePerMonthPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerMonthPerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MinigamePerDayPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerMonth" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerMonth", "สิทธิ์ / เดือน")}</span>
                   </div>
@@ -821,9 +814,9 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
             <div className="row box-promotion-item-checkbox-radio" id="boxGetPromotionPerUserAll">
               <div className="col-12 col-md-6 mb-3">
                 <div className="form-check minigame-reset disabled fistempty">
-                  <input className="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameEnableMaxCountPerPromotionPerPerson" data-value="inputMinigameMaxCountPerPromotionPerPerson" onClick={(e) => dom.changeMinigamecheckbox(e.currentTarget)} />
+                  <input className="form-check-input form-check-input-custom-mini-game me-2" type="checkbox" id="minigameEnableMaxCountPerPerson" data-value="inputMinigameMaxCountPerPerson" onClick={(e) => dom.changeMinigamecheckbox(e.currentTarget)} />
                   {" "}
-                  <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableMaxCountPerPromotionPerPerson">
+                  <label className="form-check-label d-flex flex-column" htmlFor="minigameEnableMaxCountPerPerson">
                     <div className="p2 color-emerald-title-1">
                       <span data-i18n="minigameSetting.limitMinigame">{t("minigameSetting.limitMinigame", "จำกัดการรับสิทธิ์เล่นมินิเกมส์")}</span>
                       <span className="highlight" data-i18n="minigameSetting.perPromotionDuration">{t("minigameSetting.perPromotionDuration", "“ตลอดอายุโปรโมชั่น”")}</span>
@@ -833,9 +826,9 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                 </div>
               </div>
               <div className="col-12 col-md-6 mb-3">
-                <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerPromotionPerPerson">
+                <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameMaxCountPerPerson">
                   <div className="input-group">
-                    <input id="minigameMaxCountPerPromotionPerPerson" type="text" className="form-control" placeholder="0" data-group="MinigamePerPromotionPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
+                    <input id="minigameMaxCountPerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" data-group="MinigamePerDayPerPerson" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} onInput={(e) => dom.setMaxValueInput(e.currentTarget)} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerAll" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerAll", "สิทธิ์ / ตลอดอายุโปร")}</span>
                   </div>
@@ -849,7 +842,10 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
           <span data-i18n="minigameSetting.limitMinigameCustomerGroup">{t("minigameSetting.limitMinigameCustomerGroup", "กำหนดกลุ่มลูกค้าที่มีสิทธิ์รับโปรโมชั่นนี้")}</span>
           <div className="switch">
             <div className="custom-switch switch-alone form-check form-switch">
-              <input className="form-check-input" type="checkbox" id="enableLimitCustomerGroup" value="enableLimitCustomerGroup" onClick={(e) => {
+              <input className="form-check-input" type="checkbox" id="enableLimitCustomerGroup"
+                // Set once (not a React value prop, which re-renders would write back over the "false" the edit loader puts here)
+                ref={(el) => { if (el && !el.hasAttribute("value")) el.setAttribute("value", "enableLimitCustomerGroup"); }}
+                onClick={(e) => {
     setGroupsOn(e.currentTarget.checked);
     dom.changeStatusSwitch(e.currentTarget, "2-3-10");
     }} />
@@ -865,6 +861,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                   <div className="p2 fw-700 mb-2 text-start color-emerald-title-1" data-i18n="minigameSetting.chooseCustomerGroup">{t("minigameSetting.chooseCustomerGroup", "กลุ่มลูกค้าที่มีสิทธิ์ได้รับ")}</div>
                   <CustomDropdown
       multiple
+      stretch
       id="customLimitCustomerGroupDropdown"
       className={groupsOn ? "boxEnableLimitCustomerGroup custom-input dropdown-wrapper minigame-reset require fistempty" : "boxEnableLimitCustomerGroup custom-input dropdown-wrapper minigame-reset require disabled fistempty"}
       fakeClassName="multiple"
@@ -1049,7 +1046,8 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                 </div>
                 <div className="col-12 col-md-6 mb-3">
                   <div className="custom-input custom-input-disabled custom-float box-promotion-item-checkbox-radio minigame-checkbox-reset disabled" id={`inputMinigameChanceAmount-${n}`}>
-                    <div className="text-start p2 fw-700 mb-2 color-emerald-title-1" data-i18n="minigameSetting.rights">{t("minigameSetting.rights", "จำนวนสิทธิ์")}</div>
+                    {/* Cloned row: data-i18n is never applied, so staging keeps the template text (the key itself reads "สิทธิ์") */}
+                    <div className="text-start p2 fw-700 mb-2 color-emerald-title-1" data-i18n="minigameSetting.rights">จำนวนสิทธิ์</div>
                     <div className="input-group">
                       <input id={`minigameChanceAmount-${n}`} type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                       {" "}
@@ -1107,68 +1105,69 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                           <input type="hidden" id="hiddenGameProviderButtonStatus" defaultValue="#SPORT#" />
                           <div className="div-button-sport mb-2">
                             <div className="inactive-game-button-1 minigame-reset disabled fistempty display-none" onClick={() => dom.onSelectGameProvider("1", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="sport" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.sport">{t("minigameSetting.sport", "กีฬา")}</span>
                             </div>
                             <div className="active-game-button-1 minigame-reset disabled fistempty" onClick={() => dom.onSelectGameProvider("1", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="sport" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.sport">{t("minigameSetting.sport", "กีฬา")}</span>
                             </div>
                             <div className="disabled-game-button-1 minigame-reset display-none disabled fistempty">
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="sportDisabled" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.sport">{t("minigameSetting.sport", "กีฬา")}</span>
                             </div>
                           </div>
                           <div className="div-button-games mb-2">
                             <div className="inactive-game-button-2 minigame-reset disabled fistempty" onClick={() => dom.onSelectGameProvider("2", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="games" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.games">{t("minigameSetting.games", "เกมส์")}</span>
                             </div>
                             <div className="active-game-button-2 minigame-reset display-none disabled fistempty" onClick={() => dom.onSelectGameProvider("2", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="gamesActive" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.games">{t("minigameSetting.games", "เกมส์")}</span>
                             </div>
                             <div className="disabled-game-button-2 minigame-reset display-none disabled fistempty">
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              {/* ORIGINAL: staging shows the casino icon on the disabled "เกมส์" button */}
+                              <GameCategoryIcon icon="casino" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.games">{t("minigameSetting.games", "เกมส์")}</span>
                             </div>
                           </div>
                           <div className="div-button-casino mb-2">
                             <div className="inactive-game-button-3" onClick={() => dom.onSelectGameProvider("3", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="casino" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.casino">{t("minigameSetting.casino", "คาสิโน")}</span>
                             </div>
                             <div className="active-game-button-3 minigame-reset display-none disabled fistempty" onClick={() => dom.onSelectGameProvider("3", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="casino" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.casino">{t("minigameSetting.casino", "คาสิโน")}</span>
                             </div>
                             <div className="disabled-game-button-3 minigame-reset display-none disabled fistempty">
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="casino" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.casino">{t("minigameSetting.casino", "คาสิโน")}</span>
                             </div>
                           </div>
                           <div className="div-button-lotto mb-2">
                             <div className="inactive-game-button-4 minigame-reset disabled fistempty" onClick={() => dom.onSelectGameProvider("4", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="lotto" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.lotto">{t("minigameSetting.lotto", "หวย")}</span>
                             </div>
                             <div className="active-game-button-4 minigame-reset display-none disabled fistempty" onClick={() => dom.onSelectGameProvider("4", "active")}>
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="lotto" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.lotto">{t("minigameSetting.lotto", "หวย")}</span>
                             </div>
                             <div className="disabled-game-button-4 minigame-reset display-none disabled fistempty">
-                              {/* capture gap: game-category icon (large inline svg) not captured */}
+                              <GameCategoryIcon icon="lottoDisabled" />
                               {" "}
                               <span className="pl-5" data-i18n="minigameSetting.lotto">{t("minigameSetting.lotto", "หวย")}</span>
                             </div>
@@ -1187,7 +1186,9 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                               <span className="game-provider-count-text">
                                 <span data-i18n="minigameSetting.allCategory">{t("minigameSetting.allCategory", "ค่ายเกมทั้งหมด")}</span>
                                 {" "}
-                                <span className="provider-count-display">{providers.length}</span>
+                                {/* ORIGINAL: only a loaded mini-game (edit / detail) sets this count (data.gameProviderTotal); in create
+                                    mode staging keeps the page's initial "0" */}
+                                <span className="provider-count-display">{action === "create" ? 0 : providers.length}</span>
                                 {" "}
                                 <span data-i18n="minigameSetting.categoryText">{t("minigameSetting.categoryText", "ค่าย")}</span>
                               </span>
@@ -1227,9 +1228,11 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
                           </div>
                           <div className="col-12 col-md-12">
                             <div className="games-display-check-list row m-0">
-                              {providers.map((p) => (
+                              {/* getGameProviderList() (create) only renders the sport / game / casino / lotto entries; a loaded
+                                  mini-game (edit / detail) renders every provider of its data */}
+                              {providers.filter((p) => action !== "create" || CREATE_CATEGORIES.includes(p.category)).map((p) => (
                               <div key={`${p.id}-${p.category}`} className={p.category === "sport" ? "form-check minigame-reset game-provider-checker-div col-4 col-md-4 mb-2 game-provider-input-shown" : "form-check minigame-reset game-provider-checker-div game-provider-input-hide col-4 col-md-4 mb-2 display-none"} is-category-sport={String(p.category === "sport")} is-category-game={String(p.category === "game")} is-category-casino={String(p.category === "casino")} is-category-lotto={String(p.category === "lotto")}>
-                                <input className="form-check-input form-check-input-custom-mini-game me-2 game-provider-checker-input" type="checkbox" onChange={dom.countingGameProviderSelected} {...raw({ providerid: "15" })} {...raw({ providercode: "ab" })} name="ALLBET" {...raw({ category: "casino" })} id="prov-game-15" />
+                                <input className="form-check-input form-check-input-custom-mini-game me-2 game-provider-checker-input" type="checkbox" onChange={dom.countingGameProviderSelected} {...raw({ providerid: p.id })} {...raw({ providercode: p.code })} name={p.name} {...raw({ category: p.category })} id={`prov-game-${p.id}`} />
                                 {" "}
                                 <label className="form-check-label d-flex flex-column" htmlFor={`prov-game-${p.id}`}>
                                   <span className="p2 color-emerald-title-1">{`${p.name} `}</span>
@@ -1281,7 +1284,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameLimitPerGamePerDay">
                   <div className="input-group">
-                    <input id="minigameLimitPerGamePerDay" type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <input id="minigameLimitPerGamePerDay" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rightsPerMinigame" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rightsPerMinigame", "สิทธิ์ ต่อมินิเกมส์")}</span>
                   </div>
@@ -1306,7 +1309,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameLimitPerPerson">
                   <div className="input-group">
-                    <input id="minigameLimitPerPerson" type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <input id="minigameLimitPerPerson" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.rights" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.rights", "สิทธิ์")}</span>
                   </div>
@@ -1328,7 +1331,7 @@ export function Step2Period({ type, step, nav, initial }: StepProps) {
               <div className="col-12 col-md-6 mb-3">
                 <div className="custom-input custom-input-disabled custom-float minigame-checkbox-reset disabled" id="inputMinigameLimitBalance">
                   <div className="input-group">
-                    <input id="minigameLimitBalance" type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <input id="minigameLimitBalance" defaultValue={limitDefault} type="text" className="form-control" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                     {" "}
                     <span className="input-group-text custom-color" data-i18n="minigameSetting.baht" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.baht", "บาท")}</span>
                   </div>

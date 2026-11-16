@@ -85,6 +85,7 @@ export type TimeSlotForm = {
   end: string;
   allDay: boolean;
   reset: boolean;
+  specifyDate?: string; // "d/m/Y", round type กำหนดเอง + ระบุวันที่ (1 -31)
 };
 
 export type SubConditionForm = {
@@ -161,6 +162,9 @@ export type MissionFormValues = {
   completeType: "all" | "some" | null;
   completeValue: string;
   resetSubMission: boolean;
+  displayTime?: string; // edit/copy: the server's preview date line (data.time), e.g. "15/10/2026 11:46 / เป็นต้นไป"
+  turnOverType?: "by-time" | "by-unit"; // section 2 turnover card (default by-unit)
+  turnOverTimeValue?: string; // "ทำเทิร์นโอเวอร์ ขั้นต่ำ x เท่า" amount
 };
 
 export const DEFAULT_COVER = "https://cdn.lsmloyalty.com/images/mission/cover/preview-pic.png";
@@ -272,52 +276,30 @@ export function newMissionForm(): MissionFormValues {
   };
 }
 
-// Original: the edit page is server-rendered with the mission's values (/mission/setting?missionId=…&edit=1).
-// Only "QA Happy Mission Retest 20261015" was captured in edit mode; the other missions get the
-// values their list card shows (name, cover, condition, dates).
+// Original: the edit page loads GET /mission/get-mission?missionId=… (getMissionData). Values as staging
+// returned them on 15/11/2026; missions without captured data answer "Mission not found" (null), and the
+// edit page then stays an empty create form.
 export async function getMissionFormValues(missionId: string): Promise<MissionFormValues | null> {
-  const mission = missions.find((m) => m.id === missionId);
-  if (!mission) return null;
-  const form = newMissionForm();
   const captured = capturedEditValues[missionId];
-  if (captured) {
-    const sub = newSubMission();
-    const condition = { ...sub.conditions[0], type: "login" as const, loginType: "total" as const, loginAmount: captured.subMission.loginAmount };
-    return {
-      ...form,
-      status: captured.status,
-      cover: captured.cover,
-      names: { th: captured.name, en: "", tl: "" },
-      conditions: { th: captured.condition, en: "", tl: "" },
-      agents: captured.agents,
-      startNow: true,
-      startDate: captured.startDate,
-      startTime: captured.startTime,
-      noEnd: true,
-      roundType: "daily",
-      // Staging shows this row as "วัน -" and "00:00 - 00:00" with ทั้งวัน ticked
-      timeSlots: [{ ...form.timeSlots[0], allDay: true }],
-      subMissions: [{ ...sub, name: captured.subMission.name, description: captured.subMission.description, conditions: [condition] }],
-      completeType: "all",
-      completeValue: captured.completeValue,
-    };
-  }
-
-  const [start, end] = mission.dates.split(" / ");
-  const [startDate = "", startTime = ""] = start.split(" ");
-  const [endDate = "", endTime = ""] = end && end !== "เป็นต้นไป" ? end.split(" ") : [];
+  if (!captured) return null;
+  const form = newMissionForm();
+  const sub = newSubMission();
+  const condition = { ...sub.conditions[0], ...captured.subMission.condition };
   return {
     ...form,
-    status: mission.enabled,
-    cover: mission.cover,
-    names: { th: mission.name, en: "", tl: "" },
-    conditions: { th: mission.condition ? `<p>${mission.condition}</p>` : "", en: "", tl: "" },
-    agents: [agents[0].value],
-    startDate,
-    startTime,
-    noEnd: !endDate,
-    endDate,
-    endTime,
+    status: captured.status,
+    cover: captured.cover,
+    names: { th: captured.name, en: "", tl: "" },
+    conditions: { th: captured.condition, en: "<p>&nbsp;</p>", tl: "<p>&nbsp;</p>" },
+    agents: captured.agents,
+    startNow: true,
+    noEnd: true,
+    roundType: "daily",
+    timeSlots: [{ ...form.timeSlots[0], ...captured.round }],
+    subMissions: [{ ...sub, name: captured.subMission.name, description: captured.subMission.description, conditions: [condition] }],
+    completeType: captured.completeType,
+    completeValue: captured.completeValue,
+    displayTime: captured.time,
   };
 }
 
@@ -345,9 +327,10 @@ export async function getPromotions(): Promise<Option[]> {
 
 // Missions offered by the "คัดลอกการตั้งค่าจากภารกิจอื่น" picker (captured order)
 export async function getCopyableMissions(): Promise<Option[]> {
-  const order = ["uuid-3", "uuid-4", "uuid-1", "uuid-2"];
-  return order.map((id) => {
-    const mission = missions.find((m) => m.id === id)!;
+  // Staging order: cards 3, 4, 1, 2 (by position, so it survives id changes in the mock)
+  const order = [2, 3, 0, 1];
+  return order.map((index) => {
+    const mission = missions[index];
     return { value: mission.id, label: mission.name };
   });
 }

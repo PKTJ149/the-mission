@@ -20,6 +20,14 @@ const DEFAULT_ICON = {
   "mini-game": "https://p88.blob.core.windows.net/images/default/mini-game.png",
 };
 
+// resetSettingPromotion() (scriptminigame.js:2340) hides CKEditor's own "upload image" toolbar button
+// (.ck-file-dialog-button → d-none) every time the wizard opens, then un-hides .ck-splitbutton__action
+// 200 ms later, so the image-insert dropdown's main button stays visible.
+const hideFileDialogButton = () =>
+  document
+    .querySelectorAll("#offcanvasMinigameSetting .ck-file-dialog-button:not(.ck-splitbutton__action)")
+    .forEach((button) => button.classList.add("d-none"));
+
 function LangStatus({ set }: { set: boolean }) {
   const t = useT();
   return set ? (
@@ -43,7 +51,7 @@ export function Step1Detail({ type, step, nav, initial, agents, agent, onAgentCh
   const conditions = useRef<Record<Lang, string>>({ th: initial?.detail.conditionTh ?? "", en: "", tl: "" });
   const [langSet, setLangSet] = useState<Record<Lang, boolean>>({ th: false, en: false, tl: false });
   const [agentTouched, setAgentTouched] = useState(false);
-  const [iconUrl, setIconUrl] = useState(DEFAULT_ICON[type]);
+  const [iconUrl, setIconUrl] = useState(initial?.icon ?? DEFAULT_ICON[type]);
   const nameTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const agentItems: DropdownItem[] = agents.map((item) => ({ value: item.value, label: item.label }));
 
@@ -235,13 +243,13 @@ export function Step1Detail({ type, step, nav, initial, agents, agent, onAgentCh
             </div>
           </div>
           <div className="textarea-condition-th">
-            <RichTextEditor id="minigameConditionHtml" className="input-promotion-condition-th" defaultValue={initial?.detail.conditionTh} onChange={(html) => setCondition("th", html)} />
+            <RichTextEditor id="minigameConditionHtml" className="input-promotion-condition-th" defaultValue={initial?.detail.conditionTh} onChange={(html) => setCondition("th", html)} onReady={hideFileDialogButton} />
           </div>
           <div className="textarea-condition-en" style={{ display: "none" }}>
-            <RichTextEditor id="minigameConditionHtml-en" className="display-none input-promotion-condition-en" dataAttributes={{ "data-condition-lang": "en" }} onChange={(html) => setCondition("en", html)} />
+            <RichTextEditor id="minigameConditionHtml-en" className="display-none input-promotion-condition-en" dataAttributes={{ "data-condition-lang": "en" }} onChange={(html) => setCondition("en", html)} onReady={hideFileDialogButton} />
           </div>
           <div className="textarea-condition-tl" style={{ display: "none" }}>
-            <RichTextEditor id="minigameConditionHtml-tl" className="display-none input-promotion-condition-tl" dataAttributes={{ "data-condition-lang": "tl" }} onChange={(html) => setCondition("tl", html)} />
+            <RichTextEditor id="minigameConditionHtml-tl" className="display-none input-promotion-condition-tl" dataAttributes={{ "data-condition-lang": "tl" }} onChange={(html) => setCondition("tl", html)} onReady={hideFileDialogButton} />
           </div>
         </div>
         <div className="body-content-right" style={{ maxWidth: "390px" }}>

@@ -9,13 +9,17 @@ import {
   depositCheckRows,
   makeByOptions,
   minigameDetails,
-  minigameOtherViews,
+  minigameViews,
   reportGames,
   rewardPieces,
-  rightsPattern,
+  detailCountsByStatus,
+  emptyDetailCounts,
+  rightsPatterns,
   rightsRowDefaults,
   summaryRows,
   summaryTotals,
+  usedRights,
+  WHEEL_8_ART,
 } from "@/lib/mock/minigame-reports";
 
 export type GameStatus = "active" | "inactive" | "expired";
@@ -36,14 +40,8 @@ export type SummaryCounts = {
 export type SummaryRow = SummaryCounts & { id: string; name: string; status: GameStatus; agentIds: string[] };
 export type SummaryTotals = SummaryCounts;
 
-export type MinigameDetail = {
-  id: string;
-  name: string;
-  type: "mini-game" | "lucky-wheel";
-  descriptionHtml: string; // CKEditor HTML of the game condition
-  status: GameStatus;
-  period: string; // ระยะเวลาโปรโมชั่น
-  image: string;
+// Numbers of the drill-down sub-cards (POST /api/report/summary-mini-game)
+export type DetailCounts = {
   promotionCustomerCount: string;
   getPromotionCustomerCount: string;
   promotionCount: string;
@@ -55,7 +53,31 @@ export type MinigameDetail = {
   rewardCount: string;
 };
 
+export type MinigameDetail = DetailCounts & {
+  id: string;
+  name: string;
+  type: "mini-game" | "lucky-wheel";
+  descriptionHtml: string; // CKEditor HTML of the game condition
+  status: GameStatus;
+  period: string; // ระยะเวลาโปรโมชั่น
+  image: string; // mini-game: the cover image; lucky wheel: the centre (spin) image
+  wheelArt?: string; // lucky wheel: base URL of pie-1..8.png + frame.png
+};
+
 export type RightsPattern = { credit: string; minigameRights: string };
+
+// A "ใช้โปรแล้ว" row as captured (mock data)
+export type UsedRight = {
+  gameId: string;
+  date: string;
+  accepted: string; // when it became "ใช้โปรแล้ว"
+  username: string;
+  gameUsername: string;
+  category: RightsCategory;
+  credit: string;
+  minigameRights: string;
+  makeBy: string;
+};
 
 // One row of the rights history (/promotion/minigame/history) and of the report drill-down
 export type RightsRow = {
@@ -74,6 +96,7 @@ export type RightsRow = {
   status: RightsStatus;
   makeBy: string;
   agentId: string;
+  history: { status: RightsStatus; date: string }[]; // the (i) tooltip lines, newest first
 };
 
 export type MinigameReward = {
@@ -85,11 +108,14 @@ export type MinigameReward = {
   value: string;
 };
 
-export type MinigameOtherView = {
+// View offcanvas of the drill-down card's eye (#offcanvasMinigameSetting, #SettingMinigameStep5)
+export type MinigameView = {
+  type: "mini-game" | "lucky-wheel"; // changes the labels of the first section and of the reward rows
   title: string;
   headerText: string;
   tabTitle: string;
-  image: string;
+  image: string; // mini-game: the cover; lucky wheel: the centre (spin) image
+  wheelArt?: string; // lucky wheel: base URL of pie-1..8.png + frame.png
   statusOn: boolean;
   name: string;
   conditionHtml: string;
@@ -160,34 +186,66 @@ const agentMatches = (agent: string | null | undefined, ids: string[]) => !agent
 const statusChanges = new Map<string, RightsStatus>();
 const manualRows: RightsRow[] = [];
 
-// Only page 1 (10 rows) was captured. To fill the captured totals (7103 / 7101 / 10 rows per game,
-// 14214 in the history) row N of a game repeats captured row N % 10 — a stand-in, not real data.
+// Only page 1 of each game's "รอใช้โปร" rows is known. To fill the measured counts, row N of a game
+// repeats its page-1 row N % 10 — a stand-in, not real data.
 function patternRow(gameIndex: number, index: number): RightsRow {
   const game = reportGames[gameIndex];
-  const pattern = rightsPattern[index % rightsPattern.length];
+  const pattern = rightsPatterns[game.id];
+  const { credit, minigameRights } = pattern[index % pattern.length];
   const id = `${game.id}-${index + 1}`;
   return {
     id,
     ...rightsRowDefaults,
     gameId: game.id,
     gameName: game.name,
-    credit: pattern.credit,
-    minigameRights: pattern.minigameRights,
+    credit,
+    minigameRights,
     lottoRights: "0",
     points: "0",
     rewards: "0",
     status: statusChanges.get(id) ?? rightsRowDefaults.status,
+    history: [{ status: "waiting", date: rightsRowDefaults.date }],
   };
 }
 
+function usedRow(right: (typeof usedRights)[number], index: number): RightsRow {
+  const id = `used-${index + 1}`;
+  return {
+    id,
+    date: right.date,
+    username: right.username,
+    gameUsername: right.gameUsername,
+    gameId: right.gameId,
+    gameName: reportGames.find((game) => game.id === right.gameId)!.name,
+    category: right.category,
+    credit: right.credit,
+    minigameRights: right.minigameRights,
+    lottoRights: "0",
+    points: "0",
+    rewards: "0",
+    status: statusChanges.get(id) ?? "accept",
+    makeBy: right.makeBy,
+    agentId: "501",
+    history: [
+      { status: "accept", date: right.accepted },
+      { status: "waiting", date: right.date },
+    ],
+  };
+}
+
+// Newest first like staging: manual promotions made here, the 12/11 "รอใช้โปร" rows, then the older
+// "ใช้โปรแล้ว" rows.
 function* allRightsRows(gameId?: string): Generator<RightsRow> {
   for (const row of manualRows) {
     if (!gameId || row.gameId === gameId) yield { ...row, status: statusChanges.get(row.id) ?? row.status };
   }
   for (let gameIndex = 0; gameIndex < reportGames.length; gameIndex++) {
     if (gameId && reportGames[gameIndex].id !== gameId) continue;
-    for (let index = 0; index < reportGames[gameIndex].rightsCount; index++) yield patternRow(gameIndex, index);
+    for (let index = 0; index < reportGames[gameIndex].waitingCount; index++) yield patternRow(gameIndex, index);
   }
+  const used = usedRights.map(usedRow).filter((row) => !gameId || row.gameId === gameId);
+  used.sort((a, b) => parseRowDate(b.date).getTime() - parseRowDate(a.date).getTime());
+  yield* used;
 }
 
 // ---------- report summary ----------
@@ -219,15 +277,18 @@ export async function getMinigameSummary(filters: SummaryFilters = {}): Promise<
   return structuredClone({ rows, totals });
 }
 
-// Original: POST /api/report/summary-mini-game (numbers of the drill-down card)
-export async function getMinigameDetail(id: string): Promise<MinigameDetail | null> {
+// Original: POST /api/report/summary-mini-game (numbers of the drill-down card). The "สถานะ" filter
+// changes the numbers (measured per status); the other drill-down filters were not measured.
+export async function getMinigameDetail(id: string, status: string | null = null): Promise<MinigameDetail | null> {
   const detail = minigameDetails.find((item) => item.id === id);
-  return detail ? structuredClone(detail) : null;
+  if (!detail) return null;
+  const counts = status ? (detailCountsByStatus[id]?.[status as RightsStatus] ?? emptyDetailCounts) : {};
+  return structuredClone({ ...detail, ...counts, wheelArt: detail.type === "lucky-wheel" ? WHEEL_8_ART : undefined });
 }
 
-// Original: POST /api/promotion/mini-game/get/ — only the "มินิเกมส์อื่น ๆ" game's view was captured
-export async function getMinigameOtherView(id: string): Promise<MinigameOtherView | null> {
-  const view = minigameOtherViews[id];
+// Original: POST /api/promotion/mini-game/get/
+export async function getMinigameView(id: string): Promise<MinigameView | null> {
+  const view = minigameViews[id];
   return view ? structuredClone(view) : null;
 }
 
@@ -268,11 +329,12 @@ export async function createManualPromotion(input: ManualPromotionInput): Promis
   if (!customer || !game) return;
   const now = new Date();
   const pad = (value: number) => String(value).padStart(2, "0");
+  const date = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
   manualRows.unshift({
     id: `manual-${manualRows.length + 1}`,
-    date: `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}`,
+    date,
     username: customer.username,
-    gameUsername: customer.gameUsername,
+    gameUsername: customer.username,
     gameId: game.id,
     gameName: game.name,
     category: "manual",
@@ -284,6 +346,7 @@ export async function createManualPromotion(input: ManualPromotionInput): Promis
     status: "waiting",
     makeBy: "superx",
     agentId: "501",
+    history: [{ status: "waiting", date }],
   });
 }
 
@@ -307,11 +370,12 @@ export async function getRewardPieces(gameId: string): Promise<{ value: string; 
   return (rewardPieces[gameId] ?? []).map((text, index) => ({ value: String(index + 1), text }));
 }
 
-// #manualSelectCustomer (CustomDropdown theme "google") search
+// #manualSelectCustomer (CustomDropdown theme "google") search: "username : name", at most 10 like the server
 export async function searchCustomers(keyword: string): Promise<{ value: string; label: string }[]> {
   return customers
-    .filter((customer) => includes(customer.username, keyword) || includes(customer.gameUsername, keyword))
-    .map((customer) => ({ value: customer.username, label: `${customer.username} (${customer.gameUsername})` }));
+    .filter((customer) => includes(customer.username, keyword) || includes(customer.name, keyword))
+    .slice(0, 10)
+    .map((customer) => ({ value: customer.username, label: `${customer.username} : ${customer.name}` }));
 }
 
 // ---------- deposit check ----------

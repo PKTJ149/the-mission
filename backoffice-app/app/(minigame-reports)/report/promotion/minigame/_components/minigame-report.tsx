@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import {
   DateRangeFilter,
   EmptyState,
@@ -15,11 +15,11 @@ import {
 import { useT } from "@/lib/i18n";
 import {
   getMinigameDetail,
-  getMinigameOtherView,
+  getMinigameView,
   getMinigameSummary,
   getRightsRows,
   type MinigameDetail,
-  type MinigameOtherView,
+  type MinigameView,
   type RightsRow,
   type SummaryRow,
   type SummaryTotals,
@@ -32,7 +32,7 @@ import {
   CategoryIcon,
   ExpiredBadgeIcon,
   GameStatusIcon,
-  MakerIcon,
+  MakeByGearIcon,
   PersonGearIcon,
   TagIcon,
 } from "@/app/(minigame-reports)/_components/report-icons";
@@ -75,8 +75,11 @@ const INITIAL_QUERY: Query = {
 };
 
 const HIDDEN: CSSProperties = { display: "none" };
-// Set inline by the original JS: 264px at a 1704px viewport, ~175px at 1111px — about 15.5vw
-const SEARCH_BASIS = "15.5vw";
+// The page script creates every filter dropdown with stretch: true and fakeValue: item => item.textContent
+// (label, not data-chip)
+const itemText = (item: DropdownItem) => item.label;
+// Static inline style in the original server HTML (no script sets it): flex-basis: 264px
+const SEARCH_BASIS = "264px";
 const BREADCRUMB_STYLE = { "--breadcrumb-max-width": "260px" } as CSSProperties;
 
 // /report/promotion/minigame: the summary table and, after a row click (nextDetail), the
@@ -92,15 +95,30 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
   const [rights, setRights] = useState<{ rows: RightsRow[]; total: number }>({ rows: [], total: 0 });
   const [game, setGame] = useState<SummaryRow | null>(null);
   const [detail, setDetail] = useState<MinigameDetail | null>(null);
-  const [view, setView] = useState<MinigameOtherView | null>(null);
+  const [view, setView] = useState<MinigameView | null>(null);
+  const [viewOpenings, setViewOpenings] = useState(0); // the page script rebuilds the reward rows on every opening
+  const [wheelViewed, setWheelViewed] = useState(false); // a lucky-wheel view strips the classes of #showStepEnd
   // The customer search is uncontrolled like the original; a new key re-creates it with a new value
   const [customerInput, setCustomerInput] = useState({ key: 0, value: "" });
 
   const inDetail = game !== null;
 
+  // The card numbers come from /api/report/summary-mini-game, sent with the drill-down requests
+  useEffect(() => {
+    if (!query.gameId) return;
+    let current = true; // drop an answer that arrives after the user moved on
+    getMinigameDetail(query.gameId, query.rightsStatus).then((value) => {
+      if (current) setDetail(value);
+    });
+    return () => {
+      current = false;
+    };
+  }, [query.gameId, query.rightsStatus]);
+
   const request = (next: Query) => {
     setQuery(next);
-    tooltip.hide(); // the rows under the pointer are about to be replaced (table.js disposes tooltips too)
+    // The rows under the pointer are about to be replaced; their tooltip is left behind (original bug, see orphan())
+    tooltip.orphan();
     if (next.gameId) {
       table.run(
         getRightsRows({
@@ -129,9 +147,12 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
   const openDetail = (row: SummaryRow) => {
     setGame(row);
     setDetail(null);
-    setView(null);
-    getMinigameDetail(row.id).then(setDetail);
-    update({ gameId: row.id });
+    // The view offcanvas keeps the previous game's content (and its scroll position) until the eye
+    // fills it again, like the original
+    // ORIGINAL BUG (kept on purpose, PK 15/11/2026): nextDetail keeps the drill-down filters and the
+    // current page of the previous mini-game (open page 4 of one game, go back, open another: it starts
+    // on page 4 too). The fix would be to start from the first page (update instead of request).
+    request({ ...query, gameId: row.id });
   };
 
   // Breadcrumb "Anonymous"
@@ -144,10 +165,11 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
   // viewMinigameDetail(): the eye in the drill-down card
   const openView = async () => {
     if (!game) return;
-    const data = await getMinigameOtherView(game.id);
-    // The lucky-wheel version of this view was not captured on this page, so the wheels' eye does nothing
+    const data = await getMinigameView(game.id);
     if (!data) return;
     setView(data);
+    setViewOpenings((count) => count + 1);
+    if (data.type === "lucky-wheel") setWheelViewed(true);
     viewPanel.show();
   };
 
@@ -310,6 +332,7 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
                       defaultText="All"
                       items={statusItems}
                       fakeValue={(item) => statusText[item.value]}
+                      stretch
                       value={query.status}
                       onChange={(status) => update({ status })}
                     />
@@ -322,6 +345,8 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
                       title={t("reportPromotionMinigame.usedAgent", "Agent ที่ใช้งาน :")}
                       defaultText="All"
                       items={agentItems}
+                      fakeValue={itemText}
+                      stretch
                       value={query.agent}
                       onChange={(agent) => update({ agent })}
                     />
@@ -335,6 +360,8 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
                       title={t("reportPromotionMinigame.type", "ประเภท :")}
                       defaultText="All"
                       items={categoryItems}
+                      fakeValue={itemText}
+                      stretch
                       value={query.category}
                       onChange={(category) => update({ category })}
                     />
@@ -347,6 +374,8 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
                       title={t("reportPromotionMinigame.status", "สถานะ :")}
                       defaultText="All"
                       items={rightsStatusItems}
+                      fakeValue={itemText}
+                      stretch
                       value={query.rightsStatus}
                       onChange={(rightsStatus) => update({ rightsStatus })}
                     />
@@ -355,10 +384,12 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
                     <FilterDropdown
                       id="filterMakeBy"
                       dropdownId="dropdownFilterMakeBy"
-                      icon={<MakerIcon />}
+                      icon={<MakeByGearIcon />}
                       title={t("reportPromotionMinigame.editBy", "ผู้ทำรายการ :")}
                       defaultText="All"
                       items={makeByItems}
+                      fakeValue={itemText}
+                      stretch
                       value={query.makeBy}
                       onChange={(makeBy) => update({ makeBy })}
                     />
@@ -378,7 +409,7 @@ export function MinigameReport({ initialSummary }: { initialSummary: SummaryData
           </div>
         </div>
       </div>
-      <MinigameViewOffcanvas control={viewPanel} view={view} />
+      <MinigameViewOffcanvas control={viewPanel} view={view} opening={viewOpenings} wheelViewed={wheelViewed} />
       {tooltip.holder}
     </>
   );

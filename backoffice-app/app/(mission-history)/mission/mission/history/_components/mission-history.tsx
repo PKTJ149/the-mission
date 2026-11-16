@@ -17,6 +17,17 @@ const INITIAL_FILTERS: Filters = { search: "", dates: null, offset: 0, limit: 10
 const DARK_BG = { backgroundColor: "rgb(21, 21, 21)" };
 const BODY_STYLE = { color: "rgb(255, 255, 255)", backgroundColor: "rgb(21, 21, 21)" };
 
+// ORIGINAL BUG (kept on purpose, PK 15/11/2026): with rows, the live page has a stray empty <tzr> element
+// (a typo of <tr>) right before the <table> (not in the empty state). It renders 0×0; the fix would be to
+// delete it. Added from the table's ref because React warns about the unknown "tzr" tag (which shows the
+// Next dev "Issue" badge); the cleanup removes it again with the table.
+const addStrayTzr = (table: HTMLTableElement | null) => {
+  if (!table) return;
+  const tzr = document.createElement("tzr");
+  table.before(tzr);
+  return () => tzr.remove();
+};
+
 // /mission/mission/history — ประวัติการแก้ไข of the missions ("ประวัติการแก้ไข" button on /mission).
 // Plain back-office styling: this page loads neither IBM Plex nor mission.css (inline style D only).
 export function MissionHistory({ initialData }: { initialData: { rows: MissionHistoryRow[]; total: number } }) {
@@ -43,7 +54,14 @@ export function MissionHistory({ initialData }: { initialData: { rows: MissionHi
             </div>
             <div className="row align-items-center gx-2 mb-3">
               <div className="col-auto" style={SEARCH_COLUMN_STYLE}>
-                <SearchInput id="tableSearch" placeholder="Search" clearId="clearValueMissionHistorySearch" onSearch={(search) => filter({ search })} />
+                {/* The × reloads the table without the search text (measured on staging 15/11/2026) */}
+                <SearchInput
+                  id="tableSearch"
+                  placeholder="Search"
+                  clearId="clearValueMissionHistorySearch"
+                  onSearch={(search) => filter({ search })}
+                  onClear={() => filter({ search: "" })}
+                />
               </div>
               <div className="col-auto">
                 <DateRangeFilter
@@ -64,13 +82,12 @@ export function MissionHistory({ initialData }: { initialData: { rows: MissionHi
               <TableLoading show={loading} />
               {!loading && (
                 <>
-                  {/* ORIGINAL: a stray empty <tzr> element sits before the <table>; left out */}
                   <div className="table-scrollable" style={DARK_BG}>
                     {data.rows.length === 0 ? (
                       // Not captured on this page: the shared empty state with this page's keys
                       <EmptyState titleKey="missionHistoryPage.notFoundInfo" textKey="missionHistoryPage.notFoundInfoText" />
                     ) : (
-                      <table>
+                      <table ref={addStrayTzr}>
                         <thead className="color-th-report-theme-emerald">
                           <tr>
                             <th className="w-0 mission-page" style={{ width: "10%" }}>

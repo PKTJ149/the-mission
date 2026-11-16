@@ -13,6 +13,7 @@ import {
 } from "@/lib/api/missions";
 import { DeleteButton, Feedback, previewFile } from "./form-bits";
 import { FormSection } from "./form-section";
+import { useFormEvents, type SectionStatus } from "./form-state";
 import { RewardItem } from "./reward-item";
 import { MISSION_EDITOR_CONFIG } from "./section-basic";
 import { ReceiveTypeCards, TurnoverAndAlert } from "./section-duration";
@@ -24,7 +25,7 @@ type SubMissionSectionProps = {
   canDelete: boolean;
   open: boolean;
   onToggle: () => void;
-  valid: boolean;
+  status: SectionStatus;
   miniGames: Option[];
   promotions: Option[];
   onChange: (sub: SubMissionForm) => void;
@@ -40,7 +41,7 @@ export function SubMissionSection({
   canDelete,
   open,
   onToggle,
-  valid,
+  status,
   miniGames,
   promotions,
   onChange,
@@ -49,6 +50,7 @@ export function SubMissionSection({
   onChooseGameType,
 }: SubMissionSectionProps) {
   const t = useT();
+  const events = useFormEvents();
   const set = (patch: Partial<SubMissionForm>) => onChange({ ...sub, ...patch });
   const setCondition = (index: number, condition: SubConditionForm) =>
     set({ conditions: sub.conditions.map((c, i) => (i === index ? condition : c)) });
@@ -63,7 +65,8 @@ export function SubMissionSection({
       panelId={`openDropdownMissionSettingSub-${no}`}
       open={open}
       onToggle={onToggle}
-      valid={valid}
+      status={status}
+      validateKey={`sub-${sub.id}`}
       statusId={`missionTitle-${no}`}
       statusI18n="missionPage.dataNotComplete"
       mainProps={{ id: `time-sub-mission-${no}`, "data-sub-mission": no, "data-sub-mission-id": no }}
@@ -93,7 +96,9 @@ export function SubMissionSection({
       <div className="group-content-mission-setting-item">
         <div className="label-title-bg">
           <span className="text-in-label">
-            <span data-i18n="missionPage.missionSubSettingNo">{t("missionPage.missionSubSettingNo", "ตั้งค่าการแสดงผลภารกิจย่อยที่")}</span>{" "}
+            {/* the template's text has a trailing space (this span is not re-localized) */}
+            <span data-i18n="missionPage.missionSubSettingNo">{t("missionPage.missionSubSettingNo", "ตั้งค่าการแสดงผลภารกิจย่อยที่")} </span>
+            {"\u00a0"}
             <span id={`text-header-sub-mission-label-${no}`}>{no}</span>
           </span>
         </div>
@@ -198,7 +203,12 @@ export function SubMissionSection({
             className="mission-btn-outline"
             id={`btn-add-sub-condition-${no}`}
             data-sub-main-id={no}
-            onClick={() => set({ conditions: [...sub.conditions, newSubCondition()] })}
+            onClick={() => {
+              // addSubMissionCondition() validates the sub-mission (the new row shows its errors), then toggleTranslate()
+              set({ conditions: [...sub.conditions, newSubCondition()] });
+              events.validate(`sub-${sub.id}`);
+              events.localize();
+            }}
           >
             <img src="/assets/images/mission/icon-add-mission-btn.png" alt="add-reward" width="20" height="20" />
             <span data-i18n="missionPage.missionSubAddCondition">{t("missionPage.missionSubAddCondition", "เพิ่มเงื่อนไข")}</span>
@@ -251,7 +261,8 @@ export function SubMissionSection({
             </div>
             <div className="group-text-switch">
               <span className="switch-title text-p2-regular" data-i18n="missionPage.missionSubTextS1">
-                {t("missionPage.missionSubTextS1", "อนุญาตให้ Reset รางวัล ภารกิจทันทีที่ทำสำเร็จ")}
+                {/* not re-localized (no .mission-page): the template's text, with its line break read as a space */}
+                อนุญาตให้ Reset รางวัล ภารกิจทันที ที่ทำสำเร็จ
               </span>
               <span className="text-p3-regular text-example" data-i18n="missionPage.missionSubTextS2">
                 {t("missionPage.missionSubTextS2", "สมาชิกจะสามารถทำภารกิจได้อีกครั้งและเมื่อภารกิจสำเร็จ")}
@@ -338,7 +349,12 @@ export function SubMissionSection({
             className="mission-btn-outline"
             id={`btn-add-sub-reward-${no}`}
             data-sub-main-id={no}
-            onClick={() => set({ rewards: [...sub.rewards, newReward()] })}
+            onClick={() => {
+              const reward = newReward();
+              set({ rewards: [...sub.rewards, reward] });
+              events.added(reward.id);
+              events.localize();
+            }}
           >
             <img src="/assets/images/mission/icon-add-mission-btn.png" alt="add-reward" width="20" height="20" />
             <span data-i18n="missionPage.missionAddReward">{t("missionPage.missionAddReward", "เพิ่มของรางวัล")}</span>

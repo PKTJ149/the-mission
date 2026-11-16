@@ -16,7 +16,7 @@ import {
 import { useT } from "@/lib/i18n";
 import { changeRightsStatus, getRightsRows, type RightsRow } from "@/lib/api/minigame-reports";
 import { AutoRefresh } from "@/app/(minigame-reports)/_components/auto-refresh";
-import { CalendarIcon, CategoryIcon, MakerIcon, PersonGearIcon, PlusCircleIcon, TagIcon } from "@/app/(minigame-reports)/_components/report-icons";
+import { CalendarIcon, CategoryIcon, MakeByGearIcon, PersonGearIcon, PlusCircleIcon, TagIcon } from "@/app/(minigame-reports)/_components/report-icons";
 import { useTooltip } from "@/app/(minigame-reports)/_components/tooltip";
 import { useTableRequest } from "@/app/(minigame-reports)/_components/use-table-request";
 import { ConfirmChangeStatusModal, StatusMenu, type ChangeStatusVariant } from "./change-status";
@@ -38,8 +38,10 @@ type Query = {
 
 const INITIAL_QUERY: Query = { search: "", category: null, status: null, makeBy: null, agent: null, dates: [], offset: 0, limit: 10 };
 
-// Set inline by the original JS: 264px at a 1704px viewport, ~175px at 1111px — about 15.5vw
-const SEARCH_STYLE = { flexBasis: "15.5vw" };
+// Static inline style in the original server HTML (no script sets it)
+const SEARCH_STYLE = { flexBasis: "264px" };
+// The page script creates the four filter dropdowns with stretch: true and fakeValue: item => item.textContent
+const itemText = (item: DropdownItem) => item.label;
 
 // /promotion/minigame/history — ประวัติการรับ/ใช้สิทธิ์มินิเกมส์
 export function MinigameHistory({ initialPage, miniGames }: { initialPage: RightsPage; miniGames: Select2Option[] }) {
@@ -54,15 +56,19 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
   const [page, setPage] = useState(initialPage);
   // The search box is uncontrolled like the original; a new key re-creates it with a new value
   const [searchInput, setSearchInput] = useState({ key: 0, value: "" });
-  // Open change-status dropdown: the clicked label and its row
-  const [menu, setMenu] = useState<{ anchor: HTMLElement; row: RightsRow; variant: ChangeStatusVariant } | null>(null);
+  // Open change-status dropdown: the clicked label and its row. stale = the table was reloaded under it.
+  const [menu, setMenu] = useState<{ anchor: HTMLElement; row: RightsRow; variant: ChangeStatusVariant; stale?: boolean } | null>(null);
   const [confirmRow, setConfirmRow] = useState<RightsRow | null>(null);
   const [modalKey, setModalKey] = useState(0);
 
   const request = (next: Query) => {
     setQuery(next);
-    setMenu(null); // its label is about to be replaced
-    tooltip.hide(); // so are the rows under the pointer (table.js disposes tooltips too)
+    // ORIGINAL BUG (kept on purpose, PK 15/11/2026): reloading the table (auto refresh, filters) does
+    // not close an open change-status dropdown; only its label is replaced, so the label loses its
+    // open look while the dropdown stays. The fix would be to close the dropdown here.
+    setMenu((current) => current && { ...current, stale: true });
+    // table.js disposes only Bootstrap tooltips; a (i) tooltip showing now is left behind (see orphan())
+    tooltip.orphan();
     table.run(getRightsRows(next), setPage);
   };
   const update = (patch: Partial<Query>) => request({ ...query, offset: 0, ...patch });
@@ -77,7 +83,7 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
   // openDropdownChangeStatus(this, '', id): clicking the same label again closes it
   const toggleMenu = (event: MouseEvent<HTMLSpanElement>, row: RightsRow) => {
     const anchor = event.currentTarget;
-    if (menu?.row.id === row.id) setMenu(null);
+    if (menu && !menu.stale && menu.row.id === row.id) setMenu(null);
     else setMenu({ anchor, row, variant: row.status === "accept" ? "CancelPromotion" : "" });
   };
 
@@ -174,6 +180,8 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
                     title={t("reportPromotionMinigameHistory.type", "ประเภท :")}
                     defaultText="All"
                     items={categoryItems}
+                    fakeValue={itemText}
+                    stretch
                     value={query.category}
                     onChange={(category) => update({ category })}
                   />
@@ -186,6 +194,8 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
                     title={t("reportPromotionMinigameHistory.status", "สถานะ :")}
                     defaultText="All"
                     items={statusItems}
+                    fakeValue={itemText}
+                    stretch
                     value={query.status}
                     onChange={(status) => update({ status })}
                   />
@@ -194,10 +204,12 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
                   <FilterDropdown
                     id="filterMakeBy"
                     dropdownId="dropdownFilterMakeBy"
-                    icon={<MakerIcon />}
+                    icon={<MakeByGearIcon />}
                     title={t("reportPromotionMinigameHistory.editBy", "ผู้ทำรายการ :")}
                     defaultText="All"
                     items={makeByItems}
+                    fakeValue={itemText}
+                    stretch
                     value={query.makeBy}
                     onChange={(makeBy) => update({ makeBy })}
                   />
@@ -210,6 +222,8 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
                     title={t("reportPromotionMinigameHistory.usedAgent", "Agent ที่ใช้งาน :")}
                     defaultText="All"
                     items={agentItems}
+                    fakeValue={itemText}
+                    stretch
                     value={query.agent}
                     onChange={(agent) => update({ agent })}
                   />
@@ -230,7 +244,7 @@ export function MinigameHistory({ initialPage, miniGames }: { initialPage: Right
                     ) : (
                       <HistoryTable
                         rows={page.rows}
-                        openStatusRowId={menu?.row.id ?? null}
+                        openStatusRowId={menu && !menu.stale ? menu.row.id : null}
                         onStatusClick={toggleMenu}
                         onSearchCustomer={searchCustomer}
                         tooltip={tooltip}

@@ -125,36 +125,41 @@ export function Step3Rights({ type, step, nav, initial }: StepProps) {
                 </div>
               </div>
               <div className="col-12 col-md-6 mb-3" id="showBoxDepositTypeRange" style={shownWhen(box === "range")}>
-                <div className="custom-input custom-float fistempty" id="inputMinigameAmountAutoDepositRange">
-                  <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositTransactionRange">{t("minigameSetting.depositTransactionRange", "")}</div>
-                  <div className="input-group">
-                    <input id="minigameAmountAutoDepositRange" type="text" className="form-control validatezero fistempty" placeholder="0.00" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
-                    {" "}
-                    <span className="input-group-text custom-color" data-i18n="minigameSetting.baht" style={{ borderRadius: "0px 8px 8px 0px" }}>{t("minigameSetting.baht", "บาท")}</span>
+                <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositTransactionRange">{t("minigameSetting.depositTransactionRange", "จำนวนยอดฝากตั้งแต่")}</div>
+                <div className="custom-input-middle has-append has-prepend">
+                  <div className="custom-input input-left fistempty">
+                    <input id="minigameAmountAutoDepositFrom" type="text" className="form-control validatezero fistempty" placeholder="0.00" style={{ borderRadius: "8px 0px 0px 8px" }} onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
                   </div>
-                  <div className="invalid-feedback" id="error-minigameAmountAutoDepositRange" data-i18n="minigameSetting.depositTransactionRangeErrorText" style={{ display: "none" }}>{t("minigameSetting.depositTransactionRangeErrorText", "")}</div>
+                  <div data-middle-text="ถึง" className="custom-input input-right fistempty">
+                    <input id="minigameAmountAutoDepositTo" type="text" className="form-control validatezero fistempty" placeholder="0.00" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                  </div>
+                  <div className="text-prepend input-group-text custom-color" style={{ background: "var(--vz-input-group-addon-bg)", fontSize: "0.8125rem" }} data-i18n="minigameSetting.baht">{t("minigameSetting.baht", "บาท")}</div>
+                  <div className="invalid-feedback" id="error-minigameAmountAutoDepositRange" data-i18n="minigameSetting.depositTransactionRangeErrorText" style={{ display: "none" }}>{t("minigameSetting.depositTransactionRangeErrorText", "กรุณากรอกจำนวนยอดฝากตั้งแต่")}</div>
                 </div>
               </div>
               <div className="col-12 col-md-6 mb-3" id="showBoxDepositContinue" style={shownWhen(depositType === "continuous-deposit")}>
                 <div className="custom-input custom-float fistempty" id="inputMinigameDepositCount">
-                  <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositCount">{t("minigameSetting.depositCount", "")}</div>
+                  <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.depositCount">{t("minigameSetting.depositCount", "จำนวนครั้ง")}</div>
                   <div className="input-group">
+                    <span className="input-group-text custom-color" style={{ borderRadius: "8px 0px 0px 8px" }}>ครบ</span>
                     <input id="minigameDepositCount" type="text" className="form-control validatezero fistempty" placeholder="0.00" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
-                    {" "}
-                    <span className="input-group-text custom-color"  style={{ borderRadius: "0px 8px 8px 0px" }}>ครั้ง</span>
+                    <span className="input-group-text custom-color" style={{ borderRadius: "0px 8px 8px 0px" }}>ครั้ง</span>
                   </div>
-                  <div className="invalid-feedback" id="error-minigameDepositCount" data-i18n="minigameSetting.depositCountErrorText" style={{ display: "none" }}>{t("minigameSetting.depositCountErrorText", "")}</div>
+                  <div className="invalid-feedback" id="error-minigameDepositCount" data-i18n="minigameSetting.depositCountErrorText" style={{ display: "none" }}>{t("minigameSetting.depositCountErrorText", "กรุณากรอกจำนวนครั้ง")}</div>
                 </div>
               </div>
-              <div className="col-12 col-md-6 mb-3" id="showBoxDepositCollect" style={shownWhen(depositType === "accumulated-deposit")}>
+              {/* Accumulated and continuous deposits share this box (the legacy JS also toggles a #showBoxDepositCollect
+                  that does not exist in the page) */}
+              <div className="col-12 col-md-6 mb-3" id="showBoxDepositCollectAndContinue" style={shownWhen(depositType === "accumulated-deposit" || depositType === "continuous-deposit")}>
                 <div className="custom-input custom-float fistempty" id="inputMinigameDepositPeriod">
-                  <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.dateRange">{t("minigameSetting.dateRange", "")}</div>
+                  <div className="text-start color-emerald-title-1 p2 fw-700 mb-2" data-i18n="minigameSetting.dateRange">{t("minigameSetting.dateRange", "ระยะเวลา")}</div>
                   <div className="input-group">
-                    <input id="minigameDepositPeriod" type="text" className="form-control validatezero fistempty" placeholder="0.00" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
-                    {" "}
-                    <span className="input-group-text custom-color"  style={{ borderRadius: "0px 8px 8px 0px" }}>วัน</span>
+                    <span className="input-group-text custom-color" style={{ borderRadius: "8px 0px 0px 8px" }} data-i18n="minigameSetting.inDay">{t("minigameSetting.inDay", "ภายใน")}</span>
+                    <input id="minigameDepositPeriod" type="text" className="form-control validatezero fistempty" placeholder="0" onKeyDown={(e) => dom.inputAcceptKey(e, "integerPositive")} />
+                    <span className="input-group-text custom-color" style={{ borderRadius: "0px 8px 8px 0px" }} data-i18n="minigameSetting.day">{t("minigameSetting.day", "วัน")}</span>
                   </div>
-                  <div className="invalid-feedback" id="error-minigameDepositPeriod" data-i18n="minigameSetting.dateRangeErrorText" style={{ display: "none" }}>{t("minigameSetting.dateRangeErrorText", "")}</div>
+                  {/* ORIGINAL: staging's message here really reads "กรุณากรอกจำนวนครั้ง" */}
+                  <div className="invalid-feedback" id="error-minigameDepositPeriod" data-i18n="minigameSetting.dateRangeErrorText" style={{ display: "none" }}>{t("minigameSetting.dateRangeErrorText", "กรุณากรอกจำนวนครั้ง")}</div>
                 </div>
               </div>
             </div>

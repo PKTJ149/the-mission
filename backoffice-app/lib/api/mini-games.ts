@@ -25,6 +25,10 @@ export type MiniGameBonusCount = {
 export type MiniGameSliceBonus = {
   type: "credit_fix" | "credit_percentage" | "point" | "mini-game" | "lotto" | "reward";
   credit?: string;
+  percent?: string; // credit_percentage: "% คิดจากยอดฝาก"
+  maxCredit?: string; // credit_percentage: "สูงไม่เกิน" (baht)
+  gameId?: string; // mini-game: the coupon's mini-game (id of the list)
+  quota?: string; // mini-game: "จำนวนสิทธิ์"
 };
 
 // One "Wheel N" / "ตั้งค่ารางวัลตัวเลือกที่ N" section of the wizard (step 4)
@@ -60,6 +64,7 @@ export type MiniGame = {
   // Card thumbnail: the 3-part wheel for lucky-wheel, a cover image for mini-game
   wheel: { slices: string[]; spin: string; frame: string } | null;
   cover: string | null;
+  icon?: string; // play-page icon uploaded in step 1 of the wizard (the default icon when missing)
   bonusCounts: MiniGameBonusCount[];
   detail: MiniGameDetail;
 };

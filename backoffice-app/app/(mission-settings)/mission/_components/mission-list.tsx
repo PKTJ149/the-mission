@@ -43,10 +43,10 @@ export function MissionList({ initialMissions }: { initialMissions: MissionListI
     await popupAlertSecond.show({
       title: newStatus + t("missionPage.js.confirmMission", "การใช้งานภารกิจ สำเร็จ !"),
       type,
-      // ORIGINAL: compares newStatus with 'ปิด' (never true), so it always shows the "online" text. Fixed here.
-      message: checked
-        ? t("missionPage.js.missionStatusOnlineNew", "ระบบเปิดการใช้งานภารกิจแล้ว สมาชิกจะสามารถทำภารกิจได้อีกครั้ง")
-        : t("missionPage.js.missionStatusOfflineNew", "ระบบปิดการใช้งานภารกิจแล้ว สมาชิกจะไม่สามารถทำภารกิจได้อีก จนกว่าจะทำการเปิดใช้งานอีกครั้ง"),
+      // ORIGINAL BUG (kept on purpose, PK 15/11/2026): the original compares newStatus with 'ปิด' (never
+      // true), so the result popup always shows the "online" text, also when switching off. The fix would be
+      // to pick missionPage.js.missionStatusOfflineNew when newStatus is "offline".
+      message: t("missionPage.js.missionStatusOnlineNew", "ระบบเปิดการใช้งานภารกิจแล้ว สมาชิกจะสามารถทำภารกิจได้อีกครั้ง"),
       needConfirmation: false,
     });
     // ORIGINAL: location.reload() — here the card and the counters update in place

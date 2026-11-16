@@ -14,10 +14,11 @@ import type {
 const CDN = "https://cdn.lsmloyalty.com/images/mission";
 const REWARD_ICON = `${CDN}/reward/icon-reward-1.png`;
 
-// /mission cards (record GUIDs were anonymised to uuid-N by the capture)
+// /mission cards (ids = the staging mission GUIDs, read from the live page 15/11/2026, so the
+// edit link /mission/setting?missionId=…&edit=1 matches staging)
 export const missions: MissionListItem[] = [
   {
-    id: "uuid-1",
+    id: "50e4d2a0-a8cf-4051-b850-ab65296b6557",
     status: "online",
     cover: `${CDN}/cover/01/mission-01.webp`,
     name: "QA Happy Mission Retest 20261015",
@@ -30,7 +31,7 @@ export const missions: MissionListItem[] = [
     subMissions: [{ no: 1, text: "Login ครบ 1 วัน", rewards: [] }],
   },
   {
-    id: "uuid-2",
+    id: "434abdca-9ea2-4cd7-b0df-258dc6430ffd",
     status: "online",
     cover: `${CDN}/cover/preview-pic.png`,
     name: "ภารกิจ 001",
@@ -43,7 +44,7 @@ export const missions: MissionListItem[] = [
     subMissions: [{ no: 1, text: "ทำเทิร์นเท่ากับ 10.00 บาท", rewards: [] }],
   },
   {
-    id: "uuid-3",
+    id: "696be291-7f2f-4624-b1c1-34fc791a4b63",
     status: "expired",
     cover: `${CDN}/cover/01/mission-07.webp`,
     name: "QA Test Mission 0911",
@@ -56,7 +57,7 @@ export const missions: MissionListItem[] = [
     subMissions: [{ no: 1, text: "Login ครบ 1 วัน", rewards: [] }],
   },
   {
-    id: "uuid-4",
+    id: "c315f762-0daf-452f-b637-4163df82a3c0",
     status: "expired",
     cover: `${CDN}/cover/01/mission-02.webp`,
     name: "QA Mission Rewards 20261015 Updated",
@@ -73,36 +74,58 @@ export const missions: MissionListItem[] = [
   },
 ];
 
-// Values the edit page loaded for "QA Happy Mission Retest 20261015"
-// (create/edit-mission_filled-values.json). Everything not listed keeps the create default.
+// What GET /mission/get-mission returned on staging (15/11/2026) for the missions that have edit data.
+// The two expired missions answer "Mission not found", so their edit page stays an empty create form.
+// Everything not listed keeps the create default.
 export const capturedEditValues: Record<
   string,
   {
     status: boolean;
     cover: string;
     name: string;
-    condition: string;
+    condition: string; // TH conditionHtml (EN / TL are "<p>&nbsp;</p>")
     agents: string[];
-    startDate: string;
-    startTime: string;
-    subMission: { name: string; description: string; loginAmount: string };
-    completeValue: string;
+    time: string; // data.time: the preview card's date line
+    round: { allDay: boolean; start: string; end: string }; // missionRounds[0] (ทุกวัน)
+    subMission: {
+      name: string;
+      description: string;
+      condition: { type: "login"; loginAmount: string } | { type: "turn-over"; turnOverAmount: string };
+    };
+    completeType: "all" | "some";
+    completeValue: string; // someMissionAmount (0 shows as 1)
   }
 > = {
-  "uuid-1": {
+  "50e4d2a0-a8cf-4051-b850-ab65296b6557": {
     status: true,
     cover: `${CDN}/cover/01/mission-01.webp`,
     name: "QA Happy Mission Retest 20261015",
     condition: "<p>ทดสอบสร้างภารกิจ Happy flow ซ้ำหลังแก้ไขระบบ</p>",
     agents: ["501"],
-    // "เริ่มภารกิจทันที" was ticked; the preview card showed the creation time
-    startDate: "15/10/2026",
-    startTime: "11:46",
+    time: "15/10/2026 11:46 / เป็นต้นไป",
+    round: { allDay: true, start: "", end: "" },
     subMission: {
       name: "QA เข้าสู่ระบบ 1 ครั้ง",
       description: "<p>ภารกิจทดสอบหนึ่งเงื่อนไขสำหรับตรวจสอบการสร้างข้อมูล</p>",
-      loginAmount: "1",
+      condition: { type: "login", loginAmount: "1" },
     },
+    completeType: "all",
+    completeValue: "1",
+  },
+  "434abdca-9ea2-4cd7-b0df-258dc6430ffd": {
+    status: true,
+    cover: `${CDN}/cover/preview-pic.png`,
+    name: "ภารกิจ 001",
+    condition: "<p>&nbsp;</p>",
+    agents: ["501"],
+    time: "14/10/2026 22:26 / เป็นต้นไป",
+    round: { allDay: true, start: "12:00", end: "23:00" },
+    subMission: {
+      name: "สะสมเทริน์ครบ 10",
+      description: "<p>&nbsp;</p>",
+      condition: { type: "turn-over", turnOverAmount: "10" },
+    },
+    completeType: "some",
     completeValue: "1",
   },
 };
@@ -144,22 +167,23 @@ export const imageStyleGroups: ImageStyleGroup[] = [11, 12, 11].map((count, grou
   images: Array.from({ length: count }, (_, i) => `${CDN}/cover/0${group + 1}/mission-${String(i + 1).padStart(2, "0")}.webp`),
 }));
 
-// #popup-icon-style. Only the deposit, points and the first 3 turnover icons were captured
-// (the other 7 turnover icons and the remaining categories' contents were not).
+// #popup-icon-style, as staging lists it (15/11/2026)
 const ICONS = `${CDN}/mission-default-icon`;
+const icons = (folder: string, file: string, count: number) =>
+  Array.from({ length: count }, (_, i) => `${ICONS}/${folder}/${file}-${i + 1}.png`);
 export const iconStyleGroups: IconStyleGroup[] = [
-  { i18nKey: "iconCategoryMissionDeposit", title: "ไอคอนภารกิจฝากเงิน", target: "Minigame1", images: [1, 2, 3, 4, 5].map((n) => `${ICONS}/deposit/Deposit-${n}.png`) },
-  { i18nKey: "iconCategoryMissionTurnOver", title: "ไอคอนภารกิจ ทำเทิร์นโอเวอร์", target: "Minigame2", images: [1, 2, 3].map((n) => `${ICONS}/turnover/Turnover-${n}.png`) },
-  { i18nKey: "iconCategoryMissionPoints", title: "ไอคอนภารกิจ สะสมแต้ม", target: "Minigame3", images: [1, 2, 3, 4, 5].map((n) => `${ICONS}/points/Points-${n}.png`) },
-  { i18nKey: "iconCategoryMissionAffiliate", title: "ไอคอนภารกิจ แนะนำเพื่อน", target: "Minigame4", images: [] },
-  { i18nKey: "iconCategoryMissionLogin", title: "ไอคอนภารกิจ Login", target: "Minigame5", images: [] },
-  { i18nKey: "iconCategoryMissionCreditReward", title: "ไอคอนเงินรางวัล", target: "Minigame6", images: [] },
-  { i18nKey: "iconCategoryMissionMiniGame", title: "ไอคอนมินิเกมส์", target: "Minigame7", images: [] },
-  { i18nKey: "iconCategoryMissionGetPromotion", title: "ไอคอนสิทธิ์รับโปรโมชั่น", target: "Minigame8", images: [] },
-  { i18nKey: "iconCategoryMissionFreeSpin", title: "ไอคอนฟรีสปิน", target: "Minigame9", images: [] },
-  { i18nKey: "iconCategoryMissionReward", title: "ไอคอนของรางวัล", target: "Minigame10", images: [] },
-  { i18nKey: "iconCategoryMissionRewardOther", title: "ไอคอนรางวัลอื่น ๆ", target: "Minigame11", images: [] },
-  { i18nKey: "iconCategoryMissionOther", title: "ไอคอนอื่น ๆ", target: "Other", images: [] },
+  { i18nKey: "iconCategoryMissionDeposit", title: "ไอคอนภารกิจฝากเงิน", target: "Minigame1", images: icons("deposit", "Deposit", 5) },
+  { i18nKey: "iconCategoryMissionTurnOver", title: "ไอคอนภารกิจ ทำเทิร์นโอเวอร์", target: "Minigame2", images: icons("turnover", "Turnover", 10) },
+  { i18nKey: "iconCategoryMissionPoints", title: "ไอคอนภารกิจ สะสมแต้ม", target: "Minigame3", images: icons("points", "Points", 5) },
+  { i18nKey: "iconCategoryMissionAffiliate", title: "ไอคอนภารกิจ แนะนำเพื่อน", target: "Minigame4", images: icons("refer-friend", "Friends", 5) },
+  { i18nKey: "iconCategoryMissionLogin", title: "ไอคอนภารกิจ Login", target: "Minigame5", images: icons("login", "Login", 5) },
+  { i18nKey: "iconCategoryMissionCreditReward", title: "ไอคอนเงินรางวัล", target: "Minigame6", images: icons("credit", "Credit", 5) },
+  { i18nKey: "iconCategoryMissionMiniGame", title: "ไอคอนมินิเกมส์", target: "Minigame7", images: icons("minigame", "Minigame", 10) },
+  { i18nKey: "iconCategoryMissionGetPromotion", title: "ไอคอนสิทธิ์รับโปรโมชั่น", target: "Minigame8", images: icons("promotion", "Promotion", 5) },
+  { i18nKey: "iconCategoryMissionFreeSpin", title: "ไอคอนฟรีสปิน", target: "Minigame9", images: icons("freespin", "FreeSpin", 5) },
+  { i18nKey: "iconCategoryMissionReward", title: "ไอคอนของรางวัล", target: "Minigame10", images: icons("reward", "Reward", 5) },
+  { i18nKey: "iconCategoryMissionRewardOther", title: "ไอคอนรางวัลอื่น ๆ", target: "Minigame11", images: icons("other-reward", "OtherReward", 10) },
+  { i18nKey: "iconCategoryMissionOther", title: "ไอคอนอื่น ๆ", target: "Other", images: icons("others", "Other", 10) },
 ];
 
 // #popup-game-type providers (popup-game-type_open.providers.json), in captured order
@@ -237,8 +261,8 @@ export const bannerMenuOptions: Option[] = [
   { value: "mission", chip: "mission", label: "ทำภารกิจ" },
   { value: "mission-history", chip: "mission-history", label: "ประวัติรับรางวัล" },
   { value: "mission-point-exchange", chip: "mission-point-exchange", label: "แลกรางวัล" },
-  { value: "uuid-1", chip: "mission-info", label: "QA Happy Mission Retest 20261015" },
-  { value: "uuid-2", chip: "mission-info", label: "ภารกิจ 001" },
+  { value: "50e4d2a0-a8cf-4051-b850-ab65296b6557", chip: "mission-info", label: "QA Happy Mission Retest 20261015" },
+  { value: "434abdca-9ea2-4cd7-b0df-258dc6430ffd", chip: "mission-info", label: "ภารกิจ 001" },
 ];
 
 const BANNER_UPLOADS = "https://storage.googleapis.com/one-loyalty-stg-media/uploads/setting-mission-banner";

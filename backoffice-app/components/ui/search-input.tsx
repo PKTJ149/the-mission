@@ -11,17 +11,19 @@ type SearchInputProps = {
   onSearch?: (value: string) => void; // Enter, like table.js setSearchInput
   clearId?: string; // id of the × icon, e.g. "clearValuePromotionSearch"
   clearable?: boolean; // show the × (.navigate-close) — CSS reveals it once there is text
+  onClear?: () => void; // extra work after the × empties the field (some pages search again)
 };
 
 // .custom-input with the magnifier in .float-prepend (and the optional × that clears it).
 // Uncontrolled like the original input; pass key={...} to reset it from outside.
-export function SearchInput({ id, placeholder, defaultValue, onChange, onSearch, clearId, clearable = true }: SearchInputProps) {
+export function SearchInput({ id, placeholder, defaultValue, onChange, onSearch, clearId, clearable = true, onClear }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const clear = () => {
     // CustomInput.clearValue only empties the field; it does not search again
     if (inputRef.current) inputRef.current.value = "";
     onChange?.("");
+    onClear?.();
   };
 
   return (

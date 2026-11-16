@@ -5,6 +5,7 @@ import { useT } from "@/lib/i18n";
 import type { MissionRewardForm, Option, RewardType } from "@/lib/api/missions";
 import { DeleteButton, Feedback, previewFile } from "./form-bits";
 import { FilterSelect, type MissionDropdownItem } from "./mission-dropdowns";
+import { useFormEvents, useShownErrors } from "./form-state";
 import { rewardErrors } from "./validation";
 
 type RewardItemProps = {
@@ -22,7 +23,13 @@ type RewardItemProps = {
 // One "ของรางวัล N" box (#time-reward-N in section 2, #sub-reward-template in a sub-mission)
 export function RewardItem({ reward, no, subNo, canDelete, miniGames, promotions, onChange, onDelete, onChooseIcon }: RewardItemProps) {
   const t = useT();
-  const errors = rewardErrors(reward);
+  const shownErrors = useShownErrors(reward.id, rewardErrors(reward));
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): every sub-mission reward row is cloned with the id
+  // "sub-reward-template", and validateSubMission only reaches the first one, so rows 2+ never show an
+  // error (they still count as incomplete). The fix would be to give each row its own id.
+  const errors = subNo !== undefined && no > 1 ? Object.fromEntries(Object.keys(shownErrors).map((k) => [k, false])) as typeof shownErrors : shownErrors;
+  // A row from addTemplateRewardMission() keeps the dropdowns' own JS texts until the next toggleTranslate()
+  const unlocalized = useFormEvents().unlocalized.includes(reward.id);
   const set = (patch: Partial<MissionRewardForm>) => onChange({ ...reward, ...patch });
   const sub = subNo !== undefined;
   // Ids: "N" in section 2, "S-N" in sub-mission S; error ids get a "SubReward" suffix in sub-missions
@@ -116,7 +123,7 @@ export function RewardItem({ reward, no, subNo, canDelete, miniGames, promotions
             items={typeItems}
             value={reward.type}
             onChange={(type) => set({ type: type as RewardType })}
-            placeholder={t("missionPage.selectRewardType", "เลือกประเภทของรางวัล")}
+            placeholder={unlocalized ? "Select reward type" : t("missionPage.selectRewardType", "เลือกประเภทของรางวัล")}
             placeholderI18n="missionPage.selectRewardType"
           >
             <Feedback id={errorId("RewardMissionType")} show={errors.type} i18nKey="missionPage.selectRewardTypeError">
@@ -156,8 +163,9 @@ export function RewardItem({ reward, no, subNo, canDelete, miniGames, promotions
               items={miniGames}
               value={reward.miniGameId}
               onChange={(miniGameId) => set({ miniGameId })}
-              // Captured text: the list loader replaces the translated placeholder with this English one
-              placeholder="Select mini game"
+              // Section 2: the list loader replaces the translated placeholder with this English one;
+              // sub-mission rows keep the translated text
+              placeholder={sub ? t("missionPage.selectMiniGame", "เลือกมินิเกมส์") : "Select mini game"}
               placeholderI18n="missionPage.selectMiniGame"
             />
           </div>
@@ -176,12 +184,21 @@ export function RewardItem({ reward, no, subNo, canDelete, miniGames, promotions
                   onChange={(event) => set({ miniGameCount: event.target.value })}
                 />
               </div>
-              <UnitSelect className="dropdownSelectAuthority" value="authority" i18nKey="missionPage.rights" label={t("missionPage.rights", "จำนวนสิทธิ์")} />
+              <UnitSelect
+                className="dropdownSelectAuthority"
+                value="authority"
+                i18nKey="missionPage.rights"
+                // the dropdown's own text "สิทธิ์" until toggleTranslate() (section 2 row 1 is translated at load)
+                label={unlocalized || sub ? "สิทธิ์" : t("missionPage.rights", "จำนวนสิทธิ์")}
+              />
             </div>
           </div>
         </div>
-        <Feedback id={errorId("Minigame")} show={errors.miniGame} i18nKey="missionPage.miniGameError">
-          {t("missionPage.miniGameError", "กรุณาเลือกมินิเกมส์")}
+        {/* validate…: no game picked -> "กรุณาเลือกมินิเกมส์"; picked but no amount -> the count text */}
+        <Feedback id={errorId("Minigame")} show={errors.miniGame || errors.miniGameCount} i18nKey="missionPage.miniGameError">
+          {errors.miniGameCount
+            ? t("missionPage.js.errorSelectMinigameCount", "กรุณากรอกจำนวนครั้งที่เล่นมินิเกมส์")
+            : t("missionPage.miniGameError", "กรุณาเลือกมินิเกมส์")}
         </Feedback>
         <div className={`groupPromotion group-input custom-input custom-float${hidden("promotion-chance")}`}>
           <label htmlFor="" className="labal mission-page" data-i18n="missionPage.promotion">
@@ -193,7 +210,7 @@ export function RewardItem({ reward, no, subNo, canDelete, miniGames, promotions
             items={promotions}
             value={reward.promotionId}
             onChange={(promotionId) => set({ promotionId })}
-            placeholder={t("missionPage.selectPromotion", "เลือกโปรโมชั่น")}
+            placeholder={unlocalized ? "Select promotion" : t("missionPage.selectPromotion", "เลือกโปรโมชั่น")}
             placeholderI18n="missionPage.selectPromotion"
           >
             <Feedback id={errorId("Promotion")} show={errors.promotion} i18nKey="missionPage.selectPromotionError">

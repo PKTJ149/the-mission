@@ -18,7 +18,7 @@ import { EnglishPillFlag, TagalogPillFlag } from "./lang-flags";
 import { DeleteButton, Feedback, previewFile, WarningBox } from "./form-bits";
 import { FormSection, LabelTitle } from "./form-section";
 import { FilterSelect, WrapperDropdown } from "./mission-dropdowns";
-import { memberTypeErrors } from "./validation";
+import { NO_MEMBER_ERRORS, useFormEvents, type MemberTypeShown, type SectionStatus } from "./form-state";
 
 // The mission form's CKEditor config was not captured: same as the mini-game one minus its placeholder
 export const MISSION_EDITOR_CONFIG = { removePlugins: MINIGAME_EDITOR_CONFIG.removePlugins, style: MINIGAME_EDITOR_CONFIG.style };
@@ -28,22 +28,44 @@ type SectionBasicProps = {
   set: (patch: Partial<MissionFormValues>) => void;
   open: boolean;
   onToggle: () => void;
-  valid: boolean;
+  status: SectionStatus;
+  memberShown: Record<number, MemberTypeShown>; // validateMission1's last member type errors
+  edit: boolean; // the mission was loaded (edit / copy): checkMultiSetting() ran
   agents: Option[];
   memberGroups: Option[];
-  previewDate: string;
+  previewName: string; // #displayMissionName
+  previewDate: string; // #displayMissionTimeAndReward
+  onPreviewName: (name: string) => void; // changeMissionName(event)
   onChooseCover: () => void; // showPopupImageStyle()
 };
 
 // Section 1 — ตั้งค่าข้อมูลพื้นฐานภารกิจ
-export function SectionBasic({ form, set, open, onToggle, valid, agents, memberGroups, previewDate, onChooseCover }: SectionBasicProps) {
+export function SectionBasic({
+  form,
+  set,
+  open,
+  onToggle,
+  status,
+  memberShown,
+  edit,
+  agents,
+  memberGroups,
+  previewName,
+  previewDate,
+  onPreviewName,
+  onChooseCover,
+}: SectionBasicProps) {
   const t = useT();
+  const events = useFormEvents();
   const [lang, setLang] = useState<Lang>("th");
   const [colorResets, setColorResets] = useState({ bg: 0, text: 0 });
   const nameMissing = form.names.th.trim() === "";
   const restricted = form.memberRestrict ? "" : " d-none";
 
-  const setName = (code: Lang, value: string) => set({ names: { ...form.names, [code]: value } });
+  const setName = (code: Lang, value: string) => {
+    set({ names: { ...form.names, [code]: value } });
+    onPreviewName(value);
+  };
   const setMemberType = (index: number, item: MemberTypeForm) =>
     set({ memberTypes: form.memberTypes.map((m, i) => (i === index ? item : m)) });
 
@@ -52,7 +74,8 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
       panelId="openDropdownMissionSetting1"
       open={open}
       onToggle={onToggle}
-      valid={valid}
+      status={status}
+      validateKey="basic"
       statusId="missionBasicStatusTitle"
       statusI18n="missionPage.dataNotComplete"
       title={
@@ -82,7 +105,7 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
             <div className="box-title-mission">
               <div className="box-title-mission-text">
                 <span className="text-title-mission" id="displayMissionName">
-                  {form.names.th}
+                  {previewName}
                 </span>
                 <span id="displaySubMissionCount">{form.subMissions.length}</span>
                 <span className="mission-page" data-i18n="missionPage.mbsSubMission">
@@ -207,8 +230,12 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
               </span>
             </button>{" "}
             {/* {" "}: the original's whitespace between these inline-block buttons is a visible 4 px gap */}
-            <LangButton code="en" label="EN;" flag={<EnglishPillFlag />} selected={lang === "en"} isSet={form.names.en.trim() !== ""} onSelect={setLang} />{" "}
-            <LangButton code="tl" label="TL;" flag={<TagalogPillFlag />} selected={lang === "tl"} isSet={form.names.tl.trim() !== ""} onSelect={setLang} />
+            {/* ORIGINAL BUG (kept on purpose, PK 15/11/2026): the EN / TL status never follows what is typed.
+                Create: it stays "(ยังไม่กำหนด)". Edit: checkMultiSetting() compares a jQuery object with "" so it
+                always marks EN / TL as set (teal .multi-lang-status-t), then toggleTranslate() puts the data-i18n
+                text "(ยังไม่กำหนด)" back. The fix would be to test the name / CKEditor values and drop data-i18n. */}
+            <LangButton code="en" label="EN;" flag={<EnglishPillFlag />} selected={lang === "en"} edit={edit} onSelect={setLang} />{" "}
+            <LangButton code="tl" label="TL;" flag={<TagalogPillFlag />} selected={lang === "tl"} edit={edit} onSelect={setLang} />
           </div>
         </div>
         <div className="group-input">
@@ -326,8 +353,11 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
               placeholder="Choose Agent"
               invalid={form.agents.length === 0}
             >
+              {/* validateMission1 writes missionPage.js.errorSelectAgent here; toggleTranslate() puts the data-i18n text back */}
               <div className="invalid-feedback mission-page" id="error-selectAgentDropdown" data-i18n="missionPage.selectAgentError">
-                {t("missionPage.selectAgentError", "กรุณาเลือก Agent")}
+                {status.text === "js"
+                  ? t("missionPage.js.errorSelectAgent", "กรุณาเลือก Agent อย่างน้อย 1 รายการ")
+                  : t("missionPage.selectAgentError", "กรุณาเลือก Agent")}
               </div>
             </WrapperDropdown>
           </div>
@@ -387,6 +417,7 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
                 hiddenClass={restricted}
                 canDelete={form.memberTypes.length > 1}
                 memberGroups={memberGroups}
+                shown={memberShown[item.id] ?? NO_MEMBER_ERRORS}
                 onChange={(next) => setMemberType(index, next)}
                 onDelete={() => set({ memberTypes: form.memberTypes.filter((_, i) => i !== index) })}
               />
@@ -394,7 +425,16 @@ export function SectionBasic({ form, set, open, onToggle, valid, agents, memberG
           </div>
         </div>
         <div className={`d-flex justify-content-center missionBasicSwichEnableCustomerPrivilege2${restricted}`}>
-          <button className="mission-btn-outline" onClick={() => set({ memberTypes: [...form.memberTypes, newMemberType()] })}>
+          <button
+            className="mission-btn-outline"
+            onClick={() => {
+              set({ memberTypes: [...form.memberTypes, newMemberType()] });
+              // addTemplateTypeMember(): the new row's default age / date dropdown picks run validateMission1,
+              // then toggleTranslate()
+              events.validate("basic");
+              events.localize();
+            }}
+          >
             <img src="/assets/images/mission/icon-add-mission-btn.png" alt="mission-create" width="20" height="20" />
             <span className="mission-page" data-i18n="missionPage.mbsAddMemberType">
               {t("missionPage.mbsAddMemberType", "เพิ่มประเภทสมาชิก")}
@@ -506,14 +546,15 @@ type LangButtonProps = {
   label: string;
   flag: ReactNode;
   selected: boolean;
-  isSet: boolean;
+  edit: boolean;
   onSelect: (code: Lang) => void;
 };
 
 // EN / TL pill of "กำหนดรายละเอียดแต่ละภาษา" (selectMultiLanguage)
-function LangButton({ code, label, flag, selected, isSet, onSelect }: LangButtonProps) {
+function LangButton({ code, label, flag, selected, edit, onSelect }: LangButtonProps) {
   const t = useT();
-  const statusKey = isSet ? "missionPage.setting" : "missionPage.notSetting";
+  // Edit: removeClass("multi-lang-status-f") + addClass("multi-lang-status-t") moves the class to the end
+  const statusClass = edit ? "p3 mission-page multi-lang-status-t" : "multi-lang-status-f p3 mission-page";
   return (
     <button className={cx("btn multi-lang-button", `btn-lang-${code}`, selected && "multi-lang-selected")} {...{ "lang-select-btn": code }} onClick={() => onSelect(code)}>
       <span className="row">
@@ -521,8 +562,8 @@ function LangButton({ code, label, flag, selected, isSet, onSelect }: LangButton
         <span className="col-8">
           <span className="row">
             <span className="col-12">{label}</span>
-            <span className={cx("col-12", `multi-setting-${code}`, isSet ? "multi-lang-status-t" : "multi-lang-status-f", "p3 mission-page")} data-i18n={statusKey}>
-              {isSet ? t("missionPage.setting", "(ตั้งค่าแล้ว)") : t("missionPage.notSetting", "(ยังไม่กำหนด)")}
+            <span className={cx("col-12", `multi-setting-${code}`, statusClass)} data-i18n="missionPage.notSetting">
+              {t("missionPage.notSetting", "(ยังไม่กำหนด)")}
             </span>
           </span>
         </span>
@@ -537,14 +578,14 @@ type MemberTypeBoxProps = {
   hiddenClass: string;
   canDelete: boolean;
   memberGroups: Option[];
+  shown: MemberTypeShown; // validateMission1's last result for this row
   onChange: (item: MemberTypeForm) => void;
   onDelete: () => void;
 };
 
 // "ประเภทสมาชิก N" (#type-member-N): member group / account age / register date
-function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChange, onDelete }: MemberTypeBoxProps) {
+function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, shown: errors, onChange, onDelete }: MemberTypeBoxProps) {
   const t = useT();
-  const errors = memberTypeErrors(item);
   const set = (patch: Partial<MemberTypeForm>) => onChange({ ...item, ...patch });
   const show = (type: MemberTypeForm["type"]) => (item.type === type ? "" : " d-none");
 
@@ -557,7 +598,9 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
       <div className="type-member-header d-flex justify-content-between align-items-center">
         <span className="mission-page" data-i18n="missionPage.mbsMemberType">
           {t("missionPage.mbsMemberType", "ประเภทสมาชิก")}
-        </span>{" "}
+        </span>
+        {/* &nbsp; in the template: a flex item of its own, so it shifts the number */}
+        {"\u00a0"}
         <span className="text-type-member">{no}</span>
         <DeleteButton show={canDelete} onClick={onDelete}>
           <span className="text-link color-red mission-page" data-i18n="missionPage.delete">
@@ -582,6 +625,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
             value={item.type}
             onChange={(type) => set({ type: type as MemberTypeForm["type"] })}
             placeholder="Select member type"
+            invalid={errors.type}
           >
             <Feedback
               id={`error-TypeMember-${no}`}
@@ -607,6 +651,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
               value={item.groups}
               onChange={(groups) => set({ groups })}
               placeholder="Select member type"
+              invalid={errors.group}
             >
               <Feedback id={`error-GroupMember-${no}`} show={errors.group} i18nKey="missionPage.mbsMemberGroupError">
                 {t("missionPage.mbsMemberGroupError", "กรุณาเลือกกลุ่มสมาชิก")}
@@ -618,7 +663,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
           <label className="labal mission-page" data-i18n="missionPage.mbsMembershipDuration">
             {t("missionPage.mbsMembershipDuration", "อายุการใช้งานของสมาชิก")}
           </label>
-          <div className="group-dropdown group-dropdown-age group-dropdown-age-input">
+          <div className={cx("group-dropdown group-dropdown-age group-dropdown-age-input", errors.age && "error-input-group")}>
             <FilterSelect
               className="dropdownSelectAgeMemberTimeType"
               require
@@ -634,7 +679,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
             <div className="input-outer">
               <input
                 type="text"
-                className="input input-age-member-value"
+                className={cx("input input-age-member-value", errors.ageFill && "fill")}
                 id={`inputAgeMemberValue-${no}`}
                 placeholder="0"
                 value={item.ageValue}
@@ -659,7 +704,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
           <label className="labal mission-page" data-i18n="missionPage.register">
             {t("missionPage.register", "สมัครสมาชิก")}
           </label>
-          <div className="group-dropdown group-dropdown-age group-dropdown-register-input">
+          <div className={cx("group-dropdown group-dropdown-age group-dropdown-register-input", errors.register && "error-input-group")}>
             <FilterSelect
               className="dropdownSelectRegisterMemberDateType"
               require
@@ -678,7 +723,7 @@ function MemberTypeBox({ item, no, hiddenClass, canDelete, memberGroups, onChang
               <div className="custom-input">
                 <FlatpickrInput
                   id={`inputRegisterMemberValue-${no}`}
-                  className="date-center-input form-control custom-date-flatpickr flatpickr-input"
+                  className={cx("date-center-input form-control custom-date-flatpickr flatpickr-input", errors.registerFill && "fill")}
                   kind="date"
                   value={item.registerDate}
                   onChange={(registerDate) => set({ registerDate })}

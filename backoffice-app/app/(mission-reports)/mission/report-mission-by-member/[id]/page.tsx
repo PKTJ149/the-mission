@@ -4,6 +4,10 @@ import { ByMemberReport } from "../../_components/by-member-report";
 
 export const metadata: Metadata = { title: "สรุปรายงานรายสมาชิก" };
 
+// Opened with full page loads (<a href>) like the original, so the page may wait for its URL id
+// instead of streaming a shell first (Next 16 instant-navigation check).
+export const instant = false;
+
 export async function generateStaticParams() {
   const { missions, subMissions } = await getReportMissionIds();
   return [...missions, ...subMissions].map((id) => ({ id }));

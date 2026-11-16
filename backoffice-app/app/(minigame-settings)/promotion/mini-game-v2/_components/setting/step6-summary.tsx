@@ -6,36 +6,37 @@
 // collectSummary() (wizard-summary.ts) like the original getMinigameDetail(). The rewards list is
 // rendered here from view-lucky-wheel_rewards-accordion_filled.html.
 
-import { Fragment, useLayoutEffect, useRef, useState } from "react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import { useT } from "@/lib/i18n";
-import type { MiniGameSliceBonus, MiniGameType } from "@/lib/api/mini-games";
+import type { MiniGameType } from "@/lib/api/mini-games";
 import { WheelShow } from "./step4-display";
-import type { Summary } from "./wizard-summary";
+import type { Summary, SummaryBonus } from "./wizard-summary";
 import { TypeText } from "./wizard-texts";
 import { raw, shownWhen, type StepProps } from "./wizard-types";
 
 // The picture at the top: a copy of the step 4 wheel preview, or the mini-game reward image
-function SummaryPicture({ type, count }: { type: MiniGameType; count: number }) {
+function SummaryPicture({ type, count, cover }: { type: MiniGameType; count: number; cover?: string | null }) {
   if (type === "mini-game") {
+    // A loaded mini-game shows its uploaded picture (data.imageUrl → .imgMinigameRewardMainSrc)
     return (
       <div className="wheel-wrapper preview-minigame" id="showStepEnd">
-        <img src="https://p88.blob.core.windows.net/images/minigame/minigame-reward.png" className="box-img3 showImagePreviewPromotionDetail imgMinigameRewardMainSrc" />
+        <img src={cover ?? "https://p88.blob.core.windows.net/images/minigame/minigame-reward.png"} className="box-img3 showImagePreviewPromotionDetail imgMinigameRewardMainSrc" />
       </div>
     );
   }
   return <WheelShow id="showStepEnd" count={count} />;
 }
 
-function bonusTexts(bonus: MiniGameSliceBonus): [string, string] {
+function bonusTexts(bonus: SummaryBonus): [string, string] {
   switch (bonus.type) {
     case "credit_fix":
       return ["Credit Fixed Rate", `${bonus.credit} baht`];
     case "credit_percentage":
-      return ["Credit Percentage (%)", ""];
+      return ["Credit Percentage (%)", `${bonus.percent ?? ""} % from deposit, Maximum ${bonus.maxCredit ?? ""} baht`];
     case "point":
       return ["Point", ""];
     case "mini-game":
-      return ["Mini game coupon", ""];
+      return ["Mini game coupon", `${bonus.gameName ?? ""} ${bonus.quota ?? ""}`];
     case "lotto":
       return ["Lotto coupon", ""];
     case "reward":
@@ -64,25 +65,60 @@ function WorkingTimes({ summary }: { summary: Summary | null }) {
 }
 
 // #showPartsLuckywheelluckyWheelRewards: one Bootstrap-collapse row per slice, the first one open
-function RewardsAccordion({ summary }: { summary: Summary | null }) {
+// Bootstrap's collapse (data-bs-toggle="collapse", no parent): every row opens and closes on its own,
+// animating its height with the .collapsing class (Bootstrap CSS: 0.35s ease). The classes are written to
+// the DOM directly, like Bootstrap does, so React never re-renders them mid-animation.
+function toggleCollapse(header: HTMLElement, panel: HTMLElement | null) {
+  if (!panel || panel.classList.contains("collapsing")) return;
+  const opening = !panel.classList.contains("show");
+  header.classList.toggle("collapsed", !opening);
+  header.setAttribute("aria-expanded", String(opening));
+  if (opening) {
+    panel.classList.remove("collapse");
+    panel.classList.add("collapsing");
+    panel.style.height = `${panel.scrollHeight}px`;
+  } else {
+    panel.style.height = `${panel.getBoundingClientRect().height}px`;
+    void panel.offsetHeight; // reflow so the height animates from its current value
+    panel.classList.add("collapsing");
+    panel.classList.remove("collapse", "show");
+    panel.style.height = "";
+  }
+  window.setTimeout(() => {
+    panel.classList.remove("collapsing");
+    panel.classList.add("collapse");
+    if (opening) panel.classList.add("show");
+    panel.style.height = "";
+  }, 350);
+}
+
+// A new summary rebuilds the accordion (first row open), like the original rewrites its HTML
+const summaryKeys = new WeakMap<Summary, number>();
+let lastSummaryKey = 0;
+function summaryKey(summary: Summary | null) {
+  if (!summary) return 0;
+  if (!summaryKeys.has(summary)) summaryKeys.set(summary, ++lastSummaryKey);
+  return summaryKeys.get(summary);
+}
+
+function RewardsAccordion({ type, summary }: { type: StepProps["type"]; summary: Summary | null }) {
   const t = useT();
-  const [open, setOpen] = useState<number | null>(0);
   return (
     <div id="showPartsLuckywheelluckyWheelRewards">
       {summary?.slices.map((slice, i) => (
         <Fragment key={i}>
           <div
-            className={open === i ? "row dropdown-wheel-detail " : "row dropdown-wheel-detail collapsed"}
+            className={i === 0 ? "row dropdown-wheel-detail " : "row dropdown-wheel-detail collapsed"}
             {...raw({ type: "button" })}
             data-bs-toggle="collapse"
             data-bs-target={`#openDropdownWheelDetail${i}`}
             aria-expanded="true"
             aria-controls={`openDropdownWheelDetail${i}`}
-            onClick={() => setOpen(open === i ? null : i)}
+            onClick={(e) => toggleCollapse(e.currentTarget, document.getElementById(`openDropdownWheelDetail${i}`))}
           >
             <div className="col-4 mb-1">
               <div className="d-flex flex-wrap justify-content-between align-items-center">
-                <div className="p2 color-emerald-title-1 fw-700">Wheel {i + 1} :</div>
+                <div className="p2 color-emerald-title-1 fw-700">{type === "mini-game" ? "Minigame" : "Wheel"} {i + 1} :</div>
                 <div>
                   <svg width="16" height="8" viewBox="0 0 16 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.37427 2.12485C2.37427 1.88497 2.46582 1.64497 2.64893 1.46216C3.01514 1.09595 3.6084 1.09595 3.97461 1.46216L7.99927 5.48813L12.0247 1.46216C12.3909 1.09595 12.9841 1.09595 13.3503 1.46216C13.7166 1.82837 13.7166 2.42163 13.3503 2.78784L8.66284 7.47534C8.29663 7.84155 7.70337 7.84155 7.33716 7.47534L2.64966 2.78784C2.46509 2.60474 2.37427 2.36479 2.37427 2.12485Z"></path>
@@ -97,12 +133,21 @@ function RewardsAccordion({ summary }: { summary: Summary | null }) {
                 </div>
                 <div className="p2 color-emerald-title-1">{slice.description}</div>
               </div>
-              <div className={open === i ? "col collapse show" : "col collapse "} id={`openDropdownWheelDetail${i}`}>
+              <div className={i === 0 ? "col collapse show" : "col collapse "} id={`openDropdownWheelDetail${i}`}>
                 <div className="d-flex flex-wrap justify-content-between align-items-center">
                   <div className="p2 color-emerald-title-1">
                     <span className="bonus-given-to-member-tr" data-i18n="minigameSetting.bonusGivenToMember">{t("minigameSetting.bonusGivenToMember", "จำนวนแจกโบนัส")}</span>
                   </div>
-                  <div className="p2 color-emerald-title-1">{slice.isUnlimited ? "ไม่จำกัด (Infinite)" : "จำกัด (Limited)"}</div>
+                  <div className="p2 color-emerald-title-1">
+                    {slice.isUnlimited ? (
+                      "ไม่จำกัด (Infinite)"
+                    ) : (
+                      <>
+                        {` ${slice.limitAmount} `}
+                        <span className="times-tr" data-i18n="minigameSetting.count">{t("minigameSetting.count", "ครั้ง")}</span>
+                      </>
+                    )}
+                  </div>
                 </div>
                 <div className="d-flex flex-wrap justify-content-between align-items-center">
                   <div className="p2 color-emerald-title-1">
@@ -146,7 +191,7 @@ function RewardsAccordion({ summary }: { summary: Summary | null }) {
 
 type Step6Props = StepProps & { summary: Summary | null; sliceCount: number };
 
-export function Step6Summary({ type, action, step, nav, summary, sliceCount }: Step6Props) {
+export function Step6Summary({ type, action, step, nav, initial, summary, sliceCount }: Step6Props) {
   const t = useT();
   const rootRef = useRef<HTMLDivElement>(null);
   // Write the summary values after React has committed this render (see collectSummary)
@@ -165,7 +210,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
       <div className="main-in-detail-body content-col-1">
         <div className="input-col-1-p">
           <div className="d-flex align-items-center justify-content-center">
-            <SummaryPicture type={type} count={sliceCount} />
+            <SummaryPicture type={type} count={sliceCount} cover={initial?.cover} />
           </div>
         </div>
         <div className="label-minigame" id="textHeaderAllDetail">
@@ -175,9 +220,12 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
           <div className="col-12 mb-2 text-start">
             <div className="row">
               <div className="col-4 mb-1">
+                {/* The type-specific labels are only written by the detail view (openminigameSetting "detail"), which
+                    edit always passes through; create keeps the page's original labels. ORIGINAL: after a detail view,
+                    staging keeps those labels for a later create too (not reproduced: one wizard state per opening). */}
                 <div className="p2 color-emerald-title-1 fw-700" id="textStatusDetail">
-    <TypeText type={type} k="statusDetail" />
-    </div>
+                  {action !== "create" ? <TypeText type={type} k="statusDetail" /> : "สถานะวงล้อ :"}
+                </div>
               </div>
               <div className="col mb-1">
                 <div className="status-minigame minigame-on" id="showStatusDetail1" style={{ display: "none" }}>
@@ -194,7 +242,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
             <div className="row">
               <div className="col-4 mb-1">
                 <div className="p2 color-emerald-title-1 fw-700" id="textNameDetail">
-    <TypeText type={type} k="nameDetail" />
+                  {action !== "create" ? <TypeText type={type} k="nameDetail" /> : <span data-i18n="minigameSetting.summaryHeaderName">{t("minigameSetting.summaryHeaderName", "ชื่อ :")}</span>}
                 </div>
               </div>
               <div className="col mb-1">
@@ -205,7 +253,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
             <div className="row">
               <div className="col-4 mb-1">
                 <div className="p2 color-emerald-title-1 fw-700" id="textConditionDetail">
-    <TypeText type={type} k="conditionDetail" />
+                  {action !== "create" ? <TypeText type={type} k="conditionDetail" /> : <span data-i18n="minigameSetting.summaryDetail">{t("minigameSetting.summaryDetail", "เงื่อนไขวงล้อ :")}</span>}
                 </div>
               </div>
               <div className="col mb-1">
@@ -300,14 +348,14 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
                 <div className="d-flex flex-wrap justify-content-between align-items-center">
                   <div className="p2 color-emerald-title-1" id="showEnableCountDownCreated" data-i18n="minigameSetting.summaryCountdownType1">{t("minigameSetting.summaryCountdownType1", "นับถอยหลังทันทีที่สร้างวงล้อนำโชคสำเร็จ")}</div>
                   <div className="p2 color-emerald-title-1" id="showEnableCountDownSetTime" data-i18n="minigameSetting.summaryCountdownType2" style={{ display: "none" }}>{t("minigameSetting.summaryCountdownType2", "นับถอยหลังทันทีเมื่อถึงกำหนด")}</div>
-                  <div className="p2 color-emerald-title-1" >
+                  <div className="p2 color-emerald-title-1" style={{ display: "none" }}>
                     <span data-i18n="minigameSetting.summaryCountdownType3">{t("minigameSetting.summaryCountdownType3", "นับถอยหลังทันทีเมื่อเหลืออีก")}</span>
                     {" "}
                     <span id="showEnableRemainingDay">7</span>
                     {" "}
                     <span data-i18n="minigameSetting.day">{t("minigameSetting.day", "วัน")}</span>
                   </div>
-                  <div className="p2 color-emerald-title-1" >
+                  <div className="p2 color-emerald-title-1" style={{ display: "none" }}>
                     <span data-i18n="minigameSetting.summaryCountdownType3">{t("minigameSetting.summaryCountdownType3", "นับถอยหลังทันทีเมื่อเหลืออีก")}</span>
                     {" "}
                     <span id="showEnableRemainingDateTime" />
@@ -520,17 +568,17 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
                 </div>
                 <div className="d-flex flex-wrap justify-content-between align-items-center mb-2">
                   <div className="d-flex gap-2 align-items-center">
-                    <img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerPromotionPerPersonActive" />
+                    <img src="/assets/images/icon-check-active.png" id="showEnableMaxCountPerPersonActive" />
                     {" "}
-                    <img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerPromotionPerPersonInactive" style={{ display: "none" }} />
+                    <img src="/assets/images/icon-check-inactive.png" id="showEnableMaxCountPerPersonInactive" style={{ display: "none" }} />
                     <div className="p2 color-emerald-title-1" data-i18n="minigameSetting.summaryCouponDeductPerPromotion">{t("minigameSetting.summaryCouponDeductPerPromotion", "")}</div>
                   </div>
                   <div className="p2 color-emerald-title-1">
-                    <span id="showMaxCountPerPromotionPerPersonActive">20</span>
+                    <span id="showMaxCountPerPersonActive">20</span>
                     {" "}
                     <span data-i18n="minigameSetting.summaryCoupon">{t("minigameSetting.summaryCoupon", "สิทธิ์")}</span>
                   </div>
-                  <div className="p2 color-emerald-title-1" id="showMaxCountPerPromotionPerPersonInactive" style={{ display: "none" }}>
+                  <div className="p2 color-emerald-title-1" id="showMaxCountPerPersonInactive" style={{ display: "none" }}>
                     {"- "}
                     <span data-i18n="minigameSetting.summaryCoupon">{t("minigameSetting.summaryCoupon", "สิทธิ์")}</span>
                   </div>
@@ -759,7 +807,7 @@ export function Step6Summary({ type, action, step, nav, summary, sliceCount }: S
               </div>
             </div>
             <hr style={{ margin: "0px -28px 8px -28px" }} />
-            <RewardsAccordion summary={summary} />
+            <RewardsAccordion key={summaryKey(summary)} type={type} summary={summary} />
           </div>
         </div>
         <div className="label-minigame">

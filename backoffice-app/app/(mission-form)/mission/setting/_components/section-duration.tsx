@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- original markup: plain <img> */
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { cx } from "@/components/ui";
 import { useT } from "@/lib/i18n";
 import {
@@ -15,6 +15,7 @@ import {
   type TimeSlotForm,
 } from "@/lib/api/missions";
 import { FlatpickrInput } from "./flatpickr-input";
+import { useFormEvents, useShownErrors, type SectionStatus } from "./form-state";
 import { DeleteButton, Feedback, WarningBox } from "./form-bits";
 import { FormSection, LabelTitle, SwitchRow } from "./form-section";
 import { RewardItem } from "./reward-item";
@@ -41,15 +42,22 @@ type SectionDurationProps = {
   set: (patch: Partial<MissionFormValues>) => void;
   open: boolean;
   onToggle: () => void;
-  valid: boolean;
+  status: SectionStatus;
+  byTimeCard: boolean; // the "x เท่า" turnover card is shown (form-state.ts)
+  onPreviewTime: () => void; // handleMissionTimeAndRewardInput(): the start / end inputs' oninput
   miniGames: Option[];
   promotions: Option[];
   onChooseIcon: (apply: (icon: string) => void) => void;
 };
 
 // Section 2 — ตั้งค่าระยะเวลาภารกิจและของรางวัล
-export function SectionDuration({ form, set, open, onToggle, valid, miniGames, promotions, onChooseIcon }: SectionDurationProps) {
+export function SectionDuration({ form, set, open, onToggle, status, byTimeCard, onPreviewTime, miniGames, promotions, onChooseIcon }: SectionDurationProps) {
   const t = useT();
+  const events = useFormEvents();
+  const setTime = (patch: Partial<MissionFormValues>) => {
+    set(patch);
+    onPreviewTime();
+  };
   const startMissing = !form.startNow && (!form.startDate || !form.startTime);
   const endMissing = !form.noEnd && (!form.endDate || !form.endTime);
   const rewardShown = form.rewardEnabled ? "" : " d-none";
@@ -69,7 +77,8 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
       panelId="openDropdownMissionSetting2"
       open={open}
       onToggle={onToggle}
-      valid={valid}
+      status={status}
+      validateKey="duration"
       statusId="missionTimeAndRewardStatusTitle"
       statusI18n="missionPage.settingMissionNotComplete"
       title={
@@ -91,8 +100,8 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
           idPrefix="missionTimeAndRewardInputStartMission"
           date={form.startDate}
           time={form.startTime}
-          onDate={(startDate) => set({ startDate })}
-          onTime={(startTime) => set({ startTime })}
+          onDate={(startDate) => setTime({ startDate })}
+          onTime={(startTime) => setTime({ startTime })}
           errorId="error-StartMissionDate-template"
           errorKey="missionPage.missionDurationErrorText1"
           error={startMissing}
@@ -109,8 +118,8 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
           idPrefix="missionTimeAndRewardInputEndMission"
           date={form.endDate}
           time={form.endTime}
-          onDate={(endDate) => set({ endDate })}
-          onTime={(endTime) => set({ endTime })}
+          onDate={(endDate) => setTime({ endDate })}
+          onTime={(endTime) => setTime({ endTime })}
           errorId="error-EndMissionDate-template"
           errorKey="missionPage.missionDurationErrorText2"
           error={endMissing}
@@ -135,7 +144,8 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
                   id={id}
                   value={value}
                   checked={form.roundType === value}
-                  onChange={() => set({ roundType: value })}
+                  // handleMissionTimeAndRewardRadioTimeSet: กำหนดเอง clicks "ระบุวัน (วันจันทร์ - อาทิตย์)" again
+                  onChange={() => set(value === "custom" ? { roundType: value, roundDayType: "day-of-week" } : { roundType: value })}
                 />
                 <span className="mission-page" data-i18n={key}>
                   {t(key, label)}
@@ -186,13 +196,17 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
             ))}
           </div>
           <div className="d-flex justify-content-center">
-            {/* Hidden on staging when the round type is not "กำหนดเอง" (seen on the edit page with ทุกวัน);
-                only the button is hidden, the empty wrapper stays (it still takes a 16px flex gap).
-                The form script was not captured: the rule and the d-none class are inferred. */}
+            {/* handleMissionTimeAndRewardRadioTimeSet: shown for กำหนดเอง and ทุกสัปดาห์ only; the empty wrapper
+                stays (it still takes a 16px flex gap) */}
             <button
-              className={cx("mission-btn-outline", form.roundType !== "custom" && "d-none")}
+              className={cx("mission-btn-outline", form.roundType !== "custom" && form.roundType !== "weekly" && "d-none")}
               id="btnAddTemplateTimeMission"
-              onClick={() => set({ timeSlots: [...form.timeSlots, newTimeSlot()] })}
+              onClick={() => {
+                const slot = newTimeSlot();
+                set({ timeSlots: [...form.timeSlots, slot] });
+                events.added(slot.id);
+                events.localize();
+              }}
             >
               <img src="/assets/images/mission/icon-add-mission-btn.png" alt="Add mission active time" width="20" height="20" />
               <span className="mission-page" data-i18n="missionPage.missionDurationAddActiveTime">
@@ -263,7 +277,14 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
           ))}
         </div>
         <div className={`d-flex justify-content-center missionTimeAndRewardSwitchRewardMission2${rewardShown}`}>
-          <button className="mission-btn-outline" onClick={() => set({ rewards: [...form.rewards, newReward()] })}>
+          <button
+            className="mission-btn-outline"
+            onClick={() => {
+              const reward = newReward();
+              set({ rewards: [...form.rewards, reward] });
+              events.added(reward.id, true);
+            }}
+          >
             <img src="/assets/images/mission/icon-add-mission-btn.png" alt="missionAddReward" width="20" height="20" />
             <span className="mission-page" data-i18n="missionPage.missionAddReward">
               {t("missionPage.missionAddReward", "เพิ่มของรางวัล")}
@@ -291,6 +312,7 @@ export function SectionDuration({ form, set, open, onToggle, valid, miniGames, p
           }}
           hooks={{ turnOver: "missionTimeAndRewardSwitchTurnover", alert: "missionTimeAndRewardSwitchAlertMission" }}
           main
+          byTimeCard={byTimeCard}
           value={form}
           onChange={set}
         />
@@ -380,21 +402,19 @@ type TimeSlotBoxProps = {
 // "รอบเวลาทำภารกิจที่ N" (#time-mission-N)
 function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDelete }: TimeSlotBoxProps) {
   const t = useT();
-  const errors = timeSlotErrors(slot, roundType, dayType);
+  const errors = useShownErrors(slot.id, timeSlotErrors(slot, roundType, dayType));
   const set = (patch: Partial<TimeSlotForm>) => onChange({ ...slot, ...patch });
+  // handleMissionTimeAndRewardRadioTimeSet / handleMissionRoundTypeCustom
   const weekdays = roundType === "weekly" || (roundType === "custom" && dayType === "day-of-week");
-  const monthDays = roundType === "monthly" || (roundType === "custom" && dayType === "day-of-month");
+  const specifyDate = roundType === "custom" && dayType === "day-of-month";
+  const monthDays = roundType === "monthly";
   const toggleIn = (list: string[], value: string) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
-
-  // Header summary (the original's display text was not captured beyond its "-" / "00:00 - 00:00" defaults;
-  // staging keeps "-" for ทุกวัน)
-  let dayText = "-";
-  if (weekdays && slot.days.length > 0)
-    dayText = WEEKDAYS.filter(([value]) => slot.days.includes(value)).map(([, label]) => label).join(", ");
-  else if (monthDays && slot.monthDays.length > 0)
-    dayText = ALL_MONTH_DAYS.filter((day) => slot.monthDays.includes(day))
-      .map((day) => (day === "end" ? t("missionPage.missionLastDate", "วันสุดท้ายของเดือน") : day))
-      .join(", ");
+  // #display-time-mission-N: only the time inputs' oninput handlers rewrite it (a loaded mission keeps
+  // "00:00 - 00:00")
+  const [timeText, setTimeText] = useState("00:00 - 00:00");
+  // handleMissionTimeAndRewardCheckboxAllDayMission() locks the time inputs; a loaded mission ticks the
+  // box without it, so they stay editable
+  const [timeLocked, setTimeLocked] = useState(false);
 
   return (
     <div className="box-time-mission" id={`time-mission-${no}`} data-time-mission={no}>
@@ -418,10 +438,12 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
             <span className="mission-page" data-i18n="missionPage.day">
               {t("missionPage.day", "วัน")}
             </span>{" "}
-            <span id={`display-day-mission-${no}`}>{dayText}</span>
+            {/* ORIGINAL BUG (kept on purpose, PK 15/11/2026): nothing in the original script writes this, so it
+                always reads "-" whatever days are ticked. The fix would be to list the ticked days here. */}
+            <span id={`display-day-mission-${no}`}>-</span>
           </span>
           <span className="text-2" id={`display-time-mission-${no}`}>
-            {slot.start || "00:00"} - {slot.end || "00:00"}
+            {timeText}
           </span>
         </div>
       </div>
@@ -448,16 +470,15 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
               );
             })}
           </div>
-          <div className="group-btn-specify-date-mission d-none">
+          <div className={cx("group-btn-specify-date-mission", !specifyDate && "d-none")}>
             <div className="custom-input">
-              <input
-                type="text"
-                className="form-control custom-date-flatpickr flatpickr-input"
+              <FlatpickrInput
                 id={`missionTimeAndRewardInputSpecifyDateMission-${no}`}
-                data-provider="flatpickr"
-                data-date-format="d/m/Y"
+                className="form-control custom-date-flatpickr flatpickr-input"
+                kind="date"
+                value={slot.specifyDate ?? ""}
+                onChange={(value) => set({ specifyDate: value })}
                 placeholder="dd/mm/yyyy"
-                readOnly
               />
             </div>
           </div>
@@ -502,9 +523,12 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
                 className="form-control custom-date-flatpickr flatpickr-input"
                 kind="time"
                 value={slot.start}
-                onChange={(start) => set({ start })}
+                onChange={(start) => {
+                  set({ start });
+                  setTimeText((text) => `${start} - ${text.split(" - ")[1]}`);
+                }}
                 placeholder="00 : 00"
-                disabled={slot.allDay}
+                disabled={timeLocked}
               />
               <span>-</span>
               <FlatpickrInput
@@ -512,9 +536,12 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
                 className="form-control custom-date-flatpickr flatpickr-input"
                 kind="time"
                 value={slot.end}
-                onChange={(end) => set({ end })}
+                onChange={(end) => {
+                  set({ end });
+                  setTimeText((text) => `${text.split(" - ")[0]} - ${end}`);
+                }}
                 placeholder="00 : 00"
-                disabled={slot.allDay}
+                disabled={timeLocked}
               />
             </div>
             <div className="group-checkbox">
@@ -523,9 +550,10 @@ function TimeSlotBox({ slot, no, roundType, dayType, canDelete, onChange, onDele
                 className="checkbox"
                 id={`missionTimeAndRewardCheckboxAllDayMission-${no}`}
                 checked={slot.allDay}
-                // handleMissionTimeAndRewardCheckboxAllDayMission: the time pickers are locked; staging still
-                // shows "00:00 - 00:00" in the row header
-                onChange={(event) => set({ allDay: event.target.checked, start: "", end: "" })}
+                onChange={(event) => {
+                  set({ allDay: event.target.checked });
+                  setTimeLocked(event.target.checked);
+                }}
               />
               <label htmlFor={`missionTimeAndRewardCheckboxAllDayMission-${no}`} className="label-checkbox mission-page" data-i18n="missionPage.allDay">
                 {t("missionPage.allDay", "ทั้งวัน")}
@@ -605,7 +633,7 @@ export function ReceiveTypeCards({ name, ids, keys, withPageClass, value, onChan
 
 type TurnoverAlertValue = Pick<
   MissionFormValues,
-  "turnOverEnabled" | "turnOverValue" | "alertEnabled" | "alertPopup" | "alertFloating"
+  "turnOverEnabled" | "turnOverValue" | "alertEnabled" | "alertPopup" | "alertFloating" | "turnOverType" | "turnOverTimeValue"
 >;
 
 type TurnoverAndAlertProps = {
@@ -626,12 +654,13 @@ type TurnoverAndAlertProps = {
   };
   hooks: { turnOver: string; alert: string }; // classes toggled by the switches ("…2" = shown when on)
   main?: boolean; // section 2 markup (texts carry .mission-page) vs sub-mission markup
+  byTimeCard?: boolean; // section 2: the "x เท่า" card is shown
   value: TurnoverAlertValue;
   onChange: (patch: Partial<TurnoverAlertValue>) => void;
 };
 
 // "กำหนดการติดเทิร์นโอเวอร์" + "รูปแบบการแจ้งเตือนภารกิจ" column (section 2 and every sub-mission)
-export function TurnoverAndAlert({ ids, hooks, main, value, onChange }: TurnoverAndAlertProps) {
+export function TurnoverAndAlert({ ids, hooks, main, byTimeCard, value, onChange }: TurnoverAndAlertProps) {
   const t = useT();
   const pageClass = main ? "mission-page" : undefined;
   const text = (key: string, fallback: string, className?: string): ReactNode => (
@@ -639,7 +668,9 @@ export function TurnoverAndAlert({ ids, hooks, main, value, onChange }: Turnover
       {t(key, fallback)}
     </span>
   );
-  const turnOverMissing = value.turnOverEnabled && !(Number(value.turnOverValue) > 0);
+  const byTime = value.turnOverType === "by-time";
+  const turnOverMissing = value.turnOverEnabled && !byTime && !(Number(value.turnOverValue) > 0);
+  const byTimeMissing = value.turnOverEnabled && byTime && !(Number(value.turnOverTimeValue ?? "") > 0);
 
   return (
     <>
@@ -663,20 +694,31 @@ export function TurnoverAndAlert({ ids, hooks, main, value, onChange }: Turnover
             {text("missionPage.missionRewardWarningText3", "การติดเทริ์น")}
           </span>
         ) : (
-          // Sub-mission version: two more lines after <br> as plain text, typo "ของอรางวัล" as on staging
-          <span className="text-warning-mission" data-i18n="missionPage.missionRewardWarningText1">
-            {t("missionPage.missionRewardWarningText1", "หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์")}
+          // Sub-mission version: plain Thai text, typo "ของอรางวัล" as on staging; the two spans point at
+          // keys missing from the locale files, so they stay empty
+          <span className="text-warning-mission">
+            หากไม่เปิดใช้งานการติดเทิร์นโอเวอร์
             <br />
+            <span data-i18n="missionPage.missionRewardWarningText2"></span>
             ของอรางวัลทุกชิ้นที่ให้สมาชิกจะไม่มี
             <br />
+            <span data-i18n="missionPage.missionRewardWarningText3"></span>
             การติดเทริ์น
           </span>
         )}
       </WarningBox>
       <div className={cx("group-card-select", `${hooks.turnOver}2`, !value.turnOverEnabled && "d-none")}>
-        {/* "x เท่า" card: hidden and disabled in the original */}
-        <label className="card-select-item d-none" htmlFor={ids.byTime}>
-          <input type="radio" className="d-none" name={`${ids.byTime}-type`} id={ids.byTime} disabled />
+        {/* "x เท่า" card: section 2 shows it while a reward is เครดิต (validateMission2); hidden in sub-missions */}
+        <label className={cx("card-select-item", !byTimeCard && "d-none", byTime && "active")} htmlFor={ids.byTime}>
+          <input
+            type="radio"
+            className="d-none"
+            name={`${ids.byTime}-type`}
+            id={ids.byTime}
+            disabled={!main}
+            checked={byTime}
+            onChange={() => onChange({ turnOverType: "by-time" })}
+          />
           <div className="group-card-content">
             <div className="card-icon">
               <img src="/assets/images/mission/icon-turnover-min.png" alt={main ? "" : "-"} width="32" height="32" />
@@ -688,39 +730,62 @@ export function TurnoverAndAlert({ ids, hooks, main, value, onChange }: Turnover
                 "ตัวอย่าง : ลูกค้ารับโปร 200 เครดิต หากตั้งค่า ทำ เทิร์น 5 เท่า ลูกค้าจะต้องทำเทิร์น = 200 x 5 = 1,000 ถึงจะถอนเครดิตได้",
                 "text-p3-regular text-example",
               )}
-              <div className="custom-input group-input group-input-card disabled">
-                <div className="input-outer input-outer-card">
-                  <div className="input-outer-card-suffix start">{text("missionPage.doTurnOver", "ทำเทิร์นโอเวอร์", "text-p2-regular")}</div>
-                  <input type="number" className="input input-card" placeholder="" id={ids.byTimeValue} disabled />
-                  <div className="input-outer-card-suffix">{text("missionPage.times", "เท่า", "text-p2-regular")}</div>
-                </div>
-                <Feedback id={ids.byTimeError} show={false} i18nKey="missionPage.missionDurationErrorText5" className={cx("invalid-feedback", pageClass)}>
-                  {t("missionPage.missionDurationErrorText5", "กรุณากรอกจำนวนเทิร์นโอเวอร์")}
-                </Feedback>
-              </div>
-            </div>
-          </div>
-        </label>
-        <label className="card-select-item active" htmlFor={ids.byUnit}>
-          <input type="radio" className="d-none" name={`${ids.byTime}-type`} id={ids.byUnit} defaultChecked />
-          <div className="group-card-content">
-            <div className="card-icon">
-              <img src="/assets/images/mission/icon-turnover-min.png" alt={main ? "" : "-"} width="32" height="32" />
-            </div>
-            <div className="card-select-detail">
-              {text("missionPage.missionTurnOverText2", "ทำเทิร์นโอเวอร์ ขั้นต่ำ x บาท", "text-p2-regular")}
-              {text(
-                "missionPage.missionTurnOverSubText2",
-                "ตัวอย่าง : รับรางวัล 5 แต้ม หากตั้งค่า ทำ เทิร์นเท่ากับ 500 ลูกค้าจะต้องทำเทิร์น = 500 ถึงจะถอนเครดิตได้",
-                "text-p3-regular text-example",
-              )}
-              <div className="custom-input group-input group-input-card">
+              <div className={cx("custom-input group-input group-input-card", !byTime && "disabled")}>
                 <div className="input-outer input-outer-card">
                   <div className="input-outer-card-suffix start">{text("missionPage.doTurnOver", "ทำเทิร์นโอเวอร์", "text-p2-regular")}</div>
                   <input
                     type="number"
                     className="input input-card"
                     placeholder=""
+                    id={ids.byTimeValue}
+                    disabled={!byTime}
+                    value={value.turnOverTimeValue ?? ""}
+                    onChange={(event) => onChange({ turnOverTimeValue: event.target.value })}
+                  />
+                  <div className="input-outer-card-suffix">{text("missionPage.times", "เท่า", "text-p2-regular")}</div>
+                </div>
+                <Feedback id={ids.byTimeError} show={byTimeMissing} i18nKey="missionPage.missionDurationErrorText5" className={cx("invalid-feedback", pageClass)}>
+                  {t("missionPage.missionDurationErrorText5", "กรุณากรอกจำนวนเทิร์นโอเวอร์")}
+                </Feedback>
+              </div>
+            </div>
+          </div>
+        </label>
+        <label className={cx("card-select-item", !byTime && "active")} htmlFor={ids.byUnit}>
+          <input
+            type="radio"
+            className="d-none"
+            name={`${ids.byTime}-type`}
+            id={ids.byUnit}
+            checked={!byTime}
+            onChange={() => onChange({ turnOverType: "by-unit" })}
+          />
+          <div className="group-card-content">
+            <div className="card-icon">
+              <img src="/assets/images/mission/icon-turnover-min.png" alt={main ? "" : "-"} width="32" height="32" />
+            </div>
+            <div className="card-select-detail">
+              {main ? (
+                text("missionPage.missionTurnOverText2", "ทำเทิร์นโอเวอร์ ขั้นต่ำ x บาท", "text-p2-regular")
+              ) : (
+                // the sub-mission template's own text (never re-localized there)
+                <span className="text-p2-regular" data-i18n="missionPage.missionTurnOverText2">
+                  ทำเทิร์นโอเวอร์ เท่ากับ x บาท
+                </span>
+              )}
+              {text(
+                "missionPage.missionTurnOverSubText2",
+                "ตัวอย่าง : รับรางวัล 5 แต้ม หากตั้งค่า ทำ เทิร์นเท่ากับ 500 ลูกค้าจะต้องทำเทิร์น = 500 ถึงจะถอนเครดิตได้",
+                "text-p3-regular text-example",
+              )}
+              <div className={cx("custom-input group-input group-input-card", byTime && "disabled")}>
+                <div className="input-outer input-outer-card">
+                  <div className="input-outer-card-suffix start">{text("missionPage.doTurnOver", "ทำเทิร์นโอเวอร์", "text-p2-regular")}</div>
+                  <input
+                    type="number"
+                    className="input input-card"
+                    placeholder=""
+                    disabled={byTime}
                     id={ids.byUnitValue}
                     value={value.turnOverValue}
                     onChange={(event) => onChange({ turnOverValue: event.target.value })}

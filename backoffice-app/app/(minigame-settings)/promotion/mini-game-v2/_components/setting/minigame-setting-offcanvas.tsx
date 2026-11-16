@@ -74,6 +74,14 @@ function SettingWizard({ session, games, agents, onClose, onEdit, onSaved }: Wiz
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only when the step changes
   }, [step]);
 
+  // Edit / detail: the loaded numeric fields and (lucky wheel) its uploaded centre and frame images
+  useEffect(() => {
+    if (initial) dom.fillLoadedZeros();
+    if (type === "lucky-wheel" && initial?.wheel) dom.applyLoadedWheelImages(initial.wheel.spin, initial.wheel.frame, initial.wheel.slices.length);
+    if (type === "mini-game" && initial?.cover) dom.applyLoadedMiniGameImage(initial.cover);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- once per opening
+  }, []);
+
   const go = (current: string, next: string) => {
     // Mini-game: step 4 → 5 needs every choice image of "Step 1" (scriptminigame.js:3504)
     if (next === "5" && type === "mini-game" && !dom.miniGameImagesComplete()) {
@@ -112,6 +120,9 @@ function SettingWizard({ session, games, agents, onClose, onEdit, onSaved }: Wiz
     },
     edit: () => initial && onEdit(initial),
     summaryButtonStyle: { display: action === "create" ? "none" : undefined, width: "168px" },
+    // hidePromotionMiniGameStepfinal() reads the "action" saved in localStorage, which every staging tab of
+    // the same browser shares: a detail / edit opened in another tab makes these buttons appear in create mode
+    // there. Not reproduced (per-tab state here).
   };
 
   const stepProps: StepProps = { type, action, step, nav, initial };

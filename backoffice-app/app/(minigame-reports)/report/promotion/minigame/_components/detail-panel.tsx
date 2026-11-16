@@ -16,6 +16,31 @@ type DetailPanelProps = {
 };
 
 const HIDDEN: CSSProperties = { display: "none" };
+const SLICES = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// Lucky wheel as the page script builds it into #overview-image (pieceHtml): 8 slices, spin image, frame.
+// The view offcanvas (#showStepEnd) uses the same markup with only "wheel-wrapper".
+export function WheelImage({ art, spin, className = "promotion-minigame-wheel wheel-wrapper" }: { art: string; spin: string; className?: string }) {
+  return (
+    <div className={className}>
+      <div className="custom-wheel wheel-8">
+        {SLICES.map((item) => (
+          <div key={item} className="wheel-item" style={{ "--item": item } as CSSProperties}>
+            <div className="wheel-image">
+              <img draggable="false" src={`${art}pie-${item}.png`} />
+            </div>
+          </div>
+        ))}
+        <div className="wheel-spin">
+          <img draggable="false" src={spin} />
+        </div>
+      </div>
+      <div className="wheel-frame">
+        <img draggable="false" src={`${art}frame.png`} />
+      </div>
+    </div>
+  );
+}
 const ROW_GAP: CSSProperties = { rowGap: "1rem" };
 
 // #promotionDetailPanel: the card above the table in the drill-down state (hidden in the summary state).
@@ -62,7 +87,7 @@ export function DetailPanel({ detail, onView, tooltip }: DetailPanelProps) {
               <div id="overview-image">
                 {detail && (
                   <div className="promotion-minigame-wheel-wrapper">
-                    <img draggable="false" src={detail.image} />
+                    {detail.wheelArt ? <WheelImage art={detail.wheelArt} spin={detail.image} /> : <img draggable="false" src={detail.image} />}
                   </div>
                 )}
               </div>

@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text -- original markup: plain <img>, often without alt */
 
-import { useRef, useState } from "react";
+import { useMemo, useReducer, useRef, useState } from "react";
 import { cx, FilterCloseIcon, useCustomPopupAlert, useSystemPopup } from "@/components/ui";
 import { useFloatingDropdown } from "@/components/ui/use-floating-dropdown";
 import { useT } from "@/lib/i18n";
@@ -18,12 +18,13 @@ import {
 } from "@/lib/api/missions";
 import { Feedback } from "./form-bits";
 import { FormSection, LabelTitle } from "./form-section";
-import { GameTypePopup } from "./game-type-popup";
+import { GameTypePopup, useGameTypePopup } from "./game-type-popup";
 import { SectionBasic } from "./section-basic";
 import { SectionDuration } from "./section-duration";
 import { IconStylePopup, ImageStylePopup } from "./style-popups";
 import { SubMissionSection } from "./sub-mission";
-import { isBasicValid, isDurationValid, isFinishValid, isFormValid, isSubMissionValid } from "./validation";
+import { FormEventsContext, formReducer, initFormState, subKey, type FormEvents, type SectionStatus } from "./form-state";
+import { isFormValid } from "./validation";
 
 export type MissionFormData = {
   agents: Option[];
@@ -47,7 +48,8 @@ type MissionFormProps = {
 // and goes back to /mission.
 export function MissionForm({ data, initial, missionId, edit }: MissionFormProps) {
   const t = useT();
-  const [form, setForm] = useState<MissionFormValues>(() => initial ?? newMissionForm());
+  const [state, dispatch] = useReducer(formReducer, initial, (values) => initFormState(values, values ?? newMissionForm()));
+  const { form, statuses } = state;
   // Bumped when a whole new set of values is loaded (copy), so editors and pickers start again
   const [version, setVersion] = useState(0);
   const [openPanel, setOpenPanel] = useState<string | null>("basic");
@@ -56,15 +58,28 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
 
   const imagePopup = useSystemPopup();
   const iconPopup = useSystemPopup();
-  const gamePopup = useSystemPopup();
+  const gamePopup = useGameTypePopup();
   const iconTarget = useRef<(icon: string) => void>(() => undefined);
   const gameTarget = useRef<(selected: string[]) => void>(() => undefined);
   const [gameSelection, setGameSelection] = useState<{ selected: string[]; session: number }>({ selected: [], session: 0 });
 
-  const set = (patch: Partial<MissionFormValues>) => setForm((current) => ({ ...current, ...patch }));
+  const set = (patch: Partial<MissionFormValues>) => dispatch({ type: "patch", patch });
   const toggle = (panel: string) => () => setOpenPanel((current) => (current === panel ? null : panel));
-  const setSub = (index: number, sub: SubMissionForm) =>
-    setForm((current) => ({ ...current, subMissions: current.subMissions.map((s, i) => (i === index ? sub : s)) }));
+  const setSub = (index: number, sub: SubMissionForm) => dispatch({ type: "sub", index, sub });
+  const events = useMemo<FormEvents>(
+    () => ({
+      // After the event: React runs onInput before the input's own onChange, so validating right away
+      // would see the value from before the keystroke
+      validate: (key) => queueMicrotask(() => dispatch({ type: "validate", key })),
+      localize: () => queueMicrotask(() => dispatch({ type: "localize" })), // keeps its order after validate
+      localized: state.localized,
+      added: (id, unlocalized) => dispatch({ type: "fresh", id, unlocalized }),
+      fresh: state.fresh,
+      unlocalized: state.unlocalized,
+      rowShown: state.rowShown,
+    }),
+    [state.localized, state.fresh, state.unlocalized, state.rowShown],
+  );
 
   const chooseIcon = (apply: (icon: string) => void) => {
     iconTarget.current = apply;
@@ -119,11 +134,14 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
   const copyFrom = async (id: string) => {
     const values = await getMissionFormValues(id);
     if (!values) return;
-    setForm(values);
+    // getMissionData(id, 'copy') leaves the start / end of the mission as they are
+    const { startNow, startDate, startTime, noEnd, endDate, endTime } = form;
+    dispatch({ type: "load", form: { ...values, startNow, startDate, startTime, noEnd, endDate, endTime } });
     setVersion((v) => v + 1);
   };
 
   return (
+    <FormEventsContext.Provider value={events}>
     <div className="page-content">
       <div className="container-fluid full-container">
         <svg width="0" height="0" viewBox="0 0 0 0" xmlns="http://www.w3.org/2000/svg">
@@ -164,10 +182,14 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
                   set={set}
                   open={openPanel === "basic"}
                   onToggle={toggle("basic")}
-                  valid={isBasicValid(form)}
+                  status={statuses.basic}
+                  memberShown={state.memberShown}
+                  edit={initial !== null || version > 0}
                   agents={data.agents}
                   memberGroups={data.memberGroups}
-                  previewDate={previewDate(form)}
+                  previewName={state.previewName}
+                  previewDate={state.previewTime}
+                  onPreviewName={(value) => dispatch({ type: "previewName", value })}
                   onChooseCover={imagePopup.open}
                 />
                 <SectionDuration
@@ -175,7 +197,9 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
                   set={set}
                   open={openPanel === "duration"}
                   onToggle={toggle("duration")}
-                  valid={isDurationValid(form)}
+                  status={statuses.duration}
+                  byTimeCard={state.byTimeCard}
+                  onPreviewTime={() => dispatch({ type: "previewTime" })}
                   miniGames={data.miniGames}
                   promotions={data.promotions}
                   onChooseIcon={chooseIcon}
@@ -189,7 +213,7 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
                       canDelete={form.subMissions.length > 1}
                       open={openPanel === `sub-${sub.id}`}
                       onToggle={toggle(`sub-${sub.id}`)}
-                      valid={isSubMissionValid(sub)}
+                      status={statuses[subKey(sub)] ?? { valid: false, text: "i18n" }}
                       miniGames={data.miniGames}
                       promotions={data.promotions}
                       onChange={(next) => setSub(index, next)}
@@ -200,14 +224,27 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
                   ))}
                 </div>
                 <div className="d-flex justify-content-start">
-                  <button className="mission-btn" onClick={() => set({ subMissions: [...form.subMissions, newSubMission()] })}>
+                  <button
+                    className="mission-btn"
+                    onClick={() => {
+                      set({ subMissions: [...form.subMissions, newSubMission()] });
+                      events.localize();
+                    }}
+                  >
                     <img src="/assets/images/mission/icon-add-mission-btn.png" alt="create-mission" width="20" height="20" />
                     <span className="mission-page" data-i18n="missionPage.createSubMission">
                       {t("missionPage.createSubMission", "เพิ่มภารกิจย่อย")}
                     </span>
                   </button>
                 </div>
-                <SectionFinish form={form} set={set} open={openPanel === "finish"} onToggle={toggle("finish")} />
+                <SectionFinish
+                  form={form}
+                  set={set}
+                  open={openPanel === "finish"}
+                  onToggle={toggle("finish")}
+                  status={statuses.finish}
+                  onHeaderClick={() => events.validate("finish")}
+                />
                 <div className="group-btn-mission-setting-footer">
                   <a className="mission-btn-outline" href="/mission">
                     <img src="/assets/images/mission/icon-cancel-save.png" alt="cancel" width="20" height="20" />
@@ -244,18 +281,8 @@ export function MissionForm({ data, initial, missionId, edit }: MissionFormProps
       {popupAlertHolder}
       {popupAlertSecondHolder}
     </div>
+    </FormEventsContext.Provider>
   );
-}
-
-// Text of the preview card's date line (#displayMissionTimeAndReward). The original's formatting code
-// was not captured: the default text and the edit value ("15/10/2026 11:46 / เป็นต้นไป") are.
-function previewDate(form: MissionFormValues) {
-  const hasStart = form.startDate !== "" || form.startNow;
-  const hasEnd = form.endDate !== "" || form.noEnd;
-  if (!hasStart && !hasEnd) return "1/10/2024 00:00 - 7/10/2024 23:59";
-  const start = form.startDate ? `${form.startDate} ${form.startTime}`.trim() : "-";
-  const end = form.noEnd ? "เป็นต้นไป" : form.endDate ? `${form.endDate} ${form.endTime}`.trim() : "-";
-  return `${start} / ${end}`;
 }
 
 // "คัดลอกการตั้งค่าจากภารกิจอื่น": #selectMissionCopy pill + #dropdownSelectMissionCopy + ยินยันคัดลอก
@@ -267,7 +294,8 @@ function CopyMissionPicker({ missions, onCopy }: { missions: Option[]; onCopy: (
   const dropdown = useFloatingDropdown({
     anchorRef: buttonRef,
     dropdownRef,
-    options: { stretch: true },
+    // not stretched: the list keeps its own width (wider than the pill)
+    options: {},
     isOwnTarget: (target) => target.closest("#selectMissionCopy") !== null,
   });
   const picked = missions.find((m) => m.value === value);
@@ -279,10 +307,11 @@ function CopyMissionPicker({ missions, onCopy }: { missions: Option[]; onCopy: (
       </span>
       <div className="col-auto">
         <button id="selectMissionCopy" ref={buttonRef} className={cx("custom-filter", picked && "fill", dropdown.show && "active")} onClick={dropdown.toggle}>
-          <div className={cx("input-fake single", !picked && "mission-page")} data-i18n={picked ? undefined : "missionPage.missionChoose"}>
-            {picked ? picked.label : t("missionPage.missionChoose", "เลือกภารกิจ")}
+          {/* FilterDropdown-style pill: once filled, CSS hides .input-fake and the pick shows in .filter-value */}
+          <div className="input-fake single mission-page" data-i18n="missionPage.missionChoose">
+            {t("missionPage.missionChoose", "เลือกภารกิจ")}
           </div>
-          <span className="filter-value"></span>
+          <span className="filter-value">{picked?.label}</span>
           <span className={cx("filter-toggler", dropdown.show && "toggled")}>
             <img src="/assets/images/mission/icon-arrow-down.png" width="24" height="24" />
           </span>
@@ -330,18 +359,25 @@ type SectionFinishProps = {
   set: (patch: Partial<MissionFormValues>) => void;
   open: boolean;
   onToggle: () => void;
+  status: SectionStatus;
+  onHeaderClick: () => void; // the header's onclick="validateMission4()"
 };
 
 // Section 4 — ตั้งค่าการเสร็จสิ้นภารกิจ
-function SectionFinish({ form, set, open, onToggle }: SectionFinishProps) {
+function SectionFinish({ form, set, open, onToggle, status, onHeaderClick }: SectionFinishProps) {
   const t = useT();
   const someMissing = form.completeType === "some" && !(Number(form.completeValue) > 0);
+  // handleCompleteMission() locks the amount only when a radio is changed; loading a mission sets the
+  // radio without it, so the amount stays editable until then
+  const [someLocked, setSomeLocked] = useState(false);
   return (
     <FormSection
       panelId="openDropdownMissionSetting4"
       open={open}
       onToggle={onToggle}
-      valid={isFinishValid(form)}
+      onHeaderClick={onHeaderClick}
+      status={status}
+      validateKey="finish"
       statusId="missionEndStatusTitle"
       statusI18n="missionPage.settingMissionNotComplete"
       title={
@@ -370,7 +406,10 @@ function SectionFinish({ form, set, open, onToggle }: SectionFinishProps) {
                   id={id}
                   value={value}
                   checked={form.completeType === value}
-                  onChange={() => set({ completeType: value })}
+                  onChange={() => {
+                    set({ completeType: value });
+                    setSomeLocked(value === "all");
+                  }}
                 />
                 <span className="checkmark"></span>
                 <label htmlFor={id} className="text-p2-regular mission-page" data-i18n={key}>
@@ -379,7 +418,7 @@ function SectionFinish({ form, set, open, onToggle }: SectionFinishProps) {
               </div>
             ))}
           </div>
-          <div className="custom-input group-input group-input-card">
+          <div className={cx("custom-input group-input group-input-card", someLocked && "disabled")}>
             <div className="input-outer input-outer-card">
               <div className="input-outer-card-suffix start">
                 <span className="text-p2-regular mission-page" data-i18n="missionPage.settingMissionDone">
@@ -391,6 +430,7 @@ function SectionFinish({ form, set, open, onToggle }: SectionFinishProps) {
                 className="input input-card"
                 placeholder="0"
                 id="complete-mission-some-value"
+                disabled={someLocked}
                 value={form.completeValue}
                 onChange={(event) => set({ completeValue: event.target.value })}
               />

@@ -1,10 +1,9 @@
 "use client";
 /* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text -- original markup: plain <img> without alt */
 
-import { useEffect, useMemo, useRef, useState, type DragEvent } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type ComponentProps, type DragEvent } from "react";
 import {
   DateRangeFilter,
-  EmptyState,
   FilterDropdown,
   Pagination,
   SearchInput,
@@ -61,6 +60,23 @@ function applyFilters(games: MiniGame[], f: Filters) {
 
 // Pages of the original table.js: every request shows the loader for at least 500 ms
 const MIN_LOADING_MS = 500;
+
+// The wizard offcanvas is a very large tree. Re-rendering it on every page state change (create
+// menu, popups, filters) made each click lag about a second, while the original reacts at once.
+// Skip its re-render unless something it shows changed. useOffcanvas() returns a new control object
+// on every render, but only phase / backdrop change what it renders (show / hide are stable).
+type SettingOffcanvasProps = ComponentProps<typeof MinigameSettingOffcanvas>;
+const StableSettingOffcanvas = memo(
+  MinigameSettingOffcanvas,
+  (prev: SettingOffcanvasProps, next: SettingOffcanvasProps) =>
+    prev.control.phase === next.control.phase &&
+    prev.control.backdrop === next.control.backdrop &&
+    prev.session === next.session &&
+    prev.games === next.games &&
+    prev.agents === next.agents &&
+    prev.onEdit === next.onEdit &&
+    prev.onSaved === next.onSaved,
+);
 
 export function MiniGamePage() {
   const t = useT();
@@ -138,10 +154,16 @@ export function MiniGamePage() {
     setCreateMenuOpen((open) => !open);
   };
 
-  const openSetting = (next: Omit<SettingSession, "key">) => {
-    setSession({ ...next, key: Date.now() });
-    settingPanel.show();
-  };
+  const showPanel = settingPanel.show;
+  const hidePanel = settingPanel.hide;
+  const openSetting = useCallback(
+    (next: Omit<SettingSession, "key">) => {
+      setSession({ ...next, key: Date.now() });
+      showPanel();
+    },
+    [showPanel],
+  );
+  const onEdit = useCallback((game: MiniGame) => openSetting({ action: "edit", type: game.type, game }), [openSetting]);
 
   const visible = useMemo(() => applyFilters(games, shownFilters), [games, shownFilters]);
   const page = visible.slice(offset, offset + limit);
@@ -155,9 +177,18 @@ export function MiniGamePage() {
     }, MIN_LOADING_MS);
   };
 
+  // openModalShowWheelDetail() → viewMinigameDetail(): the modal opens only after
+  // POST /api/promotion/lucky-wheel/get/ returns; clicks during that wait are ignored
+  // (onloadShowWheelDetail). No spinner is shown for the pill.
+  const wheelRequestRunning = useRef(false);
   const showWheelDetail = (game: MiniGame, bonus: MiniGameBonusCount) => {
-    setWheelDetail({ bonus, slice: game.detail.slices[bonus.index - 1] });
-    wheelModal.open();
+    if (wheelRequestRunning.current) return;
+    wheelRequestRunning.current = true;
+    setTimeout(() => {
+      wheelRequestRunning.current = false;
+      setWheelDetail({ bonus, slice: game.detail.slices[bonus.index - 1] });
+      wheelModal.open();
+    }, MIN_LOADING_MS);
   };
 
   // ORIGINAL: changeMinigameStatus(id, this, type) lives in the page's inline script, which was not
@@ -203,13 +234,19 @@ export function MiniGamePage() {
     // ORIGINAL: onSort posts the new order { id, order } to the mini-game sequence API. Nothing is sent here.
   };
 
-  const onSaved = (saved: MiniGame, action: "create" | "edit") => {
-    settingPanel.hide();
+  // swal changes identity on every render; read the latest one when the timer fires
+  const swalRef = useRef(swal);
+  useEffect(() => {
+    swalRef.current = swal;
+  });
+
+  const onSaved = useCallback((saved: MiniGame, action: "create" | "edit") => {
+    hidePanel();
     setGames((list) => (action === "create" ? [saved, ...list] : list.map((item) => (item.id === saved.id ? saved : item))));
     setLoading(true);
     // Original: the success alert appears 2 s after the offcanvas closes
     setTimeout(() => {
-      swal.open({
+      swalRef.current.open({
         type: "success",
         title: action === "create" ? "บันทึกการสร้างข้อมูลมินิเกมส์ สำเร็จ !" : "บันทึกการแก้ไขข้อมูลมินิเกมส์ สำเร็จ !",
         text: "คุณสามารถกลับเข้ามาแก้ไขข้อมูลมินิเกมส์ของคุณได้ตลอดเวลา ตามที่คุณต้องการ แต่การเปลี่ยนแปลงอะไร บ่อย ๆ ไม่ใช่เรื่องดีนัก คุณอาจจะสร้างความสับสนให้กับสมาชิกของคุณก็เป็นได้ หากมีข้อสงสัยใดสามารถติดต่อ เราได้ที่กลุ่ม Support ของคุณใน Telegram เรามีทีมงานเตรียมพร้อมตอบทุกปัญหาข้อสงสัย ตลอด 24 ชั่วโมง",
@@ -217,7 +254,7 @@ export function MiniGamePage() {
         cancelText: "ปิดหน้าต่าง",
       });
     }, 2000);
-  };
+  }, [hidePanel]);
 
   const statusItems: DropdownItem[] = [
     { value: "active", label: t("minigameSetting.filterStatusOn", "เปิดใช้งาน") },
@@ -350,6 +387,8 @@ export function MiniGamePage() {
                         id="minigameSearch"
                         placeholder={t("minigameSetting.phSearchMiniGame", "ค้นหาด้วย ชื่อมินิเกมส์")}
                         onSearch={(value) => refresh({ search: value })}
+                        // Original × onclick: CustomInput.clearValue(this); tableMinigame.refresh();
+                        onClear={() => refresh({ search: "" })}
                       />
                     </div>
                     <div className="col-auto">
@@ -421,28 +460,29 @@ export function MiniGamePage() {
                 <TableLoading show={loading} />
                 {!loading && (
                   <>
-                    {visible.length === 0 ? (
-                      // Not captured: the server's empty result. The shared empty state is a guess.
-                      <EmptyState />
-                    ) : (
-                      <div id="customMinigameDraggable" ref={listRef} className={draggingId ? "main-minigame dragging" : "main-minigame"} onDragOver={onDragOver}>
-                        {page.map((game) => (
-                          <MiniGameCard
-                            key={game.id}
-                            game={game}
-                            agents={agents}
-                            loadingDetail={viewingId === game.id}
-                            dragging={draggingId === game.id}
-                            onView={viewDetail}
-                            onBonusClick={showWheelDetail}
-                            onToggleStatus={toggleStatus}
-                            onDragStart={onDragStart(game)}
-                            onDragEnd={onDragEnd}
-                          />
-                        ))}
-                      </div>
+                    {/* The server's empty result renders no card list, no #offset and no empty-state
+                        message: only the pagination row ("แสดง 0 - 0 จาก 0 รายการ") remains. */}
+                    {visible.length > 0 && (
+                      <>
+                        <div id="customMinigameDraggable" ref={listRef} className={draggingId ? "main-minigame dragging" : "main-minigame"} onDragOver={onDragOver}>
+                          {page.map((game) => (
+                            <MiniGameCard
+                              key={game.id}
+                              game={game}
+                              agents={agents}
+                              loadingDetail={viewingId === game.id}
+                              dragging={draggingId === game.id}
+                              onView={viewDetail}
+                              onBonusClick={showWheelDetail}
+                              onToggleStatus={toggleStatus}
+                              onDragStart={onDragStart(game)}
+                              onDragEnd={onDragEnd}
+                            />
+                          ))}
+                        </div>
+                        <input type="hidden" id="offset" value={offset} readOnly />
+                      </>
                     )}
-                    <input type="hidden" id="offset" value={offset} readOnly />
                     <Pagination
                       total={visible.length}
                       offset={offset}
@@ -461,14 +501,7 @@ export function MiniGamePage() {
         </div>
       </div>
       <WheelDetailModal control={wheelModal} detail={wheelDetail} onClose={() => wheelModal.close()} />
-      <MinigameSettingOffcanvas
-        control={settingPanel}
-        session={session}
-        games={games}
-        agents={agents}
-        onEdit={(game) => openSetting({ action: "edit", type: game.type, game })}
-        onSaved={onSaved}
-      />
+      <StableSettingOffcanvas control={settingPanel} session={session} games={games} agents={agents} onEdit={onEdit} onSaved={onSaved} />
       {swalHolder}
     </>
   );

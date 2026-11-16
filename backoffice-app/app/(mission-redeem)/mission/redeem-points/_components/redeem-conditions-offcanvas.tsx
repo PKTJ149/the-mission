@@ -6,9 +6,8 @@ import { useT } from "@/lib/i18n";
 import { saveRedeemConditions, type RedeemConditions, type RedeemLang } from "@/lib/api/mission-reports";
 import { EnglishFlagIcon, TagalogFlagIcon } from "./redeem-icons";
 
-// The redeem page's editor config was not captured: the mini-game one minus its
-// "ระบุเงื่อนไขมินิเกมส์" placeholder (same build, same toolbar in the screenshot).
-const REDEEM_EDITOR_CONFIG = { removePlugins: MINIGAME_EDITOR_CONFIG.removePlugins, style: MINIGAME_EDITOR_CONFIG.style };
+// initializeEditor() on staging: the mini-game config with an empty placeholder
+const REDEEM_EDITOR_CONFIG = { ...MINIGAME_EDITOR_CONFIG, placeholder: "" };
 
 // Inline width of the two footer buttons (not captured; 168px is what every other offcanvas footer uses
 // and matches the screenshot)
@@ -30,40 +29,32 @@ export function RedeemConditionsOffcanvas({ control, initial, onSaved }: RedeemC
   const [enabled, setEnabled] = useState(initial.enabled);
   const [lang, setLang] = useState<RedeemLang>("th");
   const [html, setHtml] = useState({ th: initial.th, en: initial.en, tl: initial.tl });
-  const [configured, setConfigured] = useState(initial.configured);
-  // Re-mounts the editors on cancel so they show the saved text again
-  const [editorKey, setEditorKey] = useState(0);
-  const [saved, setSaved] = useState(initial);
+  // ORIGINAL: the "(ตั้งค่าแล้ว)" / "(ยังไม่กำหนด)" labels are rendered by the server and never
+  // change while editing or after saving (only after a reload)
+  const configured = initial.configured;
+  const edit = (code: RedeemLang, value: string) => setHtml((current) => ({ ...current, [code]: value }));
 
-  const edit = (code: RedeemLang, value: string) => {
-    setHtml((current) => ({ ...current, [code]: value }));
-    setConfigured((current) => ({ ...current, [code]: hasContent(value) }));
-  };
-
-  // cancelRedeemCondition(): close and drop unsaved changes (the reset itself is a guess)
-  const cancel = () => {
-    control.hide();
-    setEnabled(saved.enabled);
-    setHtml({ th: saved.th, en: saved.en, tl: saved.tl });
-    setConfigured(saved.configured);
-    setLang("th");
-    setEditorKey((key) => key + 1);
-  };
+  // cancelRedeemCondition(): ORIGINAL — only hides the panel; unsaved edits stay (page script, staging)
+  const cancel = () => control.hide();
 
   // recordRedeemCondition()
   const record = async () => {
-    const next: RedeemConditions = { enabled, ...html, configured };
+    const next: RedeemConditions = {
+      enabled,
+      ...html,
+      configured: { th: hasContent(html.th), en: hasContent(html.en), tl: hasContent(html.tl) },
+    };
     await saveRedeemConditions(next);
-    setSaved(next);
     control.hide();
     onSaved();
   };
 
-  const status = (code: RedeemLang, className: string) =>
+  // Class order as on staging: "<className> multi-lang-status-t|f <trailing> mission-page"
+  const status = (code: RedeemLang, className: string, trailing?: string) =>
     configured[code] ? (
-      <span className={cx(className, "multi-lang-status-t mission-page")}>{t("missionPointsPage.set", "(ตั้งค่าแล้ว)")}</span>
+      <span className={cx(className, "multi-lang-status-t", trailing, "mission-page")}>{t("missionPointsPage.set", "(ตั้งค่าแล้ว)")}</span>
     ) : (
-      <span className={cx(className, "multi-lang-status-f mission-page")}>{t("missionPointsPage.notSet", "(ยังไม่กำหนด)")}</span>
+      <span className={cx(className, "multi-lang-status-f", trailing, "mission-page")}>{t("missionPointsPage.notSet", "(ยังไม่กำหนด)")}</span>
     );
 
   return (
@@ -112,47 +103,44 @@ export function RedeemConditionsOffcanvas({ control, initial, onSaved }: RedeemC
                       </span>
                       <span className="col-12">{status("th", "p3 multi-setting-th")}</span>
                     </span>
-                  </button>
+                  </button>{" "}
                   <button
                     className={cx("btn multi-lang-button btn-lang-en", lang === "en" && "multi-lang-selected")}
                     lang-select-btn="en"
                     onClick={() => setLang("en")}
                   >
                     <span className="row">
-                      <span className="col-4">
-                        <EnglishFlagIcon />
-                      </span>
+                      {/* The original's line breaks around the flag render as spaces */}
+                      <span className="col-4"> <EnglishFlagIcon /> </span>
                       <span className="col-8">
                         <span className="row">
                           <span className="col-12">EN;</span>
-                          {status("en", "col-12 multi-setting-en p3")}
+                          {status("en", "col-12 multi-setting-en", "p3")}
                         </span>
                       </span>
                     </span>
-                  </button>
+                  </button>{" "}
                   <button
                     className={cx("btn multi-lang-button btn-lang-tl", lang === "tl" && "multi-lang-selected")}
                     lang-select-btn="tl"
                     onClick={() => setLang("tl")}
                   >
                     <span className="row">
-                      <span className="col-4">
-                        <TagalogFlagIcon />
-                      </span>
+                      <span className="col-4"> <TagalogFlagIcon /> </span>
                       <span className="col-8">
                         <span className="row">
                           <span className="col-12">TL;</span>
-                          {status("tl", "col-12 multi-setting-tl p3")}
+                          {status("tl", "col-12 multi-setting-tl", "p3")}
                         </span>
                       </span>
                     </span>
-                  </button>
+                  </button>{" "}
                 </div>
               </div>
               <div className="col-6">
                 <div className="redeem-point-condition-editor group-input-thin">
                   <p className="p2 mb-0 mission-page">{t("missionPointsPage.rewardCondition", "เงื่อนไขการแลกรางวัล")}</p>
-                  <div className="input-thin" key={editorKey}>
+                  <div className="input-thin">
                     {(["th", "en", "tl"] as const).map((code) => (
                       <div key={code} className={cx(`textarea-condition-${code}`, lang !== code && "d-none")}>
                         <RichTextEditor

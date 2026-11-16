@@ -5,7 +5,8 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { createPortal } from "react-dom";
 import { cx } from "./cx";
 
-export type PopupAlertType = "on" | "off" | "delete" | "error" | "success" | "edit";
+// "edit-3": the redeem-points page's popups (icon-edit-3.png)
+export type PopupAlertType = "on" | "off" | "delete" | "error" | "success" | "edit" | "edit-3";
 
 export type PopupAlertOptions = {
   title: ReactNode;

@@ -177,7 +177,7 @@ export function MemberReport({ missions, manualOptions, initialData }: MemberRep
           </div>
         </div>
       </div>
-      <ManualRewardPopup control={manualPopup} options={manualOptions} onSaved={table.refresh} />
+      <ManualRewardPopup control={manualPopup} options={manualOptions} />
     </>
   );
 }

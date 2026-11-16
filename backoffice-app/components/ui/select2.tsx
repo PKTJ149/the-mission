@@ -38,6 +38,7 @@ export function Select2({
 }: Select2Props) {
   const dataId = useId().replace(/:/g, "");
   const containerRef = useRef<HTMLSpanElement>(null);
+  const selectionRef = useRef<HTMLSpanElement>(null);
   const dropdownRef = useRef<HTMLSpanElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const [position, setPosition] = useState<Position | null>(null);
@@ -75,10 +76,16 @@ export function Select2({
 
   const closeDropdown = () => setPosition(null);
 
+  // select2 gives focus back to the selection box when it closes after Escape or a pick
+  const closeAndRefocus = () => {
+    closeDropdown();
+    selectionRef.current?.focus();
+  };
+
   const choose = (option: Select2Option) => {
     if (option.disabled) return;
     onChange(option.value);
-    closeDropdown();
+    closeAndRefocus();
   };
 
   // Focus the search box when it opens (select2 does)
@@ -109,7 +116,9 @@ export function Select2({
   });
 
   const onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Escape") closeDropdown();
+    // select2's search box stops every keydown here, so Escape never reaches an offcanvas around it
+    event.stopPropagation();
+    if (event.key === "Escape") closeAndRefocus();
     if (event.key === "Enter") {
       const option = results.find((o) => o.value === highlight);
       if (option) choose(option);
@@ -160,6 +169,7 @@ export function Select2({
       >
         <span className="selection">
           <span
+            ref={selectionRef}
             className="select2-selection select2-selection--single"
             role="combobox"
             aria-haspopup="true"
@@ -243,10 +253,13 @@ export function Select2({
                         className={cx(
                           "select2-results__option",
                           option.disabled ? "select2-results__option--disabled" : "select2-results__option--selectable",
+                          option.value === value && "select2-results__option--selected",
                           option.value === highlight && "select2-results__option--highlighted",
                         )}
                         role="option"
-                        aria-selected={option.value === value}
+                        // select2 4.1 sets aria-selected="true" on the highlighted row (results:focus), and the
+                        // theme paints [aria-selected=true] white: so the highlight shows white, not green
+                        aria-selected={option.value === highlight}
                         aria-disabled={option.disabled ? "true" : undefined}
                         onMouseEnter={() => setHighlight(option.value)}
                         onMouseUp={() => choose(option)}

@@ -226,7 +226,7 @@ function StatusBadge({ status }: { status: MissionStatus }) {
 function MissionSummaryRow({ summary }: { summary: Summary }) {
   const t = useT();
   return (
-    // position/bottom were set inline (values not captured; sticky at the bottom is a guess)
+    // Inline on staging: "position:sticky; bottom:0;" (measured 15/11/2026)
     <tr className="tr-summary tr-height no-hover td-last-summary-thmem-emerald" style={{ position: "sticky", bottom: "0px" }}>
       <td colSpan={3} className="summary-background tdx-0">
         <div className="td-summary p1 fw-700 text-center mission-page">{t(`${NS}.allSummary`, "ยอดรวมทั้งหมด")}</div>

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChipCloseIcon, cx, DropdownSearchIcon } from "@/components/ui";
 import { useFloatingDropdown } from "@/components/ui/use-floating-dropdown";
+import { useFormEvents } from "./form-state";
 
 // The mission pages' CustomDropdown variants. They differ from the shared <CustomDropdown> in the
 // toggler (an <img> arrow, .dropdown-toggler-mission) and in where .custom-dropdown sits, so they are
@@ -248,16 +249,22 @@ export function FilterSelect({
     isOwnTarget: (target) => target.closest("button.custom-filter") === buttonRef.current,
   });
 
+  const { localized } = useFormEvents();
+  const [pickedAt, setPickedAt] = useState(localized);
   const item = value !== null ? items.find((i) => i.value === value) : undefined;
   const filled = item !== undefined;
-  // Captured: only the unit dropdowns ("บาท", "แต้ม" …) keep data-i18n on the selected text
-  const fakeI18n = filled ? (selectedI18n ? item.i18nKey : undefined) : placeholderI18n;
+  // The original never touches .input-fake's data-i18n when an item is picked
+  const fakeI18n = placeholderI18n ?? (filled && selectedI18n ? item.i18nKey : undefined);
+  // ORIGINAL BUG (kept on purpose, PK 15/11/2026): toggleTranslate() (any addTemplate…() after the pick)
+  // writes the data-i18n placeholder text back over the picked item while the value stays picked.
+  // The fix would be to drop data-i18n from .input-fake once an item is picked.
+  const showPlaceholder = !filled || (placeholderI18n !== undefined && localized > pickedAt);
 
   return (
     <div className={cx("col-auto", className, require && "require", !noState && (filled ? "fill" : "empty"))}>
       <button ref={buttonRef} className={cx("custom-filter", buttonClassName)} style={{ width: "100%" }} onClick={dropdown.toggle} type="button">
         <div className={cx("input-fake single", fakeClassName, fakeI18n && "mission-page")} data-i18n={fakeI18n}>
-          {filled ? item.label : placeholder}
+          {showPlaceholder ? placeholder : item.label}
         </div>
         <span className={cx("dropdown-toggler", dropdown.show && "toggled")}>
           <img src={ARROW} width="24" height="24" />
@@ -275,6 +282,7 @@ export function FilterSelect({
                 data-i18n={option.i18nKey}
                 onClick={() => {
                   onChange(option.value);
+                  setPickedAt(localized);
                   dropdown.close();
                 }}
               >

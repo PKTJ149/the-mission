@@ -28,9 +28,10 @@ const ROW_CLASS: Record<GameStatus, string> = {
 
 export function GameStatusBadge({ status }: { status: GameStatus }) {
   const t = useT();
+  // Same markup as the original #status-badgeIcon templates (page script): only "active" has no colour classes
   if (status === "inactive") {
     return (
-      <span className="custom-badge-status">
+      <span className="custom-badge-status text-red-50 bg-red-5">
         <BadgeOffIcon />
         <span>{t("reportPromotionMinigame.off", "ปิดใช้งาน")}</span>
       </span>
@@ -38,7 +39,7 @@ export function GameStatusBadge({ status }: { status: GameStatus }) {
   }
   if (status === "expired") {
     return (
-      <span className="custom-badge-status">
+      <span className="custom-badge-status text-gray-30 bg-gray-5">
         <ExpiredBadgeIcon />
         <span>{t("reportPromotionMinigame.expired", "หมดอายุ")}</span>
       </span>
@@ -108,7 +109,7 @@ export function SummaryTable({ rows, totals, onOpen, tooltip }: SummaryTableProp
               <span className="custom-badge badge-start bg-green-10">{t("reportPromotionMinigameTable.text17", "แต้มสะสม")}</span>
             </th>
             <th className="text-center w-0 ps-0 pt-0 pe-0">
-              <span className="custom-badge badge-divider badge-end bg-green-10" style={{ "--badge-divider-color": "#8CE6C6" } as CSSProperties}>
+              <span className="custom-badge badge-divider badge-end bg-green-10" style={{ "--badge-divider-color": "#226F67" } as CSSProperties}>
                 {t("reportPromotionMinigameTable.text18", "ของรางวัล")}
               </span>
             </th>

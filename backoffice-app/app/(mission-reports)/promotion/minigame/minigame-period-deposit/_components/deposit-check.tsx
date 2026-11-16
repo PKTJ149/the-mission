@@ -11,9 +11,9 @@ type Query = { search: string; category: string | null; makeBy: string | null; d
 
 const INITIAL_QUERY: Query = { search: "", category: null, makeBy: null, dates: [], offset: 0, limit: 10 };
 
-// Inline values set by the original JS (not captured), estimated from the screenshot at 1111px:
-// search column ≈ 175px (264px at 1704px on the sibling pages, so ~15.5vw); 10px gap under "รายชื่อโปรโมชั่น" (measured on staging)
-const SEARCH_STYLE = { flexBasis: "15.5vw" };
+// Inline values (not captured), measured on staging 15/11:
+// search column flex-basis 264px (static inline style in the original HTML); 10px gap under "รายชื่อโปรโมชั่น" (measured on staging)
+const SEARCH_STYLE = { flexBasis: "264px" };
 const SUBTITLE_STYLE = { marginBottom: "10px" };
 
 // /promotion/minigame/minigame-period-deposit — ตรวจสอบยอดฝาก (mission page template).
@@ -89,6 +89,7 @@ export function DepositCheck() {
                   defaultText={all}
                   valueClassName="mission-page"
                   items={categoryItems}
+                  stretch
                   value={query.category}
                   onChange={(category) => update({ category })}
                 />
@@ -103,6 +104,7 @@ export function DepositCheck() {
                   defaultText={all}
                   valueClassName="mission-page"
                   items={makeByItems}
+                  stretch
                   value={query.makeBy}
                   onChange={(makeBy) => update({ makeBy })}
                 />

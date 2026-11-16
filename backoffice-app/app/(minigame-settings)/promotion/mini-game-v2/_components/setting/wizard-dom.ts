@@ -23,7 +23,22 @@ const all = <T extends Element = HTMLElement>(selector: string, root: ParentNode
 const input = (id: string) => byId(id) as HTMLInputElement | null;
 const addClass = (el: Element | null | undefined, ...names: string[]) => el?.classList.add(...names);
 const removeClass = (el: Element | null | undefined, ...names: string[]) => el?.classList.remove(...names);
-export const show = (el: HTMLElement | null | undefined) => el && (el.style.display = "");
+// jQuery .show(): drop the inline display; if a stylesheet still hides the element (e.g. Bootstrap's
+// .invalid-feedback { display: none }), use the tag's default display, like jQuery does.
+const defaultDisplays = new Map<string, string>();
+const defaultDisplay = (tag: string) => {
+  if (!defaultDisplays.has(tag)) {
+    const probe = document.body.appendChild(document.createElement(tag));
+    defaultDisplays.set(tag, getComputedStyle(probe).display === "none" ? "block" : getComputedStyle(probe).display);
+    probe.remove();
+  }
+  return defaultDisplays.get(tag)!;
+};
+export const show = (el: HTMLElement | null | undefined) => {
+  if (!el) return;
+  el.style.display = "";
+  if (getComputedStyle(el).display === "none") el.style.display = defaultDisplay(el.tagName);
+};
 export const hide = (el: HTMLElement | null | undefined) => el && (el.style.display = "none");
 // jQuery :visible
 export const isVisible = (el: Element) => (el as HTMLElement).getClientRects().length > 0;
@@ -85,6 +100,29 @@ export function changeEnableStartEndDateStatus() {
 }
 
 // changeStatusSwitch (scriptminigame.js:3200): a section switch enables/disables everything in .switch-{step}
+// changeStatusSwitchMinigameTurnover (scriptminigame.js:3383): the Turnover switch of step 5
+export function changeStatusSwitchMinigameTurnover(elementSwitch: HTMLElement, step: string) {
+  const section = document.querySelector(`.switch-${step}`);
+  if (!section) return;
+  const on = (elementSwitch as HTMLInputElement).checked;
+  const { valueId1, valueId2 } = elementSwitch.dataset;
+  const boxes = [byId(valueId1 ?? ""), byId(valueId2 ?? "")];
+  if (on) {
+    boxes.forEach((box) => removeClass(box, "disabled"));
+    // ORIGINAL BUG (kept on purpose, PK 15/11/2026): the "nothing selected yet" check reads .prop('checked')
+    // of the box <div>s, which is always undefined, so turning the switch on always selects the first box
+    // (the x-times card), even when the other one was chosen. Fix: check the boxes' "active" class instead.
+    const first = boxes[0]?.parentElement;
+    if (first) selectChangeMinigameBoxRadio(first);
+  } else {
+    boxes.forEach((box) => {
+      addClass(box, "disabled");
+      removeClass(box, "active");
+    });
+  }
+  all(".minigame-reset", section).forEach((el) => el.classList.toggle("disabled", !on));
+}
+
 export function changeStatusSwitch(elementSwitch: HTMLElement, step: string, action: string = "create") {
   if (step === "2-2-1-1") changeEnableStartEndDateStatus();
   const section = document.querySelector(`.switch-${step}`);
@@ -626,6 +664,70 @@ export function setDefaultImg(count: number) {
   set(".imgMinigamePopupSrc", `${LEGACY_ASSET_BASE}/images/minigame/minigame-popup.png`);
   ["luckywheelSpinBtnPlaceholder", "luckywheelFramePlaceholder", "luckywheelGetRewardPlaceholder", "imgMinigameRewardPlaceholder", "imgMinigamePopupPlaceholder"].forEach((id) => hide(byId(id)));
   all(".btnSetDefault").forEach((el) => addClass(el, "disabled"));
+}
+
+// Loaded lucky wheel (getMinigameDetail, scriptminigame.js:8143): its own centre / frame images replace the
+// defaults on every wheel of the wizard, and "คืนค่าเริ่มต้น" becomes available when any image is custom
+export function applyLoadedWheelImages(spin: string, frame: string, count: number) {
+  const url = `${LEGACY_ASSET_BASE}/images/minigame/wheel-${count}/`;
+  const set = (selector: string, src: string) =>
+    all<HTMLImageElement>(selector).forEach((img) => {
+      img.src = src;
+      show(img);
+    });
+  set(".luckywheelSpinBtnSrc", spin);
+  set(".luckywheelFrameSrc", frame);
+  const allDefault = spin === `${url}button.png` && frame === `${url}frame.png`;
+  all(".btnSetDefault").forEach((el) => el.classList.toggle("disabled", allDefault));
+}
+
+// Loaded mini-game: its uploaded picture replaces the default one everywhere (.imgMinigameRewardMainSrc)
+export function applyLoadedMiniGameImage(url: string) {
+  all<HTMLImageElement>(".imgMinigameRewardMainSrc").forEach((img) => {
+    img.src = url;
+    show(img);
+  });
+  // …and it is the "Step 1" choice image of slot 1 (imgBeforeMiniGame1), with its preview in 4a
+  const before = input("imgBeforeMiniGame1");
+  if (before) before.value = url;
+  all<HTMLImageElement>(".img-show-upload-mini-game-before-1").forEach((img) => {
+    img.src = url;
+    show(img);
+  });
+  all(".default-img-mini-game-before-1").forEach(hide);
+  all(".btn-close-img-mini-game-step-1-box-1").forEach(show);
+  all(".btnSetDefault").forEach((el) => removeClass(el, "disabled"));
+}
+
+// getMinigameDetail writes every numeric field of the loaded mini-game with .val(data.x): the unused ones
+// read "0" in edit / detail mode (create leaves them empty)
+const LOADED_ZERO_FIELDS = [
+  "#minigameCountdownRemainingDay", "#minigameResetDay", "#minigameResetHour", "#minigameResetMinute",
+  "#creditBalance", "#customerCreditBalance", "#reduceQuota", "#customerCreditWithdraw", "#reduceQuotaWithdraw",
+  "#minigameAmountAutoDeposit", "#minigameMinAmountAutoDeposit", "#minigameMaxAmountAutoDeposit",
+  "#minigameAmountAutoDepositFrom", "#minigameAmountAutoDepositTo", "#minigameDepositCount", "#minigameDepositPeriod",
+  "[id^='minigameLimitAmount-']", "[id^='minigameAlertAmount-']",
+  "[id^='percent-']", "[id^='percentMax-']", "[id^='point-']", "[id^='quota-']",
+  "#minigameWithdrawConditionMinTurnover", "#minigameWithdrawConditionMinTurnoverMinCredit", "#minigameWithdrawConditionMinTurnoverCredit",
+  "#minigameCreditRemain", "#minigameMaxWithdraw", "#minigameMaxRemainCreditToClearTurnover",
+  "#minigameMaxRemainCreditToClearTurnoverPercentage", "#minigameMinTurnover", "#minigameminTurnoverCredit",
+];
+// ORIGINAL BUG (kept on purpose, PK 15/11/2026): getMinigameDetail also runs .val(data.x) on these
+// switches, so their value attribute becomes the loaded boolean ("false") instead of "on" / their own
+// name. Invisible, but a form post would send "false". Fix: set .prop("checked", …) only.
+// The mock has all of them switched off, so "false" is written.
+const LOADED_FALSE_SWITCHES = [
+  "#enableLimitCustomerGroup", "#enableLimitCustomerGroupShow",
+  "#enableCustomerCreditBalance", "#enableReduceAllQuota",
+  "#enableCustomerCreditWithdraw", "#enableReduceAllQuotaWithdraw",
+];
+export function fillLoadedZeros() {
+  all<HTMLInputElement>(LOADED_ZERO_FIELDS.join(", ")).forEach((el) => {
+    if (el.value === "") el.value = "0";
+  });
+  all<HTMLInputElement>(LOADED_FALSE_SWITCHES.join(", ")).forEach((el) => {
+    if (!el.checked) el.value = "false";
+  });
 }
 
 // Theme colour pickers write the CSS variables of the play-page preview (changeColor…Input)

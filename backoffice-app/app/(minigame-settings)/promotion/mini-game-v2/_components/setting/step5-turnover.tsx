@@ -23,7 +23,7 @@ export function Step5Turnover({ step, nav }: StepProps) {
             <span data-i18n="minigameSetting.settingMinigameTurnOver">{t("minigameSetting.settingMinigameTurnOver", "กำหนดเงื่อนไขการติด Turnover")}</span>
             <div className="switch">
               <div className="custom-switch switch-alone form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="minigameEnableConditionTurnover" onClick={(e) => dom.changeStatusSwitch(e.currentTarget, "2-3-6")} />
+                <input className="form-check-input" type="checkbox" id="minigameEnableConditionTurnover" data-value-id1="boxMinigameTurnoverRadioPoint" data-value-id2="boxMinigameTurnoverRadioBath" data-value-id="2" onClick={(e) => dom.changeStatusSwitchMinigameTurnover(e.currentTarget, "2-3-6")} />
               </div>
               <span className="color-emerald-title-1" data-i18n="minigameSetting.onAndOffSetting">{t("minigameSetting.onAndOffSetting", "เปิด / ปิด การใช้งาน")}</span>
             </div>

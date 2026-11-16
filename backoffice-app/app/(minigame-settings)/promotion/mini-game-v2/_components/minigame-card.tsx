@@ -20,11 +20,15 @@ type MiniGameCardProps = {
   onDragEnd: () => void;
 };
 
+// Measured on staging: click on the eye → the "detail" tooltip shows again this much later
+const TOOLTIP_RESHOW_MS = 220;
+
 // One server-rendered card of #customMinigameDraggable (markup from page.html)
 export function MiniGameCard({ game, agents, loadingDetail, dragging, onView, onBonusClick, onToggleStatus, onDragStart, onDragEnd }: MiniGameCardProps) {
   const t = useT();
   const eyeRef = useRef<HTMLButtonElement>(null);
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const tooltipStuck = useRef(false); // see the ORIGINAL BUG note on the eye button
   const isWheel = game.type === "lucky-wheel";
   const isOn = game.status === "active";
   const agentNames = game.agentIds.map((id) => agents.find((agent) => agent.value === id)?.label ?? id);
@@ -123,12 +127,26 @@ export function MiniGameCard({ game, agents, loadingDetail, dragging, onView, on
                   aria-label="detail"
                   data-bs-original-title="detail"
                   disabled={loadingDetail}
-                  onMouseEnter={() => setTooltipOpen(true)}
-                  onMouseLeave={() => setTooltipOpen(false)}
+                  onMouseEnter={() => {
+                    tooltipStuck.current = false;
+                    setTooltipOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (!tooltipStuck.current) setTooltipOpen(false);
+                  }}
                   onClick={() => {
-                    // The original hides the tooltip first: a disabled button never gets mouseleave
+                    // viewMinigameDetail() hides the tooltip, then swaps the icon for a spinner.
                     setTooltipOpen(false);
                     onView(game);
+                    // ORIGINAL BUG (kept on purpose, PK 15/11/2026): on staging the swap under the
+                    // pointer makes Bootstrap show the "detail" tooltip again ~220 ms later, and it
+                    // stays on screen (above the offcanvas, and after it closes) until the pointer
+                    // enters and leaves the eye button again. The fix would be to keep it hidden.
+                    setTimeout(() => {
+                      if (!eyeRef.current?.matches(":hover")) return;
+                      tooltipStuck.current = true;
+                      setTooltipOpen(true);
+                    }, TOOLTIP_RESHOW_MS);
                   }}
                 >
                   {loadingDetail ? (
