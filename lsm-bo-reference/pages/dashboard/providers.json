@@ -1,0 +1,788 @@
+[
+ {
+  "name": "Ampay01",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0.4"
+   ],
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "1,000"
+   ],
+   [
+    "",
+    "200,000"
+   ],
+   [
+    "",
+    "300"
+   ],
+   [
+    "",
+    "40,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "CloudPayX168",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "1.90"
+   ],
+   [
+    "",
+    "0.3"
+   ],
+   [
+    "",
+    "300.00"
+   ],
+   [
+    "",
+    "300"
+   ],
+   [
+    "",
+    "20,000"
+   ],
+   [
+    "",
+    "2,000"
+   ],
+   [
+    "",
+    "20,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "Compay01",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "1.20"
+   ],
+   [
+    "",
+    "0.5"
+   ],
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "20"
+   ],
+   [
+    "",
+    "45,000"
+   ],
+   [
+    "",
+    "20"
+   ],
+   [
+    "",
+    "45,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "GM2Pay",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.30"
+   ],
+   [
+    "",
+    "0.3"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "JoinPay",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0.3"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "SMILEPAY",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "2.90"
+   ],
+   [
+    "",
+    "0.5"
+   ],
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "30,000"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "30,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0",
+  "constWd": "0",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "One2Coin",
+  "badge": "bg-cyan-100",
+  "one2coin": true,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "5,804.38"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "500,000"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "500,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": true
+ },
+ {
+  "name": "OnePaymentStaging",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "3"
+   ],
+   [
+    "",
+    "2,873.00"
+   ],
+   [
+    "",
+    "10"
+   ],
+   [
+    "",
+    "50,000,000"
+   ],
+   [
+    "",
+    "10"
+   ],
+   [
+    "",
+    "50,000,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "Paydiwa01",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.35"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "5.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "PaymentPlus",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.60"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "PayTwoOneBadoo",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.20"
+   ],
+   [
+    "",
+    "0.2"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "PayTwoOneMaxPlus",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0.4"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "PayTwoOneOne2CoinStaging",
+  "badge": "bg-cyan-100",
+  "one2coin": true,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "300.00"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "5,000"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "5,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": true
+ },
+ {
+  "name": "PomPayTum",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "1"
+   ],
+   [
+    "",
+    "1,000,000"
+   ],
+   [
+    "",
+    "1"
+   ],
+   [
+    "",
+    "1,000,002"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "Qpay",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.30"
+   ],
+   [
+    "",
+    "0.3"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "SPAY",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.50"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "SWIFTFOX",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "1.60"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "TumP2P",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "color-red",
+    "-55.00"
+   ],
+   [
+    "",
+    "1"
+   ],
+   [
+    "",
+    "1,000,000"
+   ],
+   [
+    "",
+    "1"
+   ],
+   [
+    "",
+    "1,000,002"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "WealthWave",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0.3"
+   ],
+   [
+    "color-red",
+    "-10.00"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "40,000"
+   ],
+   [
+    "",
+    "100"
+   ],
+   [
+    "",
+    "49,000"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "0.00",
+  "dep": "open",
+  "wd": "open",
+  "o2c": false
+ },
+ {
+  "name": "ZAPPAY",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "391.20"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "10.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "ZAPPAY02",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "29.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "10.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "ZAPPAY03",
+  "badge": "bg-red-500",
+  "one2coin": false,
+  "status": "ปิดปรับปรุง",
+  "nums": [
+   [
+    "",
+    "2.20"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "0.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0.00",
+  "constWd": "10.00",
+  "dep": "closed",
+  "wd": "closed",
+  "o2c": false
+ },
+ {
+  "name": "OneSlip - SlipExpress",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "242.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0",
+  "constWd": "0",
+  "dep": "absent",
+  "wd": "absent",
+  "limitsRaw": "<div class=\"flex\"><div class=\"flex-1\"><!----> <!----></div></div></div></div>",
+  "o2c": false
+ },
+ {
+  "name": "OneSlip - พิกุล เงิน",
+  "badge": "bg-cyan-100",
+  "one2coin": false,
+  "status": "",
+  "nums": [
+   [
+    "",
+    "0.00"
+   ],
+   [
+    "",
+    "0"
+   ],
+   [
+    "",
+    "102.00"
+   ]
+  ],
+  "withdrawUnit": "%",
+  "constDep": "0",
+  "constWd": "0",
+  "dep": "absent",
+  "wd": "absent",
+  "limitsRaw": "<div class=\"flex\"><div class=\"flex-1\"><!----> <!----></div></div></div></div></div></div> <!----> <!----></div></div></div></div></div></div></div> <!----></div> <div data-v-6d761b76=\"\" data-v-4a0b3382=\"\" class=\"sw\"><!----> <!----> <!----> <span data-v-6d761b76=\"\" class=\"sw-fab-lbl\">\n    ซัพพอร์ตตอบแล้ว 246 ข้อความ\n  </span> <button data-v-6d761b76=\"\" aria-label=\"ศูนย์ช่วยเหลือ\" class=\"sw-fab sw-ring\"><svg data-v-6d761b76=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"sw-fab-ic\"><path data-v-6",
+  "o2c": false
+ }
+]

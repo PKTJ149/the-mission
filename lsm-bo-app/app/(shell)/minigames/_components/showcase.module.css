@@ -1,0 +1,455 @@
+/* Hero showcase: auto-playing phone, orbit rings, floating reward chips */
+
+.showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+
+.orbit {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 470px;
+  height: 470px;
+  margin: -235px 0 0 -235px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  animation: orbit 80s linear infinite;
+  pointer-events: none;
+}
+
+.orbitInner {
+  width: 350px;
+  height: 350px;
+  margin: -175px 0 0 -175px;
+  border-color: rgba(255, 201, 60, 0.16);
+  animation-direction: reverse;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  width: 256px;
+  height: 520px;
+  padding: 10px;
+  border-radius: 44px;
+  background: linear-gradient(160deg, #2b2650 0%, #0e0b26 60%);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.16),
+    0 0 0 8px rgba(255, 255, 255, 0.03),
+    0 40px 80px -20px rgba(0, 0, 0, 0.65);
+}
+
+.screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 35px;
+  background: radial-gradient(120% 80% at 50% 0%, #4c1d95 0%, #24104f 55%, #140a33 100%);
+}
+
+.notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  z-index: 3;
+  width: 84px;
+  height: 22px;
+  margin-left: -42px;
+  border-radius: 12px;
+  background: #07051a;
+}
+
+.screenHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 46px 16px 0;
+}
+
+.screenTitle {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.screenPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffe27a;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.screenPill i {
+  font-size: 10px;
+}
+
+.sceneWrap {
+  display: flex;
+  flex: 1;
+}
+
+.scene {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 0 16px 20px;
+}
+
+.sceneWheel {
+  width: 192px;
+}
+
+.sceneBox {
+  width: 150px;
+  margin-top: 30px;
+}
+
+.sceneCards {
+  display: flex;
+  gap: 10px;
+  perspective: 800px;
+}
+
+.miniCard {
+  position: relative;
+  display: block;
+  width: 62px;
+  height: 86px;
+  transform-style: preserve-3d;
+}
+
+.miniBack,
+.miniFace {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.miniBack {
+  border: 2px solid #ffc93c;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.07) 0 6px, transparent 6px 12px),
+    linear-gradient(145deg, #8b5cf6, #4c1d95);
+  color: #ffe27a;
+  font-size: 16px;
+}
+
+.miniFace {
+  border: 2px solid #e4daff;
+  background: linear-gradient(180deg, #fff, #f1ebff);
+  color: #2a1a5e;
+  opacity: 0.75;
+  transform: rotateY(180deg);
+}
+
+.miniFace b {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.miniFace small {
+  font-size: 9.5px;
+}
+
+.miniFaceWin {
+  border-color: #ffc93c;
+  background: linear-gradient(180deg, #fff8dd, #ffe39a);
+  opacity: 1;
+}
+
+.sceneMissions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.miniMission {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.miniMissionDone {
+  background: rgba(25, 195, 166, 0.18);
+}
+
+.miniMissionIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 13px;
+}
+
+.miniMissionDone .miniMissionIcon {
+  background: #19c3a6;
+}
+
+.miniMissionText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  color: #fff;
+  font-size: 12.5px;
+}
+
+.miniBar {
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.miniBarFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #ffc93c, #ff7a2f, #ff4d8d);
+  transform-origin: left center;
+}
+
+.popSlot {
+  display: grid;
+  place-items: center;
+  height: 40px;
+}
+
+.pop {
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff6d6, #ffe27a);
+  box-shadow:
+    0 0 0 3px rgba(255, 201, 60, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.35);
+  color: #4a2600;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.popPink {
+  background: linear-gradient(180deg, #ff6fa0, #d61b67);
+  box-shadow:
+    0 0 0 3px rgba(255, 77, 141, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+/* ---- floating chips ---- */
+.chip {
+  position: absolute;
+  z-index: 2;
+}
+
+.chipBob {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.5);
+  color: #13285c;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: chip-bob 4.2s ease-in-out infinite;
+}
+
+@keyframes chip-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.chipIcon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+}
+
+.chip0 {
+  top: 15%;
+  left: 2%;
+}
+
+.chip0 .chipIcon {
+  background: linear-gradient(135deg, #ff7aa8, #e11d74);
+}
+
+.chip1 {
+  top: 5%;
+  right: 0;
+}
+
+.chip1 .chipBob {
+  animation-delay: -1.2s;
+}
+
+.chip1 .chipIcon {
+  background: linear-gradient(135deg, #ffd66b, #e09400);
+}
+
+.chip2 {
+  top: 56%;
+  right: -2%;
+}
+
+.chip2 .chipBob {
+  animation-delay: -2.4s;
+}
+
+.chip2 .chipIcon {
+  background: linear-gradient(135deg, #6cc0ff, #2563eb);
+}
+
+.chip3 {
+  top: 68%;
+  left: 0;
+}
+
+.chip3 .chipBob {
+  animation-delay: -3.3s;
+}
+
+.chip3 .chipIcon {
+  background: linear-gradient(135deg, #3ee0c0, #0e9f86);
+}
+
+/* ---- scene tabs under the phone ---- */
+.sceneTabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sceneTab {
+  position: relative;
+  height: 32px;
+  padding: 0 14px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px !important;
+  background: transparent;
+  color: #cfcbf2;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sceneTab:hover {
+    color: #fff;
+  }
+}
+
+.sceneTabActive {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.sceneTab:focus-visible {
+  outline: 3px solid #ffc93c;
+  outline-offset: 2px;
+}
+
+.sceneProgress {
+  position: absolute;
+  right: 12px;
+  bottom: 3px;
+  left: 12px;
+  height: 2px;
+  border-radius: 1px;
+  background: #ffc93c;
+  transform-origin: left center;
+  animation-name: progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.paused,
+.paused * {
+  animation-play-state: paused !important;
+}
+
+@container promo (max-width: 640px) {
+  .chip0,
+  .chip3 {
+    left: -2%;
+  }
+
+  .chip1,
+  .chip2 {
+    right: -2%;
+  }
+
+  .chipBob {
+    font-size: 12.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit,
+  .chipBob,
+  .sceneProgress {
+    animation: none;
+  }
+}

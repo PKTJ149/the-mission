@@ -1,0 +1,127 @@
+/* Game art: lucky wheel, mystery box, confetti */
+
+.wheel {
+  position: relative;
+  aspect-ratio: 1;
+  filter: drop-shadow(0 18px 30px rgba(10, 4, 40, 0.55));
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.svgFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sliceLabel text {
+  font-family: inherit;
+}
+
+.winnerGlow {
+  opacity: 0;
+  animation: winner-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes winner-pulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.38;
+  }
+}
+
+/* bulbs blink in two alternating sets, like a fairground wheel */
+.bulb {
+  animation: bulb 1.4s steps(1, end) infinite;
+}
+
+.bulbOdd {
+  animation-delay: 0.7s;
+}
+
+@keyframes bulb {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.pointer {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  width: 12%;
+  margin-left: -6%;
+  transform-origin: 50% 20%;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4));
+  z-index: 2;
+}
+
+.pointer svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- mystery box ---- */
+.box {
+  position: relative;
+  aspect-ratio: 1;
+  filter: drop-shadow(0 14px 18px rgba(20, 6, 60, 0.45));
+}
+
+.lid {
+  position: absolute;
+  inset: 0;
+  /* the lid's left corner, so it tips back like a hinge */
+  transform-origin: 12% 42%;
+}
+
+/* ---- confetti ---- */
+.confetti {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.piece {
+  position: absolute;
+  left: -4px;
+  top: -6px;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.pieceRound {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulb,
+  .winnerGlow {
+    animation: none;
+  }
+
+  .winnerGlow {
+    opacity: 0.3;
+  }
+}

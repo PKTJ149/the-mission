@@ -1,0 +1,67 @@
+/* Phone frame around the live wallet-app missions page. The page is designed at 430 px wide,
+   so the iframe keeps that width and the whole phone is scaled down with zoom. */
+.wrap {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.phone {
+  position: relative;
+  width: 450px;
+  height: 900px;
+  padding: 10px;
+  border-radius: 54px;
+  background: linear-gradient(160deg, #2b2b35, #0c0c12);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  zoom: 0.72;
+}
+
+.notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 30px;
+  margin-left: -60px;
+  border-radius: 999px;
+  background: #0c0c12;
+  pointer-events: none;
+}
+
+.screen {
+  display: block;
+  width: 430px;
+  height: 880px;
+  border: 0;
+  border-radius: 44px;
+  background: #0f0f14;
+}
+
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .open:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.open:focus-visible {
+  outline: 3px solid #ffe27a;
+  outline-offset: 3px;
+}

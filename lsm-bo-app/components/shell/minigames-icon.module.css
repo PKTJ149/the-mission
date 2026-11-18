@@ -1,0 +1,307 @@
+/* Featured "Minigames" menu item (our own addition, not in the original LSM-SYSTEM).
+   One 8 s loop: a 3D lucky wheel spins and settles, then turns into a mystery box whose lid pops
+   open with sparkles, then back to the wheel. Only transform and opacity animate. */
+
+.icon {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  /* keep the row as tall as the other menu items (their icons are 14px) */
+  margin: -3px 8px -3px -4px;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.45));
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(a, div):hover > .icon {
+    transform: scale(1.12);
+  }
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 26px;
+  height: 26px;
+  overflow: visible;
+}
+
+/* ---- wheel ---- */
+.wheel {
+  animation: wheel-swap 8s infinite;
+}
+
+.spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: wheel-spin 8s infinite;
+}
+
+/* ---- mystery box ---- */
+.box {
+  opacity: 0;
+  animation: box-swap 8s infinite;
+}
+
+.boxBody {
+  transform-box: view-box;
+  transform-origin: 14px 26px;
+  animation: box-bounce 8s infinite;
+}
+
+.lid {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  animation: lid-open 8s infinite;
+}
+
+.glow {
+  opacity: 0;
+  animation: glow 8s infinite;
+}
+
+.spark {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spark 8s infinite;
+}
+
+.spark2 {
+  animation-delay: 80ms;
+}
+
+.spark3 {
+  animation-delay: 160ms;
+}
+
+/* ---- the menu row itself: its own colour, and a light sweep when the box opens ---- */
+.row {
+  position: relative;
+  overflow: hidden;
+  margin: 6px 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.45) 0%, rgba(236, 72, 153, 0.32) 60%, rgba(251, 146, 60, 0.2) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 150ms ease;
+}
+
+.row::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 45%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(0);
+  pointer-events: none;
+  animation: row-sweep 8s infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+}
+
+@keyframes row-sweep {
+  0%,
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  62%,
+  100% {
+    transform: translateX(340%);
+  }
+}
+
+/* the row while /minigames is open: brighter, with a gold edge on the right like the other
+   items' active border */
+.row.rowActive {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.7) 0%, rgba(236, 72, 153, 0.55) 60%, rgba(251, 146, 60, 0.4) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36), inset -3px 0 0 #ffc93c, 0 4px 14px rgba(168, 85, 247, 0.35);
+}
+
+/* ---- NEW badge ---- */
+.badge {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff9a3c 0%, #ff3d6e 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 2px rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  /* blinks all the time (PK), and pops when the box opens */
+  animation:
+    badge-pop 8s infinite,
+    badge-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes badge-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes wheel-spin {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  18%,
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+@keyframes wheel-swap {
+  0%,
+  40% {
+    opacity: 1;
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  44%,
+  86% {
+    opacity: 0;
+    transform: scale(0.85);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  90%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes box-swap {
+  0%,
+  40% {
+    opacity: 0;
+    transform: scale(0.85);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  44%,
+  82% {
+    opacity: 1;
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  86%,
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+/* a small squash right before the lid pops */
+@keyframes box-bounce {
+  0%,
+  47% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.06, 0.92);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  54%,
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes lid-open {
+  0%,
+  49% {
+    transform: translate(0, 0) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  54%,
+  76% {
+    transform: translate(-1px, -5px) rotate(-22deg);
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  80%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes glow {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  54%,
+  74% {
+    opacity: 1;
+  }
+  79%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spark {
+  0%,
+  51% {
+    opacity: 0;
+    transform: translateY(2px) scale(0.4);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  57% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1);
+  }
+  68% {
+    opacity: 1;
+    transform: translateY(-4px) scale(0.9);
+  }
+  74%,
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.6);
+  }
+}
+
+@keyframes badge-pop {
+  0%,
+  51% {
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  55% {
+    transform: scale(1.18);
+  }
+  62%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Reduced motion: no movement, just the colourful wheel and the badge */
+@media (prefers-reduced-motion: reduce) {
+  .wheel,
+  .spin,
+  .box,
+  .boxBody,
+  .lid,
+  .glow,
+  .spark,
+  .badge,
+  .row::after {
+    animation: none;
+  }
+}

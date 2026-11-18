@@ -12,6 +12,18 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "backoffice-app", "--", "--port", "3100"],
       "port": 3100
+    },
+    {
+      "name": "wallet-app-3300",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "wallet-app", "--", "--port", "3300"],
+      "port": 3300
+    },
+    {
+      "name": "lsm-bo-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "lsm-bo-app", "--", "--port", "3200"],
+      "port": 3200
     }
   ]
 }

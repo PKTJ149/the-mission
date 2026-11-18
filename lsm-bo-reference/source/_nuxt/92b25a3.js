@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[280],{1788:function(t,a,n){"use strict";n.r(a);var u=n(98),e={data:function(){return{}},created:function(){"/"==this.$route.path&&this.$router.push(Object(u.c)(this.$auth.user,"Dashboard")?"/dashboard":u.a)}},r=n(2),s=Object(r.a)(e,(function(){return(0,this._self._c)("div")}),[],!1,null,"4bc2a643",null);a.default=s.exports}}]);

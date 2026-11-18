@@ -1,0 +1,928 @@
+/* Playable demos: tabs, dark game stage, settings panel, and each game's pieces */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 24px;
+  padding: 6px;
+  overflow-x: auto;
+  border: 1px solid #e3e7f2;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(19, 40, 92, 0.04), 0 10px 24px -16px rgba(19, 40, 92, 0.18);
+}
+
+.tab {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px !important;
+  background: transparent;
+  color: #4a5578;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    color: #13285c;
+  }
+}
+
+.tabActive,
+.tabActive:hover {
+  color: #fff;
+}
+
+.tabPill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #6d28d9 0%, #9333ea 60%, #c026d3 100%);
+  box-shadow: 0 6px 16px -6px rgba(109, 40, 217, 0.65);
+}
+
+.tabIcon {
+  font-size: 14px;
+}
+
+.tab:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+.demoCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e3e7f2;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 30px 60px -36px rgba(19, 40, 92, 0.45);
+}
+
+.stage {
+  container: stage / inline-size;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 580px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: radial-gradient(120% 90% at 50% 0%, #3b1c86 0%, #1a1150 55%, #0d0b33 100%);
+  color: #fff;
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+
+.stageGlow {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  z-index: -1;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 201, 60, 0.2) 0%, rgba(255, 201, 60, 0) 60%);
+}
+
+.stageInner {
+  display: flex;
+  flex: 1;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 44px 32px 32px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.controlsRow {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 10px;
+}
+
+.controlsRow .status {
+  flex: 1 1 220px;
+  text-align: left;
+}
+
+.status {
+  min-height: 1.6em;
+  margin: 0;
+  color: #f1eeff;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.gameButton,
+.ghostButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px !important;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 150ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 150ms cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 150ms ease;
+}
+
+/* gold "game" button, like a real spin button */
+.gameButton {
+  border: 0;
+  background: linear-gradient(180deg, #ffd66b 0%, #f5b800 55%, #d99500 100%);
+  box-shadow:
+    0 5px 0 #9a6200,
+    0 12px 24px -6px rgba(245, 184, 0, 0.5);
+  color: #3a1d00;
+}
+
+.gameButton i {
+  font-size: 14px;
+}
+
+.ghostButton {
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gameButton:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+
+  .ghostButton:hover {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+}
+
+.gameButton:not(:disabled):active {
+  transform: translateY(4px);
+  box-shadow:
+    0 1px 0 #9a6200,
+    0 6px 14px -6px rgba(245, 184, 0, 0.5);
+}
+
+.gameButton:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.gameButton:focus-visible,
+.ghostButton:focus-visible,
+.hubButton:focus-visible,
+.boxButton:focus-visible,
+.card:focus-visible,
+.missionButton:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.buttonSpacer {
+  display: block;
+  height: 48px;
+}
+
+/* ---- wheel ---- */
+.wheelArea {
+  display: grid;
+  place-items: center;
+}
+
+.wheelSize {
+  width: min(380px, 68cqi);
+}
+
+.hubButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 20%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 35% 30%, #fffdf0 0%, #f5b800 58%, #b57b00 100%);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+  color: #5a2e00;
+  font-size: clamp(11px, 3.4cqi, 16px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hubButton:not(:disabled):hover {
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+.hubButton:not(:disabled):active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.hubButton:disabled {
+  cursor: default;
+}
+
+/* ---- reward pop-up ---- */
+.popupBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 5, 30, 0.6);
+}
+
+.popup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(320px, 86%);
+  padding: 30px 24px 24px;
+  overflow: hidden;
+  border: 2px solid #ffc93c;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #4c1d95 0%, #2a0e66 100%);
+  box-shadow:
+    0 0 0 6px rgba(255, 201, 60, 0.18),
+    0 30px 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.popup > :not(.popupRays) {
+  position: relative;
+}
+
+.popupRays {
+  position: absolute;
+  inset: -50%;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 226, 122, 0.12) 0deg 10deg, transparent 10deg 20deg);
+  animation: rays 14s linear infinite;
+}
+
+@keyframes rays {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.popupKicker {
+  color: #ffe27a;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.popupPrize {
+  background: linear-gradient(180deg, #ffffff 0%, #ffe27a 55%, #ffb300 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.popupUnit {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.popupActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ---- mystery box ---- */
+.boxRow {
+  display: flex;
+  gap: 28px;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 56px;
+}
+
+.boxSlot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boxButton {
+  position: relative;
+  display: block;
+  width: min(150px, 24cqi);
+  padding: 0;
+  border: 0;
+  border-radius: 20px !important;
+  background: transparent;
+  cursor: pointer;
+}
+
+.boxButton:disabled {
+  cursor: default;
+}
+
+/* floor shadow */
+.boxButton::after {
+  content: "";
+  position: absolute;
+  right: 18%;
+  bottom: -4px;
+  left: 18%;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.boxIdle {
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.boxShake {
+  display: block;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .boxIdle:hover {
+    animation-play-state: paused;
+  }
+
+  .boxIdle:hover .boxShake {
+    transform: scale(1.07);
+  }
+}
+
+.rewardChip {
+  position: absolute;
+  top: -68px;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  width: max-content;
+  margin: 0 auto;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff6d6, #ffe27a);
+  box-shadow:
+    0 0 0 3px rgba(255, 201, 60, 0.35),
+    0 10px 22px rgba(0, 0, 0, 0.35);
+  color: #4a2600;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---- cards ---- */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, min(116px, 22cqi));
+  gap: 16px;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 116 / 156;
+  padding: 0;
+  border: 0;
+  border-radius: 14px !important;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:disabled {
+  cursor: default;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cardPlayable:hover {
+    transform: translateY(-6px);
+  }
+}
+
+.cardPicked {
+  z-index: 2;
+}
+
+.cardInner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-style: preserve-3d;
+}
+
+.cardBack,
+.cardFace {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cardBack {
+  border: 3px solid #ffc93c;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.07) 0 8px, transparent 8px 16px),
+    linear-gradient(145deg, #8b5cf6, #4c1d95);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.12),
+    0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.cardEmblem {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fffdf0, #f5b800 65%, #b57b00);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  color: #7a3e00;
+  font-size: 18px;
+}
+
+.cardFace {
+  border: 3px solid #e4daff;
+  background: linear-gradient(180deg, #ffffff, #f1ebff);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: #2a1a5e;
+  transform: rotateY(180deg);
+}
+
+.card:not(.cardPicked) .cardFace {
+  opacity: 0.72;
+}
+
+.cardFaceWin {
+  border-color: #ffc93c;
+  background: linear-gradient(180deg, #fff8dd, #ffe39a);
+  box-shadow:
+    0 0 0 4px rgba(255, 201, 60, 0.4),
+    0 14px 30px rgba(255, 180, 0, 0.4);
+}
+
+.cardBadge {
+  position: absolute;
+  top: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #be185d;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.cardValue {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.cardUnit {
+  color: #4b3a87;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---- missions ---- */
+.missionGame {
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 28px 28px 24px;
+}
+
+.missionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.missionHeadText {
+  display: flex;
+  flex-direction: column;
+}
+
+.missionKicker {
+  color: #c4b8ff;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.missionTitle {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mainReward {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(255, 226, 122, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffe27a;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mainRewardWon {
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, #ffe27a, #f5b800);
+  box-shadow: 0 0 0 4px rgba(255, 201, 60, 0.25);
+  color: #3a1d00;
+}
+
+.missionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.missionRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 92px 122px 100px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.missionRowActive {
+  border-color: rgba(255, 201, 60, 0.6);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(255, 201, 60, 0.12);
+}
+
+.missionRowDone {
+  border-color: rgba(25, 195, 166, 0.35);
+  background: rgba(25, 195, 166, 0.12);
+}
+
+.missionRowLocked {
+  opacity: 0.55;
+}
+
+.missionIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+}
+
+.missionRowDone .missionIcon {
+  background: #19c3a6;
+  color: #003b33;
+}
+
+.missionBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.missionAction {
+  color: #bdb4f0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.missionTask {
+  overflow: hidden;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.missionBar {
+  display: block;
+  height: 6px;
+  margin-top: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.missionBarFill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ffc93c, #ff7a2f, #ff4d8d);
+  transform-origin: left center;
+}
+
+.missionCount {
+  color: #d9d3ff;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.missionReward {
+  justify-self: start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 226, 122, 0.12);
+  color: #ffe27a;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.missionRewardDone {
+  background: #ffe27a;
+  color: #3a1d00;
+}
+
+.missionAct {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.missionButton {
+  height: 34px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #ffd66b, #f5b800);
+  box-shadow: 0 3px 0 #9a6200;
+  color: #3a1d00;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.missionButton:not(:disabled):active {
+  transform: translateY(2px);
+}
+
+.missionButton:disabled {
+  opacity: 0.75;
+  cursor: default;
+}
+
+.missionCheck,
+.missionLock {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.missionCheck {
+  background: #19c3a6;
+  color: #fff;
+}
+
+.missionLock {
+  background: rgba(255, 255, 255, 0.08);
+  color: #a9a2d6;
+}
+
+.missionFly {
+  position: absolute;
+  top: 4px;
+  right: 116px;
+  z-index: 3;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #ffe27a;
+  color: #3a1d00;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- settings panel ---- */
+.settings {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px 28px;
+}
+
+.settingsKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f3eeff;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.settingsTitle {
+  margin: 18px 0 0;
+  color: #13285c;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.settingsList li {
+  display: flex;
+  gap: 12px;
+  color: #2b3a5e;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.settingsCheck {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #e3f8f3;
+  color: #0b8a74;
+  font-size: 11px;
+}
+
+.disclaimer {
+  display: flex;
+  gap: 8px;
+  margin: auto 0 0;
+  padding-top: 24px;
+  color: #56627f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.disclaimer i {
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+/* ---- narrow stage / page ---- */
+@container stage (max-width: 600px) {
+  .missionRow {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    row-gap: 6px;
+  }
+
+  .missionCount {
+    display: none;
+  }
+
+  .missionReward {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .missionAct {
+    grid-row: 1 / span 2;
+    grid-column: 3;
+  }
+
+  .missionFly {
+    right: 90px;
+  }
+
+  .boxRow {
+    gap: 14px;
+  }
+}
+
+@container promo (max-width: 900px) {
+  .demoCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings {
+    padding: 24px 20px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boxIdle,
+  .popupRays {
+    animation: none;
+  }
+
+  .gameButton,
+  .hubButton,
+  .card,
+  .boxShake,
+  .missionButton {
+    transition: none;
+  }
+}
