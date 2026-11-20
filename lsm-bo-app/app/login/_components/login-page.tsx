@@ -34,7 +34,7 @@ export function LoginPage({ fontClassName }: { fontClassName: string }) {
               <span className={styles.kickerDot} aria-hidden="true" />
               ใหม่! Mini Games &amp; Missions
             </p>
-            <BannerCarousel onCta={() => router.push("/minigames")} autoPlay intervalMs={4500} />
+            <BannerCarousel onCta={() => router.push("/minigames-preview")} autoPlay intervalMs={4500} />
           </div>
         </section>
 
