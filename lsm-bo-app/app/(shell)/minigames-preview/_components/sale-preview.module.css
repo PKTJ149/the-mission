@@ -1,0 +1,535 @@
+/* One-screen sale page: everything must fit the content area of the LSM shell, no page scroll.
+   --shell-offset = space the shell takes above and below the content (top bar + paddings). */
+.page {
+  --plum: #24123f;
+  --plum-2: #2f1a52;
+  --gold: #f5b83d;
+  --ink: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+  /* Measured: top bar 72 px + bottom margin/padding 24 px, plus a little air */
+  --shell-offset: 100px;
+  --pad-y: clamp(20px, 3.2vh, 40px);
+  --page-h: max(540px, min(calc(100dvh - var(--shell-offset)), 880px));
+  /* The phone screen takes the full page height minus padding and its caption */
+  --screen-h: calc(var(--page-h) - 2 * var(--pad-y) - 26px);
+
+  font-family: var(--mg-font), sans-serif;
+  color: var(--ink);
+  background: var(--plum);
+  border-radius: 20px;
+  height: var(--page-h);
+  padding: var(--pad-y) clamp(24px, 3vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(24px, 3vw, 56px);
+  overflow: hidden;
+}
+
+/* Left column: copy */
+.copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(12px, 2vh, 24px);
+}
+
+.logoPill {
+  display: inline-flex;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fff;
+  margin-bottom: clamp(10px, 1.8vh, 20px);
+}
+
+.logo {
+  display: block;
+  height: clamp(22px, 3.4vh, 30px);
+  width: auto;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4.6vh, 48px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.lead {
+  margin: clamp(6px, 1.2vh, 14px) 0 0;
+  font-size: clamp(14px, 2vh, 18px);
+  color: var(--muted);
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: clamp(15px, 2vh, 18px);
+  font-weight: 600;
+}
+
+/* Heading row of "ระบบทำอะไรได้" with the มินิเกม | ภารกิจ switch */
+.capHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.capHead .sectionTitle {
+  margin: 0;
+}
+
+.tabs {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--plum-2);
+}
+
+.tab,
+.tabActive {
+  padding: 4px 14px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.tab {
+  background: transparent;
+  color: var(--muted);
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tabActive {
+  background: var(--gold);
+  color: var(--plum);
+}
+
+.tab:focus-visible,
+.tabActive:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* "ระบบทำอะไรได้": three goals, one line each, no boxes so the page breathes */
+.goals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.goal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(245, 184, 61, 0.35);
+}
+
+.goal strong {
+  margin-top: 6px;
+  font-size: clamp(15px, 2vh, 18px);
+  font-weight: 600;
+}
+
+.goal small {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: var(--gold);
+  background: rgba(245, 184, 61, 0.12);
+}
+
+/* "ลองเล่นเอง": three playable demo cards */
+.tryTitle {
+  margin: 0 0 10px;
+  font-size: clamp(15px, 2vh, 18px);
+  font-weight: 600;
+}
+
+.tryTitle span {
+  margin-left: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.tryRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Picture cards: the cover fills the card, name and play chip sit on top of it */
+.tryCard {
+  position: relative;
+  display: block;
+  height: clamp(96px, 17vh, 160px);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: var(--plum-2);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.tryCard:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.tryCard:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.tryCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.tryLabel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px 10px 8px;
+  background: linear-gradient(transparent, rgba(12, 6, 28, 0.92) 60%);
+}
+
+.tryLabel strong {
+  display: block;
+  font-size: clamp(13px, 1.8vh, 16px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tryPlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--plum);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Missions card has no game art: a drawn cover in the mission colour instead */
+.tryCoverMission {
+  display: grid;
+  place-items: center;
+  padding-bottom: 22px;
+  background: linear-gradient(160deg, #3a6fd8, #1d2f7a);
+  color: #fff;
+}
+
+/* The live missions page inside the phone pop-up */
+.playFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.tryLabel strong {
+  display: block;
+  font-size: clamp(14px, 1.9vh, 17px);
+  font-weight: 600;
+}
+
+.tryPlay {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: rgba(245, 184, 61, 0.14);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Game pop-up */
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(8, 5, 30, 0.72);
+}
+
+.playWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.playHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: #fff;
+}
+
+/* Pop-up heading: "ทดลองเล่น" with the game name underneath */
+.playTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.playTitle strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.playTitle span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Phone: as tall as the window allows, never taller than 760 px */
+.playPhone {
+  --phone-h: min(760px, calc(100dvh - 90px));
+  position: relative;
+  height: var(--phone-h);
+  width: calc(var(--phone-h) * 1075 / 2180);
+  border-radius: 34px;
+  border: 8px solid #0d0718;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 30px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  background: #000;
+}
+
+.dialogClose {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dialogClose:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+
+
+/* Call to action */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 28px;
+  height: clamp(46px, 6.4vh, 56px);
+  border-radius: 999px;
+  background: var(--gold);
+  color: #24123f;
+  font-size: clamp(16px, 2.2vh, 19px);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.cta:hover {
+  background: #ffc857;
+  transform: translateY(-1px);
+}
+
+.qr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qr strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.qr small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.qrCode {
+  width: clamp(56px, 8.4vh, 76px);
+  height: clamp(56px, 8.4vh, 76px);
+  border-radius: 8px;
+}
+
+/* Right column: vertical video in a phone frame, as tall as the page allows */
+.phone {
+  margin: 0;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Phone mockup. The device is as tall as the page allows; the screen inside stays 9:16. */
+.device {
+  --bezel: 11px;
+  position: relative;
+  flex: none;
+  height: var(--screen-h);
+  width: calc((var(--screen-h) - 2 * var(--bezel)) * 9 / 16 + 2 * var(--bezel));
+  padding: var(--bezel);
+  border-radius: 48px;
+  background: #0b0712;
+  /* metal rim, then a soft drop shadow */
+  box-shadow:
+    0 0 0 2px #4a3d5e,
+    0 0 0 3px #1a1224,
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 28px 56px rgba(0, 0, 0, 0.5);
+}
+
+/* Side buttons: volume on the left, power on the right */
+.device::before,
+.device::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  border-radius: 2px;
+  background: #3a2f4b;
+}
+
+.device::before {
+  left: -6px;
+  top: 18%;
+  height: 12%;
+  box-shadow: 0 calc(var(--screen-h) * 0.15) 0 #3a2f4b;
+}
+
+.device::after {
+  right: -6px;
+  top: 24%;
+  height: 16%;
+}
+
+.island {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--bezel) + 10px);
+  left: 50%;
+  translate: -50% 0;
+  width: 30%;
+  height: 24px;
+  border-radius: 999px;
+  background: #000;
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  overflow: hidden;
+  background: #000;
+}
+
+.still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 400ms ease;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Pause / sound buttons over the video, bottom right of the screen */
+.videoControls {
+  position: absolute;
+  z-index: 3;
+  right: 14px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.videoBtn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(10, 6, 24, 0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.videoBtn:hover {
+  background: rgba(123, 92, 255, 0.75);
+}
+
+.videoBtn:focus-visible {
+  outline: 2px solid #8fe9ff;
+  outline-offset: 2px;
+}
+
+.videoBtn svg {
+  width: 18px;
+  height: 18px;
+}

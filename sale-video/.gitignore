@@ -1,0 +1,7 @@
+# Game screens exported from Figma (large PNGs). Re-export from Figma when needed;
+# the node IDs are listed in ASSETS-NEEDED.md.
+assets/games/
+film/assets/games
+film/renders/
+film/node_modules/
+film/.hyperframes/

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Minigames video storyboard</title>
+<!-- Storyboard stills for SPEC.md, draft 2 (look after PK's reference, flashmotion.io Creative Force film).
+     Open as-is for the board, or add ?frame=N (1, 2, 3, 4, 5, 6a, 6, 7, 8, 9) for one 1080x1920 still.
+     Draft 1 (flat plum look) is kept in board-v1.html. -->
+<style>
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Medium.ttf);font-weight:500}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-SemiBold.ttf);font-weight:600}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Bold.ttf);font-weight:700}
+:root{--ink:#fff;--soft:#CFC6FF;--cyan:#8FE9FF;--edge:rgba(205,195,255,.75)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:PlexThai,sans-serif;background:#EDEAF2;color:#1E1430}
+
+/* ---------- one frame = 1080 x 1920 ---------- */
+.frame{position:relative;width:1080px;height:1920px;overflow:hidden;color:var(--ink);
+  background:
+    radial-gradient(900px 700px at 18% 8%, rgba(124,92,255,.55), transparent 70%),
+    radial-gradient(800px 900px at 92% 78%, rgba(214,58,196,.42), transparent 70%),
+    radial-gradient(700px 500px at 50% 50%, rgba(60,40,170,.35), transparent 70%),
+    #090720}
+.frame>*{position:absolute}
+.beam{left:-300px;top:-200px;width:900px;height:1400px;transform:rotate(-28deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.10) 45%,rgba(255,255,255,.16) 50%,rgba(255,255,255,.10) 55%,transparent);filter:blur(30px)}
+.title{left:0;width:1080px;text-align:center;font-weight:700;font-size:104px;line-height:1.2;
+  text-shadow:0 0 34px rgba(170,150,255,.65),0 0 2px rgba(255,255,255,.8)}
+.sub{left:0;width:1080px;text-align:center;font-weight:500;font-size:50px;color:var(--soft);text-shadow:0 0 20px rgba(140,120,255,.6)}
+.hl{color:var(--cyan);text-shadow:0 0 30px rgba(80,210,255,.9),0 0 2px #fff}
+.dimw{color:#9C92CC;text-shadow:none}
+.glass{border-radius:36px;overflow:hidden;border:2px solid var(--edge);background:rgba(40,28,90,.45);
+  box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 46px rgba(140,115,255,.55),0 40px 90px rgba(0,0,0,.6)}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:14px 34px;border-radius:999px;font-weight:600;font-size:40px;white-space:nowrap;
+  background:rgba(60,190,255,.16);border:2px solid #84E6FF;color:#E4FAFF;box-shadow:0 0 26px rgba(80,200,255,.75),0 0 2px #fff inset}
+.pill.dim{background:rgba(255,255,255,.06);border-color:rgba(205,195,255,.35);color:#B9B0E6;box-shadow:none}
+
+/* ---------- iPhone in CSS 3D (built by the script from <div class="rig">) ---------- */
+.holder{perspective:2000px;transform-origin:0 0}
+.rig{position:relative;transform-style:preserve-3d;width:648px;height:1349px}
+.rig .slab{position:absolute;inset:0;border-radius:96px}
+.rig .btn{position:absolute;width:10px;border-radius:5px;background:linear-gradient(90deg,#55535c,#c4c1cc,#55535c)}
+.phone{position:relative;width:648px;height:1349px;border-radius:96px;padding:6px;transform:translateZ(0);
+  background:linear-gradient(120deg,#e9e6f2 0%,#6d6a76 10%,#2e2d35 30%,#8f8c99 52%,#2b2a31 74%,#b9b6c4 92%,#55535d 100%);
+  box-shadow:inset 3px 0 3px rgba(255,255,255,.75),inset -3px 0 4px rgba(0,0,0,.7),inset 0 3px 3px rgba(255,255,255,.45),0 0 40px rgba(140,115,255,.45)}
+.phone .screen{position:relative;width:636px;height:1337px;border-radius:90px;background:#000;overflow:hidden}
+.phone .feed{position:absolute;left:18px;top:74px;width:600px;height:1245px;overflow:hidden;border-radius:0 0 72px 72px}
+.phone .feed>img{display:block;width:600px}
+.phone .status{position:absolute;left:18px;top:18px;width:600px;height:74px;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:0 52px 0 64px;
+  font-weight:600;font-size:32px;color:#fff;background:#000;border-radius:72px 72px 0 0}
+.phone .icons{display:flex;align-items:flex-end;gap:5px}
+.phone .icons b{display:block;width:6px;background:#fff;border-radius:2px}
+.phone .icons svg{margin-left:8px}
+.phone .bat{margin-left:8px;width:46px;height:24px;border:2px solid rgba(255,255,255,.55);border-radius:7px;padding:2px;align-self:center}
+.phone .bat span{display:block;width:80%;height:100%;background:#fff;border-radius:4px}
+.phone .island{position:absolute;left:50%;top:32px;width:176px;height:52px;margin-left:-88px;background:#000;border-radius:26px;z-index:3}
+.phone .sheen{position:absolute;inset:18px;border-radius:72px;z-index:4;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.08) 22%,transparent 38%,transparent 70%,rgba(255,255,255,.06) 100%)}
+.tap{position:absolute;border-radius:50%;border:5px solid var(--cyan);box-shadow:0 0 30px rgba(80,210,255,.9),inset 0 0 20px rgba(80,210,255,.6);z-index:5}
+
+/* ---------- board view ---------- */
+.board{padding:40px;display:grid;grid-template-columns:repeat(3,324px);gap:40px 36px;justify-content:center}
+.board h1{grid-column:1/-1;font-size:28px;font-weight:700}
+.board .subt{grid-column:1/-1;font-size:16px;font-weight:500;margin-top:-28px;color:#5A4C70}
+.scaler{width:324px;height:576px;overflow:hidden;border-radius:10px}
+.scaler .frame{transform:scale(.3);transform-origin:0 0}
+.note{font-size:14px;line-height:1.5;margin-top:10px;font-weight:500}
+.note b{font-weight:700}
+.note .k{color:#6B5C84}
+body.single{background:#090720}
+body.single .board{display:block;padding:0}
+body.single .board>*:not(.cell){display:none}
+body.single .cell{display:none}
+body.single .cell.on{display:block}
+body.single .scaler{width:1080px;height:1920px;border-radius:0}
+body.single .scaler .frame{transform:none}
+body.single .note{display:none}
+</style>
+</head>
+<body>
+<div class="board">
+<h1>Minigames sales video · storyboard (draft 2)</h1>
+<p class="subt">9:16, 1080 x 1920, about 50 s. Look after PK's reference film: indigo-to-magenta light, glass edges, glowing pills, an iPhone in 3D that turns. Real game screens from PK's library. Logo is a placeholder.</p>
+
+<!-- 1 HOOK -->
+<div class="cell" data-n="1"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:200px">กล่องสุ่ม</div>
+  <div class="sub" style="top:345px">→ เปิดไพ่ → วงล้อ</div>
+  <div class="holder" style="left:262px;top:470px;transform:scale(.82)">
+    <div class="rig" style="transform:rotateY(-16deg) rotateX(7deg) rotateZ(1.5deg)" data-src="20-gold-boxes/screen-2-grid.png">
+      <div class="tap" style="left:244px;top:500px;width:120px;height:120px"></div>
+      <svg style="position:absolute;left:300px;top:560px;width:80px;height:100px;z-index:6;filter:drop-shadow(0 0 14px rgba(140,230,255,.9))" viewBox="0 0 24 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17 Z" fill="#fff" stroke="#0b0820" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+</section></div>
+<p class="note"><b>1 · Hook · 0.0–4.5 s</b> (still at 1.2 s)<br><span class="k">On screen:</span> "กล่องสุ่ม", then "เปิดไพ่", then "วงล้อ" (the current word glows)<br><span class="k">VO:</span> กล่องสุ่ม... เปิดไพ่... วงล้อ...<br><span class="k">Move:</span> the phone floats in, turning; a glowing cursor taps a box, which opens ("+1,000 ฿" only). The same phone flips to ไพ่ปริศนาลุ้นล้าน, then วงล้อนำโชค spins.</p></div>
+
+<!-- 2 TENSION -->
+<div class="cell" data-n="2"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="sub" style="top:200px">ที่อื่น</div>
+  <div class="title" style="top:265px">1 เกม = 1 ระบบ</div>
+  <div style="left:0;top:470px;width:1080px;height:1250px;perspective:1800px">
+    <div class="glass" style="position:absolute;left:160px;top:0;width:760px;height:280px;transform:rotateY(-12deg) rotateX(6deg)">
+      <div style="height:44px;background:rgba(255,255,255,.12);display:flex;gap:12px;align-items:center;padding-left:22px"><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i></div>
+      <img src="../assets/games/20-gold-boxes/screen-1-cover.png" alt="" style="width:760px;height:236px;object-fit:cover;object-position:50% 38%;display:block">
+    </div>
+    <div class="glass" style="position:absolute;left:160px;top:310px;width:760px;height:280px;transform:rotateY(-12deg) rotateX(6deg)">
+      <div style="height:44px;background:rgba(255,255,255,.12);display:flex;gap:12px;align-items:center;padding-left:22px"><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i></div>
+      <img src="../assets/games/19-gold-cards/screen-2-grid.png" alt="" style="width:760px;height:236px;object-fit:cover;object-position:50% 45%;display:block">
+    </div>
+    <div class="glass" style="position:absolute;left:160px;top:620px;width:760px;height:280px;transform:rotateY(-12deg) rotateX(6deg)">
+      <div style="height:44px;background:rgba(255,255,255,.12);display:flex;gap:12px;align-items:center;padding-left:22px"><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i><i style="width:14px;height:14px;border-radius:50%;background:#B9B0E6"></i></div>
+      <img src="../assets/games/21-wheel-gold/screen.png" alt="" style="width:760px;height:236px;object-fit:cover;object-position:50% 46%;display:block">
+    </div>
+    <div style="position:absolute;left:160px;top:940px;width:760px;height:180px;border:3px dashed #84E6FF;border-radius:36px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:56px;color:#E4FAFF;
+      box-shadow:0 0 30px rgba(80,200,255,.55);text-shadow:0 0 20px rgba(80,210,255,.8);transform:rotateY(-12deg) rotateX(6deg)">+ ซื้อเพิ่ม</div>
+  </div>
+</section></div>
+<p class="note"><b>2 · Tension · 4.5–9.3 s</b> (still at 7.0 s)<br><span class="k">On screen:</span> "ที่อื่น 1 เกม = 1 ระบบ"<br><span class="k">VO:</span> [sighs] เว็บไหนก็มี แต่อยากได้เกมใหม่ทีไร... ต้องซื้ออีกระบบ<br><span class="k">Move:</span> three glass windows stack, one game each (no names, no logos). A dashed, glowing fourth slot drops in.</p></div>
+
+<!-- 3 REVEAL -->
+<div class="cell" data-n="3"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:230px">ของเรา · <span class="hl">ระบบเดียว</span></div>
+  <div class="holder" style="left:252px;top:440px;transform:scale(.86)">
+    <div class="rig" style="transform:rotateY(14deg) rotateX(6deg) rotateZ(-1.5deg)" data-src="20-gold-boxes/screen-1-cover.png"></div>
+  </div>
+</section></div>
+<p class="note"><b>3 · Reveal · 9.6–12.8 s</b> (still at 11.0 s)<br><span class="k">On screen:</span> "ของเรา · ระบบเดียว" ("ระบบเดียว" glows cyan)<br><span class="k">VO:</span> แต่มินิเกมของเรา... ระบบเดียว...<br><span class="k">Move:</span> the four windows fold into one phone, which turns to face us.</p></div>
+
+<!-- 4 TRANSFORM -->
+<div class="cell" data-n="4"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:200px">ตัวเกม</div>
+  <div class="sub" style="top:345px"><span class="dimw">พื้นหลัง →</span> <span class="hl">ตัวเกม</span> <span class="dimw">→ สีทั้งหน้า</span></div>
+  <div class="holder" style="left:262px;top:470px;transform:scale(.82)">
+    <div class="rig" style="transform:rotateY(-20deg) rotateX(6deg) rotateZ(1deg)">
+      <img src="../assets/games/20-gold-boxes/screen-2-grid.png" alt="" style="position:absolute;top:0;left:0">
+      <img src="../assets/games/11-cny-pouch/screen-2-grid.png" alt="" style="position:absolute;top:0;left:0;clip-path:inset(0 40% 0 0)">
+      <div style="position:absolute;left:357px;top:0;width:6px;height:1245px;background:#fff;box-shadow:0 0 24px 6px rgba(140,230,255,.9)"></div>
+    </div>
+  </div>
+</section></div>
+<p class="note"><b>4 · Transform · 13.2–18.0 s</b> (still at 16.0 s, wave 2 of 3)<br><span class="k">On screen:</span> "พื้นหลัง" → "ตัวเกม" → "สีทั้งหน้า", one word per wave, the current one glows<br><span class="k">VO:</span> เปลี่ยนโฉมได้ทั้งหน้าจอ... เหมือนได้เกมใหม่ทุกครั้ง<br><span class="k">Move:</span> a band of light sweeps the phone three times: background, then items, then counter and button colours. It ends as ถุงทองเงินล้าน. The still shows it as one wipe.</p></div>
+
+<!-- 5 FESTIVAL YEAR -->
+<div class="cell" data-n="5"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="sub" style="top:200px">ปฏิทินเกม ทั้งปี</div>
+  <div class="title" style="top:270px">วาเลนไทน์</div>
+  <div style="left:120px;top:470px;width:4px;height:1330px;background:linear-gradient(#84E6FF,rgba(132,230,255,.15));box-shadow:0 0 16px rgba(80,200,255,.8)"></div>
+  <div style="left:60px;top:520px;display:flex;flex-direction:column;gap:110px;align-items:flex-start">
+    <span class="pill dim">ตรุษจีน</span><span class="pill">วาเลนไทน์</span><span class="pill dim">สงกรานต์</span><span class="pill dim">ฮาโลวีน</span><span class="pill dim">ลอยกระทง</span><span class="pill dim">คริสต์มาส</span>
+  </div>
+  <div class="holder" style="left:362px;top:470px">
+    <div class="rig" style="transform:rotateY(-26deg) rotateX(7deg) rotateZ(-2deg)" data-src="13-valentine-heart/screen-2-grid.png"></div>
+  </div>
+</section></div>
+<p class="note"><b>5 · Festival year · 18.0–31.0 s</b> (still at 23.0 s, stop 2 of 6)<br><span class="k">On screen:</span> "ปฏิทินเกม ทั้งปี" + the festival name; the stop's pill lights up on the timeline<br><span class="k">Screen:</span> the whole 3 x 3 grid screen in the phone, so the layout holds while the theme changes<br><span class="k">VO:</span> ถึงหน้าเทศกาลเมื่อไหร่... ก็ปล่อยเกมใหม่ได้เลย / ลูกค้าได้เล่นของใหม่... ไม่มีเบื่อ<br><span class="k">Move:</span> about 2.2 s per stop; at each stop the phone turns a little and the screen re-skins: ถุงทองเงินล้าน → ดวงใจลุ้นโชค → สาดน้ำรับทรัพย์ → หีบสมบัติผีให้โชค → กระทงเสี่ยงทาย → ของขวัญจากซานต้า.</p></div>
+
+<!-- 6a RUN -->
+<div class="cell" data-n="6a"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="glass" style="left:60px;top:520px;width:540px;height:1170px;transform:rotate(-9deg);opacity:.5;filter:blur(2px)"><img src="../assets/games/extra/x176-cats.png" alt="" style="width:540px;display:block"></div>
+  <div class="glass" style="left:480px;top:520px;width:540px;height:1170px;transform:rotate(9deg);opacity:.5;filter:blur(2px)"><img src="../assets/games/extra/x177-aliens.png" alt="" style="width:540px;display:block"></div>
+  <div class="holder" style="left:240px;top:330px;transform:scale(.92)">
+    <div class="rig" style="transform:rotateY(-8deg) rotateX(5deg)" data-src="extra/x174-sushi.png"></div>
+  </div>
+</section></div>
+<p class="note"><b>6a · Run · 31.0–33.0 s</b> (still at 31.3 s)<br><span class="k">On screen:</span> no caption; the games carry it<br><span class="k">VO:</span> ทั้งปี... (first half of the line)<br><span class="k">Move:</span> the phone holds still while its screen cuts through 16 of PK's extra games, getting faster: 8, 7, 6, 5, 5, 4, 4, 3, 3, 3, then 2 frames each. (The still shows the next screens fanned behind only to suggest the run.)</p></div>
+
+<!-- 6b PAYOFF WALL -->
+<div class="cell" data-n="6"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div style="left:-500px;top:380px;width:2080px;height:1900px;perspective:2400px">
+    <div id="plane" style="position:absolute;left:0;top:0;width:2080px;height:1900px;transform:rotateX(48deg) rotateZ(-32deg) translateZ(-120px);transform-origin:50% 40%"></div>
+  </div>
+  <div class="title" style="top:200px">สร้างสรรค์เกม</div>
+  <div class="title" style="top:335px;font-size:76px">ได้<span class="hl">หลากหลาย</span> ดั่งใจนึก</div>
+</section></div>
+<p class="note"><b>6b · Payoff wall · 33.0–34.3 s</b> (still at 33.8 s)<br><span class="k">On screen:</span> "สร้างสรรค์เกม ได้หลากหลาย ดั่งใจนึก" ("หลากหลาย" glows cyan)<br><span class="k">VO:</span> ทั้งปี... ไม่ต้องซื้อระบบใหม่สักครั้ง<br><span class="k">Move:</span> the camera pulls up and back from the phone onto a tilted floor of games running off every edge (42 screens from the 43 games, no repeats); a few carry glowing name pills. The floor drifts slowly.</p></div>
+
+<!-- 7 ALSO -->
+<div class="cell" data-n="7"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:230px">ฝากปุ๊บ <span class="hl">ได้สิทธิ์</span>ปั๊บ</div>
+  <div class="glass" style="left:90px;top:760px;width:900px;height:190px;display:flex;align-items:center;justify-content:space-between;padding:0 56px">
+    <span style="font-weight:600;font-size:56px">ฝากเงิน</span><span class="hl" style="font-weight:700;font-size:76px">+100 ฿</span>
+  </div>
+  <div style="left:536px;top:970px;width:8px;height:110px;border-radius:4px;background:linear-gradient(#84E6FF,rgba(132,230,255,.2));box-shadow:0 0 18px rgba(80,200,255,.8)"></div>
+  <div class="glass" style="left:90px;top:1100px;width:900px;height:400px">
+    <img src="../assets/games/20-gold-boxes/screen-1-cover.png" alt="" style="width:2150px;margin-left:-190px;margin-top:-720px;display:block">
+  </div>
+  <div style="left:845px;top:1020px;width:170px;height:170px;border-radius:50%;background:rgba(60,190,255,.25);border:3px solid #84E6FF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:76px;color:#fff;
+    box-shadow:0 0 40px rgba(80,200,255,.9);text-shadow:0 0 20px rgba(80,210,255,.9)">+1</div>
+</section></div>
+<p class="note"><b>7 · Also · 35.0–40.9 s</b> (still at 37.0 s, shot 1 of 3)<br><span class="k">On screen:</span> "ฝากปุ๊บ ได้สิทธิ์ปั๊บ" → "งบไม่บานปลาย" → "ทำภารกิจ ได้สิทธิ์เล่น"<br><span class="k">VO:</span> แจกสิทธิ์ให้ลูกค้าอัตโนมัติ... คุมงบได้อยู่มือ... แถมผูกกับภารกิจได้อีก<br><span class="k">Move:</span> a 100 ฿ deposit card lands, a pulse of light runs down to the real rights counter, which ticks 10 → 11 (the games' own rule: 1 right per 100 ฿). Then a glowing budget gauge stops at its line, then a finished mission drops a game ticket.</p></div>
+
+<!-- 8 CLAIM -->
+<div class="cell" data-n="8"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:230px"><span class="hl">ระบบเดียว</span> · เกมไม่ซ้ำ</div>
+  <div class="holder" style="left:252px;top:440px;transform:scale(.86)">
+    <div class="rig" style="transform:rotateY(18deg) rotateX(6deg) rotateZ(-1deg)">
+      <div style="position:absolute;left:0;top:-300px;width:600px">
+        <div style="height:640px;overflow:hidden;margin-bottom:14px"><img src="../assets/games/14-fireworks/screen-1-cover.png" alt="" style="width:600px;margin-top:-90px;display:block"></div>
+        <div style="height:640px;overflow:hidden;margin-bottom:14px"><img src="../assets/games/10-candy-jars/screen-1-cover.png" alt="" style="width:600px;margin-top:-90px;display:block"></div>
+        <div style="height:640px;overflow:hidden"><img src="../assets/games/extra/x176-cats.png" alt="" style="width:600px;margin-top:-90px;display:block"></div>
+      </div>
+    </div>
+  </div>
+</section></div>
+<p class="note"><b>8 · Claim · 41.6–45.6 s</b> (still at 43.0 s)<br><span class="k">On screen:</span> "ระบบเดียว · เกมไม่ซ้ำ" ("ระบบเดียว" glows cyan)<br><span class="k">VO:</span> ระบบเดียว... เปลี่ยนเป็นเกมไหนก็ได้ ทุกเทศกาล!<br><span class="k">Move:</span> games stream up through the one phone (the same phone as shot 3) while it turns slowly.</p></div>
+
+<!-- 9 END CARD -->
+<div class="cell" data-n="9"><div class="scaler"><section class="frame">
+  <div class="beam"></div>
+  <div style="left:330px;top:520px;width:420px;height:420px;border:4px dashed rgba(205,195,255,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;font-size:36px;color:var(--soft);line-height:1.4;
+    box-shadow:0 0 60px rgba(150,110,255,.5),inset 0 0 40px rgba(150,110,255,.35)">Minigames<br>logo<br>(from PK)</div>
+  <div class="title" style="top:1010px">Minigames</div>
+  <div style="left:190px;top:1290px;width:700px;height:150px;border-radius:999px;background:linear-gradient(90deg,#7B5CFF,#C94FE0);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:60px;color:#fff;
+    box-shadow:0 0 50px rgba(170,110,255,.8),0 0 2px #fff inset;text-shadow:0 0 16px rgba(255,255,255,.6)">ติดต่อเปิดใช้งาน</div>
+</section></div>
+<p class="note"><b>9 · End card · 46.4–50.0 s</b> (still at 48.0 s)<br><span class="k">On screen:</span> Minigames mark + "ติดต่อเปิดใช้งาน"<br><span class="k">VO:</span> สนใจ... ทักทีมงานได้เลย<br><span class="k">Move:</span> the phone's light gathers into the mark, then the glowing button lands. Hold 1 s.</p></div>
+</div>
+
+<script>
+// ---------- build each iPhone ----------
+// <div class="rig" data-src="..."> -> a game screen; or put custom screen content inside the rig.
+const STATUS = `<div class="status"><span>9:41</span><span class="icons"><b style="height:12px"></b><b style="height:17px"></b><b style="height:22px"></b><b style="height:27px"></b>
+  <svg width="36" height="26" viewBox="0 0 24 18"><path d="M12 16 L9 13 A4.5 4.5 0 0 1 15 13 Z M5.5 9.5 A9 9 0 0 1 18.5 9.5 L16.5 11.5 A6 6 0 0 0 7.5 11.5 Z M2 6 A14 14 0 0 1 22 6 L20 8 A11 11 0 0 0 4 8 Z" fill="#fff"/></svg>
+  <span class="bat"><span></span></span></span></div>`;
+const N = 32, STEP = 2;   // 64 px body depth, about a real iPhone's 8.25 mm on a 77.6 mm wide body
+document.querySelectorAll(".rig").forEach(rig => {
+  const custom = rig.innerHTML.trim();
+  const src = rig.dataset.src;
+  const content = (src ? `<img src="../assets/games/${src}" alt="">` : "") + custom;   // overlays (tap, cursor) go on top of the game
+  rig.innerHTML =
+    `<i class="btn" style="left:-5px;top:250px;height:60px"></i><i class="btn" style="left:-5px;top:360px;height:110px"></i>` +
+    `<i class="btn" style="left:-5px;top:490px;height:110px"></i><i class="btn" style="right:-5px;top:400px;height:170px"></i>` +
+    `<div class="phone"><div class="screen">${STATUS}<div class="island"></div><div class="feed">${content}</div><div class="sheen"></div></div></div>`;
+  for (let k = N; k >= 1; k--) {
+    const s = document.createElement("div"); s.className = "slab";
+    const l = Math.round(34 + 28 * Math.sin(Math.PI * k / N));
+    s.style.cssText = `transform:translateZ(${-k * STEP}px);background:linear-gradient(90deg,hsl(250,7%,${l + 18}%),hsl(250,6%,${l}%) 45%,hsl(250,6%,${l - 14}%))` +
+      (k === N ? ";box-shadow:60px 70px 120px rgba(0,0,0,.8),0 0 70px rgba(150,110,255,.45)" : "");
+    rig.insertBefore(s, rig.firstChild);
+  }
+  rig.querySelectorAll(".btn").forEach(b => b.style.transform = `translateZ(${-N * STEP / 2}px)`);
+});
+
+// ---------- 6b: tilted floor of games, a few with name pills ----------
+const games=[["x174-sushi","x","ซูชินำโชค"],["13-valentine-heart","g"],["x176-cats","x"],["21-wheel-gold","s","วงล้อนำโชค"],["04-krathong","g"],["x177-aliens","x"],["11-cny-pouch","g"],
+ ["x170-floating-market","x"],["20-gold-boxes","g"],["x173-diamond-mine","x","เหมืองเพชรนำโชค"],["05-songkran-bowl","g"],["25-wheel-temple-fair","s"],["x169-space-gear","x"],["07-santa-chest","g","ของขวัญจากซานต้า"],
+ ["09-halloween-chest","g"],["x167-coconut-beach","x"],["19-gold-cards","g"],["x181-race-cars","x"],["24-wheel-fruit-soda","s"],["x172-childrens-day","x","ของขวัญวันเด็กนำโชค"],["16-balloons","c"],
+ ["x175-fortune-sticks","x"],["27-wheel-halloween","s"],["x166-temple-fair-jars","x"],["14-fireworks","c","ดอกไม้ไฟนำโชค"],["x168-vegetarian-tiffin","x"],["10-candy-jars","c"],["x162-christmas-village","x"],
+ ["02-claw-machine","c"],["x164-neon-chest","x"],["15-gold-eggs","c"],["x165-songkran-watergun","x"],["26-wheel-sunflower","s"],["18-steam-train","c"],["x163-lantern-chest","x"],
+ ["06-cupcake-houses","c"],["22-wheel-blue","s"],["03-planets","c"],["17-red-envelopes","c"],["12-fruit-basket","c"],["08-boxing","c"],["23-wheel-pink","s"]];
+const file={c:"screen-1-cover.png",g:"screen-2-grid.png",s:"screen.png"};
+const P=document.getElementById("plane"); const W=250,H=542,G=40;
+games.forEach(([g,k,name],i)=>{
+  const c=i%7, r=Math.floor(i/7);
+  const src=k==="x"?`extra/${g}.png`:`${g}/${file[k]}`;
+  const d=document.createElement("div");
+  d.style.cssText=`position:absolute;left:${60+c*(W+G)}px;top:${40+r*(H+G)}px;width:${W}px;height:${H}px;border-radius:26px;overflow:hidden;border:2px solid rgba(205,195,255,.55);box-shadow:0 0 30px rgba(140,115,255,.45)`;
+  d.innerHTML=`<img src="../assets/games/${src}" style="width:${W}px;height:${H}px;object-fit:cover;display:block">`;
+  P.appendChild(d);
+  if(name){const p=document.createElement("span");p.className="pill";p.textContent=name;
+    p.style.cssText+=`;position:absolute;left:${60+c*(W+G)+W/2}px;top:${40+r*(H+G)+H-60}px;transform:translateX(-50%);font-size:34px;padding:10px 26px`;P.appendChild(p);}
+});
+
+// ?frame=N shows a single full-size still.
+const n = new URLSearchParams(location.search).get("frame");
+if (n) { document.body.classList.add("single"); document.querySelector(`.cell[data-n="${n}"]`)?.classList.add("on"); }
+</script>
+</body>
+</html>

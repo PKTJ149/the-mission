@@ -1,0 +1,47 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s6a-rig img.scr { opacity: 0; }
+    #s6a-rig img.scr:first-child { opacity: 1; }
+  </style>
+  <div id="root" data-composition-id="s6a" data-width="1080" data-height="1920">
+    <div class="holder" id="s6a-holder" style="left: 240px; top: 330px">
+      <div class="rig" id="s6a-rig">
+        <img class="scr" id="s6a-1" src="assets/games/07-santa-chest/screen-2-grid.png" alt="" />
+        <img class="scr" id="s6a-2" src="assets/games/extra/x174-sushi.png" alt="" />
+        <img class="scr" id="s6a-3" src="assets/games/extra/x176-cats.png" alt="" />
+        <img class="scr" id="s6a-4" src="assets/games/extra/x177-aliens.png" alt="" />
+        <img class="scr" id="s6a-5" src="assets/games/extra/x173-diamond-mine.png" alt="" />
+        <img class="scr" id="s6a-6" src="assets/games/extra/x170-floating-market.png" alt="" />
+        <img class="scr" id="s6a-7" src="assets/games/extra/x169-space-gear.png" alt="" />
+        <img class="scr" id="s6a-8" src="assets/games/extra/x181-race-cars.png" alt="" />
+        <img class="scr" id="s6a-9" src="assets/games/extra/x167-coconut-beach.png" alt="" />
+        <img class="scr" id="s6a-10" src="assets/games/extra/x166-temple-fair-jars.png" alt="" />
+        <img class="scr" id="s6a-11" src="assets/games/extra/x175-fortune-sticks.png" alt="" />
+        <img class="scr" id="s6a-12" src="assets/games/extra/x172-childrens-day.png" alt="" />
+        <img class="scr" id="s6a-13" src="assets/games/extra/x168-vegetarian-tiffin.png" alt="" />
+        <img class="scr" id="s6a-14" src="assets/games/extra/x162-christmas-village.png" alt="" />
+        <img class="scr" id="s6a-15" src="assets/games/extra/x165-songkran-watergun.png" alt="" />
+        <img class="scr" id="s6a-16" src="assets/games/extra/x163-lantern-chest.png" alt="" />
+        <img class="scr" id="s6a-17" src="assets/games/extra/x164-neon-chest.png" alt="" />
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      window.buildPhone(document.getElementById("s6a-rig"));
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s6a-holder", { scale: 0.92 }, { scale: 0.92, duration: 0.01 }, 0);
+      tl.fromTo("#s6a-rig", { rotationY: -8, rotationX: 5 }, { rotationY: 6, rotationX: 4, duration: 2, ease: "sine.inOut" }, 0);
+      // hard cuts on one fixed frame, getting faster (frames at 30 fps)
+      const frames = [8, 7, 6, 5, 5, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2];
+      let f = 0;
+      frames.forEach((d, i) => {
+        f += d;
+        tl.set("#s6a-" + (i + 2), { opacity: 1 }, f / 30 - 8 / 30);
+      });
+      tl.fromTo("#s6a-holder", { y: 0 }, { y: -10, duration: 0.08, yoyo: true, repeat: 3, ease: "power1.inOut" }, 0);
+      window.__timelines["s6a"] = tl;
+    })();
+  </script>
+</template>

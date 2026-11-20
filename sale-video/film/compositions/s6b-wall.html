@@ -1,0 +1,86 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #s6b-stage { position: absolute; left: -500px; top: 380px; width: 2080px; height: 1900px; perspective: 2400px; }
+    #s6b-cam { position: absolute; inset: 0; transform-style: preserve-3d; }
+    #s6b-plane { position: absolute; left: 0; top: 0; width: 2080px; height: 1900px; transform: rotateX(48deg) rotateZ(-32deg) translateZ(-120px); transform-origin: 50% 40%; transform-style: preserve-3d; }
+    .s6b-tile { position: absolute; width: 250px; height: 542px; border-radius: 26px; overflow: hidden; border: 2px solid rgba(205, 195, 255, 0.55); box-shadow: 0 0 30px rgba(140, 115, 255, 0.45); }
+    .s6b-tile img { width: 250px; height: 542px; object-fit: cover; display: block; }
+  </style>
+  <div id="root" data-composition-id="s6b" data-width="1080" data-height="1920">
+    <div id="s6b-stage"><div id="s6b-cam"><div id="s6b-plane"></div></div></div>
+    <div class="title" id="s6b-t1" style="top: 200px">สร้างสรรค์เกม</div>
+    <div class="title" id="s6b-t2" style="top: 335px; font-size: 76px">ได้<span class="hl">หลากหลาย</span> ดั่งใจนึก</div>
+  </div>
+  <script>
+    (function () {
+      // floor of games (wheel screens with the "Let's Goal !" template title swapped out, PK QA rule): 42 screens from the 43 games, a few with glowing name pills (untimed decoration)
+      const games = [["x174-sushi","x","ซูชินำโชค"],["13-valentine-heart","g"],["x176-cats","x","เหมียวเหมียวนำโชค"],["21-wheel-gold","s","วงล้อนำโชค"],["x164-neon-chest","x"],["x177-aliens","x"],["11-cny-pouch","g"],
+        ["x170-floating-market","x","ผลไม้ตลาดน้ำนำโชค"],["20-gold-boxes","g"],["x173-diamond-mine","x","เหมืองเพชรนำโชค"],["05-songkran-bowl","g"],["07-santa-chest","c"],["x169-space-gear","x"],["07-santa-chest","g","ของขวัญจากซานต้า"],
+        ["09-halloween-chest","g"],["x167-coconut-beach","x","มะพร้าวอ่อนนำโชค"],["19-gold-cards","g"],["x181-race-cars","x","รถแข่งนำโชค"],["19-gold-cards","c"],["x172-childrens-day","x","ของขวัญวันเด็กนำโชค"],["16-balloons","c"],
+        ["x175-fortune-sticks","x","เซียมซีนำโชค"],["01-underwater-chest","c"],["x166-temple-fair-jars","x"],["14-fireworks","c","ดอกไม้ไฟนำโชค"],["x168-vegetarian-tiffin","x","ปิ่นโตเจนำโชค"],["10-candy-jars","c"],["x162-christmas-village","x"],
+        ["02-claw-machine","c"],["04-krathong","g"],["15-gold-eggs","c"],["x165-songkran-watergun","x"],["20-gold-boxes","c"],["18-steam-train","c","รถด่วนขบวนร้อยล้าน"],["x163-lantern-chest","x"],
+        ["06-cupcake-houses","c"],["11-cny-pouch","c"],["03-planets","c","ดวงดาวนำทาง"],["17-red-envelopes","c"],["12-fruit-basket","c"],["08-boxing","c"],["13-valentine-heart","c"]];
+      const file = { c: "screen-1-cover.png", g: "screen-2-grid.png", s: "screen.png" };
+      const P = document.getElementById("s6b-plane");
+      const W = 250, H = 542, G = 40;
+      const tiles = [], pills = [];
+      if (!P.dataset.built) {
+        P.dataset.built = "1";
+        games.forEach(([g, k, name], i) => {
+          const c = i % 7, r = Math.floor(i / 7);
+          const src = k === "x" ? "extra/" + g + ".png" : g + "/" + file[k];
+          const d = document.createElement("div");
+          d.className = "s6b-tile";
+          d.style.left = 60 + c * (W + G) + "px";
+          d.style.top = 40 + r * (H + G) + "px";
+          d.innerHTML = '<img src="assets/games/' + src + '" alt="">';
+          d.dataset.g = g;
+          P.appendChild(d);
+          tiles.push(d);
+          if (name) {
+            const p = document.createElement("span");
+            p.className = "pill";
+            p.textContent = name;
+            // solid name card (PK, 20-11-2026): opaque, stands up off the wall
+            p.style.cssText = "position:absolute;left:" + (60 + c * (W + G) + W / 2) + "px;top:" + (40 + r * (H + G) + H - 110) + "px;font-size:36px;padding:12px 30px;opacity:0;" +
+              "background:linear-gradient(90deg,#6d4cff,#c04fe0);border:2px solid #9fefff;color:#fff;text-shadow:0 0 10px rgba(255,255,255,.5);" +
+              "box-shadow:0 22px 34px rgba(0,0,0,.6),0 0 28px rgba(120,200,255,.75)";
+            P.appendChild(p);
+            pills.push([p, i]);
+          }
+        });
+      }
+      const tl = gsap.timeline({ paused: true });
+      // PK, 20-11-2026: after the fast cuts, the games float down into their own slots and the wall fills the frame;
+      // each name card shows as its game lands (a soft pop on each, placed in index.html).
+      // Landing order: the last game of the run (x164) first, then row by row from the top. Times are local seconds.
+      const order = tiles.map((t, i) => i).filter((i) => tiles[i].dataset.g !== "x164-neon-chest");
+      const first = tiles.findIndex((t) => t.dataset.g === "x164-neon-chest");
+      const landAt = {};
+      tl.fromTo(tiles[first], { z: 520, rotationZ: 8, opacity: 1 }, { z: 0, rotationZ: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0);
+      landAt[first] = 0.6;
+      order.forEach((i, n) => {
+        const t0 = 0.08 + n * 0.075;
+        const rz = ((i * 37) % 11) - 5; // fixed small tilt per tile, no randomness
+        tl.fromTo(tiles[i], { z: 480, rotationZ: rz * 2 }, { z: 0, rotationZ: 0, duration: 0.6, ease: "power3.out" }, t0);
+        tl.fromTo(tiles[i], { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, t0);
+        landAt[i] = t0 + 0.6;
+      });
+      pills.forEach(([p, i]) => {
+        // the card faces the camera (undoes the wall's tilt: rotateX 48, rotateZ -32) and springs up above its screen
+        tl.fromTo(p, { xPercent: -50, rotation: 32, rotationX: -48, z: 0, scale: 0.3, opacity: 0, transformOrigin: "50% 100%" },
+          { xPercent: -50, rotation: 32, rotationX: -48, z: 90, scale: 1, opacity: 1, duration: 0.38, ease: "back.out(2.2)" }, landAt[i] - 0.05);
+      });
+      window.__s6bPills = pills.map(([p, i]) => +(landAt[i] - 0.05).toFixed(2));
+      // the camera starts close on the top rows and pulls back while the wall fills, then keeps flowing
+      tl.fromTo("#s6b-cam", { scale: 1.5, y: 320, x: 110 }, { scale: 1, y: -180, x: -30, duration: 4.0, ease: "sine.inOut" }, 0);
+      tl.to("#s6b-cam", { y: -430, x: -70, duration: 1.75, ease: "sine.in" }, 4.0);
+      tl.fromTo("#s6b-t1", { opacity: 0, filter: "blur(8px)", y: 14 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.35, ease: "power3.out" }, 0.45);
+      tl.fromTo("#s6b-t2", { opacity: 0, filter: "blur(8px)", y: 14 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.35, ease: "power3.out" }, 0.75);
+      tl.to("#s6b-t2 .hl", { textShadow: "0 0 50px rgba(80,210,255,1), 0 0 2px #fff", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.2);
+      tl.to(["#s6b-t1", "#s6b-t2", "#s6b-stage"], { opacity: 0, filter: "blur(8px)", duration: 0.25 }, 5.72);
+      window.__timelines["s6b"] = tl;
+    })();
+  </script>
+</template>

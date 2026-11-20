@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .s2-o { opacity: 0; }
+    .s2-item { position: absolute; display: block; filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55)); }
+    /* white name card, as in PK's layout (20-11-2026) */
+    .s2-tag { position: absolute; height: 93px; padding: 0 34px; display: flex; align-items: center; background: #fff; border-radius: 8px;
+      font-weight: 700; font-size: 50px; color: #24164f; white-space: nowrap;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 34px rgba(170, 150, 255, 0.45); }
+    #s2-ul { border-bottom: 4px solid #8fe9ff; padding-bottom: 6px; box-shadow: 0 10px 18px -12px rgba(80, 210, 255, 0.9); }
+  </style>
+  <!-- Shot 2 (PK's layout, 20-11-2026): the games every site has, stacked bottom to top: wheels, boxes, cards.
+       Each group lands, then its name card slides in; the last card lands on "ซื้อเพิ่ม". -->
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div class="sub s2-o" id="s2-a" style="top: 185px; color: #e7e1ff"><span id="s2-ul">เกมเดิมๆ ที่ใครๆ ก็มี</span></div>
+    <div class="title s2-o" id="s2-b" style="top: 300px; font-size: 74px">อยากได้เกมใหม่ก็ต้อง<span class="hl">ซื้อเพิ่ม</span></div>
+
+    <!-- wheels -->
+    <img class="s2-item s2-o" id="s2-wg" src="assets/games/stack/wheel-gold.png" alt="" style="left: 120px; top: 1420px; width: 450px" />
+    <img class="s2-item s2-o" id="s2-wn" src="assets/games/stack/wheel-green.png" alt="" style="left: 450px; top: 1270px; width: 620px" />
+    <div class="s2-tag s2-o" id="s2-t3" style="left: 150px; top: 1335px">วงล้อนำโชค</div>
+    <!-- boxes -->
+    <img class="s2-item s2-o" id="s2-ch" src="assets/games/stack/chest.png" alt="" style="left: 10px; top: 820px; width: 440px" />
+    <img class="s2-item s2-o" id="s2-gb" src="assets/games/stack/giftbox-open.png" alt="" style="left: 390px; top: 890px; width: 440px" />
+    <div class="s2-tag s2-o" id="s2-t2" style="left: 610px; top: 948px">กล่องสุ่ม</div>
+    <!-- cards -->
+    <img class="s2-item s2-o" id="s2-cd" src="assets/games/stack/cards.png" alt="" style="left: 560px; top: 400px; width: 460px" />
+    <div class="s2-tag s2-o" id="s2-t1" style="left: 130px; top: 500px">เปิดไพ่ลุ้นล้าน</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const C = "50% 50%";
+      // voice (s2 local): "เว็บไหนๆ ก็มี" 0.05-1.24, "อยากจะเปลี่ยน ก็ต้องซื้อเพิ่ม" 1.40-2.90 ("ซื้อ" 2.39), "น่าเบื่อใช่ไหมล่ะครับ" 3.05-4.58
+      const enter = (sel, t) => tl.fromTo(sel, { opacity: 0, filter: "blur(8px)", y: 14 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const tag = (sel, t) => tl.fromTo(sel, { opacity: 0, x: -60, clipPath: "inset(0% 100% 0% 0%)" }, { opacity: 1, x: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.32, ease: "power3.out" }, t);
+      enter("#s2-a", 0.05);
+      enter("#s2-b", 1.4);
+      // 1. wheels: both land, then the name card
+      tl.fromTo("#s2-wg", { opacity: 0, scale: 0.5, rotation: -120, y: 120, transformOrigin: C }, { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0.15);
+      tl.fromTo("#s2-wn", { opacity: 0, scale: 0.5, rotation: 120, y: 120, transformOrigin: C }, { opacity: 1, scale: 1, rotation: 0, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0.32);
+      tag("#s2-t3", 0.62);
+      // 2. boxes
+      tl.fromTo("#s2-ch", { opacity: 0, scale: 0.4, y: 100, rotation: -12, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, y: 0, rotation: 0, duration: 0.42, ease: "back.out(1.8)" }, 1.0);
+      tl.fromTo("#s2-gb", { opacity: 0, scale: 0.4, y: 100, rotation: 12, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, y: 0, rotation: 0, duration: 0.42, ease: "back.out(1.8)" }, 1.14);
+      tag("#s2-t2", 1.42);
+      // 3. cards, the name card lands on "ซื้อเพิ่ม"
+      tl.fromTo("#s2-cd", { opacity: 0, x: 220, rotation: 25, scale: 0.7, transformOrigin: C }, { opacity: 1, x: 0, rotation: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 1.8);
+      tag("#s2-t1", 2.12);
+      // the wheels keep turning slowly while the stack holds
+      tl.to("#s2-wg", { rotation: -40, duration: 3.9, ease: "sine.inOut" }, 0.65);
+      tl.to("#s2-wn", { rotation: 40, duration: 3.8, ease: "sine.inOut" }, 0.82);
+      // collapse toward the middle for shot 3
+      tl.to(["#s2-cd", "#s2-t1"], { y: 520, scale: 0.4, opacity: 0, duration: 0.4, ease: "power2.in" }, 4.55);
+      tl.to(["#s2-ch", "#s2-gb", "#s2-t2"], { y: 80, scale: 0.4, opacity: 0, duration: 0.4, ease: "power2.in" }, 4.55);
+      tl.to(["#s2-wg", "#s2-wn", "#s2-t3"], { y: -420, scale: 0.4, opacity: 0, duration: 0.4, ease: "power2.in" }, 4.55);
+      tl.to(["#s2-a", "#s2-b"], { opacity: 0, filter: "blur(8px)", duration: 0.25 }, 4.65);
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

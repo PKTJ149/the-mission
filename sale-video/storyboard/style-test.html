@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Style test v2</title>
+<!-- Look test after PK's reference (flashmotion.io, Creative Force film): indigo-to-magenta light,
+     glass-edged screens in 3D, glowing pills, centred kinetic type. ?frame=a|b|c shows one 1080x1920 still. -->
+<style>
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Medium.ttf);font-weight:500}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-SemiBold.ttf);font-weight:600}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Bold.ttf);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:PlexThai,sans-serif;background:#111;color:#fff}
+.frame{position:relative;width:1080px;height:1920px;overflow:hidden;
+  background:
+    radial-gradient(900px 700px at 18% 8%, rgba(124,92,255,.55), transparent 70%),
+    radial-gradient(800px 900px at 92% 78%, rgba(214,58,196,.42), transparent 70%),
+    radial-gradient(700px 500px at 50% 50%, rgba(60,40,170,.35), transparent 70%),
+    #090720}
+.frame>*{position:absolute}
+.beam{left:-300px;top:-200px;width:900px;height:1400px;transform:rotate(-28deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.10) 45%,rgba(255,255,255,.16) 50%,rgba(255,255,255,.10) 55%,transparent);filter:blur(30px)}
+.title{left:0;width:1080px;text-align:center;font-weight:700;font-size:104px;line-height:1.2;
+  text-shadow:0 0 34px rgba(170,150,255,.65),0 0 2px rgba(255,255,255,.8)}
+.sub{left:0;width:1080px;text-align:center;font-weight:500;font-size:46px;color:#CFC6FF;text-shadow:0 0 20px rgba(140,120,255,.6)}
+.hl{color:#8FE9FF;text-shadow:0 0 30px rgba(80,210,255,.9),0 0 2px #fff}
+.stage{perspective:2000px}
+.glass{border-radius:44px;overflow:hidden;border:2px solid rgba(205,195,255,.75);
+  box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 46px rgba(140,115,255,.65),0 40px 90px rgba(0,0,0,.65)}
+.glass img{display:block;width:100%}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:14px 34px;border-radius:999px;font-weight:600;font-size:40px;white-space:nowrap;
+  background:rgba(60,190,255,.16);border:2px solid #84E6FF;color:#E4FAFF;box-shadow:0 0 26px rgba(80,200,255,.75),0 0 2px #fff inset}
+.pill.dim{background:rgba(255,255,255,.06);border-color:rgba(205,195,255,.35);color:#B9B0E6;box-shadow:none}
+/* iPhone 15 Pro Max style frame: titanium band, black bezel, Dynamic Island, status bar */
+.rig{transform-style:preserve-3d;width:648px;height:1349px}
+/* slabs stacked behind the face give the body its thickness when the rig turns */
+.rig .slab{position:absolute;inset:0;border-radius:96px}
+.phone{position:relative;width:648px;height:1349px;border-radius:96px;padding:6px;transform:translateZ(0);
+  background:linear-gradient(120deg,#e9e6f2 0%,#6d6a76 10%,#2e2d35 30%,#8f8c99 52%,#2b2a31 74%,#b9b6c4 92%,#55535d 100%);
+  box-shadow:inset 3px 0 3px rgba(255,255,255,.75),inset -3px 0 4px rgba(0,0,0,.7),inset 0 3px 3px rgba(255,255,255,.45),
+             0 0 40px rgba(140,115,255,.45)}
+.phone .sheen{position:absolute;inset:18px;border-radius:72px;z-index:4;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.08) 22%,transparent 38%,transparent 70%,rgba(255,255,255,.06) 100%)}
+.rig .btn{position:absolute;width:10px;border-radius:5px;background:linear-gradient(90deg,#55535c,#c4c1cc,#55535c)}
+.phone .screen{position:relative;width:636px;height:1337px;border-radius:90px;background:#000;padding:18px;overflow:hidden}
+.phone .screen img{display:block;width:600px;height:1301px;border-radius:72px;object-fit:cover;object-position:top}
+.phone .status{position:absolute;left:18px;top:18px;width:600px;height:74px;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:0 52px 0 64px;
+  font-weight:600;font-size:32px;color:#fff;background:#000;border-radius:72px 72px 0 0}
+.phone .icons{display:flex;align-items:flex-end;gap:5px}
+.phone .icons b{display:block;width:6px;background:#fff;border-radius:2px}
+.phone .icons svg{margin-left:8px}
+.phone .bat{margin-left:8px;width:46px;height:24px;border:2px solid rgba(255,255,255,.55);border-radius:7px;padding:2px;align-self:center}
+.phone .bat span{display:block;width:80%;height:100%;background:#fff;border-radius:4px}
+.phone .island{position:absolute;left:50%;top:32px;width:176px;height:52px;margin-left:-88px;background:#000;border-radius:26px;z-index:3;box-shadow:0 0 0 2px #0a0a0a}
+.phone .screen img{margin-top:56px;height:1245px;border-radius:0 0 72px 72px}
+.board{display:flex;gap:30px;padding:30px;background:#1a1a1a}
+.board .s{width:360px;height:640px;overflow:hidden;border-radius:10px}
+.board .s .frame{transform:scale(.3333);transform-origin:0 0}
+body.single .board{padding:0;gap:0}
+body.single .board .s{display:none;width:1080px;height:1920px;border-radius:0}
+body.single .board .s.on{display:block}
+body.single .board .s .frame{transform:none}
+</style>
+</head>
+<body>
+<div class="board">
+
+<!-- A: hook -->
+<div class="s" data-f="a"><section class="frame">
+  <div class="beam"></div>
+  <div class="title" style="top:250px">กล่องสุ่ม</div>
+  <div class="sub" style="top:390px">→ เปิดไพ่ → วงล้อ</div>
+  <div class="stage" style="left:0;top:520px;width:1080px;height:1300px">
+    <div class="glass" style="position:absolute;left:150px;top:30px;width:780px;height:1130px;transform:rotateY(-16deg) rotateX(7deg) rotateZ(1.5deg)">
+      <img src="../assets/games/20-gold-boxes/screen-2-grid.png" alt="">
+    </div>
+  </div>
+  <!-- tap: glowing ring + cursor -->
+  <div style="left:470px;top:1205px;width:150px;height:150px;border-radius:50%;border:5px solid #8FE9FF;box-shadow:0 0 30px rgba(80,210,255,.9),inset 0 0 20px rgba(80,210,255,.6)"></div>
+  <svg style="left:560px;top:1290px;width:90px;height:110px;filter:drop-shadow(0 0 14px rgba(140,230,255,.9))" viewBox="0 0 24 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17 Z" fill="#fff" stroke="#0b0820" stroke-width="1.2" stroke-linejoin="round"/></svg>
+</section></div>
+
+<!-- B: festival year -->
+<div class="s" data-f="b"><section class="frame">
+  <div class="beam"></div>
+  <div class="sub" style="top:200px">ปฏิทินเกม ทั้งปี</div>
+  <div class="title" style="top:270px">วาเลนไทน์</div>
+  <div style="left:120px;top:470px;width:4px;height:1330px;background:linear-gradient(#84E6FF,rgba(132,230,255,.15));box-shadow:0 0 16px rgba(80,200,255,.8)"></div>
+  <div style="left:60px;top:520px;display:flex;flex-direction:column;gap:110px;align-items:flex-start">
+    <span class="pill dim">ตรุษจีน</span><span class="pill">วาเลนไทน์</span><span class="pill dim">สงกรานต์</span><span class="pill dim">ฮาโลวีน</span><span class="pill dim">ลอยกระทง</span><span class="pill dim">คริสต์มาส</span>
+  </div>
+  <!-- iPhone drawn in CSS 3D so it can turn in the film (PK, 20-11-2026: use this one, not the flat mockup image).
+       Screen 600 x 1301 = the game's 430 x 932. Body depth is built from slabs in the script below. -->
+  <div class="stage" style="left:300px;top:440px;width:780px;height:1460px">
+    <div class="rig" id="rig" style="position:absolute;left:62px;top:30px;transform:rotateY(-26deg) rotateX(7deg) rotateZ(-2deg)">
+      <i class="btn" style="left:-5px;top:250px;height:60px"></i>
+      <i class="btn" style="left:-5px;top:360px;height:110px"></i>
+      <i class="btn" style="left:-5px;top:490px;height:110px"></i>
+      <i class="btn" style="right:-5px;top:400px;height:170px"></i>
+      <div class="phone">
+        <div class="screen">
+          <div class="status"><span>9:41</span>
+            <span class="icons"><b style="height:12px"></b><b style="height:17px"></b><b style="height:22px"></b><b style="height:27px"></b>
+            <svg width="36" height="26" viewBox="0 0 24 18"><path d="M12 16 L9 13 A4.5 4.5 0 0 1 15 13 Z M5.5 9.5 A9 9 0 0 1 18.5 9.5 L16.5 11.5 A6 6 0 0 0 7.5 11.5 Z M2 6 A14 14 0 0 1 22 6 L20 8 A11 11 0 0 0 4 8 Z" fill="#fff"/></svg>
+            <span class="bat"><span></span></span></span></div>
+          <div class="island"></div>
+          <img src="../assets/games/13-valentine-heart/screen-2-grid.png" alt="">
+          <div class="sheen"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></div>
+
+<!-- C: wall, tilted plane with name pills -->
+<div class="s" data-f="c"><section class="frame">
+  <div class="beam"></div>
+  <div class="stage" style="left:-500px;top:380px;width:2080px;height:1900px;perspective:2400px">
+    <div id="plane" style="position:absolute;left:0;top:0;width:2080px;height:1900px;transform:rotateX(48deg) rotateZ(-32deg) translateZ(-120px);transform-origin:50% 40%"></div>
+  </div>
+  <div class="title" style="top:200px">สร้างสรรค์เกม</div>
+  <div class="title" style="top:335px;font-size:76px">ได้<span class="hl">หลากหลาย</span> ดั่งใจนึก</div>
+</section></div>
+
+</div>
+<script>
+// tilted wall: 7 x 6 game screens, a few carry glowing name pills (like the reference's tagged grid)
+const games=[["x174-sushi","x","ซูชินำโชค"],["13-valentine-heart","g"],["x176-cats","x"],["21-wheel-gold","s","วงล้อนำโชค"],["04-krathong","g"],["x177-aliens","x"],["11-cny-pouch","g"],
+ ["x170-floating-market","x"],["20-gold-boxes","g"],["x173-diamond-mine","x","เหมืองเพชรนำโชค"],["05-songkran-bowl","g"],["25-wheel-temple-fair","s"],["x169-space-gear","x"],["07-santa-chest","g","ของขวัญจากซานต้า"],
+ ["09-halloween-chest","g"],["x167-coconut-beach","x"],["19-gold-cards","g"],["x181-race-cars","x"],["24-wheel-fruit-soda","s"],["x172-childrens-day","x","ของขวัญวันเด็กนำโชค"],["16-balloons","c"],
+ ["x175-fortune-sticks","x"],["27-wheel-halloween","s"],["x166-temple-fair-jars","x"],["14-fireworks","c","ดอกไม้ไฟนำโชค"],["x168-vegetarian-tiffin","x"],["10-candy-jars","c"],["x162-christmas-village","x"],
+ ["02-claw-machine","c"],["x164-neon-chest","x"],["15-gold-eggs","c"],["x165-songkran-watergun","x"],["26-wheel-sunflower","s"],["18-steam-train","c"],["x163-lantern-chest","x"],
+ ["06-cupcake-houses","c"],["22-wheel-blue","s"],["03-planets","c"],["17-red-envelopes","c"],["12-fruit-basket","c"],["08-boxing","c"],["23-wheel-pink","s"]];
+const file={c:"screen-1-cover.png",g:"screen-2-grid.png",s:"screen.png"};
+const P=document.getElementById("plane"); const W=250,H=542,G=40;
+games.forEach(([g,k,name],i)=>{
+  const c=i%7, r=Math.floor(i/7);
+  const src=k==="x"?`extra/${g}.png`:`${g}/${file[k]}`;
+  const d=document.createElement("div");
+  d.style.cssText=`position:absolute;left:${60+c*(W+G)}px;top:${40+r*(H+G)}px;width:${W}px;height:${H}px;border-radius:26px;overflow:hidden;border:2px solid rgba(205,195,255,.55);box-shadow:0 0 30px rgba(140,115,255,.45)`;
+  d.innerHTML=`<img src="../assets/games/${src}" style="width:${W}px;height:${H}px;object-fit:cover;display:block">`;
+  P.appendChild(d);
+  if(name){const p=document.createElement("span");p.className="pill";p.textContent=name;
+    p.style.cssText+=`;position:absolute;left:${60+c*(W+G)+W/2}px;top:${40+r*(H+G)+H-60}px;transform:translateX(-50%);font-size:34px;padding:10px 26px`;P.appendChild(p);}
+});
+// Phone body depth: 32 slabs, 2 px apart = 64 px, about a real iPhone's 8.25 mm on a 77.6 mm wide body.
+// Middle slabs are brighter (the rounded titanium edge catches the light); the back one casts the shadow.
+const qs=new URLSearchParams(location.search);
+const rig=document.getElementById("rig");
+if(rig){
+  const N=32, STEP=2;
+  for(let k=N;k>=1;k--){const s=document.createElement("div");s.className="slab";
+    const t=k/N, l=Math.round(34+28*Math.sin(Math.PI*t));
+    s.style.cssText=`transform:translateZ(${-k*STEP}px);background:linear-gradient(90deg,hsl(250,7%,${l+18}%),hsl(250,6%,${l}%) 45%,hsl(250,6%,${l-14}%))`+
+      (k===N?";box-shadow:60px 70px 120px rgba(0,0,0,.8),0 0 70px rgba(150,110,255,.45)":"");
+    rig.insertBefore(s,rig.firstChild);}
+  // side buttons sit half-way into the body
+  rig.querySelectorAll(".btn").forEach(b=>b.style.transform=`translateZ(${-N*STEP/2}px)`);
+  // ?ry=..&rx=.. turns the phone, to check it from other angles
+  if(qs.get("ry")) rig.style.transform=`rotateY(${qs.get("ry")}deg) rotateX(${qs.get("rx")||6}deg) rotateZ(${qs.get("rz")||0}deg)`;
+}
+const f=qs.get("frame");
+if(f){document.body.classList.add("single");document.querySelector(`.s[data-f="${f}"]`)?.classList.add("on");}
+</script>
+</body>
+</html>
