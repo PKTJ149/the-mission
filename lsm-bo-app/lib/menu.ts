@@ -109,8 +109,10 @@ export const MENU: MenuEntry[] = [
   },
   // CHANGED (PK, 16/11/2026): the original's "ตั้งค่าโปรโมชั่นมินิเกม" item inside โปรโมชั่น is now
   // its own top-level "Minigames" item, highlighted with an animated icon to draw clicks.
-  // It links to our own /minigames page (promo for merchants who have not subscribed yet).
-  { ...link("Minigames", "/minigames", "pi-cog"), featured: true },
+  // It links to our own Minigames sale page (promo for merchants who have not subscribed yet).
+  // CHANGED (PK, 21-11-2026): now opens the new sale page with the video (/minigames-preview).
+  // The older promo page still lives at /minigames.
+  { ...link("Minigames", "/minigames-preview", "pi-cog"), featured: true },
   {
     kind: "group",
     key: "affiliate",
