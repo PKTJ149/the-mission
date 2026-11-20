@@ -1,0 +1,403 @@
+<title>Back Office Settings Audit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~960px) with a sticky section bar; findings live in tables that scroll on their own at phone width. */
+:root {
+  --bg: #f6f8f7;
+  --surface: #ffffff;
+  --fg: #16201e;
+  --muted: #5a6866;
+  --line: #dbe3e1;
+  --accent: #2f7f76;           /* emerald of the back office theme */
+  --accent-soft: #e2f1ee;
+  --p0: #b42318; --p0-bg: #fde8e6;
+  --p1: #b54708; --p1-bg: #fdefe0;
+  --p2: #6b5b00; --p2-bg: #f7f1cf;
+  --p3: #475467; --p3-bg: #eceff3;
+  --ours: #2f7f76; --ours-bg: #e2f1ee;
+  --orig: #5b4fbf; --orig-bg: #ecebfb;
+  --code-bg: #eef2f1;
+  --font-body: "IBM Plex Sans Thai", "Sukhumvit Set", "Thonburi", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1615; --surface: #172120; --fg: #e4ecea; --muted: #9aaba8; --line: #2a3735;
+    --accent: #6cc4b9; --accent-soft: #1d3330;
+    --p0: #ff9c90; --p0-bg: #3a1714; --p1: #ffb877; --p1-bg: #3a2512;
+    --p2: #e8d66a; --p2-bg: #322d0c; --p3: #b8c2d0; --p3-bg: #252c35;
+    --ours: #6cc4b9; --ours-bg: #1d3330; --orig: #b3abff; --orig-bg: #25224a;
+    --code-bg: #1f2b29; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #172120; --fg: #e4ecea; --muted: #9aaba8; --line: #2a3735;
+  --accent: #6cc4b9; --accent-soft: #1d3330;
+  --p0: #ff9c90; --p0-bg: #3a1714; --p1: #ffb877; --p1-bg: #3a2512;
+  --p2: #e8d66a; --p2-bg: #322d0c; --p3: #b8c2d0; --p3-bg: #252c35;
+  --ours: #6cc4b9; --ours-bg: #1d3330; --orig: #b3abff; --orig-bg: #25224a;
+  --code-bg: #1f2b29; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.75; }
+.wrap { max-width: 1000px; margin: 0 auto; padding-block: 32px 80px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { line-height: 1.3; text-wrap: balance; margin: 0; }
+h1 { font-size: 1.9rem; font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 700; margin-top: 48px; padding-top: 8px; }
+h3 { font-size: 1.05rem; font-weight: 600; margin-top: 28px; }
+p { margin: 8px 0; max-width: 72ch; }
+code, .mono { font-family: var(--font-mono); font-size: 0.82em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--accent); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
+.notice { margin-top: 16px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 6px 6px 0; max-width: 72ch; }
+
+/* sticky nav + filter */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); margin-top: 24px; padding-block: 10px; display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.9rem; }
+.bar a { color: var(--fg); text-decoration: none; border-bottom: 1px solid transparent; }
+.bar a:hover, .bar a:focus-visible { border-bottom-color: var(--accent); outline: none; }
+.filter { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.85rem; }
+.filter span { color: var(--muted); margin-right: 2px; }
+.filter button { font: inherit; font-size: 0.82rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.filter button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.filter button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* summary */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 20px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+.stat b { display: block; font-size: 1.7rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.stat small { color: var(--muted); font-size: 0.82rem; }
+.stat.p0 b { color: var(--p0); } .stat.p1 b { color: var(--p1); } .stat.p2 b { color: var(--p2); } .stat.p3 b { color: var(--p3); }
+ol.top { padding-left: 22px; max-width: 76ch; } ol.top li { margin: 8px 0; }
+
+/* tables */
+.tbl { overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; background: var(--bg); position: sticky; top: 0; }
+tr:last-child td { border-bottom: 0; }
+td.id { font-family: var(--font-mono); font-size: 0.8rem; white-space: nowrap; color: var(--muted); }
+td.where { min-width: 180px; max-width: 240px; }
+td.problem { min-width: 260px; }
+td.fix { min-width: 220px; }
+.legend td:first-child { white-space: nowrap; }
+
+.pill { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 1px 8px; border-radius: 999px; white-space: nowrap; letter-spacing: 0.02em; }
+.pill.p0 { color: var(--p0); background: var(--p0-bg); } .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+.pill.p2 { color: var(--p2); background: var(--p2-bg); } .pill.p3 { color: var(--p3); background: var(--p3-bg); }
+.pill.ours { color: var(--ours); background: var(--ours-bg); } .pill.orig { color: var(--orig); background: var(--orig-bg); }
+.sec-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+ul.plain { padding-left: 20px; max-width: 80ch; } ul.plain li { margin: 6px 0; }
+.decide { display: grid; gap: 10px; margin-top: 12px; }
+.decide > div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+.decide b { display: block; }
+.rec { color: var(--accent); font-weight: 600; }
+footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 14px; }
+.hidden-by-filter { display: none; }
+@media (max-width: 640px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  h1 { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">backoffice-app · Audit คำ หัวข้อ และตรรกะ</div>
+    <h1>Audit ระบบตั้งค่าหลังบ้าน</h1>
+    <div class="meta">
+      <span>20-11-2026</span>
+      <span>ตั้งค่ามินิเกมส์ (หน้ารายการ + wizard 6 ขั้นตอน)</span>
+      <span>ตั้งค่าภารกิจ (หน้ารายการ + ฟอร์ม)</span>
+    </div>
+    <p class="notice"><strong>เป็นรายงานอย่างเดียว ยังไม่ได้แก้อะไรเลย</strong> ไม่ได้ตรวจหน้าตา ความเหมือนต้นฉบับระดับพิกเซล และ accessibility (ความเหมือนระดับพิกเซลตรวจไปแล้วใน audit วันที่ 15-11-2026)</p>
+  </header>
+
+  <div class="bar">
+    <nav aria-label="หมวด">
+      <a href="#summary">สรุป</a>
+      <a href="#ours">A · ของเรา</a>
+      <a href="#minigame">B · มินิเกมส์</a>
+      <a href="#mission">C · ภารกิจ</a>
+      <a href="#decisions">ต้องตัดสินใจ</a>
+    </nav>
+    <div class="filter" role="group" aria-label="กรองตามระดับ">
+      <span>แสดง</span>
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">ทั้งหมด</button>
+      <button type="button" id="f-p0" data-f="p0" aria-pressed="false">P0</button>
+      <button type="button" id="f-p1" data-f="p1" aria-pressed="false">P1</button>
+      <button type="button" id="f-p2" data-f="p2" aria-pressed="false">P2</button>
+      <button type="button" id="f-p3" data-f="p3" aria-pressed="false">P3</button>
+    </div>
+  </div>
+
+  <section id="summary">
+    <h2>สรุป</h2>
+    <div class="stats">
+      <div class="stat p0"><b>2</b><small>P0 · แสดงหรือบันทึกข้อมูลผิด</small></div>
+      <div class="stat p1"><b>17</b><small>P1 · ทำให้ตั้งค่าผิดหรือบันทึกไม่ได้</small></div>
+      <div class="stat p2"><b>54</b><small>P2 · สับสนหรือไม่สม่ำเสมอ</small></div>
+      <div class="stat p3"><b>14</b><small>P3 · คำผิดและเก็บรายละเอียด (นับเป็นกลุ่ม)</small></div>
+    </div>
+    <div class="tbl" style="margin-top:14px">
+      <table>
+        <thead><tr><th>ที่มา</th><th>P0</th><th>P1</th><th>P2</th><th>P3</th><th>รวม</th><th>ใครตัดสินใจ</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill ours">ของเรา</span></td><td>2</td><td>2</td><td>4</td><td>3</td><td><b>11</b></td><td>แก้ได้เลย ไม่ต้องรอใคร</td></tr>
+          <tr><td><span class="pill orig">ต้นฉบับ</span> มินิเกมส์</td><td>0</td><td>7</td><td>35</td><td>7</td><td><b>49</b></td><td>PK ตัดสินทีละข้อ</td></tr>
+          <tr><td><span class="pill orig">ต้นฉบับ</span> ภารกิจ</td><td>0</td><td>8</td><td>15</td><td>4</td><td><b>27</b></td><td>PK ตัดสินทีละข้อ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem">ตัวเลขนับตามแถวในตาราง <b>ของเรา</b> = rebuild ของเราทำต่างจากต้นฉบับ <b>ต้นฉบับ</b> = ระบบเดิมก็ผิดแบบนี้อยู่แล้ว เราลอกมาตามกฎ ถ้าแก้จะผิดกฎ "ลอกต้นฉบับให้เหมือน"</p>
+
+    <h3>5 เรื่องที่สำคัญที่สุด</h3>
+    <ol class="top">
+      <li><b>หน้าสรุปขั้นตอน 6 แสดงข้อมูลผิด</b> <span class="pill ours">ของเรา</span> <span class="pill p0">P0</span> แถวกลุ่มลูกค้าขึ้น 3 กลุ่มปลอม ("New Customer / Commander / VIP") ตลอด และแถว "มินิเกมส์ที่หักสิทธิ์" ไม่มีชื่อเกม</li>
+      <li><b>บันทึกมินิเกมแล้วค่าหาย</b> <span class="pill ours">ของเรา</span> <span class="pill p1">P1</span> ตอนบันทึกไม่อ่านประเภทยอดฝากจากขั้นตอน 3 และบันทึกลิมิตรางวัลทุกช่องเป็น 0</li>
+      <li><b>ฟอร์มภารกิจบันทึกไม่ได้ แต่ไม่บอกว่าผิดตรงไหน</b> <span class="pill orig">ต้นฉบับ</span> <span class="pill p1">P1</span> แอดมินเห็นแค่ "ทำรายการไม่สำเร็จ ! / กรุณาตรวจสอบข้อมูลภารกิจของคุณ"</li>
+      <li><b>คำหรือ error ที่เป็นของช่องอื่น</b> <span class="pill orig">ต้นฉบับ</span> error ชื่อภารกิจย่อยบอกให้กรอก<i>ชื่อของรางวัล</i> error ประเภทโบนัสบอกให้เลือก<i>ประเภทการฝาก</i> และมีส่วนหนึ่งที่หัวข้อกับตัวเลือกทั้ง 2 อันใช้คำเดียวกัน</li>
+      <li><b>ขาดการตรวจค่า ทำให้ข้อมูลผิดผ่านไปได้</b> <span class="pill orig">ต้นฉบับ</span> <span class="pill p1">P1</span> เวลาสิ้นสุดก่อนเวลาเริ่มได้ ช่วงวันที่ว่างได้ โอกาสออกรวมกันไม่ต้องได้ 100% เปิดตรวจยอด Balance โดยไม่ใส่ยอดได้</li>
+    </ol>
+    <p>วิธีตรวจ: ผู้ช่วย 4 ตัวอ่านโค้ดคนละส่วนแบบอ่านอย่างเดียว เทียบกับโค้ด jQuery ต้นฉบับ <code>th.json</code>/<code>en.json</code> และหน้าที่ capture ไว้ จากนั้นเช็กซ้ำด้วยมือทุกข้อ P0 ทุกข้อที่เป็น "ของเรา" และ P1 ข้อหลัก</p>
+  </section>
+
+  <section id="ours">
+    <h2 class="sec-head">A · ปัญหาใน rebuild ของเรา <span class="pill ours">แก้ได้เลย</span></h2>
+    <div class="tbl"><table>
+      <thead><tr><th>ID</th><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>วิธีแก้</th></tr></thead>
+      <tbody>
+        <tr data-sev="p0"><td class="id">A1</td><td><span class="pill p0">P0</span></td><td class="where"><code>step6-summary.tsx:619-625</code>, <code>wizard-summary.ts:148</code></td><td class="problem">ถ้าเปิดจำกัดกลุ่มลูกค้า หน้าสรุปจะขึ้นชิป "New Customer / Commander / VIP" ที่ฝังไว้ตายตัวเสมอ ไม่มีโค้ดส่วนไหนเอากลุ่มที่เลือกในขั้นตอน 2 มาใส่ (ต้นฉบับ: <code>scriptminigame.js:2072-2083</code>)</td><td class="fix">ลบชิปที่ฝังไว้ แล้วสร้างชิปตามกลุ่มที่เลือกจริง ถ้าไม่ได้เลือกให้ขึ้น "-"</td></tr>
+        <tr data-sev="p0"><td class="id">A2</td><td><span class="pill p0">P0</span></td><td class="where"><code>wizard-summary.ts:156-165</code>; <code>step2-period.tsx:1019, 1025</code></td><td class="problem">แถว "มินิเกมส์ที่หักสิทธิ์" ขึ้น "Mini Game - " โดยไม่มีชื่อเกมเสมอ เพราะไม่มีโค้ดเขียนค่าลง <code>#minigameGameName-n</code> / <code>#minigameIsLuckyWheel-n</code> วงล้อเลยถูกเรียกว่า "Mini Game" ด้วย</td><td class="fix">ให้ <code>pickChanceGame</code> เขียนชื่อเกมและค่าว่าเป็นวงล้อหรือไม่ หรืออ่านจากตัวที่เลือกใน dropdown ตรงๆ</td></tr>
+        <tr data-sev="p1"><td class="id">A3</td><td><span class="pill p1">P1</span></td><td class="where"><code>wizard-summary.ts:222-224</code></td><td class="problem">บันทึกเป็น "ฝากขั้นต่ำ" เสมอและอ่านแค่ยอดขั้นต่ำ ตั้ง "ฝากเท่ากับ 500" แล้วการ์ดจะขึ้น "ฝากครั้งเดียว ฝากขั้นต่ำ  บาท"</td><td class="fix">บันทึกประเภทยอดฝากที่เลือกจริง พร้อมยอดของประเภทนั้น</td></tr>
+        <tr data-sev="p1"><td class="id">A4</td><td><span class="pill p1">P1</span></td><td class="where"><code>wizard-summary.ts:218</code>; <code>minigame-card.tsx:177</code></td><td class="problem">ลิมิตรางวัลแต่ละช่องถูกบันทึกเป็น 0 และไม่อัปเดตตอนแก้ไข ช่องที่จำกัด 50 ครั้งขึ้น "0/0" บนการ์ด ทั้งที่หน้าสรุปขึ้น 50</td><td class="fix">บันทึก <code>limitAmount</code> / <code>isUnlimited</code> จากขั้นตอน 4 เก็บจากของเดิมแค่ <code>givenOut</code></td></tr>
+        <tr data-sev="p2"><td class="id">A5</td><td><span class="pill p2">P2</span></td><td class="where"><code>wheel-detail-modal.tsx:11-26</code></td><td class="problem">popup โบนัสบนการ์ดไม่แสดงค่า 5 จาก 6 ประเภทโบนัส และมี "Mini game coupon - " ห้อยอยู่ เห็นได้แล้วใน mock data ตอนนี้</td><td class="fix">ยกข้อความมาจาก <code>getMinigameDetail</code> (legacy 6213-6232)</td></tr>
+        <tr data-sev="p2"><td class="id">A6</td><td><span class="pill p2">P2</span></td><td class="where"><code>wizard-summary.ts:150-153</code></td><td class="problem">แถว Reset แสดงแค่ประเภท ไม่มีเวลา ("00:00") หรือระยะเวลาเหมือนต้นฉบับ</td><td class="fix">ต่อท้ายด้วยเวลาหรือระยะเวลา Reset</td></tr>
+        <tr data-sev="p2"><td class="id">A7</td><td><span class="pill p2">P2</span></td><td class="where"><code>wizard-summary.ts:176-184</code></td><td class="problem">ปิด Turnover อยู่ แต่หน้าสรุปขึ้น "ต้องทำ Turnover ขั้นต่ำ 0 บาท" คู่กับ "ปิดใช้งาน"</td><td class="fix">ถ้าส่วนนั้นปิดอยู่ให้ขึ้น "-" และไม่เติม "0" ให้ช่องว่าง</td></tr>
+        <tr data-sev="p2"><td class="id">A8</td><td><span class="pill p2">P2</span></td><td class="where"><code>form-state.ts:115</code> กับ <code>validation.ts:16</code></td><td class="problem">ช่องอายุสมาชิกในฟอร์มภารกิจ: 2 ไฟล์ตัดสินว่าเลขถูกต้องไม่ตรงกัน พิมพ์ "abc" หรือ "-5" แล้ว error หาย แต่ส่วนนั้นยังไม่ครบ</td><td class="fix">ใช้ฟังก์ชันตรวจ <code>positive()</code> ตัวเดียวกันทั้ง 2 ไฟล์</td></tr>
+        <tr data-sev="p3"><td class="id">A9</td><td><span class="pill p3">P3</span></td><td class="where"><code>step4-display.tsx:1380</code></td><td class="problem">จำนวนชิ้นส่วนขึ้น "8 ชิ้น" แม้อยู่โหมดภาษาอังกฤษ</td><td class="fix">ใช้ <code>t("minigameSetting.piece")</code></td></tr>
+        <tr data-sev="p3"><td class="id">A10</td><td><span class="pill p3">P3</span></td><td class="where"><code>wizard-summary.ts:32-41, 115, 152</code>; <code>step6-summary.tsx:55, 227</code></td><td class="problem">ข้อความไทยที่ฝังในหน้าสรุป ยังเป็นไทยในโหมดอังกฤษ และมี <code>data-i18n</code> หนึ่งจุดที่ไม่ตรงกับข้อความแล้ว</td><td class="fix">เรียกผ่าน <code>t()</code> ด้วย key ที่มีอยู่แล้ว</td></tr>
+        <tr data-sev="p3"><td class="id">A11</td><td><span class="pill p3">P3</span></td><td class="where"><code>wizard-summary.ts</code>; <code>step1-detail.tsx:77-82</code></td><td class="problem">มีจุดต่างจากต้นฉบับเล็กๆ ที่ไม่ได้จดไว้ ("-" แทนช่องว่าง, ซ่อนวันที่, ตำแหน่งข้อความชื่อซ้ำ)</td><td class="fix">ใส่คอมเมนต์ <code>// ORIGINAL:</code> หรือทำให้เหมือนต้นฉบับ</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="minigame">
+    <h2 class="sec-head">B · ตั้งค่ามินิเกมส์ <span class="pill orig">ต้นฉบับ</span></h2>
+
+    <h3>P1 — ทำให้ตั้งค่าผิดได้</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ID</th><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>ข้อเสนอ</th></tr></thead>
+      <tbody>
+        <tr data-sev="p1"><td class="id">G1</td><td><span class="pill p1">P1</span></td><td class="where"><code>step4-display.tsx:452, 463, 474</code></td><td class="problem">มินิเกม Step 1: หัวข้อและตัวเลือก<b>ทั้ง 2 อัน</b>เขียนว่า "แสดงผลรูปแตกต่างกันทั้งหมด" แต่จริงๆ เป็นการเลือกเรียงตามลำดับหรือสุ่ม (<code>enableImageIdenticalSortBy</code>)</td><td class="fix">หัวข้อ "กำหนดลำดับการแสดงผลรูปตัวเลือก" ตัวเลือก "แสดงผลเรียงตามลำดับรูปตัวเลือก" / "แสดงผลแบบสุ่ม (Random)"</td></tr>
+        <tr data-sev="p1"><td class="id">G2</td><td><span class="pill p1">P1</span></td><td class="where"><code>step4-display.tsx:489, 817, 1127</code></td><td class="problem">คำแนะนำรูปเขียนว่า "รูปควรมีขนาด <b>แสดงผลรูปแตกต่างกันทั้งหมด</b> และมีนามสกุล…" คือเอาชื่อหัวข้อมาใส่ตรงที่ควรเป็นขนาดรูป</td><td class="fix">ใส่ขนาดจริง (PK ยืนยัน) เช่น "รูปควรมีขนาด 112 x 112 px และมีนามสกุล .png, .gif, .jpg"</td></tr>
+        <tr data-sev="p1"><td class="id">G3</td><td><span class="pill p1">P1</span></td><td class="where"><code>step4-display.tsx:134, 138</code></td><td class="problem">โอกาสออกของแต่ละช่องไม่เคยถูกตรวจ ปล่อยว่างจะบันทึกเป็น 0 และผลรวมเป็นเท่าไรก็ได้</td><td class="fix">บังคับกรอก และเพิ่ม "ผลรวมโอกาสออกของทุกช่องต้องเท่ากับ 100%"</td></tr>
+        <tr data-sev="p1"><td class="id">G4</td><td><span class="pill p1">P1</span></td><td class="where"><code>step2-period.tsx:720-734</code></td><td class="problem">"จำกัดการรับสิทธิ์เล่นมินิเกมส์ “ต่อครั้ง”" จริงๆ คือจำกัดสิทธิ์ที่ได้<b>ต่อการฝาก 1 ครั้ง</b> แต่อ่านแล้วเหมือน "ต่อการเล่น 1 ครั้ง"</td><td class="fix">"จำกัดสิทธิ์ที่ได้รับ “ต่อการฝาก 1 ครั้ง”" หน่วย "สิทธิ์ / การฝาก 1 ครั้ง"</td></tr>
+        <tr data-sev="p1"><td class="id">G5</td><td><span class="pill p1">P1</span></td><td class="where"><code>step2-period.tsx:463</code>; <code>wizard-dom.ts</code></td><td class="problem">ขั้นตอน 2.1 ไม่มีการตรวจเลย: เปิดช่วงวันที่แต่ไม่ใส่วันได้ ช่วงเวลาว่างหรือกลับด้านได้ ปิดวันทำงานทุกวันได้</td><td class="fix">บังคับใส่วันที่ "กรุณาเลือกวันทำงานอย่างน้อย 1 วัน" "เวลาสิ้นสุดต้องมากกว่าเวลาเริ่มต้น"</td></tr>
+        <tr data-sev="p1"><td class="id">G6</td><td><span class="pill p1">P1</span></td><td class="where"><code>step3-rights.tsx:127-138, 208-302</code></td><td class="problem">ติ๊กตรวจยอด Balance/ยอดถอนโดยไม่ใส่ยอดได้ ตั้ง "x สิทธิ์" กับ "หักสิทธิ์ทั้งหมด" พร้อมกันได้ ช่วงยอดฝาก "ตั้งแต่ … ถึง …" ไม่ตรวจว่าเริ่ม ≤ สิ้นสุด</td><td class="fix">บังคับใส่ยอด และจำนวนสิทธิ์หรือ "หักสิทธิ์ทั้งหมด" อย่างใดอย่างหนึ่ง "ยอดฝากเริ่มต้นต้องน้อยกว่ายอดฝากสิ้นสุด"</td></tr>
+        <tr data-sev="p1"><td class="id">G7</td><td><span class="pill p1">P1</span></td><td class="where"><code>step1-detail.tsx:220, 228, 234</code></td><td class="problem">สร้าง "เกมส์อื่น ๆ" แต่ช่องชื่อยังเขียนว่า "ชื่อวงล้อนำโชค" ส่วนโหมดแก้ไข placeholder เขียนว่า "ระบุชื่อมินิเกมส์" ขัดกัน</td><td class="fix">ใช้คำตามประเภท: "ชื่อมินิเกมส์" / "ชื่อวงล้อนำโชค"</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>P2 — error ที่เป็นของช่องอื่น</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ระดับ</th><th>ตำแหน่ง</th><th>ขึ้นว่า</th><th>ควรเป็น</th></tr></thead>
+      <tbody>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step3-rights.tsx:162</code> (ภายใน x วัน)</td><td>กรุณากรอกจำนวนครั้ง</td><td>กรุณากรอกจำนวนวัน</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>wizard-dom.ts:451</code> (Agent)</td><td>กรุณากรอกชื่อเลือก Agent (ขึ้นตั้งแต่ตอนพิมพ์ชื่อ)</td><td>กรุณาเลือก Agent</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:128</code> (จำนวนวันนับถอยหลัง)</td><td>ซ้ำกับข้อความหัวข้อ</td><td>กรุณากรอกจำนวนวัน</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:182</code> (ช่องเลือกเวลา)</td><td>กรุณาเลือกวันที่</td><td>กรุณาเลือกเวลา</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:1043</code> (เลือกมินิเกม)</td><td>กรุณาเลือกประเภทการฝาก</td><td>กรุณาเลือกมินิเกมส์</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:1056</code> (จำนวนที่หัก)</td><td>…โปรโมชั่น “ต่อวัน”</td><td>กรุณากรอกจำนวนสิทธิ์ที่จะหัก</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:1316</code> (ลิมิต x สิทธิ์)</td><td>…“ต่อสัปดาห์”</td><td>กรุณากรอกจำนวนสิทธิ์สูงสุดที่ถือได้</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:1338</code> (ลิมิตยอดในกระเป๋า เป็นบาท)</td><td>…“ต่อเดือน”</td><td>กรุณากรอกยอดเครดิตคงเหลือสูงสุด</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:214, 1381, 1617</code></td><td>กรุณาเลือกประเภทการฝาก (ประเภทโบนัส / จำนวนชิ้นส่วน)</td><td>กรุณาเลือกประเภทโบนัส / กรุณาเลือกจำนวนชิ้นส่วน</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:196</code> (จุดแจ้งเตือน)</td><td>กรุณากรอกจำนวนการแจกรางวัลไม่เกิน</td><td>กรุณากรอกจำนวนครั้งที่ต้องการให้แจ้งเตือน (ไม่เกินจำนวนที่จำกัด)</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step5-turnover.tsx:89</code> (+อีก 4 จุด)</td><td>กรุณากรอกค่า Turnover</td><td>กรุณากรอกยอด Turnover ขั้นต่ำ หรือเลือก "ไม่กำหนดขั้นต่ำ"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where">ช่อง <code>.validatezero</code> ในขั้นตอน 3</td><td>กรุณากรอก… แม้กรอก 0 ไปแล้ว</td><td>…ต้องมากกว่า 0</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>P2 — หัวข้อและคำอธิบายที่พูดถึงสิ่งอื่น</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>ข้อเสนอ</th></tr></thead>
+      <tbody>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:1374</code></td><td class="problem">คำอธิบายส่วนตั้งค่าวงล้อ ไปพูดถึงเงื่อนไขยอดฝากของขั้นตอน 3</td><td class="fix">"อัปโหลดรูปกรอบ ปุ่มหมุน และรูปชิ้นส่วนวงล้อ พร้อมตั้งค่ารางวัลของแต่ละช่อง"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:1568, 1748, 1764</code></td><td class="problem">แผงทดลองหมุนมีหัวข้อว่า "ตั้งค่าเงื่อนไขโบนัส"</td><td class="fix">"ทดลองหมุนวงล้อ" / "ทดลองเปิดมินิเกม"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:1056</code></td><td class="problem">มินิเกม Step 3 ใช้หัวข้อของ Step 2 ซ้ำ "กำหนดรูปแบบของรูปหลังถูกเลือก"</td><td class="fix">"กำหนดรูปแบบของรูปประกาศผล"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:1521-1537, 1688-1704</code></td><td class="problem">ช่องเลือกเสียงถูกซ่อนและไม่ได้บันทึกอะไรที่ใช้ได้ ของมินิเกมเขียนว่า "…วงล้อ" ตัวเลือกเสียงวงล้อทั้ง 3 ชี้ไฟล์เดียวกัน ถ้าเปิดให้เห็นเมื่อไรจะกลายเป็น P0</td><td class="fix">"เลือกเสียงประกอบมินิเกม" และซ่อนไว้จนกว่าจะมีไฟล์เสียงจริง</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:1387-1401, 1621-1651</code></td><td class="problem">ให้เลือก "รับโบนัสก่อน/หลังทำเทิร์น" ตั้งแต่ขั้นตอน 4 ทั้งที่ Turnover ยังไม่ได้เปิด (ขั้นตอน 5 ปิดไว้เป็นค่าเริ่มต้น)</td><td class="fix">เพิ่มคำอธิบาย "มีผลเมื่อเปิดใช้งานเงื่อนไข Turnover ใน Step 5"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step5-turnover.tsx:17</code></td><td class="problem">หัวข้อบอกว่ามีส่วนเงื่อนไขถอน/ปลดล็อก/"เงื่อนไขพิเศษอื่นๆ" แต่ทุกส่วนถูกซ่อน</td><td class="fix">"กำหนดเงื่อนไขการติด Turnover"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step5-turnover.tsx:68</code></td><td class="problem">"ติดเทิร์นโอเวอร์ขั้นต่ำ" ไม่บอกว่าเป็นบาท</td><td class="fix">"ยอด Turnover ขั้นต่ำ (บาท)"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:389</code></td><td class="problem">หัวข้อช่วงเวลาขึ้น "ทุกวัน จันทร์ - อาทิตย์, เวลา 00:00 - 23:59" ตลอด ไม่ว่าจะเลือกอะไร</td><td class="fix">สร้างจากวันและช่วงเวลาที่เลือกจริง</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:1191</code></td><td class="problem">โหมดสร้างขึ้น "ค่ายเกมทั้งหมด 0 ค่าย" ทั้งที่มีในรายการประมาณ 60 ค่าย</td><td class="fix">แสดงจำนวนจริง</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:91-95</code></td><td class="problem">ตัวเลือกนับถอยหลังแบบที่ 2 ไม่ได้บอกว่ามีการ์ด "เหลือ x วัน" ด้วย</td><td class="fix">"นับถอยหลังตามเงื่อนไขที่กำหนด (เหลือ x วัน หรือ ถึงวัน/เวลาที่กำหนด)"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:909</code>; <code>wheel-detail-modal.tsx:40</code></td><td class="problem">คำของวงล้อ ("วงล้อ", "Wheel N") โผล่ในประเภท "เกมส์อื่น ๆ"</td><td class="fix">แยกคำตามประเภท หรือใช้คำกลาง: "ตัวเลือกที่ N - จำนวนโบนัสที่แจก"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:610</code></td><td class="problem">คำอธิบายบอก "x ครั้ง" แต่หน่วยในช่องคือ "สิทธิ์ / วัน"</td><td class="fix">"…เท่ากับ x สิทธิ์"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step2-period.tsx:970-979</code></td><td class="problem">คำอธิบายบอกชั่วโมง 0-23 / นาที 0-59 แต่ช่องรับได้ถึง 24 / 60 (attribute พิมพ์ผิดเป็น <code>mix</code>)</td><td class="fix">จำกัดไว้ที่ 23 / 59</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>minigame-setting-offcanvas.tsx:159</code></td><td class="problem">หน้ารายละเอียดเป็นแบบดูอย่างเดียว แต่เขียนว่าเปิด/ปิดส่วนต่างๆ ได้จากหน้านี้</td><td class="fix">"ตรวจสอบรายละเอียดการตั้งค่าทั้งหมดได้จากหน้านี้ หากต้องการเปลี่ยนแปลง กด “แก้ไขข้อมูล”"</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>P2 — ตรรกะ และคำในหน้าสรุป</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>ข้อเสนอ</th></tr></thead>
+      <tbody>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where">ขั้นตอน 2.3 · <code>wizard-dom.ts</code></td><td class="problem">ติ๊กลิมิตไว้แต่ไม่กรอก ปุ่ม "ถัดไป" กดไม่ได้โดยไม่บอกเหตุผล และแถวของทั้งระบบกับต่อสมาชิกใช้หัวข้อและ error เหมือนกันเป๊ะ</td><td class="fix">แสดง error ของแต่ละแถว และเติมคำนำหน้าให้ error ของแถวต่อสมาชิก</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step3-rights.tsx:45-49</code></td><td class="problem">เปลี่ยนประเภทยอดฝากแล้ว ยอดเก่ายังค้างในช่องที่ซ่อนอยู่ และถูกบันทึกไปด้วยทั้งหมด</td><td class="fix">ล้างยอดในช่องที่ซ่อนเมื่อเปลี่ยนประเภท</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step3-rights.tsx:179, 192, 247, 295</code></td><td class="problem">กดที่ข้อความของ checkbox แล้วไม่ติ๊ก (<code>htmlFor</code> ชี้ไปผิด id)</td><td class="fix">ชี้ <code>htmlFor</code> ไปที่ id จริง</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step4-display.tsx:19-23</code> และคำแนะนำรูป</td><td class="problem">อัปโหลดไม่ตรวจชนิดและขนาดไฟล์ คำแนะนำไม่ตรงกัน (".png. .jpg" กับ "png, gif, jpg") รูปแบบขนาดเขียนไม่เหมือนกัน</td><td class="fix">ใช้รูปแบบเดียว: "ขนาดรูป 440 x 440 px / นามสกุลไฟล์ .png, .gif, .jpg"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step6-summary.tsx:786, 795</code></td><td class="problem">แถวจำนวนชิ้นส่วนใช้หัวข้อ "เงื่อนไขการได้รับสิทธิ์ :" ซ้ำ</td><td class="fix">"จำนวนชิ้นส่วน :" / "จำนวนตัวเลือก :"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step6-summary.tsx:762</code></td><td class="problem">"จำกัดการรับสิทธิ์สมาชิกหากมียอดเครดิตที่ยอดคงเหลือ" ไวยากรณ์ผิด และหายคำว่า "มากกว่า"</td><td class="fix">"ไม่ให้สิทธิ์เมื่อยอดเครดิตคงเหลือมากกว่า"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step6-summary.tsx:349</code></td><td class="problem">ขึ้น "…สร้างวงล้อนำโชคสำเร็จ" กับมินิเกมด้วย</td><td class="fix">ใช้คำตามประเภท</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step6-summary.tsx:30-45</code></td><td class="problem">บรรทัดโบนัสเป็นภาษาอังกฤษที่ฝังไว้และไม่มีหน่วย ("5 Coupon")</td><td class="fix">"100 บาท", "10% จากยอดฝาก สูงสุด 500 บาท", "5 สิทธิ์"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>step6-summary.tsx:282, 377, 633</code></td><td class="problem">หัวข้อใช้คำว่า "โปรโมชั่น" ทั้งที่ในขั้นตอนต่างๆ ใช้ "มินิเกมส์"</td><td class="fix">"การจำกัดการรับสิทธิ์ของสมาชิกทั้งระบบ", "ระยะเวลาและวันทำงานของมินิเกมส์", "การ Reset สิทธิ์มินิเกมส์ของสมาชิก"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where">หน้าสรุป หลายแถว</td><td class="problem">ค่าที่ wizard เก็บแต่หน้าสรุปไม่แสดง: Turnover ขั้นต่ำและเวลา, จุดแจ้งเตือน, รับโบนัสก่อน/หลัง, การตรวจอนุมัติ/Balance, ค่ายเกม, ชื่อ EN/TL</td><td class="fix">PK ตัดสินว่าจะแสดงแค่ไหน</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 data-sev="p3">P3 — เก็บรายละเอียด</h3>
+    <div class="tbl" data-sev="p3"><table>
+      <thead><tr><th>ผิด</th><th>ถูก</th><th>Key / ตำแหน่ง</th></tr></thead>
+      <tbody>
+        <tr><td>อีกสระ</td><td>อิสระ</td><td><code>displayPresetMinigameSetColorText</code></td></tr>
+        <tr><td>จะจ้องทำ</td><td>จะต้องทำ</td><td><code>getAfterTurnOverSubText1</code></td></tr>
+        <tr><td>สำรับคำ</td><td>สำหรับคำ</td><td><code>uploadLuckyWheelImageAfterOpenSize2</code></td></tr>
+        <tr><td>เครคิด / กรุณติดต่อ</td><td>เครดิต / กรุณาติดต่อ</td><td><code>luckyWheelCongratsText2/3</code></td></tr>
+        <tr><td>เปอร์เซ็น</td><td>เปอร์เซ็นต์</td><td><code>creditCountPercentErrorText</code></td></tr>
+        <tr><td>ขนากรูป</td><td>ขนาดรูป</td><td><code>IMAGE_HINT</code></td></tr>
+        <tr><td>รกรุณากรอก</td><td>กรุณากรอก</td><td><code>turnOverFinishConditionErrorText</code></td></tr>
+        <tr><td>ทันเมื่อ</td><td>ทันทีเมื่อ</td><td><code>countdownWhenXDay</code></td></tr>
+        <tr><td>โดนจะนับถอนหลัง</td><td>โดยจะนับถอยหลัง</td><td><code>…CountdownText2</code></td></tr>
+        <tr><td>กำหมด</td><td>กำหนด</td><td><code>resetWithDateTimeSubText</code></td></tr>
+        <tr><td>อีกไป</td><td>อีกต่อไป</td><td><code>limitMinigamePerMemberSubText5</code></td></tr>
+        <tr><td>ไม่ไห้</td><td>ไม่ให้</td><td><code>enableCreditBalanceText</code></td></tr>
+        <tr><td>เลือกทั้ทุกครั้ง… เชค… สิทธิเพิ่ม</td><td>ทุกครั้งก่อนฝาก ระบบจะเช็คยอดเครดิตคงเหลือ… ไม่ได้สิทธิ์เพิ่ม</td><td><code>getPromotionPerUserMonthText</code></td></tr>
+        <tr><td>เแสดง</td><td>แสดง</td><td><code>luckyWheelDetailSubText2</code></td></tr>
+        <tr><td>ที่คุณต้องให้</td><td>ที่คุณต้องการให้</td><td><code>editGameCategoryForRights</code></td></tr>
+        <tr><td>คำนวน</td><td>คำนวณ</td><td><code>withdrawnSettingSubText</code> +2</td></tr>
+        <tr><td>สร้างสรร</td><td>สร้างสรรค์</td><td><code>*RightsSettingText</code></td></tr>
+        <tr><td>ตากาล๊อก</td><td>ตากาล็อก</td><td><code>languageSettingtl</code></td></tr>
+        <tr><td>เลือกเลือกกลุ่มลูกค้า…</td><td>เลือกกลุ่มลูกค้าที่มีสิทธิ์ได้รับ</td><td><code>step2-period.tsx:868</code></td></tr>
+        <tr><td>การรับเวลาถอยหลัง</td><td>การนับถอยหลัง</td><td><code>summaryCountdownHeader</code></td></tr>
+        <tr><td>…การแก้ไขข้อมูลนี้ แต่ไม่ต้องกังวัลไป (ตอนสร้างใหม่)</td><td>…ยืนยันการสร้างข้อมูลนี้ แต่ไม่ต้องกังวลไป</td><td><code>minigame-setting-offcanvas.tsx:108</code></td></tr>
+      </tbody>
+    </table></div>
+    <ul class="plain" data-sev="p3">
+      <li><b>คำแปลอังกฤษผิด (<code>en.json</code>):</b> <code>limitMinigame</code> = "Choose Date time first" (ใช้ 9 แถว), <code>settingMinigameTurnOverMinBaht</code> = "Specify the name of the award", <code>uploadLuckyWheelImageAfterOpen</code> = "Upload a photo of yourself receiving your prize", <code>summarizeAndSave</code> = "Summarize And Save" (จริงๆ ไม่ได้บันทึก), <code>bonusNotiWhenExpire</code> ความหมายจริงคือ "รางวัลใกล้หมด", "Rerward", "Privilages", "Please fills"</li>
+      <li><b>Key ที่ไม่มีใน <code>th.json</code>:</b> <code>minigameSetting.order</code>, <code>AllminigameDetails</code>, <code>minigameDateTimeActive</code>, <code>minigameListTable.text1-8</code> (โหมดอังกฤษจะขึ้นภาษาไทย) และ attribute <code>[placeholder]</code> เขียนผิดรูปแบบ ทำให้ช่องชื่อ EN/TL ไม่มี placeholder</li>
+      <li><b>Placeholder</b> "0.00" ในช่องที่รับแต่จำนวนเต็ม (<code>step3-rights.tsx:98-145</code>)</li>
+      <li><b>ตรรกะเล็กๆ:</b> โบนัส "%" ไม่มีเพดาน, "ข้าม Step 2" ไม่ได้ทำให้ส่วน Step 2 กดไม่ได้, คำอธิบายวงล้อบอกว่ากดที่ชิ้นส่วนได้แต่จริงๆ กดไม่ได้ (ไม่แน่ใจว่าต้นฉบับเป็นไหม)</li>
+    </ul>
+  </section>
+
+  <section id="mission">
+    <h2 class="sec-head">C · ตั้งค่าภารกิจ <span class="pill orig">ต้นฉบับ</span></h2>
+
+    <h3>P1 — ทำให้ตั้งค่าผิดได้</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ID</th><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>ข้อเสนอ</th></tr></thead>
+      <tbody>
+        <tr data-sev="p1"><td class="id">S1</td><td><span class="pill p1">P1</span></td><td class="where"><code>mission-list.tsx:46-49</code> (bug ที่ตั้งใจเก็บไว้)</td><td class="problem">กด<b>ปิด</b>ภารกิจแล้ว popup ขึ้นว่า<b>เปิด</b>แล้ว เพราะต้นฉบับเทียบกับคำว่า <code>'ปิด'</code> ซึ่งไม่มีวันตรง</td><td class="fix">ตอนปิดให้ใช้ <code>missionStatusOfflineNew</code> (มีใน <code>th.json</code> อยู่แล้ว)</td></tr>
+        <tr data-sev="p1"><td class="id">S2</td><td><span class="pill p1">P1</span></td><td class="where"><code>mission-form.tsx:392-399</code></td><td class="problem">ส่วนที่ 4: หัวข้อกับข้อความของตัวเลือก "ทั้งหมด" สลับกัน</td><td class="fix">หัวข้อ "กำหนดให้การทำภารกิจเสร็จสิ้นได้ต่อเมื่อ" ตัวเลือก "ทำสำเร็จครบทุกภารกิจย่อย" / "ทำสำเร็จเพียงบางภารกิจย่อย"</td></tr>
+        <tr data-sev="p1"><td class="id">S3</td><td><span class="pill p1">P1</span></td><td class="where"><code>sub-mission.tsx:161-163</code></td><td class="problem">ไม่กรอกชื่อภารกิจย่อย แล้วขึ้น "กรุณากรอกชื่อของรางวัล"</td><td class="fix">"กรุณากรอกชื่อภารกิจย่อย"</td></tr>
+        <tr data-sev="p1"><td class="id">S4</td><td><span class="pill p1">P1</span></td><td class="where"><code>validation.ts</code>, <code>form-state.ts</code>, <code>reward-item.tsx</code>, <code>sub-condition.tsx</code> (bug ที่ตั้งใจเก็บไว้)</td><td class="problem">หลายช่องทำให้ส่วนนั้นขึ้นว่าไม่ครบ แต่ไม่บอกว่าช่องไหน กดบันทึกก็ขึ้นแค่ "กรุณาตรวจสอบข้อมูลภารกิจของคุณ"</td><td class="fix">PK ตัดสินใจ อย่างน้อยให้บอกชื่อส่วน เช่น "กรุณาตรวจสอบข้อมูลใน: ตั้งค่าภารกิจย่อยที่ 2"</td></tr>
+        <tr data-sev="p1"><td class="id">S5</td><td><span class="pill p1">P1</span></td><td class="where"><code>validation.ts:27-36</code> (bug ที่ตั้งใจเก็บไว้)</td><td class="problem">"ทุกสัปดาห์" ไปตรวจช่องวันที่ที่ซ่อนอยู่ ไม่ได้ตรวจวันในสัปดาห์ที่ติ๊ก บางกรณีทำให้บันทึกภารกิจไม่ได้เลย</td><td class="fix">ถ้าเลือกทุกสัปดาห์ให้ตรวจวันที่ติ๊ก และรีเซ็ตประเภทวัน</td></tr>
+        <tr data-sev="p1"><td class="id">S6</td><td><span class="pill p1">P1</span></td><td class="where"><code>section-duration.tsx:813-819</code></td><td class="problem">คำเตือนที่ขึ้นตอน<b>ปิด</b>การแจ้งเตือน เขียนว่า "เมื่อเปิดใช้งาน… ระบบะจะแจ้งเตือก…" ความหมายกลับด้าน และพิมพ์ผิด 2 จุด</td><td class="fix">"หากไม่เปิดใช้งานการแจ้งเตือนภารกิจ / ระบบจะไม่แจ้งเตือนภารกิจนี้ให้สมาชิกทราบ"</td></tr>
+        <tr data-sev="p1"><td class="id">S7</td><td><span class="pill p1">P1</span></td><td class="where"><code>validation.ts</code>; <code>flatpickr-input.tsx</code> (ไม่แน่ใจที่มา)</td><td class="problem">วันสิ้นสุดก่อนวันเริ่มได้ ช่วงเวลาแบบ "18:00 - 12:00" ได้ และวันที่นอกช่วงภารกิจก็ได้</td><td class="fix">"วันและเวลาสิ้นสุดต้องอยู่หลังวันและเวลาเริ่มต้น" และจำกัดปฏิทินให้อยู่ในช่วงภารกิจ</td></tr>
+        <tr data-sev="p1"><td class="id">S8</td><td><span class="pill p1">P1</span></td><td class="where"><code>section-basic.tsx:716</code> (ไม่แน่ใจที่มา)</td><td class="problem">"ระหว่างวันที่" (สมัครสมาชิกระหว่างวันที่) เลือกได้วันเดียว</td><td class="fix">ถาม PK ว่าเป็นช่วงวันที่ไหม ถ้าใช่ให้เก็บ 2 วัน</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>P2 — สับสนหรือไม่สม่ำเสมอ</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>ระดับ</th><th>ตำแหน่ง</th><th>ปัญหา</th><th>ข้อเสนอ</th></tr></thead>
+      <tbody>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>mission-form.tsx:169-172, 255-260</code></td><td class="problem">หน้าแก้ไขยังเขียนว่า "สร้างภารกิจ" / "ยืนยันการสร้างภารกิจ"</td><td class="fix">"แก้ไขภารกิจ" / "ยืนยันการแก้ไขภารกิจ"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-basic.tsx:345-376</code></td><td class="problem">คำเตือนเรื่อง Agent พูดถึงสวิตช์ที่ไม่มีอยู่จริง และบังคับเลือกอย่างน้อย 1 Agent</td><td class="fix">"เลือก Agent ที่สามารถใช้ภารกิจนี้ได้ อย่างน้อย 1 รายการ"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-basic.tsx:203, 337</code></td><td class="problem">2 ส่วนที่ต่างกันใช้หัวข้อ "ข้อมูลพื้นฐานภารกิจ" เหมือนกัน</td><td class="fix">ส่วนที่ 2: "สิทธิ์การเข้าร่วมภารกิจ"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-basic.tsx:653, 693, 704</code></td><td class="problem">ช่องเลือกกลุ่มใช้ placeholder "Select member type" หน่วยเป็น "daily/weekly…" และหัวข้อเขียนแค่ "สมัครสมาชิก"</td><td class="fix">"เลือกกลุ่มสมาชิก"; "วัน / สัปดาห์ / เดือน / ปี"; "วันที่สมัครสมาชิก"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-duration.tsx:164, 475-482</code></td><td class="problem">"ระบุวันที่ (1 -31)" แต่เปิดปฏิทินให้เลือกวันที่เต็ม</td><td class="fix">"ระบุวันที่ (เลือกวันที่ในปฏิทิน)"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-duration.tsx:297-318</code></td><td class="problem">ปิดรางวัลอยู่ แต่ยังเปิด Turnover ได้และถูกบังคับกรอก</td><td class="fix">ซ่อนหรือไม่สนใจ Turnover เมื่อปิดรางวัล</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-duration.tsx:768-780</code></td><td class="problem">ใช้ทั้ง "ขั้นต่ำ x บาท" และ "เท่ากับ x บาท" ตัวอย่างปนทั้งบาทและแต้ม</td><td class="fix">ใช้ "ทำเทิร์นโอเวอร์ ขั้นต่ำ x บาท" ทุกที่</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>reward-item.tsx:173-201</code></td><td class="problem">ขึ้น "จำนวนสิทธิ์ [5] จำนวนสิทธิ์" และ error พูดถึงจำนวนครั้งที่เล่น</td><td class="fix">หน่วย "สิทธิ์" และ error "กรุณากรอกจำนวนสิทธิ์มินิเกมส์"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>sub-condition.tsx:48</code></td><td class="problem">หัวเงื่อนไขขึ้นแค่ "1", "2" เพราะเรียก key <code>missionPage.missionSettingNo</code> ซึ่งไม่มี ข้อความจริงอยู่ที่ <code>missionPage.js.missionSettingNo</code></td><td class="fix">ชี้ไป key ที่มีอยู่ ("เงื่อนไขภารกิจย่อยที่")</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>sub-condition.tsx:185, 329, 363, 382</code></td><td class="problem">error ของ "ทุก ๆ ยอดฝาก" ให้เลือกประเภทการฝาก ประเภทแนะนำเพื่อนที่นับเป็นบาทยังเขียน "จำนวนเพื่อนแนะนำ" และขึ้น "ครบ [100] สะสมแต้ม"</td><td class="fix">"กรุณากรอกยอดฝากทุก ๆ x บาท"; "ยอดฝากของเพื่อน"; หน่วย "แต้ม"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>sub-condition.tsx:205-233</code> (ไม่แน่ใจ)</td><td class="problem">"ทำเทิร์นติดต่อกัน N ครั้ง" ไม่มียอด ไม่ชัดว่าอะไรนับเป็น 1 ครั้ง</td><td class="fix">ถาม PK ว่ากฎจริงคืออะไร</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>section-duration.tsx:804-858</code>; <code>sub-condition.tsx:243-266</code></td><td class="problem">เปิดการแจ้งเตือนแต่ไม่เลือกรูปแบบได้ และ "กำหนดเฉพาะเกม" โดยไม่เลือกค่ายได้</td><td class="fix">"กรุณาเลือกรูปแบบการแจ้งเตือนอย่างน้อย 1 รูปแบบ" / "กรุณาเลือกค่ายเกมอย่างน้อย 1 ค่าย"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>mission-form.tsx:425-440</code></td><td class="problem">"ทำภารกิจสำเร็จ [5] ภารกิจ" นับภารกิจย่อย และใส่เกินจำนวนที่มีได้</td><td class="fix">หน่วย "ภารกิจย่อย" และจำกัดไม่เกินจำนวนภารกิจย่อย</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where">3 จุด</td><td class="problem">คำว่า "Reset" มี 3 ความหมาย</td><td class="fix">"เริ่มรอบใหม่เมื่อครบรอบเวลา" / "ให้ทำภารกิจย่อยซ้ำเพื่อรับรางวัลอีกครั้ง" / "รีเซ็ตภารกิจย่อยที่เหลือเมื่อภารกิจหลักสำเร็จ"</td></tr>
+        <tr data-sev="p2"><td><span class="pill p2">P2</span></td><td class="where"><code>mission-list.tsx</code></td><td class="problem">ขึ้น "ยืนยันoffline การใช้งานภารกิจ หรือไม่?" ชิปสถานะเป็น "online / expired / offline" และรางวัลของภารกิจหลักมีหัวข้อ "…ภารกิจย่อยสำเร็จ"</td><td class="fix">"ยืนยันปิดการใช้งานภารกิจ หรือไม่?"; "เปิดใช้งาน / ปิดใช้งาน / หมดอายุ"; "รางวัลเมื่อทำภารกิจสำเร็จ"</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 data-sev="p3">P3 — เก็บรายละเอียด</h3>
+    <ul class="plain" data-sev="p3">
+      <li><b>คำผิดภาษาไทย:</b> ยินยันคัดลอก → ยืนยันคัดลอก; เแสดง → แสดง; การติดเทริ์น → การติดเทิร์น; ของอรางวัล → ของรางวัล; "ยืนยันลบภารกิจ สำเร็จ !" → "ลบภารกิจสำเร็จ !"; "มิชชั่น" → ภารกิจ</li>
+      <li><b>คำแปลอังกฤษผิด:</b> "Defore Date", "Sub ทission", "Select promotionน", "Login steak", "game camp"; <code>count</code> เป็นค่าว่าง; ไม่มี <code>pointCount</code></li>
+      <li><b>ไทยปนอังกฤษ:</b> "Choose Agent", "Search", "choose date", "Select All" (ทั้งที่มี "เลือกทั้งหมด" อยู่แล้ว), ปุ่ม popup "Cancel / Confirm / Edit / Close"</li>
+      <li><b>Dropdown หน่วยที่มีตัวเลือกเดียว</b> ใน <code>reward-item.tsx</code> มีลูกศรแต่เลือกได้อย่างเดียว</li>
+    </ul>
+  </section>
+
+  <section id="patterns">
+    <h2>ทำไมถึงเกิดซ้ำๆ</h2>
+    <ul class="plain">
+      <li><b>Copy-paste key คำแปลข้ามช่อง</b> ก๊อปบล็อกมาแล้วไม่ได้เปลี่ยน key คำหรือ error เลยไปบอกเรื่องของช่องข้างๆ ซึ่งเป็นแบบเดียวกับเรื่องชื่อสีที่แก้ไปวันนี้</li>
+      <li><b>ไม่มีการตรวจค่า หรือตรวจแต่ไม่บอก</b> ต้นฉบับตรวจแค่ไม่กี่ช่อง ที่เหลือบันทึกค่าว่างหรือค่าขัดกันได้ หรือล็อกปุ่ม "ถัดไป" โดยไม่บอกเหตุผล</li>
+      <li><b>เรื่องเดียวกันแต่ใช้หลายคำ:</b> มินิเกม/มินิเกมส์, อัพโหลด/อัปโหลด, เทิร์น/เทิร์นโอเวอร์/Turnover, ภารกิจ/มิชชั่น, เรียกวงล้อ 3 แบบ และใช้ "โปรโมชั่น" เรียกตัวมินิเกมเอง</li>
+      <li><b>จุดที่เราพลาดเองอยู่ในหน้าสรุปและตอนบันทึก</b> (<code>wizard-summary.ts</code>): ช่องที่ไม่มีโค้ดเติมค่า และค่าที่ตอนบันทึกไม่ได้อ่าน</li>
+    </ul>
+    <h3>สิ่งที่ทำได้ดี</h3>
+    <ul class="plain">
+      <li>rebuild ลอกต้นฉบับได้ตรง และทุก bug ที่ตั้งใจเก็บไว้หรือจุดที่ทำต่าง มีคอมเมนต์พร้อมเลขบรรทัด ทำให้ตามหาที่มาได้เร็ว</li>
+      <li><code>th.json</code> ของต้นฉบับมีคำที่ถูกอยู่แล้วหลายคำ (<code>textColor2</code>, <code>chartBorderColor</code>, <code>missionStatusOfflineNew</code>, <code>missionSettingNo</code>) หลายข้อแค่ "เปลี่ยนไปใช้ key ที่ถูก" ก็จบ</li>
+    </ul>
+  </section>
+
+  <section id="decisions">
+    <h2>สิ่งที่ PK ต้องตัดสินใจก่อนแก้</h2>
+    <div class="decide">
+      <div><b>1 · จะแก้ bug ต้นฉบับแค่ไหน</b>ถ้าแก้จะผิดกฎ "ลอกต้นฉบับให้เหมือน" ตัวเลือก: แก้ทั้งหมด · แก้แค่ P1 · แก้แค่คำ และคงตรรกะเดิมไว้ <span class="rec">ข้อเสนอ: แก้ P1 ทั้งหมด และแก้คำทั้งหมด</span></div>
+      <div><b>2 · ตกลงคำมาตรฐาน</b>เลือกคำเดียวต่อหนึ่งเรื่องก่อน (มินิเกม หรือ มินิเกมส์, อัปโหลด, Turnover, สมาชิก, วงล้อนำโชค, เกมส์อื่น ๆ, ภารกิจ / ภารกิจย่อย) ไม่อย่างนั้นแก้ไปแล้วจะไม่สม่ำเสมอเพิ่มอีก</div>
+      <div><b>3 · หน้าสรุปควรแสดงแค่ไหน</b>ให้ขั้นตอน 6 แสดงทุกค่าที่ตั้ง หรือคงไว้เหมือนต้นฉบับ</div>
+      <div><b>4 · คำถามเรื่องกฎของระบบ</b>"ระหว่างวันที่" เป็นช่วงวันที่ไหม? "ทำเทิร์นติดต่อกัน N ครั้ง" นับอะไร? "Reset" แบบที่ 3 ทำอะไร? ขนาดรูปจริงของข้อ G2 คือเท่าไร?</div>
+    </div>
+    <h3>ลำดับการแก้ที่แนะนำ</h3>
+    <ol class="top">
+      <li><b>ส่วน A (ของเรา)</b> แก้ A1–A4 ก่อน (ข้อมูลผิด) แล้วต่อ A5–A11 ไม่ต้องรอการตัดสินใจ</li>
+      <li><b>แก้คำ</b> หลังตกลงคำมาตรฐาน: หัวข้อและ error ที่ผิด คำผิด และคำแปลอังกฤษ</li>
+      <li><b>แก้การตรวจค่าและตรรกะ</b> หลังตัดสินเรื่องนโยบาย: G3, G5, G6, S4, S5, S7</li>
+      <li><b>ตรวจรอบสุดท้าย</b> แล้ว audit ซ้ำอีกครั้ง</li>
+    </ol>
+  </section>
+
+  <footer>ไฟล์ต้นทาง: <code>backoffice-reference/AUDIT-2026-11-20-SETTINGS-COPY-LOGIC.md</code> ใน repo เลขบรรทัดอ้างอิงโค้ด ณ วันที่ 20-11-2026</footer>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.filter button');
+  function apply(f) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.f === f)); });
+    document.querySelectorAll('[data-sev]').forEach(function (el) {
+      el.classList.toggle('hidden-by-filter', f !== 'all' && el.dataset.sev !== f);
+    });
+    // hide a table wrapper (and its heading) when all its rows are filtered out
+    document.querySelectorAll('.tbl').forEach(function (t) {
+      var rows = t.querySelectorAll('tbody tr[data-sev]');
+      if (!rows.length) return;
+      var visible = Array.prototype.some.call(rows, function (r) { return !r.classList.contains('hidden-by-filter'); });
+      t.classList.toggle('hidden-by-filter', !visible);
+      var h = t.previousElementSibling;
+      if (h && h.tagName === 'H3') h.classList.toggle('hidden-by-filter', !visible);
+    });
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.f); }); });
+})();
+</script>
