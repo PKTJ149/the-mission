@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Minigames video storyboard</title>
+<!-- Storyboard stills for SPEC.md. Open as-is for the board, or add ?frame=N (1-9) for one 1080x1920 still. -->
+<style>
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Medium.ttf);font-weight:500}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-SemiBold.ttf);font-weight:600}
+@font-face{font-family:PlexThai;src:url(../assets/fonts/IBMPlexSansThai-Bold.ttf);font-weight:600}
+:root{--stage:#24123F;--ink:#FFFFFF;--muted:#BFAFD9;--gold:#F5B83D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:PlexThai,sans-serif;background:#EDEAF2;color:#1E1430}
+
+/* one frame = 1080 x 1920 */
+.frame{position:relative;width:1080px;height:1920px;background:var(--stage);overflow:hidden;color:var(--ink)}
+.frame>*{position:absolute}
+.cap{left:80px;top:190px;width:920px}
+.d{font-weight:700;font-size:92px;line-height:1.25}
+.l{font-weight:600;font-size:54px;line-height:1.25}
+.muted{color:var(--muted)}
+.gold{color:var(--gold)}
+.card{overflow:hidden;border-radius:36px;box-shadow:0 24px 48px rgba(0,0,0,.45)}
+.card img{display:block;width:100%}
+
+/* board view */
+.board{padding:40px;display:grid;grid-template-columns:repeat(3,324px);gap:40px 36px;justify-content:center}
+.board h1{grid-column:1/-1;font-size:28px;font-weight:700}
+.board .sub{grid-column:1/-1;font-size:16px;font-weight:500;margin-top:-28px;color:#5A4C70}
+.scaler{width:324px;height:576px;overflow:hidden;border-radius:10px}
+.scaler .frame{transform:scale(.3);transform-origin:0 0}
+.note{font-size:14px;line-height:1.5;margin-top:10px;font-weight:500}
+.note b{font-weight:700}
+.note .k{color:#6B5C84}
+body.single{background:var(--stage)}
+body.single .board{display:block;padding:0}
+body.single .board>*:not(.cell){display:none}
+body.single .cell{display:none}
+body.single .cell.on{display:block}
+body.single .scaler{width:1080px;height:1920px;border-radius:0}
+body.single .scaler .frame{transform:none}
+body.single .note{display:none}
+</style>
+</head>
+<body>
+<div class="board">
+<h1>Minigames sales video · storyboard (draft 1)</h1>
+<p class="sub">9:16, 1080 x 1920, about 50 s. Real game screens from PK's Figma. One still per shot, taken at the frame listed in SPEC.md. Logo is a placeholder.</p>
+
+<!-- 1 HOOK -->
+<div class="cell" data-n="1"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d">กล่องสุ่ม</div><div class="l muted">→ เปิดไพ่ → วงล้อ</div></div>
+  <div class="card" style="left:120px;top:440px;width:841px;height:1220px"><img src="../assets/games/20-gold-boxes/screen-2-grid.png" alt=""></div>
+  <div style="left:461px;top:1140px;width:170px;height:170px;border:8px solid #fff;border-radius:50%"></div>
+  <div style="left:516px;top:1195px;width:60px;height:60px;background:#fff;border-radius:50%;opacity:.9"></div>
+</section></div>
+<p class="note"><b>1 · Hook · 0.0–4.5 s</b> (still at 1.2 s)<br><span class="k">On screen:</span> "กล่องสุ่ม", then "เปิดไพ่", then "วงล้อ"<br><span class="k">VO:</span> กล่องสุ่ม... เปิดไพ่... วงล้อ...<br><span class="k">Move:</span> a tap opens a box ("+1,000 ฿" only). Same layout flips to ไพ่ปริศนาลุ้นล้าน, then วงล้อนำโชค spins.</p></div>
+
+<!-- 2 TENSION -->
+<div class="cell" data-n="2"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="l muted">ที่อื่น</div><div class="d">1 เกม = 1 ระบบ</div></div>
+  <div style="left:140px;top:470px;width:800px;height:296px;border-radius:20px;overflow:hidden;background:#140A24">
+    <div style="height:46px;background:#CFC8DC;display:flex;gap:12px;align-items:center;padding-left:20px"><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i></div>
+    <img src="../assets/games/20-gold-boxes/screen-1-cover.png" alt="" style="width:800px;height:250px;object-fit:cover;object-position:50% 38%;display:block">
+  </div>
+  <div style="left:140px;top:790px;width:800px;height:296px;border-radius:20px;overflow:hidden;background:#140A24">
+    <div style="height:46px;background:#CFC8DC;display:flex;gap:12px;align-items:center;padding-left:20px"><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i></div>
+    <img src="../assets/games/19-gold-cards/screen-2-grid.png" alt="" style="width:800px;height:250px;object-fit:cover;object-position:50% 45%;display:block">
+  </div>
+  <div style="left:140px;top:1110px;width:800px;height:296px;border-radius:20px;overflow:hidden;background:#140A24">
+    <div style="height:46px;background:#CFC8DC;display:flex;gap:12px;align-items:center;padding-left:20px"><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i><i style="width:16px;height:16px;border-radius:50%;background:#8E85A0"></i></div>
+    <img src="../assets/games/21-wheel-gold/screen.png" alt="" style="width:800px;height:250px;object-fit:cover;object-position:50% 46%;display:block">
+  </div>
+  <div style="left:140px;top:1430px;width:800px;height:200px;border:5px dashed #fff;border-radius:20px;display:flex;align-items:center;justify-content:center" class="l">+ ซื้อเพิ่ม</div>
+</section></div>
+<p class="note"><b>2 · Tension · 4.5–9.3 s</b> (still at 7.0 s)<br><span class="k">On screen:</span> "ที่อื่น 1 เกม = 1 ระบบ"<br><span class="k">VO:</span> [sighs] เว็บไหนก็มี แต่อยากได้เกมใหม่ทีไร... ต้องซื้ออีกระบบ<br><span class="k">Move:</span> three plain windows stack, one game each (no names, no logos). A dashed fourth slot drops in.</p></div>
+
+<!-- 3 REVEAL -->
+<div class="cell" data-n="3"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d">ของเรา · <span class="gold">ระบบเดียว</span></div></div>
+  <div style="left:130px;top:430px;width:820px;height:1230px;border:6px solid #fff;border-radius:28px;overflow:hidden;background:#140A24;box-shadow:0 24px 48px rgba(0,0,0,.45)">
+    <div style="height:50px;background:#fff;display:flex;gap:12px;align-items:center;padding-left:22px"><i style="width:16px;height:16px;border-radius:50%;background:#B9B0CA"></i><i style="width:16px;height:16px;border-radius:50%;background:#B9B0CA"></i><i style="width:16px;height:16px;border-radius:50%;background:#B9B0CA"></i></div>
+    <img src="../assets/games/20-gold-boxes/screen-1-cover.png" alt="" style="width:808px;display:block">
+  </div>
+</section></div>
+<p class="note"><b>3 · Reveal · 9.6–12.8 s</b> (still at 11.0 s)<br><span class="k">On screen:</span> "ของเรา · ระบบเดียว" ("ระบบเดียว" in gold)<br><span class="k">VO:</span> แต่มินิเกมของเรา... ระบบเดียว...<br><span class="k">Move:</span> the four windows collapse into this one window.</p></div>
+
+<!-- 4 TRANSFORM -->
+<div class="cell" data-n="4"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d">ตัวเกม</div><div class="l"><span class="muted">พื้นหลัง →</span> ตัวเกม <span class="muted">→ สีทั้งหน้า</span></div></div>
+  <div class="card" style="left:120px;top:440px;width:841px;height:1220px">
+    <img src="../assets/games/20-gold-boxes/screen-2-grid.png" alt="" style="position:absolute;top:0;left:0">
+    <img src="../assets/games/11-cny-pouch/screen-2-grid.png" alt="" style="position:absolute;top:0;left:0;clip-path:inset(0 40% 0 0)">
+  </div>
+  <div style="left:621px;top:420px;width:8px;height:1260px;background:#fff"></div>
+</section></div>
+<p class="note"><b>4 · Transform · 13.2–18.0 s</b> (still at 16.0 s, wave 2 of 3)<br><span class="k">On screen:</span> "พื้นหลัง" → "ตัวเกม" → "สีทั้งหน้า", one word per wave<br><span class="k">VO:</span> เปลี่ยนโฉมได้ทั้งหน้าจอ... เหมือนได้เกมใหม่ทุกครั้ง<br><span class="k">Move:</span> in the film the waves go in order: background, then items, then counter and button colours. It ends as ถุงทองเงินล้าน. The still shows it as a wipe.</p></div>
+
+<!-- 5 FESTIVAL YEAR -->
+<div class="cell" data-n="5"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="l muted">ปฏิทินเกม ทั้งปี</div><div class="d">วาเลนไทน์</div></div>
+  <div style="left:296px;top:470px;width:4px;height:1330px;background:#6E5A92"></div>
+  <div style="left:30px;top:470px;width:290px;height:1330px">
+    <div style="position:absolute;top:0;right:0;display:flex;align-items:center;gap:20px;font-weight:600;font-size:32px;color:var(--muted)">ตรุษจีน <i style="width:24px;height:24px;border:4px solid var(--muted);border-radius:50%;background:var(--stage)"></i></div>
+    <div style="position:absolute;top:254px;right:-6px;display:flex;align-items:center;gap:16px;font-weight:700;font-size:40px;color:#fff">วาเลนไทน์ <i style="width:36px;height:36px;border-radius:50%;background:#fff"></i></div>
+    <div style="position:absolute;top:520px;right:0;display:flex;align-items:center;gap:20px;font-weight:600;font-size:32px;color:var(--muted)">สงกรานต์ <i style="width:24px;height:24px;border:4px solid var(--muted);border-radius:50%;background:var(--stage)"></i></div>
+    <div style="position:absolute;top:780px;right:0;display:flex;align-items:center;gap:20px;font-weight:600;font-size:32px;color:var(--muted)">ฮาโลวีน <i style="width:24px;height:24px;border:4px solid var(--muted);border-radius:50%;background:var(--stage)"></i></div>
+    <div style="position:absolute;top:1040px;right:0;display:flex;align-items:center;gap:20px;font-weight:600;font-size:32px;color:var(--muted)">ลอยกระทง <i style="width:24px;height:24px;border:4px solid var(--muted);border-radius:50%;background:var(--stage)"></i></div>
+    <div style="position:absolute;top:1300px;right:0;display:flex;align-items:center;gap:20px;font-weight:600;font-size:32px;color:var(--muted)">คริสต์มาส <i style="width:24px;height:24px;border:4px solid var(--muted);border-radius:50%;background:var(--stage)"></i></div>
+  </div>
+  <!-- whole game frame, not cropped (PK, 20-11-2026) -->
+  <div class="card" style="left:348px;top:410px;width:674px;height:1461px;border-radius:32px"><img src="../assets/games/13-valentine-heart/screen-2-grid.png" alt=""></div>
+</section></div>
+<p class="note"><b>5 · Festival year · 18.0–31.0 s</b> (still at 23.0 s, stop 2 of 6)<br><span class="k">On screen:</span> "ปฏิทินเกม ทั้งปี" + the festival name; the game's own title is on its screen<br><span class="k">Screen:</span> the whole game frame, not cropped, on its 3 x 3 grid screen, so the layout holds while the theme changes<br><span class="k">VO:</span> ถึงหน้าเทศกาลเมื่อไหร่... ก็ปล่อยเกมใหม่ได้เลย / ลูกค้าได้เล่นของใหม่... ไม่มีเบื่อ<br><span class="k">Move:</span> the camera travels down the year, about 2.2 s per stop: ถุงทองเงินล้าน → ดวงใจลุ้นโชค → สาดน้ำรับทรัพย์ → หีบสมบัติผีให้โชค → กระทงเสี่ยงทาย → ของขวัญจากซานต้า.</p></div>
+
+<!-- 6a RUN: PK's extra games full frame (PK: not only in tiny tiles) -->
+<div class="cell" data-n="6a"><div class="scaler"><section class="frame">
+  <div class="card" style="left:110px;top:270px;width:690px;height:1491px;transform:rotate(-6deg);opacity:1"><img src="../assets/games/extra/x176-cats.png" alt=""></div>
+  <div class="card" style="left:280px;top:270px;width:690px;height:1491px;transform:rotate(6deg)"><img src="../assets/games/extra/x177-aliens.png" alt=""></div>
+  <div class="card" style="left:170px;top:230px;width:741px;height:1601px;border-radius:36px"><img src="../assets/games/extra/x174-sushi.png" alt=""></div>
+</section></div>
+<p class="note"><b>6a · Run · 31.0–33.0 s</b> (still at 31.3 s)<br><span class="k">On screen:</span> no caption; the games carry it<br><span class="k">VO:</span> ทั้งปี... (first half of the line)<br><span class="k">Move:</span> hard cuts on one fixed frame, whole screen each time, getting faster: 8, 7, 6, 5, 5, 4, 4, 3, 3, 3, then 2 frames each. 16 of PK's extra games: ซูชิ, เหมียวเหมียว, เอเลี่ยน, เหมืองเพชร, ตลาดน้ำ, อวกาศ, รถแข่ง, มะพร้าว, โหลสลาก, เซียมซี, วันเด็ก, ปิ่นโตเจ, คริสต์มาส, สงกรานต์, two chests. (The still shows the next screens fanned behind only to suggest the run.)</p></div>
+
+<!-- 6 PAYOFF -->
+<div class="cell" data-n="6"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d">สร้างสรรค์เกม</div><div class="l" style="font-size:66px">ได้<span class="gold">หลากหลาย</span> ดั่งใจนึก</div></div>
+  <!-- wall bleeds off the sides and bottom so it reads as "more than fits" (PK: the first wall looked too few) -->
+  <div id="wall" style="left:0;top:470px;width:1080px;height:1450px;overflow:hidden"></div>
+</section></div>
+<p class="note"><b>6b · Payoff wall · 33.0–34.3 s</b> (still at 33.8 s)<br><span class="k">On screen:</span> "สร้างสรรค์เกม ได้หลากหลาย ดั่งใจนึก" ("หลากหลาย" in the accent colour)<br><span class="k">VO:</span> ทั้งปี... ไม่ต้องซื้อระบบใหม่สักครั้ง<br><span class="k">Move:</span> pull back to a wall that runs off the edges: 9 staggered columns, 56 tiles, no image repeated (all 43 games), one tile for the Minigames mark. In the film the columns drift slowly, alternate ones up and down.</p></div>
+
+<!-- 7 ALSO -->
+<div class="cell" data-n="7"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d">ฝากปุ๊บ ได้สิทธิ์ปั๊บ</div></div>
+  <div style="left:90px;top:660px;width:900px;height:190px;background:#fff;border-radius:28px;color:var(--stage);display:flex;align-items:center;justify-content:space-between;padding:0 56px">
+    <span style="font-weight:600;font-size:56px">ฝากเงิน</span><span style="font-weight:700;font-size:76px">+100 ฿</span>
+  </div>
+  <div style="left:528px;top:870px;width:24px;height:100px;background:#6E5A92;border-radius:12px"></div>
+  <div class="card" style="left:90px;top:990px;width:900px;height:480px;border-radius:28px">
+    <img src="../assets/games/20-gold-boxes/screen-1-cover.png" alt="" style="width:2150px;margin-left:-190px;margin-top:-720px">
+  </div>
+  <div style="left:850px;top:915px;width:170px;height:170px;border-radius:50%;background:#fff;color:var(--stage);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:76px">+1</div>
+</section></div>
+<p class="note"><b>7 · Also · 35.0–40.9 s</b> (still at 37.0 s, shot 1 of 3)<br><span class="k">On screen:</span> "ฝากปุ๊บ ได้สิทธิ์ปั๊บ" → "งบไม่บานปลาย" → "ทำภารกิจ ได้สิทธิ์เล่น"<br><span class="k">VO:</span> แจกสิทธิ์ให้ลูกค้าอัตโนมัติ... คุมงบได้อยู่มือ... แถมผูกกับภารกิจได้อีก<br><span class="k">Move:</span> a 100 ฿ deposit lands and the real rights counter ticks 10 → 11 by itself (the games' own rule: 1 right per 100 ฿). Then a budget gauge stops at its line, then a finished mission drops a game ticket.</p></div>
+
+<!-- 8 CLAIM -->
+<div class="cell" data-n="8"><div class="scaler"><section class="frame">
+  <div class="cap"><div class="d"><span class="gold">ระบบเดียว</span> · เกมไม่ซ้ำ</div></div>
+  <div style="left:250px;top:450px;width:580px;height:1210px;border:6px solid #fff;border-radius:36px;overflow:hidden;background:#140A24">
+    <div style="position:absolute;left:0;top:-230px;width:568px">
+      <div style="height:560px;overflow:hidden;margin-bottom:24px"><img src="../assets/games/05-songkran-bowl/screen-1-cover.png" alt="" style="width:568px;margin-top:-190px;display:block"></div>
+      <div style="height:560px;overflow:hidden;margin-bottom:24px"><img src="../assets/games/25-wheel-temple-fair/screen.png" alt="" style="width:568px;margin-top:-190px;display:block"></div>
+      <div style="height:560px;overflow:hidden;margin-bottom:24px"><img src="../assets/games/14-fireworks/screen-1-cover.png" alt="" style="width:568px;margin-top:-190px;display:block"></div>
+      <div style="height:560px;overflow:hidden"><img src="../assets/games/06-cupcake-houses/screen-1-cover.png" alt="" style="width:568px;margin-top:-190px;display:block"></div>
+    </div>
+  </div>
+</section></div>
+<p class="note"><b>8 · Claim · 41.6–45.6 s</b> (still at 43.0 s)<br><span class="k">On screen:</span> "ระบบเดียว · เกมไม่ซ้ำ" ("ระบบเดียว" in gold)<br><span class="k">VO:</span> ระบบเดียว... เปลี่ยนเป็นเกมไหนก็ได้ ทุกเทศกาล!<br><span class="k">Move:</span> games stream up through one fixed window, the same window as shot 3.</p></div>
+
+<!-- 9 END CARD -->
+<div class="cell" data-n="9"><div class="scaler"><section class="frame">
+  <div style="left:330px;top:540px;width:420px;height:420px;border:6px dashed var(--muted);border-radius:48px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:600;font-size:36px;color:var(--muted);line-height:1.4">Minigames<br>logo<br>(from PK)</div>
+  <div class="d" style="left:0;width:1080px;top:1030px;text-align:center">Minigames</div>
+  <div style="left:160px;top:1310px;width:760px;height:160px;background:var(--gold);border-radius:28px;display:flex;align-items:center;justify-content:center;color:var(--stage);font-weight:700;font-size:64px">ติดต่อเปิดใช้งาน</div>
+</section></div>
+<p class="note"><b>9 · End card · 46.4–50.0 s</b> (still at 48.0 s)<br><span class="k">On screen:</span> Minigames mark + "ติดต่อเปิดใช้งาน"<br><span class="k">VO:</span> สนใจ... ทักทีมงานได้เลย<br><span class="k">Move:</span> the mark is carried in from the last game tile, then the button lands. Hold 1 s.</p></div>
+</div>
+
+<script>
+// Wall of games: 9 staggered columns, 55 different images from 43 games + 1 tile for the Minigames mark.
+// c = cover, g = 3x3 grid, s = wheel screen, w = wheel image on its own (Figma exports);
+// x = PK's extra grid screens in assets/games/extra/.
+const cols = [
+  ["x167-coconut-beach x","07-santa-chest c","x176-cats x","05-songkran-bowl g","x169-space-gear x","12-fruit-basket c"],
+  ["03-planets c","x174-sushi x","13-valentine-heart g","x181-race-cars x","24-wheel-fruit-soda w","18-steam-train c"],
+  ["x166-temple-fair-jars x","20-gold-boxes g","x170-floating-market x","10-candy-jars c","25-wheel-temple-fair s","x177-aliens x","17-red-envelopes c"],
+  ["14-fireworks c","x164-neon-chest x","27-wheel-halloween s","x172-childrens-day x","06-cupcake-houses c","04-krathong g"],
+  ["11-cny-pouch c","x173-diamond-mine x","MARK","16-balloons c","x175-fortune-sticks x","19-gold-cards g"],
+  ["x162-christmas-village x","02-claw-machine c","26-wheel-sunflower w","x168-vegetarian-tiffin x","13-valentine-heart c","23-wheel-pink s","x165-songkran-watergun x"],
+  ["21-wheel-gold s","09-halloween-chest g","x163-lantern-chest x","15-gold-eggs c","01-underwater-chest c","22-wheel-blue s"],
+  ["08-boxing c","24-wheel-fruit-soda s","11-cny-pouch g","20-gold-boxes c","21-wheel-gold w","05-songkran-bowl c"],
+  ["04-krathong c","19-gold-cards c","07-santa-chest g","26-wheel-sunflower s","25-wheel-temple-fair w","09-halloween-chest c"]];
+const file = { c: "screen-1-cover.png", g: "screen-2-grid.png", s: "screen.png", w: "wheel.png" };
+const offsets = [-60, -230, -420, -120, -260, -500, -30, -200, -100];   // stagger, px
+const TW = 130, TH = 282, GAP = 10, X0 = -85;                         // tile size; outer columns bleed past the edges
+const w = document.getElementById("wall");
+cols.forEach((col, i) => {
+  col.forEach((item, r) => {
+    const t = document.createElement("div");
+    t.style.cssText = `position:absolute;left:${X0 + i * (TW + GAP)}px;top:${offsets[i] + r * (TH + GAP)}px;width:${TW}px;height:${TH}px;border-radius:12px;overflow:hidden;background:#3A2163;display:flex;align-items:center;justify-content:center`;
+    if (item === "MARK") {
+      t.innerHTML = '<span style="font-weight:700;font-size:30px;color:#fff;text-align:center;line-height:1.3">Mini<br>games</span>';
+    } else {
+      const [g, k] = item.split(" ");
+      const src = k === "x" ? `extra/${g}.png` : `${g}/${file[k]}`;
+      const fit = k === "w" ? "contain" : "cover";
+      t.innerHTML = `<img src="../assets/games/${src}" alt="" style="width:${TW}px;height:${TH}px;object-fit:${fit};display:block">`;
+    }
+    w.appendChild(t);
+  });
+});
+// ?frame=N shows a single full-size still.
+const n = new URLSearchParams(location.search).get("frame");
+if (n) { document.body.classList.add("single");
+  document.querySelector(`.cell[data-n="${n}"]`)?.classList.add("on"); }
+</script>
+</body>
+</html>

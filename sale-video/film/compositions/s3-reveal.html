@@ -1,0 +1,56 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+  </style>
+  <!-- Shot 3 (PK, 20-11-2026): three real play screens at once, not the cover. The centre phone (กล่องสุ่มลุ้นล้าน grid)
+       ends where shot 4's phone starts, so the cut matches. -->
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1920">
+    <div class="title" id="s3-t" style="top: 230px">ของเรา · <span id="s3-k">ระบบเดียว</span></div>
+    <div class="holder" id="s3-hl" style="left: 30px; top: 600px; z-index: 1">
+      <div class="rig" id="s3-rl">
+        <img class="scr" src="assets/games/19-gold-cards/screen-2-grid.png" alt="" />
+      </div>
+    </div>
+    <div class="holder" id="s3-hr" style="left: 726px; top: 600px; z-index: 1">
+      <div class="rig" id="s3-rr">
+        <img class="scr" src="assets/games/21-wheel-gold/screen.png" alt="" />
+        <div style="position: absolute; left: 34px; top: 385px; width: 540px; height: 540px; border-radius: 50%; overflow: hidden"><img id="s3-wheel" src="assets/games/21-wheel-gold/wheel.png" alt="" style="display: block; width: 540px; height: 540px" /></div>
+      </div>
+    </div>
+    <div class="holder" id="s3-hc" style="left: 339px; top: 500px; z-index: 2">
+      <div class="rig" id="s3-rc">
+        <img class="scr" src="assets/games/20-gold-boxes/screen-2-grid.png" alt="" />
+        <div class="tap" id="s3-tap" style="left: 248px; top: 507px; width: 120px; height: 120px; opacity: 0"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      ["s3-rl", "s3-rr", "s3-rc"].forEach((id) => window.buildPhone(document.getElementById(id)));
+      const tl = gsap.timeline({ paused: true });
+      // voice (s3 local): "แต่ระบบของเรา" 0.05-1.39, "จ่ายครั้งเดียว" 1.85-2.74
+      tl.fromTo("#s3-hc", { scale: 0.62 }, { scale: 0.62, duration: 0.01 }, 0);
+      tl.fromTo(["#s3-hl", "#s3-hr"], { scale: 0.5 }, { scale: 0.5, duration: 0.01 }, 0);
+      // the centre phone lands, then the two others slide out from behind it
+      tl.fromTo("#s3-rc", { scale: 0.4, rotationY: 30, rotationX: 10, opacity: 0, y: 160 }, { scale: 1, rotationY: 0, rotationX: 4, opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.05);
+      tl.fromTo("#s3-rl", { x: 560, rotationY: 0, opacity: 0 }, { x: 0, rotationY: 28, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.35);
+      tl.fromTo("#s3-rr", { x: -560, rotationY: 0, opacity: 0 }, { x: 0, rotationY: -28, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.45);
+      tl.to("#s3-rl", { rotationY: 22, y: -20, duration: 2.0, ease: "sine.inOut" }, 1.0);
+      tl.to("#s3-rr", { rotationY: -22, y: -20, duration: 2.0, ease: "sine.inOut" }, 1.0);
+      // something plays on each screen
+      tl.fromTo("#s3-wheel", { rotation: 0 }, { rotation: 540, duration: 1.6, ease: "power3.out" }, 0.9);
+      tl.fromTo("#s3-tap", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 1.2);
+      tl.to("#s3-tap", { scale: 1.6, opacity: 0, duration: 0.35, ease: "power2.out" }, 1.42);
+      tl.fromTo("#s3-t", { opacity: 0, filter: "blur(8px)", y: 14 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.35, ease: "power3.out" }, 0.15);
+      // "ระบบเดียว" lights up with "จ่ายครั้งเดียว"
+      tl.fromTo("#s3-k", { color: "#ffffff", textShadow: "0 0 34px rgba(170,150,255,.65), 0 0 2px rgba(255,255,255,.8)" }, { color: "#8fe9ff", textShadow: "0 0 30px rgba(80,210,255,.95), 0 0 2px #fff", duration: 0.25 }, 1.88);
+      tl.fromTo("#s3-k", { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, 1.88);
+      // hand-off: the side phones tuck behind, the centre phone moves to shot 4's start (left 262, top 470, scale .82, rotateY -14)
+      tl.to("#s3-rl", { x: 380, opacity: 0, duration: 0.45, ease: "power2.in" }, 3.0);
+      tl.to("#s3-rr", { x: -380, opacity: 0, duration: 0.45, ease: "power2.in" }, 3.0);
+      tl.to("#s3-hc", { x: -77, y: -30, scale: 0.82, duration: 0.55, ease: "power2.inOut" }, 3.0);
+      tl.to("#s3-rc", { rotationY: -14, rotationX: 6, rotationZ: 1, duration: 0.55, ease: "power2.inOut" }, 3.0);
+      window.__timelines["s3"] = tl;
+    })();
+  </script>
+</template>

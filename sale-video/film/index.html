@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="th" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Minigames sales video</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Look: SPEC.md draft 2 (after PK's reference film). Shared by every scene file. */
+      @font-face { font-family: "PlexThai"; src: url("assets/fonts/IBMPlexSansThai-Medium.ttf"); font-weight: 500; }
+      @font-face { font-family: "PlexThai"; src: url("assets/fonts/IBMPlexSansThai-SemiBold.ttf"); font-weight: 600; }
+      @font-face { font-family: "PlexThai"; src: url("assets/fonts/IBMPlexSansThai-Bold.ttf"); font-weight: 700; }
+      :root { --ink: #fff; --soft: #cfc6ff; --cyan: #8fe9ff; --edge: rgba(205, 195, 255, 0.75); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #090720; }
+      #root { font-family: "PlexThai", sans-serif; color: var(--ink); }
+
+      /* ground: three light pools and one beam (drift slowly on the root timeline) */
+      #ground { position: absolute; inset: 0; background: #090720; overflow: hidden; }
+      #ground .pool { position: absolute; border-radius: 50%; }
+      #pool-violet { left: -270px; top: -350px; width: 1440px; height: 1100px; background: radial-gradient(closest-side, rgba(124, 92, 255, 0.55), transparent); }
+      #pool-magenta { left: 350px; top: 900px; width: 1300px; height: 1450px; background: radial-gradient(closest-side, rgba(214, 58, 196, 0.42), transparent); }
+      #pool-indigo { left: -40px; top: 560px; width: 1160px; height: 800px; background: radial-gradient(closest-side, rgba(60, 40, 170, 0.35), transparent); }
+      #beam { position: absolute; left: -300px; top: -200px; width: 900px; height: 1400px; transform-origin: 50% 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.1) 55%, transparent);
+        filter: blur(30px); }
+
+      /* type */
+      .title { position: absolute; left: 0; width: 1080px; text-align: center; font-weight: 700; font-size: 104px; line-height: 1.2;
+        text-shadow: 0 0 34px rgba(170, 150, 255, 0.65), 0 0 2px rgba(255, 255, 255, 0.8); }
+      .sub { position: absolute; left: 0; width: 1080px; text-align: center; font-weight: 500; font-size: 50px; color: var(--soft);
+        text-shadow: 0 0 20px rgba(140, 120, 255, 0.6); }
+      .hl { color: var(--cyan); text-shadow: 0 0 30px rgba(80, 210, 255, 0.9), 0 0 2px #fff; }
+      .dimw { color: #9c92cc; text-shadow: none; }
+      .glass { position: absolute; border-radius: 36px; overflow: hidden; border: 2px solid var(--edge); background: rgba(40, 28, 90, 0.45);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 0 46px rgba(140, 115, 255, 0.55), 0 40px 90px rgba(0, 0, 0, 0.6); }
+      .pill { display: inline-flex; align-items: center; padding: 14px 34px; border-radius: 999px; font-weight: 600; font-size: 40px; white-space: nowrap;
+        background: rgba(60, 190, 255, 0.16); border: 2px solid #84e6ff; color: #e4faff; box-shadow: 0 0 26px rgba(80, 200, 255, 0.75), 0 0 2px #fff inset; }
+
+      /* iPhone in CSS 3D: a .rig holds the screen content; buildPhone() adds the body around it */
+      .holder { position: absolute; perspective: 2000px; transform-origin: 0 0; }
+      .rig { position: relative; transform-style: preserve-3d; width: 648px; height: 1349px; }
+      .rig .slab { position: absolute; inset: 0; border-radius: 96px; }
+      .rig .btn { position: absolute; width: 10px; border-radius: 5px; background: linear-gradient(90deg, #55535c, #c4c1cc, #55535c); }
+      .phone { position: relative; width: 648px; height: 1349px; border-radius: 96px; padding: 6px; transform: translateZ(0);
+        background: linear-gradient(120deg, #e9e6f2 0%, #6d6a76 10%, #2e2d35 30%, #8f8c99 52%, #2b2a31 74%, #b9b6c4 92%, #55535d 100%);
+        box-shadow: inset 3px 0 3px rgba(255, 255, 255, 0.75), inset -3px 0 4px rgba(0, 0, 0, 0.7), inset 0 3px 3px rgba(255, 255, 255, 0.45), 0 0 40px rgba(140, 115, 255, 0.45); }
+      .phone .screen { position: relative; width: 636px; height: 1337px; border-radius: 90px; background: #000; overflow: hidden; }
+      .phone .feed { position: absolute; left: 18px; top: 74px; width: 600px; height: 1245px; overflow: hidden; border-radius: 0 0 72px 72px; }
+      .phone .feed img.scr { position: absolute; left: 0; top: 0; display: block; width: 600px; }
+      .phone .status { position: absolute; left: 18px; top: 18px; width: 600px; height: 74px; z-index: 2; display: flex; justify-content: space-between;
+        align-items: center; padding: 0 52px 0 64px; font-weight: 600; font-size: 32px; color: #fff; background: #000; border-radius: 72px 72px 0 0; }
+      .phone .icons { display: flex; align-items: flex-end; gap: 5px; }
+      .phone .icons b { display: block; width: 6px; background: #fff; border-radius: 2px; }
+      .phone .bat { margin-left: 8px; width: 46px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.55); border-radius: 7px; padding: 2px; align-self: center; }
+      .phone .bat span { display: block; width: 80%; height: 100%; background: #fff; border-radius: 4px; }
+      .phone .island { position: absolute; left: 50%; top: 32px; width: 176px; height: 52px; margin-left: -88px; background: #000; border-radius: 26px; z-index: 3; }
+      .phone .sheen { position: absolute; inset: 18px; border-radius: 72px; z-index: 4; pointer-events: none;
+        background: linear-gradient(118deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 22%, transparent 38%, transparent 70%, rgba(255, 255, 255, 0.06) 100%); }
+      .tap { position: absolute; border-radius: 50%; border: 5px solid var(--cyan); box-shadow: 0 0 30px rgba(80, 210, 255, 0.9), inset 0 0 20px rgba(80, 210, 255, 0.6); }
+    </style>
+    <script>
+      // Builds the iPhone body around a .rig's children (moved, not copied, so their ids keep working).
+      // 32 slabs x 2 px = 64 px depth, close to a real iPhone; keep turns within +-40 deg.
+      window.buildPhone = function (rig) {
+        if (rig.dataset.built) return;
+        rig.dataset.built = "1";
+        const feed = document.createElement("div");
+        feed.className = "feed";
+        while (rig.firstChild) feed.appendChild(rig.firstChild);
+        const status =
+          '<div class="status" data-layout-ignore><span>9:41</span><span class="icons"><b style="height:12px"></b><b style="height:17px"></b><b style="height:22px"></b><b style="height:27px"></b>' +
+          '<svg width="36" height="26" viewBox="0 0 24 18" style="margin-left:8px"><path d="M12 16 L9 13 A4.5 4.5 0 0 1 15 13 Z M5.5 9.5 A9 9 0 0 1 18.5 9.5 L16.5 11.5 A6 6 0 0 0 7.5 11.5 Z M2 6 A14 14 0 0 1 22 6 L20 8 A11 11 0 0 0 4 8 Z" fill="#fff"/></svg>' +
+          '<span class="bat"><span></span></span></span></div>';
+        const phone = document.createElement("div");
+        phone.className = "phone";
+        phone.innerHTML = '<div class="screen">' + status + '<div class="island"></div><div class="sheen"></div></div>';
+        phone.firstChild.insertBefore(feed, phone.firstChild.querySelector(".sheen"));
+        const N = 32, STEP = 2;
+        for (let k = N; k >= 1; k--) {
+          const s = document.createElement("div");
+          s.className = "slab";
+          const l = Math.round(34 + 28 * Math.sin((Math.PI * k) / N));
+          s.style.cssText =
+            "transform:translateZ(" + -k * STEP + "px);background:linear-gradient(90deg,hsl(250,7%," + (l + 18) + "%),hsl(250,6%," + l + "%) 45%,hsl(250,6%," + (l - 14) + "%))" +
+            (k === N ? ";box-shadow:60px 70px 120px rgba(0,0,0,.8),0 0 70px rgba(150,110,255,.45)" : "");
+          rig.appendChild(s);
+        }
+        [["left:-5px;top:250px;height:60px"], ["left:-5px;top:360px;height:110px"], ["left:-5px;top:490px;height:110px"], ["right:-5px;top:400px;height:170px"]].forEach(([css]) => {
+          const b = document.createElement("i");
+          b.className = "btn";
+          b.style.cssText = css + ";transform:translateZ(" + (-N * STEP) / 2 + "px)";
+          rig.appendChild(b);
+        });
+        rig.appendChild(phone);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="53.5" data-width="1080" data-height="1920">
+      <div id="ground">
+        <div id="pool-violet" class="pool"></div>
+        <div id="pool-magenta" class="pool"></div>
+        <div id="pool-indigo" class="pool"></div>
+        <div id="beam"></div>
+      </div>
+
+      <div id="s0" data-composition-id="s0" data-composition-src="compositions/s0-title.html" data-start="0" data-duration="3.5" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <!-- scenes: one lane, back to back (times from the measured voiceover, SPEC.md) -->
+      <div id="s1" data-composition-id="s1" data-composition-src="compositions/s1-hook.html" data-start="3.5" data-duration="4.5" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s2" data-composition-id="s2" data-composition-src="compositions/s2-tension.html" data-start="8" data-duration="5.1" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s3" data-composition-id="s3" data-composition-src="compositions/s3-reveal.html" data-start="13.1" data-duration="3.6" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s4" data-composition-id="s4" data-composition-src="compositions/s4-transform.html" data-start="16.7" data-duration="4.8" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s5" data-composition-id="s5" data-composition-src="compositions/s5-festival.html" data-start="21.5" data-duration="8.4" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s6a" data-composition-id="s6a" data-composition-src="compositions/s6a-run.html" data-start="29.9" data-duration="2" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s6b" data-composition-id="s6b" data-composition-src="compositions/s6b-wall.html" data-start="31.9" data-duration="6" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s7" data-composition-id="s7" data-composition-src="compositions/s7-also.html" data-start="37.9" data-duration="6.4" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s8" data-composition-id="s8" data-composition-src="compositions/s8-claim.html" data-start="44.3" data-duration="4.8" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="s9" data-composition-id="s9" data-composition-src="compositions/s9-end.html" data-start="49.1" data-duration="4.4" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+
+      <!-- music: HeyGen catalog bgm_003, looped to 53.5 s, under the voice -->
+      <audio id="bgm" class="clip" src="assets/music/bgm-003-53s.m4a" data-start="0" data-duration="53.5" data-track-index="11" data-volume="0.14"></audio>
+
+      <!-- teaser sound effects (earshot bank), timed to the logo build in s0 -->
+      <audio id="sfx-in" class="clip" src="assets/sfx/teaser-whoosh-in.wav" data-start="0.1" data-duration="0.6" data-track-index="12" data-volume="0.55"></audio>
+      <audio id="sfx-pop1" class="clip" src="assets/sfx/teaser-pop.wav" data-start="0.68" data-duration="0.172" data-track-index="13" data-volume="0.6"></audio>
+      <audio id="sfx-pop2" class="clip" src="assets/sfx/teaser-pop.wav" data-start="0.86" data-duration="0.172" data-track-index="13" data-volume="0.6"></audio>
+      <audio id="sfx-sting" class="clip" src="assets/sfx/teaser-sting.wav" data-start="1.15" data-duration="1.912" data-track-index="12" data-volume="0.5"></audio>
+      <audio id="sfx-out" class="clip" src="assets/sfx/teaser-whoosh-out.wav" data-start="3.02" data-duration="0.6" data-track-index="12" data-volume="0.5"></audio>
+
+      <!-- wall: a whoosh as the games float down, and a soft pop as each name card shows (times from s6b landing order) -->
+      <audio id="sfx-wall" class="clip" src="assets/sfx/wall-whoosh.wav" data-start="31.75" data-duration="1.2" data-track-index="12" data-volume="0.45"></audio>
+      <audio id="sfx-name1" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="32.56" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name2" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="32.71" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name3" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="32.78" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name4" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.01" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name5" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.16" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name6" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.46" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name7" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.61" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name8" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.76" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name9" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="33.91" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name10" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="34.06" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name11" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="34.28" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name12" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="34.36" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+      <audio id="sfx-name13" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="34.96" data-duration="0.18" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="sfx-name14" class="clip" src="assets/sfx/wall-name-pop.wav" data-start="35.26" data-duration="0.18" data-track-index="15" data-volume="0.45"></audio>
+
+      <!-- checklist (s7): a soft ding as each item ticks -->
+      <audio id="sfx-check1" class="clip" src="assets/sfx/check-ding.wav" data-start="38.34" data-duration="0.36" data-track-index="14" data-volume="0.4"></audio>
+      <audio id="sfx-check2" class="clip" src="assets/sfx/check-ding.wav" data-start="40.36" data-duration="0.36" data-track-index="14" data-volume="0.4"></audio>
+      <audio id="sfx-check3" class="clip" src="assets/sfx/check-ding.wav" data-start="42.00" data-duration="0.36" data-track-index="14" data-volume="0.4"></audio>
+
+      <!-- end card: the logo build sounds (teaser takes), s9 starts at 49.1 -->
+      <audio id="sfx-end-in" class="clip" src="assets/sfx/teaser-whoosh-in.wav" data-start="48.95" data-duration="0.6" data-track-index="12" data-volume="0.45"></audio>
+      <audio id="sfx-end-pop" class="clip" src="assets/sfx/teaser-pop.wav" data-start="49.65" data-duration="0.172" data-track-index="13" data-volume="0.5"></audio>
+      <audio id="sfx-end-sting" class="clip" src="assets/sfx/teaser-sting.wav" data-start="49.95" data-duration="1.912" data-track-index="13" data-volume="0.4"></audio>
+
+      <!-- voiceover: take a of each line (VO-SCRIPT.md), one lane -->
+      <!-- voice 1-3: PK's new take (voice-tests/ElevenLabs_2026-11-20T07_16_20...), "เว็บของคุณ" cut, 1.15x, phrases placed on the picture -->
+      <audio id="vo1" class="clip" src="assets/voice/vo-01-03-v2-timed.wav" data-duration="17.95" data-start="3.4" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo4" class="clip" src="assets/voice/vo-04-festival.mp3" data-duration="3.40" data-start="21.5" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo5" class="clip" src="assets/voice/vo-05-festival.mp3" data-duration="3.16" data-start="25.7" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo6" class="clip" src="assets/voice/vo-06-payoff.mp3" data-duration="3.24" data-start="30.4" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo7" class="clip" src="assets/voice/vo-07-also.mp3" data-duration="5.72" data-start="37.9" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo8" class="clip" src="assets/voice/vo-08-claim.mp3" data-duration="3.97" data-start="44.3" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo9" class="clip" src="assets/voice/vo-09-end.mp3" data-duration="2.69" data-start="49.1" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      // root timeline: only the ground drifts; every scene runs its own timeline
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#pool-violet", { x: 0, y: 0 }, { x: 120, y: 60, duration: 53.5, ease: "sine.inOut" }, 0);
+      tl.fromTo("#pool-magenta", { x: 0, y: 0 }, { x: -140, y: -90, duration: 53.5, ease: "sine.inOut" }, 0);
+      tl.fromTo("#beam", { rotation: -28, opacity: 0.9 }, { rotation: -22, opacity: 1, duration: 53.5, ease: "sine.inOut" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

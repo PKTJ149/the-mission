@@ -1,0 +1,69 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div class="title" id="s1-t1" style="top: 200px; opacity: 0">กล่องสุ่ม</div>
+    <div class="title" id="s1-t2" style="top: 200px; opacity: 0">เปิดไพ่</div>
+    <div class="title" id="s1-t3" style="top: 200px; opacity: 0">วงล้อ</div>
+    <div class="sub" id="s1-sub" style="top: 345px; opacity: 0"><span id="s1-n1" class="hl">กล่องสุ่ม</span> → <span id="s1-n2" class="dimw">เปิดไพ่</span> → <span id="s1-n3" class="dimw">วงล้อ</span></div>
+
+    <div class="holder" id="s1-holder" style="left: 262px; top: 470px">
+      <div class="rig" id="s1-rig">
+        <img class="scr" id="s1-g1" src="assets/games/20-gold-boxes/screen-2-grid.png" alt="" />
+        <img class="scr" id="s1-g2" src="assets/games/19-gold-cards/screen-2-grid.png" alt="" style="opacity: 0" />
+        <img class="scr" id="s1-g3" src="assets/games/21-wheel-gold/screen.png" alt="" style="opacity: 0" />
+        <div id="s1-wheelc" style="position: absolute; left: 34px; top: 385px; width: 540px; height: 540px; border-radius: 50%; overflow: hidden"><img id="s1-wheel" src="assets/games/21-wheel-gold/wheel.png" alt="" style="display: block; width: 540px; height: 540px; opacity: 0" /></div>
+        <img id="s1-gift" src="assets/games/layers/20-gold-boxes/raw-1.png" alt="" style="position: absolute; left: 233px; top: 492px; width: 150px; opacity: 0" />
+        <div id="s1-prize" style="position: absolute; left: 0; top: 650px; width: 600px; text-align: center; font-weight: 700; font-size: 76px; color: #fff; text-shadow: 0 0 24px rgba(80, 210, 255, 0.95); opacity: 0">+1,000 ฿</div>
+        <div class="tap" id="s1-tap" style="left: 248px; top: 507px; width: 120px; height: 120px; opacity: 0"></div>
+        <div class="tap" id="s1-tap2" style="left: 244px; top: 500px; width: 120px; height: 120px; opacity: 0"></div>
+        <svg id="s1-cur" style="position: absolute; left: 315px; top: 575px; width: 80px; height: 100px; opacity: 0; filter: drop-shadow(0 0 14px rgba(140, 230, 255, 0.9))" viewBox="0 0 24 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17 Z" fill="#fff" stroke="#0b0820" stroke-width="1.2" stroke-linejoin="round" /></svg>
+      </div>
+    </div>
+    <img id="s1-bigbox" src="assets/games/stack/giftbox-open.png" alt="" style="position: absolute; left: 190px; top: 560px; width: 700px; opacity: 0; filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6))" />
+    <div id="s1-prize2" style="position: absolute; left: 0; top: 1190px; width: 1080px; text-align: center; font-weight: 700; font-size: 96px; color: #fff; text-shadow: 0 0 30px rgba(80, 210, 255, 0.95), 0 6px 20px rgba(0, 0, 0, 0.6); opacity: 0">+1,000 ฿</div>
+    <img id="s1-bigcard" src="assets/games/stack/card-open.png" alt="" style="position: absolute; left: 150px; top: 560px; width: 780px; opacity: 0" />
+  </div>
+  <script>
+    (function () {
+      window.buildPhone(document.getElementById("s1-rig"));
+      const tl = gsap.timeline({ paused: true });
+      const lit = { color: "#8fe9ff", textShadow: "0 0 30px rgba(80,210,255,.9), 0 0 2px #fff", duration: 0.15 };
+      const dim = { color: "#9c92cc", textShadow: "0 0 0px rgba(0,0,0,0), 0 0 0px rgba(0,0,0,0)", duration: 0.15 };
+      // voice (new take, PK 20-11-2026): "ยังใช้มินิเกมเดิมๆ อยู่หรือเปล่า" 0.05-1.72, กล่องสุ่ม 1.85, เปิดไพ่ 2.90, วงล้อ 3.74
+      tl.fromTo("#s1-holder", { scale: 0.82 }, { scale: 0.82, duration: 0.01 }, 0);
+      tl.fromTo("#s1-rig", { rotationY: -24, rotationX: 8, rotationZ: 2, y: 40 }, { rotationY: -8, rotationX: 6, rotationZ: 1, y: 0, duration: 4.5, ease: "sine.inOut" }, 0);
+      // word 1 lands with "กล่องสุ่ม"
+      tl.fromTo(["#s1-t1", "#s1-sub"], { opacity: 0, filter: "blur(8px)", y: 12 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.3, ease: "power3.out" }, 1.8);
+      // box: cursor in, tap, the box opens, "+1,000 ฿" (the only prize ever readable)
+      tl.fromTo("#s1-cur", { opacity: 0, x: 140, y: 160 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, 1.55);
+      tl.fromTo("#s1-tap", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 1.85);
+      tl.to("#s1-tap", { scale: 1.6, opacity: 0, duration: 0.3, ease: "power2.out" }, 2.07);
+      // the tapped box bursts out of the phone, big, then "+1,000 ฿" (the only prize ever readable)
+      tl.fromTo("#s1-bigbox", { opacity: 0, scale: 0.18, x: -20, y: 260, rotation: -14, transformOrigin: "50% 60%" }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.42, ease: "back.out(1.6)" }, 1.98);
+      tl.to("#s1-bigbox", { y: -16, rotation: 2, duration: 0.45, ease: "sine.inOut" }, 2.4);
+      tl.fromTo("#s1-prize2", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)" }, 2.2);
+      tl.to(["#s1-bigbox", "#s1-prize2"], { opacity: 0, scale: 0.6, duration: 0.15, ease: "power2.in" }, 2.72);
+      tl.to("#s1-cur", { opacity: 0, duration: 0.12 }, 2.7);
+      // word 2 + flip to cards
+      tl.to("#s1-t1", { opacity: 0, filter: "blur(8px)", duration: 0.1 }, 2.8);
+      tl.fromTo("#s1-t2", { opacity: 0, filter: "blur(8px)", y: 12 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.28, ease: "power3.out" }, 2.88);
+      tl.to("#s1-n1", dim, 2.88).to("#s1-n2", lit, 2.88);
+      tl.to("#s1-g1", { scaleX: 0, duration: 0.1, ease: "power2.in" }, 2.8);
+      tl.fromTo("#s1-g2", { opacity: 1, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.12, ease: "power2.out" }, 2.9);
+      tl.fromTo("#s1-tap2", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out" }, 3.15);
+      tl.to("#s1-tap2", { scale: 1.6, opacity: 0, duration: 0.3 }, 3.35);
+      tl.fromTo("#s1-bigcard", { opacity: 0, scale: 0.2, y: 220, rotationY: 160, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, rotationY: 0, duration: 0.32, ease: "back.out(1.5)" }, 3.2);
+      tl.to("#s1-bigcard", { opacity: 0, scale: 0.6, duration: 0.12, ease: "power2.in" }, 3.56);
+      // word 3 + flip to the wheel, which spins
+      tl.to("#s1-t2", { opacity: 0, filter: "blur(8px)", duration: 0.1 }, 3.64);
+      tl.fromTo("#s1-t3", { opacity: 0, filter: "blur(8px)", y: 12 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.28, ease: "power3.out" }, 3.72);
+      tl.to("#s1-n2", dim, 3.72).to("#s1-n3", lit, 3.72);
+      tl.to("#s1-g2", { scaleX: 0, duration: 0.1, ease: "power2.in" }, 3.62);
+      tl.fromTo(["#s1-g3", "#s1-wheel"], { opacity: 1, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.12, ease: "power2.out" }, 3.72);
+      tl.fromTo("#s1-wheel", { rotation: 0 }, { rotation: 720, duration: 0.74, ease: "power3.out" }, 3.76);
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>
