@@ -1830,7 +1830,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                       <input type="hidden" id="imgBgMobileMiniGame" />
                     </div>
                     <div className="session-btn-upload-bg">
-                      <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetMinigame">{t("minigameSetting.displayPresetMinigame", "การแสดงผลภาพรวมมินิเกมส์")}</div>
+                      {/* ORIGINAL: labelled "การแสดงผลภาพรวมมินิเกมส์" (displayPresetMinigame). Renamed to what the field is, PK 20/11/2026 */}
+                      <div className="title-btn-upload-bg" data-i18n="minigameSetting.displayPresetMobileBackground">{t("minigameSetting.displayPresetMobileBackground", "รูปพื้นหลังเวอร์ชั่น Mobile")}</div>
                       <label className="btn-upload-bg" htmlFor="fileImageUploadBgMobileMiniGame">
                         <img className="me-1" src="https://p88.blob.core.windows.net/images/default/icon-btn-upload-img-minigame.png" alt="img" />
                         {" "}
@@ -1894,14 +1895,17 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
         </div>
         <div className="box-main-set-color-mini-game">
           <div className="title-main-set-color-mini-game">
-            <h4 className="mb-0" data-i18n="minigameSetting.presetMinigameImageSetTextColorAndNo">{t("minigameSetting.presetMinigameImageSetTextColorAndNo", "ปรับแต่งสีตัวอักษรและตัวเลข")}</h4>
+            {/* ORIGINAL: this box reused the titles of other boxes ("ปรับแต่งสีตัวอักษรและตัวเลข", "ปรับแต่งพื้นหลังมินิเกมส์ด้วยรูปของคุณ",
+                "ปรับแต่งพื้นหลังมินิเกมส์ด้วย สี Solid", "สี พื้นหลังหน้าจอมินิเกมส์"). It saves miniGameScreen*ImageUrl + miniGameColorCode
+                (--color-bg-in-box-mini-game), i.e. the box the game sits in, so it was renamed to say so, PK 20/11/2026 */}
+            <h4 className="mb-0" data-i18n="minigameSetting.presetMinigameBoxSetting">{t("minigameSetting.presetMinigameBoxSetting", "ปรับสีหรือรูปภาพพื้นหลังกล่องมินิเกมส์")}</h4>
             <h5 className="set-default-color mb-0" data-default-color-type="bg-display" data-i18n="minigameSetting.displayPresetMinigameReset">{t("minigameSetting.displayPresetMinigameReset", "คืนค่าเริ่มต้น")}</h5>
           </div>
           <div className="body-main-set-color-mini-game">
             <div className="session-set-bg-screen-main">
               <div className="w-50">
                 <div className="title">
-                  <h4 data-i18n="minigameSetting.displayPresetBackgroundSetting">{t("minigameSetting.displayPresetBackgroundSetting", "ปรับแต่งพื้นหลังมินิเกมส์ด้วยรูปของคุณ")}</h4>
+                  <h4 data-i18n="minigameSetting.presetMinigameBoxImageSetting">{t("minigameSetting.presetMinigameBoxImageSetting", "ปรับแต่งพื้นหลังกล่องมินิเกมส์ด้วยรูปของคุณ")}</h4>
                 </div>
                 <div className="box-session-upload-img-bg-mini-game">
                   <div className="set-bg-img">
@@ -1968,10 +1972,10 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
               </div>
               <div className="w-50">
                 <div className="title">
-                  <h4 data-i18n="minigameSetting.presetMinigameImageSetColorSolid">{t("minigameSetting.presetMinigameImageSetColorSolid", "ปรับแต่งพื้นหลังมินิเกมส์ด้วย สี Solid")}</h4>
+                  <h4 data-i18n="minigameSetting.presetMinigameBoxColorSolid">{t("minigameSetting.presetMinigameBoxColorSolid", "ปรับแต่งพื้นหลังกล่องมินิเกมส์ด้วย สี Solid")}</h4>
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0" data-i18n="minigameSetting.presetMinigameSetBg">{t("minigameSetting.presetMinigameSetBg", "สี พื้นหลังหน้าจอมินิเกมส์")}</h4>
+                  <h4 className="mb-0" data-i18n="minigameSetting.presetMinigameBoxSetBg">{t("minigameSetting.presetMinigameBoxSetBg", "สี พื้นหลังกล่องมินิเกมส์")}</h4>
                   <ColorPicker className="getColorBgInBoxMiniGameColor" defaultValue="rgba(0, 0, 0, 0.36)" onChange={(value) => setThemeColor("getColorBgInBoxMiniGameColor", value)} />
                 </div>
               </div>
@@ -2005,7 +2009,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   <ColorPicker className="getColorFontHeaderSecondaryGroup1" defaultValue="#FFE666" onChange={(value) => setThemeColor("getColorFontHeaderSecondaryGroup1", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0" data-i18n="minigameSetting.headerColor">{t("minigameSetting.headerColor", "สี Header หลัก")}</h4>
+                  {/* ORIGINAL: labelled "สี Header หลัก" (headerColor), a copy of the first picker. Saves textSecondaryMainColorCode, PK 20/11/2026 */}
+                  <h4 className="mb-0" data-i18n="minigameSetting.textColor2">{t("minigameSetting.textColor2", "สี ข้อความรอง")}</h4>
                   <ColorPicker className="getColorFontMessageSecondaryGroup1" defaultValue="#AB8B4D" onChange={(value) => setThemeColor("getColorFontMessageSecondaryGroup1", value)} />
                 </div>
                 <div className="session-set-color-and-title">
@@ -2018,7 +2023,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
         </div>
         <div className="box-main-set-color-mini-game">
           <div className="title-main-set-color-mini-game">
-            <h4 className="mb-0" data-i18n="minigameSetting.textPopup">{t("minigameSetting.textPopup", "ปรังแต่งกรอบแสดงผล PopUp และ ปุ่มหลัก")}</h4>
+            {/* ORIGINAL: typo "ปรังแต่ง" in th.json; fixed there, PK 20/11/2026 */}
+            <h4 className="mb-0" data-i18n="minigameSetting.textPopup">{t("minigameSetting.textPopup", "ปรับแต่งกรอบแสดงผล PopUp และ ปุ่มหลัก")}</h4>
             <h5 className="set-default-color mb-0" data-default-color-type="color-group-2" data-i18n="minigameSetting.displayPresetMinigameReset">{t("minigameSetting.displayPresetMinigameReset", "คืนค่าเริ่มต้น")}</h5>
           </div>
           <div className="body-main-set-color-mini-game">
@@ -2049,7 +2055,8 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   <ColorPicker className="getColorDisplayBgGroup2" defaultValue="#151515" onChange={(value) => setThemeColor("getColorDisplayBgGroup2", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0" data-i18n="minigameSetting.backgroundColor">{t("minigameSetting.backgroundColor", "สี พื้นหลัง")}</h4>
+                  {/* ORIGINAL: labelled "สี พื้นหลัง" (backgroundColor), a copy of the picker above. Saves frameColorCode, PK 20/11/2026 */}
+                  <h4 className="mb-0" data-i18n="minigameSetting.borderColor">{t("minigameSetting.borderColor", "สี เส้นกรอบ")}</h4>
                   <ColorPicker className="getColorDisplayBorderGroup2" defaultValue="linear-gradient(270deg, #AB8B4D 0%, #FFF4DE 50%, #AB8B4D 100%)" onChange={(value) => setThemeColor("getColorDisplayBorderGroup2", value)} />
                 </div>
               </div>
@@ -2064,8 +2071,9 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
           <div className="body-main-set-color-mini-game">
             <div className="session-set-bg-screen-main">
               <div className="w-50">
+                {/* ORIGINAL: sub-title repeated the box title "ปรับแต่งสีตาราง" (chartColor). These pickers set the table header (Th), PK 20/11/2026 */}
                 <div className="title color-main-operator">
-                  <h4 className="mb-2" data-i18n="minigameSetting.chartColor">{t("minigameSetting.chartColor", "ปรับแต่งสีตาราง")}</h4>
+                  <h4 className="mb-2" data-i18n="minigameSetting.chartHeader">{t("minigameSetting.chartHeader", "หัวตาราง")}</h4>
                 </div>
                 <div className="session-set-color-and-title">
                   <h4 className="mb-0" data-i18n="minigameSetting.backgroundColor">{t("minigameSetting.backgroundColor", "สี พื้นหลัง")}</h4>
@@ -2118,27 +2126,33 @@ export function Step4Display({ type, step, nav, initial, sliceCount, onSliceCoun
                   </h4>
                   <ColorPicker className="getColorTableTdBg1Group3" defaultValue="#000000" onChange={(value) => setThemeColor("getColorTableTdBg1Group3", value)} />
                 </div>
-                {/* ORIGINAL BUG (kept on purpose, PK 15/11/2026): staging labels this picker and the next four
-                    "ปรับแต่งสีตาราง"; the fix would be "สี พื้นหลัง 2", "สี ข้อความ", "สี ข้อความไฮไลท์ 1",
-                    "สี ข้อความไฮไลท์ 2" and "สี เส้นกรอบ". */}
+                {/* ORIGINAL: staging labels this picker and the next four "ปรับแต่งสีตาราง". Renamed to what each one saves
+                    (tableTextBackgroundColorCode2, tableTextPrimaryColorCode, tableTextHighlightColorCode1/2, tableDivideColorCode),
+                    using keys that already exist in the original th.json, PK 20/11/2026 */}
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <h4 className="mb-0">
+                    <span data-i18n="minigameSetting.backgroundColor">{t("minigameSetting.backgroundColor", "สี พื้นหลัง")}</span>
+                    {" 2"}
+                  </h4>
                   <ColorPicker className="getColorTableTdBg2Group3" defaultValue="#232121" onChange={(value) => setThemeColor("getColorTableTdBg2Group3", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <h4 className="mb-0" data-i18n="minigameSetting.messageText">{t("minigameSetting.messageText", "สี ข้อความ")}</h4>
                   <ColorPicker className="getColorTableTdFontGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdFontGroup3", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <h4 className="mb-0" data-i18n="minigameSetting.highlightTextColor">{t("minigameSetting.highlightTextColor", "สี ข้อความไฮไลท์ 1")}</h4>
                   <ColorPicker className="getColorTableTdFontHighlights1Group3" defaultValue="#F10000" onChange={(value) => setThemeColor("getColorTableTdFontHighlights1Group3", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <h4 className="mb-0">
+                    <span data-i18n="minigameSetting.highlightTextColor2">{t("minigameSetting.highlightTextColor2", "สี ข้อความไฮไลท์")}</span>
+                    {" 2"}
+                  </h4>
                   <ColorPicker className="getColorTableTdFontHighlights2Group3" defaultValue="#72DCD9" onChange={(value) => setThemeColor("getColorTableTdFontHighlights2Group3", value)} />
                 </div>
                 <div className="session-set-color-and-title">
-                  <h4 className="mb-0">ปรับแต่งสีตาราง</h4>
+                  <h4 className="mb-0" data-i18n="minigameSetting.chartBorderColor">{t("minigameSetting.chartBorderColor", "สี เส้นแบ่งตาราง")}</h4>
                   <ColorPicker className="getColorTableTdBorderGroup3" defaultValue="#E9E9E9" onChange={(value) => setThemeColor("getColorTableTdBorderGroup3", value)} />
                 </div>
               </div>
